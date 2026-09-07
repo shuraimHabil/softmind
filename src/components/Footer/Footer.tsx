@@ -17,10 +17,10 @@ export default function Footer() {
           <Link href="/" className={styles.logo}>
             {!logoError ? (
               <Image
-                src="/assets/logo.png"
+                src="/assets/Softmind Logo White.png"
                 alt="Softmind"
-                width={140}
-                height={42}
+                width={150}
+                height={51}
                 className={styles.logoImg}
                 onError={() => setLogoError(true)}
               />

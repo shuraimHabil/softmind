@@ -98,7 +98,7 @@ export default function ChatBot() {
         aria-label="Toggle Softmind AI Assistant"
       >
         <Image 
-          src="/assets/softmind_ai.png"
+          src="/assets/softmind_ai_wg.png"
           alt="Softmind AI Bot logo"
           fill
           className={styles.triggerImg}
@@ -114,7 +114,7 @@ export default function ChatBot() {
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>
                 <Image 
-                  src="/assets/softmind_ai.png"
+                  src="/assets/softmind_ai_wg.png"
                   alt="Softmind AI"
                   width={34}
                   height={34}

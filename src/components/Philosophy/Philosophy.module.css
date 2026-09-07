@@ -21,7 +21,7 @@
 .title {
   font-family: var(--font-serif);
   font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-  font-weight: 200;
+  font-weight: 400;
   color: #1a3330;
   line-height: 1.25;
   margin: 0;

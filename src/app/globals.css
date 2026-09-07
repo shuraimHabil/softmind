@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Noto+Sans+Malayalam:wght@100..900&display=swap");
 @import "tailwindcss";
 
 /* ============================================================
@@ -19,14 +19,11 @@
   --bg-navy-light: #1e293b;
 
   /* Titles: Fraunces (Google Fonts) with Anek fallback for Malayalam */
-  --font-fraunces: var(--font-fraunces), "Fraunces", serif;
-  --font-serif: var(--font-fraunces), "Fraunces", var(--font-anek-malayalam), "Anek Malayalam", Georgia, serif;
+  --font-serif: "Fraunces", var(--font-fraunces), var(--font-anek-malayalam), "Anek Malayalam", Georgia, serif;
   --font-playfair: var(--font-serif);
 
-  /* Body: Anek Latin & Anek Malayalam (Google Fonts) across the entire website */
-  --font-anek-latin: var(--font-anek-latin), "Anek Latin", sans-serif;
-  --font-anek-malayalam: var(--font-anek-malayalam), "Anek Malayalam", sans-serif;
-  --font-sans: var(--font-anek-latin), "Anek Latin", var(--font-anek-malayalam), "Anek Malayalam", system-ui, -apple-system, sans-serif;
+  /* Body: Noto Sans Malayalam & Anek Latin across the entire website */
+  --font-sans: "Noto Sans Malayalam", "Anek Latin", var(--font-anek-latin), var(--font-anek-malayalam), system-ui, -apple-system, sans-serif;
   --font-jakarta: var(--font-sans);
   --font-anek: var(--font-sans);
 
@@ -54,7 +51,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-body);
@@ -68,11 +65,9 @@ body {
    !important ensures CSS Module hashed selectors cannot override.
    ─────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Fraunces", serif !important;
-  font-optical-sizing: auto !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-  font-variation-settings: "SOFT" 0, "WONK" 0 !important;
+  font-family: var(--font-serif);
+  font-weight: 200;
+  font-style: normal;
   line-height: 1.25;
 }
 
@@ -82,7 +77,7 @@ p, span, li, a, button, input, textarea, select, label {
 }
 
 p {
-  font-weight: 400;
+  font-weight: 300;
 }
 
 /* ── Malayalam Typography Support Across Entire Site ── */

@@ -1,0 +1,148 @@
+.heroSection {
+  background-color: #f4f8f6;
+  padding: calc(var(--header-height) + 40px) 0 48px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.08);
+  background-color: #e2eeea;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0d9488;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 200;
+  color: #1a3330;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #334d49;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 0 36px 0;
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iconBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #e6f4f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0d9488;
+}
+
+.statText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statValue {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 200;
+  color: #1a3330;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.statLabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .imageWrap {
+    margin: 0 auto;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .statsRow {
+    justify-content: center;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .statsRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

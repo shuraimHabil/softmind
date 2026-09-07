@@ -1,0 +1,186 @@
+.aboutSection {
+  background-color: #f4f8f6;
+  padding: 0 0 64px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── Main About Card ────────────────── */
+.aboutCard {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(13, 148, 136, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.aboutTitle {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 200;
+  color: #1a3330;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+}
+
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.paragraph {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #4a6460;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(13, 148, 136, 0.1);
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #e6f4f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.portfolioBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1.5px solid #0d9488;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #0d9488;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.portfolioBtn:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+}
+
+/* ── Side Cards ────────────────── */
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sideCard {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba(13, 148, 136, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.sideTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 200;
+  color: #1a3330;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.languageList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.languageItem {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #4a6460;
+}
+
+/* Quote Card */
+.quoteIcon {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  color: #0d9488;
+  line-height: 1;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.quoteText {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-style: normal;
+  color: #334d49;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.quoteAuthor {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #64748b;
+  text-align: right;
+  display: block;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutCard {
+    padding: 28px 24px;
+  }
+
+  .sideCard {
+    padding: 24px 20px;
+  }
+}

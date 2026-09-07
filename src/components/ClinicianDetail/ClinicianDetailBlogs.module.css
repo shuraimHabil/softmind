@@ -1,0 +1,105 @@
+.blogsSection {
+  background-color: #f4f8f6;
+  padding: 0 0 80px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 200;
+  color: #1a3330;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.01em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #e2eeea;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .img {
+  transform: scale(1.04);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #64748b;
+  padding: 0 2px;
+}
+
+.category {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.readTime {
+  color: #64748b;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 200;
+  color: #1a3330;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.card:hover .cardTitle {
+  color: #0d9488;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

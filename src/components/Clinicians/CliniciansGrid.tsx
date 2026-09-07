@@ -12,73 +12,7 @@ const CATEGORIES = [
   "Children & Adolescents",
   "Personal & Life Challenges",
 ];
-
-const clinicians = [
-  {
-    id: 1,
-    name: "Dr. Prasad Amore",
-    role: "Chief Consultant",
-    desc: "Visionary psychiatrist specialising in anxiety, CBT methodology, and healing pathways.",
-    img: "/assets/clinicians/clinician_1.jpg",
-    categories: ["All", "Emotional Wellbeing", "Personal & Life Challenges"],
-  },
-  {
-    id: 2,
-    name: "Jalita James",
-    role: "Consultant Psychologist MCA",
-    desc: "Psychiatric resilience leader focused on evidence-backed recovery systems.",
-    img: "/assets/clinicians/clinician_2.jpg",
-    categories: ["All", "Emotional Wellbeing", "Relationship & Family"],
-  },
-  {
-    id: 3,
-    name: "Jis Joy",
-    role: "Consultant Psychologist",
-    desc: "Caring family communicator and boundary-setter with secure, talent-backed behavioural work.",
-    img: "/assets/clinicians/clinician_3.jpg",
-    categories: ["All", "Relationship & Family", "Children & Adolescents"],
-  },
-  {
-    id: 4,
-    name: "Dr. Nishma",
-    role: "Consultant Psychologist",
-    desc: "Specialist in relaxed engagement, cognitive patterns, and brain-wellness integration.",
-    img: "/assets/clinicians/clinician_4.jpg",
-    categories: ["All", "Emotional Wellbeing", "Personal & Life Challenges"],
-  },
-  {
-    id: 5,
-    name: "Dr. Arjun Nair",
-    role: "Senior Psychiatrist",
-    desc: "Experienced psychiatrist with a focus on mood disorders, OCD, and pharmacotherapy.",
-    img: "/assets/clinicians/clinician_5.jpg",
-    categories: ["All", "Emotional Wellbeing"],
-  },
-  {
-    id: 6,
-    name: "Deepa Menon",
-    role: "Clinical Psychologist",
-    desc: "Specialises in trauma-informed care, grief counselling, and resilience building.",
-    img: "/assets/clinicians/clinician_6.jpg",
-    categories: ["All", "Relationship & Family", "Personal & Life Challenges"],
-  },
-  {
-    id: 7,
-    name: "Rahul Krishnan",
-    role: "Child & Adolescent Specialist",
-    desc: "Dedicated to learning difficulties, ADHD assessment, and adolescent mental health.",
-    img: "/assets/clinicians/clinician_7.jpg",
-    categories: ["All", "Children & Adolescents"],
-  },
-  {
-    id: 8,
-    name: "Dr. Asha Pillai",
-    role: "Developmental Psychiatrist",
-    desc: "Focused on child development, autism spectrum assessments, and family-centred care.",
-    img: "/assets/clinicians/clinician_8.jpg",
-    categories: ["All", "Children & Adolescents"],
-  },
-];
+import { clinicians } from "@/lib/clinicians";
 
 interface CliniciansGridProps {
   searchQuery?: string;
