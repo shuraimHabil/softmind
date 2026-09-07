@@ -1,0 +1,147 @@
+.section {
+  background-color: #f2f5f0;
+  padding: 112px 0 72px;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Top row: title + link ────────────────────── */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+  gap: 32px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 200;
+  color: #1a3330;
+  line-height: 1.25;
+  margin: 0;
+  max-width: 560px;
+  letter-spacing: -0.01em;
+}
+
+.link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary);
+  white-space: nowrap;
+  padding-top: 6px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.link:hover {
+  color: var(--primary-hover);
+  letter-spacing: 0.01em;
+}
+
+/* ── Pillars row ────────────────────── */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pillar:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-4px);
+}
+
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.pillar:hover .iconWrap {
+  transform: scale(1.06);
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.pillarTitle {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #2c4440;
+  line-height: 1.35;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.pillar:hover .pillarTitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #1a3330;
+}
+
+/* ── Hover Description ────────────────────── */
+.hoverDesc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #556865;
+  line-height: 1.55;
+  margin: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.35s ease, transform 0.35s ease, margin-top 0.35s ease;
+}
+
+.pillar:hover .hoverDesc {
+  max-height: 120px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 14px;
+}
+
+/* ── Responsive ────────────────────── */
+@media (max-width: 768px) {
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .topRow {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+}

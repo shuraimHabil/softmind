@@ -1,0 +1,329 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(13, 148, 136, 0.08);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.header.sticky {
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.header.sticky .container {
+  height: 64px;
+}
+
+/* ── Top Bar ─────────────────── */
+.topBar {
+  background-color: #f2f6f4;
+  color: var(--text-body);
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  font-size: 0.8rem;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.topBarHidden {
+  height: 0;
+  opacity: 0;
+}
+
+.topBarLeft, .topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topBarLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.topBarLink:hover {
+  color: var(--primary);
+  opacity: 1;
+}
+
+.topBarDivider {
+  color: rgba(15, 23, 42, 0.15);
+}
+
+.followUs {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.socialIcon {
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.socialIcon:hover {
+  color: var(--primary);
+  opacity: 1;
+}
+
+
+
+/* ── Logo ─────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.logoImg {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoFallback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoSvg {
+  width: 30px;
+  height: 30px;
+  transition: var(--transition);
+}
+
+.logo:hover .logoSvg {
+  transform: rotate(15deg);
+}
+
+.logoText {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+  color: var(--primary);
+}
+
+.logoText span { font-weight: 400; }
+
+/* ── Nav ─────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+/* Each nav item wraps the link + dropdown */
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-body);
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 6px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: var(--primary);
+}
+
+.chevron {
+  width: 10px;
+  height: 10px;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* ── Dropdown ─────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(13, 148, 136, 0.08);
+  padding: 8px 0;
+  min-width: 200px;
+  z-index: 2000;
+  /* hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Small arrow caret on top */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-left: 1px solid rgba(13, 148, 136, 0.08);
+  border-top: 1px solid rgba(13, 148, 136, 0.08);
+  rotate: 45deg;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 9px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.855rem;
+  font-weight: 400;
+  color: #334155;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.dropdownItem:hover {
+  background: #f0fdf9;
+  color: var(--primary);
+}
+
+/* ── Actions ─────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.contactStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-body);
+  line-height: 1.3;
+  transition: var(--transition);
+}
+
+.contactLink:hover { color: var(--primary); }
+
+.whatsapp svg { color: #25D366; }
+
+.btnAppointment {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btnAppointment:hover {
+  background-color: var(--primary);
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.mobileToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dark);
+  padding: 4px;
+}
+
+/* ── Mobile ─────────────────── */
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .mobileToggle { display: flex; }
+  .contactStack { display: none; }
+  .topBar { display: none; }
+
+  .navOpen {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px 24px;
+    gap: 8px;
+    border-bottom: 1px solid rgba(13,148,136,0.1);
+    box-shadow: var(--shadow-lg);
+  }
+}

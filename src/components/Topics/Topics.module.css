@@ -1,0 +1,126 @@
+.section {
+  background-color: #f2f5f0;
+  padding: 72px 0;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Left Column ────────────────── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 200;
+  color: #1a3330;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #556865;
+  line-height: 1.65;
+  max-width: 300px;
+  margin: 0;
+}
+
+/* ── Right 2-Column Area ────────────────── */
+.rightCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.topicColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.topicRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(13, 148, 136, 0.16);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.topicRow:hover {
+  border-bottom-color: #0d9488;
+  padding-left: 4px;
+}
+
+.topicName {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a3330;
+  transition: color 0.25s ease;
+}
+
+.topicRow:hover .topicName {
+  color: #0d9488;
+}
+
+.articleBadge {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0d9488;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.topicRow:hover .articleBadge {
+  color: #0f766e;
+  transform: translateX(3px);
+}
+
+.chevron {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+/* ── Responsive ────────────────── */
+@media (max-width: 960px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .subtitle {
+    max-width: 100%;
+  }
+
+  .rightCols {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .rightCols {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

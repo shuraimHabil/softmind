@@ -1,0 +1,197 @@
+.section {
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header ────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 200;
+  color: #1a3330;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+/* ── Compact 3 Features Horizontal Strip (Figma) ────────────────── */
+.featuresStrip {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr 1.35fr;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  border-top: 1px solid #d6e8d2;
+  border-bottom: 1px solid #d6e8d2;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 14px;
+}
+
+.featureDivider {
+  border-right: 1px solid #d6e8d2;
+}
+
+.featureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureLabel {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: #1a3330;
+  line-height: 1.35;
+  text-align: left;
+}
+
+/* ── 4 Location Cards Grid ────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.1);
+  border-color: rgba(13, 148, 136, 0.18);
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .img {
+  transform: scale(1.04);
+}
+
+.info {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardName {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #1a3330;
+  margin-bottom: 8px;
+}
+
+.cardAddress {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #64748b;
+  line-height: 1.45;
+  margin-bottom: 8px;
+  min-height: 34px;
+}
+
+.cardPhone {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a3330;
+  margin-bottom: 16px;
+}
+
+.cardDivider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.06);
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.cardLink {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0d9488;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardLink:hover {
+  color: #0f766e;
+  transform: translateX(3px);
+}
+
+/* ── Responsive ────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featuresStrip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .featureDivider {
+    border-right: none;
+    border-bottom: 1px solid #d6e8d2;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 580px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

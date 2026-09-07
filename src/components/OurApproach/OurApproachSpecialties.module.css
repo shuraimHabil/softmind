@@ -1,0 +1,153 @@
+.section {
+  background: #f4f8f6;
+  padding: 20px 0;
+}
+
+/* ── Row (one specialty) ── */
+.row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 56px 24px;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Reversed puts image on the left, text on the right */
+.reversed {
+  grid-template-columns: 0.85fr 1.15fr;
+  direction: rtl;
+}
+
+.reversed > * {
+  direction: ltr;
+}
+
+/* ── Text Side ── */
+.textSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+}
+
+.reversed .textSide {
+  padding: 0;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 200;
+  color: #1a3330;
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.intro {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #4a6460;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.subheading {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0d9488;
+  margin-bottom: 10px;
+}
+
+.detail {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.bookBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 32px;
+  background: none;
+  border: 1.5px solid #0d9488;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0d9488;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.bookBtn:hover {
+  background: #0d9488;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+}
+
+/* ── Image Side ── */
+.imgSide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(13, 148, 136, 0.05);
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.45 / 1;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.row:hover .img {
+  transform: scale(1.03);
+}
+
+/* ── Divider between rows ── */
+.row + .row {
+  border-top: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .row,
+  .reversed {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .reversed > * {
+    direction: ltr;
+  }
+
+  .imgWrap {
+    min-height: 280px;
+  }
+
+  /* On mobile always show image ABOVE text */
+  .imgSide {
+    order: -1;
+  }
+
+  .textSide,
+  .reversed .textSide {
+    padding: 40px 24px;
+  }
+}

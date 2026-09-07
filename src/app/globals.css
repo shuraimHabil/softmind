@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+@import "tailwindcss";
+
+/* ============================================================
+   Softmind Design Tokens
+   ============================================================ */
+:root {
+  --primary: #0d9488;
+  --primary-hover: #0f766e;
+  --primary-light: #e6f4f1;
+  --primary-glow: rgba(13, 148, 136, 0.15);
+  --accent: #2dd4bf;
+  --text-dark: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --bg-light: #fafaf9;
+  --bg-white: #ffffff;
+  --bg-dark: #0f172a;
+  --bg-navy-light: #1e293b;
+
+  /* Titles: Fraunces (Google Fonts) with Anek fallback for Malayalam */
+  --font-fraunces: var(--font-fraunces), "Fraunces", serif;
+  --font-serif: var(--font-fraunces), "Fraunces", var(--font-anek-malayalam), "Anek Malayalam", Georgia, serif;
+  --font-playfair: var(--font-serif);
+
+  /* Body: Anek Latin & Anek Malayalam (Google Fonts) across the entire website */
+  --font-anek-latin: var(--font-anek-latin), "Anek Latin", sans-serif;
+  --font-anek-malayalam: var(--font-anek-malayalam), "Anek Malayalam", sans-serif;
+  --font-sans: var(--font-anek-latin), "Anek Latin", var(--font-anek-malayalam), "Anek Malayalam", system-ui, -apple-system, sans-serif;
+  --font-jakarta: var(--font-sans);
+  --font-anek: var(--font-sans);
+
+  --container-width: 1200px;
+  --header-height: 72px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 12px;
+  --border-radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 16px -6px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 20px 35px -5px rgba(13, 148, 136, 0.08), 0 12px 20px -8px rgba(13, 148, 136, 0.06);
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-body);
+  background-color: var(--bg-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Headings: Fraunces ExtraLight 200 (Google Fonts)
+   Variation settings mirror the official snippet exactly.
+   !important ensures CSS Module hashed selectors cannot override.
+   ─────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fraunces", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-variation-settings: "SOFT" 0, "WONK" 0 !important;
+  line-height: 1.25;
+}
+
+/* All Body Elements: Anek Regular 400 */
+p, span, li, a, button, input, textarea, select, label {
+  font-family: var(--font-sans);
+}
+
+p {
+  font-weight: 400;
+}
+
+/* ── Malayalam Typography Support Across Entire Site ── */
+:lang(ml),
+[lang="ml"],
+.malayalam,
+[data-language="Malayalam"] {
+  font-family: var(--font-anek-malayalam), "Anek Malayalam", sans-serif !important;
+}
+
+:lang(ml) h1,
+:lang(ml) h2,
+:lang(ml) h3,
+:lang(ml) h4,
+:lang(ml) h5,
+:lang(ml) h6,
+[lang="ml"] h1,
+[lang="ml"] h2,
+[lang="ml"] h3,
+[lang="ml"] h4,
+[lang="ml"] h5,
+[lang="ml"] h6,
+[data-language="Malayalam"] [class*="title"],
+[data-language="Malayalam"] [class*="Title"],
+[data-language="Malayalam"] [class*="heading"],
+[data-language="Malayalam"] [class*="Heading"],
+.malayalamTitle {
+  font-family: var(--font-anek-malayalam), "Anek Malayalam", sans-serif !important;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+[data-language="Malayalam"] p,
+:lang(ml) p,
+[lang="ml"] p,
+.malayalamExcerpt {
+  font-family: var(--font-anek-malayalam), "Anek Malayalam", sans-serif !important;
+  line-height: 1.65;
+}
+
+h1 { font-size: 3rem; letter-spacing: -0.02em; }
+h2 { font-size: 2.25rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+p  { margin-bottom: 1rem; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   Layout Utilities
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 90px 0; }
+
+.section-tagline {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  margin-bottom: 16px;
+}
