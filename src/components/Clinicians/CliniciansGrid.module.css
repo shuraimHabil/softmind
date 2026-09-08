@@ -265,8 +265,75 @@
 }
 
 @media (max-width: 480px) {
+  .section {
+    padding: 28px 0 32px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .filterRow {
+    padding: 0 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs {
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+
   .grid {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     gap: 12px;
+    padding: 0 16px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    grid-template-columns: unset;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    min-width: 68vw;
+    max-width: 68vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* Change portrait image to 4:3 ratio on mobile */
+  .imgWrap {
+    padding-top: 75%; /* 4:3 ratio */
+  }
+
+  .cardBody {
+    padding: 12px 12px 14px;
+  }
+
+  .name {
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+  }
+
+  .role {
+    font-size: 0.68rem;
+    margin-bottom: 7px;
+  }
+
+  .desc {
+    font-size: 0.76rem;
+    margin-bottom: 8px;
+    -webkit-line-clamp: 2;
+  }
+
+  .viewLink {
+    font-size: 0.76rem;
   }
 }

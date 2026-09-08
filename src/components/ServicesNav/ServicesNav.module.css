@@ -111,3 +111,21 @@
     gap: 12px;
   }
 }
+
+@media (max-width: 560px) {
+  .section {
+    padding: 40px 0 28px;
+  }
+
+  .grid {
+    gap: 0;
+  }
+
+  .itemLink {
+    padding: 14px 0;
+  }
+
+  .headerBlock {
+    margin-bottom: 24px;
+  }
+}

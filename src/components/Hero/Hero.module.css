@@ -10,6 +10,8 @@
   padding-bottom: 80px;
 }
 
+
+
 /* ── Background image ────────────────── */
 .bgImage {
   position: absolute;
@@ -186,14 +188,56 @@
 
 /* ── Responsive ────────────────── */
 @media (max-width: 960px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+    min-height: unset;
+    padding-bottom: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .bgImage {
+    display: none;
+  }
+
+  .contentWrap {
+    padding: 20px 20px 18px;
+    background: linear-gradient(135deg, #edf4f2 0%, #e8f5f0 100%);
+    border-bottom: 1px solid rgba(13, 148, 136, 0.08);
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
   .statsBanner {
     grid-template-columns: repeat(2, 1fr);
     position: relative;
     bottom: 0;
     transform: none;
     left: 0;
-    width: 92%;
-    margin: 24px auto 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .hasDivider {
@@ -210,19 +254,22 @@
 }
 
 @media (max-width: 560px) {
-  .statsBanner {
-    grid-template-columns: 1fr;
-  }
-
   .statItem {
-    padding: 20px 24px;
+    padding: 14px 12px;
   }
 
-  .statItem:nth-child(odd) {
-    border-right: none;
+  .statItem:nth-child(3),
+  .statItem:nth-child(4) {
+    border-bottom: none;
   }
 
-  .statItem:not(:last-child) {
-    border-bottom: 1px solid rgba(13, 148, 136, 0.09);
+  .statPrimary,
+  .statLabel {
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .statSublabel {
+    font-size: 0.6rem;
   }
 }

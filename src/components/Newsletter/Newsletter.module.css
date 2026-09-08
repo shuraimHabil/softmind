@@ -16,3 +16,4 @@
 .btn:hover { background: #000; transform: translateY(-1px); }
 .success { font-size: 1.1rem; font-weight: 600; color: #fff; padding: 16px; background: rgba(255,255,255,0.15); border-radius: 12px; max-width: 400px; margin: 0 auto; }
 @media (max-width: 600px) { .form { flex-direction: column; } .box { padding: 40px 24px; } }
+@media (max-width: 480px) { .section { padding: 28px 0 24px; } .box { padding: 28px 18px; } .subtitle { white-space: normal; } }

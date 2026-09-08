@@ -191,7 +191,94 @@
 }
 
 @media (max-width: 580px) {
+  .section {
+    padding: 28px 0 20px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .header {
+    padding: 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+  }
+
+  .featuresStrip {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0;
+    scrollbar-width: none;
+    max-width: 100%;
+    padding: 8px 16px;
+    border-top: 1px solid #d6e8d2;
+    border-bottom: 1px solid #d6e8d2;
+    margin-bottom: 16px;
+  }
+
+  .featuresStrip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .featureDivider {
+    border-right: 1px solid #d6e8d2;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .featureItem {
+    min-width: 120px;
+    flex-shrink: 0;
+    padding: 4px 10px;
+  }
+
+  .featureLabel {
+    font-size: 0.7rem;
+  }
+
   .grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 0 16px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    grid-template-columns: unset;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    min-width: 76vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .info {
+    padding: 14px 14px 14px;
+  }
+
+  .cardName {
+    font-size: 1rem;
+  }
+
+  .cardAddress,
+  .cardPhone {
+    font-size: 0.76rem;
   }
 }
