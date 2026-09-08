@@ -4,17 +4,15 @@
   left: 0;
   width: 100%;
   height: auto;
-  background-color: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background-color: #ffffff;
   border-bottom: 1px solid rgba(13, 148, 136, 0.08);
   z-index: 1000;
   transition: var(--transition);
 }
 
 .header.sticky {
-  background-color: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .container {
@@ -52,7 +50,8 @@
   opacity: 0;
 }
 
-.topBarLeft, .topBarRight {
+.topBarLeft,
+.topBarRight {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -94,13 +93,11 @@
   opacity: 1;
 }
 
-
-
 /* ── Logo ─────────────────── */
 .logo {
   display: flex;
   align-items: center;
-  min-width: 150px;
+  min-width: 140px;
   flex-shrink: 0;
   color: var(--primary);
 }
@@ -135,7 +132,9 @@
   color: var(--primary);
 }
 
-.logoText span { font-weight: 400; }
+.logoText span {
+  font-weight: 400;
+}
 
 /* ── Nav ─────────────────── */
 .nav {
@@ -198,7 +197,6 @@
   padding: 8px 0;
   min-width: 200px;
   z-index: 2000;
-  /* hidden by default */
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%) translateY(-6px);
@@ -269,9 +267,13 @@
   transition: var(--transition);
 }
 
-.contactLink:hover { color: var(--primary); }
+.contactLink:hover {
+  color: var(--primary);
+}
 
-.whatsapp svg { color: #25D366; }
+.whatsapp svg {
+  color: #25D366;
+}
 
 .btnAppointment {
   display: inline-flex;
@@ -308,22 +310,118 @@
 
 /* ── Mobile ─────────────────── */
 @media (max-width: 1024px) {
-  .nav { display: none; }
-  .mobileToggle { display: flex; }
-  .contactStack { display: none; }
-  .topBar { display: none; }
+  .header {
+    background-color: #ffffff;
+  }
+
+  .container {
+    padding: 0 16px;
+    height: 60px;
+    gap: 10px;
+  }
+
+  .header.sticky .container {
+    height: 60px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contactStack {
+    display: none;
+  }
+
+  .topBar {
+    display: none;
+  }
+
+  .logo {
+    min-width: auto;
+  }
+
+  .logoImg {
+    height: 36px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .btnAppointment {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    gap: 5px;
+  }
 
   .navOpen {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: var(--header-height);
+    top: 60px;
     left: 0;
     width: 100%;
     background: #fff;
     padding: 20px 24px;
     gap: 8px;
-    border-bottom: 1px solid rgba(13,148,136,0.1);
+    border-bottom: 1px solid rgba(13, 148, 136, 0.1);
     box-shadow: var(--shadow-lg);
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    padding: 0 12px;
+    height: 56px;
+    gap: 8px;
+  }
+
+  .header.sticky .container {
+    height: 56px;
+  }
+
+  .logoImg {
+    height: 32px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .btnAppointment {
+    padding: 6px 12px;
+    font-size: 0.74rem;
+    gap: 4px;
+  }
+
+  .btnAppointment svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .navOpen {
+    top: 56px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .logoImg {
+    height: 28px;
+  }
+
+  .btnAppointment {
+    padding: 5px 10px;
+    font-size: 0.7rem;
   }
 }
