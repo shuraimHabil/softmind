@@ -3,12 +3,12 @@ import Link from "next/link";
 import styles from "./ServicesNav.module.css";
 
 const categories = [
-  { name: "Anxiety Stress & Overwhelm", href: "#" },
-  { name: "Depression", href: "#" },
-  { name: "Relationships & Family", href: "#" },
-  { name: "Children & Adolescents", href: "#" },
-  { name: "Difficult Feel & Overwhelm", href: "#" },
-  { name: "Personal Growth & Well Being", href: "#" },
+  { name: "Anxiety Stress & Overwhelm", href: "#", icon: "icon-anxiety.png" },
+  { name: "Children & Adolescents", href: "#", icon: "icon-children.png" },
+  { name: "Depression", href: "#", icon: "icon-depression.png" },
+  { name: "Difficult Feel & Overwhelm", href: "#", icon: "icon-difficult.png" },
+  { name: "Relationships & Family", href: "#", icon: "icon-relationships.png" },
+  { name: "Personal Growth & Well Being", href: "#", icon: "icon-growth.png" },
 ];
 
 export default function ServicesNav() {
@@ -28,42 +28,30 @@ export default function ServicesNav() {
 
         {/* Two-Column Grid */}
         <div className={styles.grid}>
-          {/* Left Column: Image */}
-          <div className={styles.imageCol}>
-            <div className={styles.imgWrap}>
-              <Image
-                src="/assets/couple_session.png"
-                alt="A couple attending a therapy session together"
-                fill
-                className={styles.img}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Right Column: List of Experiences */}
-          <div className={styles.listCol}>
-            {categories.map((cat) => (
-              <Link key={cat.name} href={cat.href} className={styles.itemLink}>
+          {categories.map((cat) => (
+            <Link key={cat.name} href={cat.href} className={styles.itemLink}>
+              <div className={styles.itemLeft}>
+                {/* Empty img tag for the user to add assets later */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/assets/${cat.icon}`} alt={cat.name} className={styles.icon} width={36} height={36} />
                 <span className={styles.itemName}>{cat.name}</span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={styles.arrow}
-                >
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </Link>
-            ))}
-          </div>
+              </div>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={styles.arrow}
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

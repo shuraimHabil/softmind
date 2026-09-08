@@ -15,8 +15,7 @@ export default function CliniciansHero({
   setSearchQuery,
   onSearchSubmit,
 }: CliniciansHeroProps) {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (onSearchSubmit) {
       onSearchSubmit();
     } else {
