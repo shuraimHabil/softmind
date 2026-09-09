@@ -140,9 +140,22 @@
   }
 
   .sectionHeader {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 12px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 1.35rem;
+    white-space: nowrap;
+  }
+
+  .btnOutline {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 
@@ -151,13 +164,27 @@
     padding: 28px 0 24px;
   }
 
+  .container {
+    padding: 0 16px;
+  }
+
   .sectionHeader {
     margin-bottom: 20px;
-    gap: 10px;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-size: clamp(1.05rem, 4.8vw, 1.2rem);
+    white-space: nowrap;
   }
 
   .btnOutline {
-    padding: 8px 18px;
-    font-size: 0.82rem;
+    padding: 5px 11px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
