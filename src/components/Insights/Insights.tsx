@@ -4,6 +4,21 @@ import { articles } from "@/lib/articles";
 import styles from "./Insights.module.css";
 
 export default function Insights() {
+  let englishCount = 0;
+  let malayalamCount = 0;
+
+  const displayArticles = articles.map(a => {
+    let showOnMobile = false;
+    if (a.language === 'English' && englishCount < 2) {
+      showOnMobile = true;
+      englishCount++;
+    } else if (a.language === 'Malayalam' && malayalamCount < 1) {
+      showOnMobile = true;
+      malayalamCount++;
+    }
+    return { ...a, showOnMobile };
+  });
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -12,8 +27,8 @@ export default function Insights() {
           <Link href="/articles" className={styles.btnOutline}>View All Articles</Link>
         </div>
         <div className={styles.grid}>
-          {articles.map((a) => (
-            <article key={a.title} className={styles.card}>
+          {displayArticles.map((a) => (
+            <article key={a.title} className={`${styles.card} ${!a.showOnMobile ? styles.hideOnMobile : ''}`}>
               <div className={styles.imgWrap}>
                 <Image src={a.img} alt={a.title} fill className={styles.img} sizes="33vw" />
                 <span className={styles.badge}>{a.badge}</span>

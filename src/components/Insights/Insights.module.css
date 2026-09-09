@@ -135,6 +135,10 @@
     grid-template-columns: 1fr;
   }
 
+  .hideOnMobile {
+    display: none !important;
+  }
+
   .sectionHeader {
     flex-direction: column-reverse;
     align-items: flex-start;
