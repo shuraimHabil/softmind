@@ -8,28 +8,28 @@ const locations = [
     address: "Panampilly Nagar Ave,\nErnakulam",
     phone: "9061818732",
     img: "/assets/centre_kochi.jpg",
-    href: "#",
+    href: "/centres/panampilly-nagar",
   },
   {
     name: "Softmind Kakkanad",
     address: "Seaport-Airport Rd, CSEZ,\nKochi",
     phone: "9846060111",
     img: "/assets/centre_calicut.jpg",
-    href: "#",
+    href: "/centres/kakkanad",
   },
   {
     name: "Softmind Trivandrum",
     address: "Ambalamukku, Kowdiar,\nThiruvananthapuram",
     phone: "0471299238",
     img: "/assets/centre_trivandrum.jpg",
-    href: "#",
+    href: "/centres/trivandrum",
   },
   {
     name: "Softmind Thrissur",
     address: "Father Vadakkan Road, Shakthan\nNagar, Thrissur",
     phone: "9061818732",
     img: "/assets/centre_thrissur.jpg",
-    href: "#",
+    href: "/centres/thrissur",
   },
 ];
 
@@ -67,7 +67,7 @@ const features = [
 
 export default function Locations() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="centres">
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
@@ -100,7 +100,7 @@ export default function Locations() {
         {/* 4 Location Cards Grid */}
         <div className={styles.grid}>
           {locations.map((loc) => (
-            <div key={loc.name} className={styles.card}>
+            <Link key={loc.name} href={loc.href} className={styles.card}>
               <div className={styles.imgWrap}>
                 <Image
                   src={loc.img}
@@ -122,11 +122,11 @@ export default function Locations() {
                 </p>
                 <p className={styles.cardPhone}>{loc.phone}</p>
                 <div className={styles.cardDivider} />
-                <Link href={loc.href} className={styles.cardLink}>
+                <span className={styles.cardLink}>
                   View Details →
-                </Link>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

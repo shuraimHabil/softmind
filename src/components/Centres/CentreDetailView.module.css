@@ -1,0 +1,504 @@
+.wrapper {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Headings ── */
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 400;
+  color: #1a3330;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+}
+
+/* ── 1. Overview Section ── */
+.overviewSection {
+  padding: 60px 0 50px;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.centreTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 400;
+  color: #1a3330;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.015em;
+}
+
+.centreCity {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0d9488;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.centreDesc {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: #4a5d59;
+  line-height: 1.65;
+  margin: 0 0 28px 0;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+}
+
+.bookBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  background-color: #0d9488;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid #0d9488;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bookBtn:hover {
+  background-color: #0f766e;
+  border-color: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.25);
+}
+
+/* Gallery Collage */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+  min-height: 320px;
+}
+
+.galleryMain {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.gallerySubCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gallerySub {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.galleryImg {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryMain:hover .galleryImg,
+.gallerySub:hover .galleryImg {
+  transform: scale(1.03);
+}
+
+/* ── 2. Middle Section (Facilities & Clinicians) ── */
+.middleSection {
+  padding: 60px 0;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.twoColGrid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.45fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Facilities */
+.facilitiesCol {
+  background-color: #f8faf9;
+  padding: 32px 28px;
+  border-radius: 20px;
+  border: 1px solid #e6eeea;
+}
+
+.facilitiesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.facilityItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e6f6f3;
+  flex-shrink: 0;
+}
+
+.facilityText {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #2c3e3b;
+  font-weight: 500;
+}
+
+/* Clinicians Grid */
+.cliniciansGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.clinicianCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #edf2f0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.clinicianCard:hover {
+  border-color: #0d9488;
+  background-color: #f6fbf9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.08);
+}
+
+.avatarWrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #e2e8f0;
+}
+
+.avatarImg {
+  object-fit: cover;
+}
+
+.clinicianInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.clinicianName {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #1a3330;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clinicianRole {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: #64748b;
+  margin: 2px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 3. Find Us Section ── */
+.findUsSection {
+  padding: 60px 0;
+  border-bottom: 1px solid #edf2f0;
+}
+
+.findUsCard {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  background-color: #f8faf9;
+  border-radius: 20px;
+  border: 1px solid #e6eeea;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.findUsInfo {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fullAddress {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: #4a5d59;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+
+.contactLabel {
+  font-weight: 600;
+  color: #1a3330;
+}
+
+.contactLink {
+  color: #0d9488;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.contactValue {
+  color: #4a5d59;
+}
+
+.directionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: #0d9488;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 600;
+  border: 1.5px solid #0d9488;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.directionBtn:hover {
+  background-color: #0d9488;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.2);
+}
+
+.mapWrap {
+  position: relative;
+  min-height: 320px;
+  width: 100%;
+  background-color: #e2e8f0;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
+}
+
+/* ── 4. Other Centres Section ── */
+.otherCentresSection {
+  padding: 60px 0 80px;
+}
+
+.otherCentresHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.otherCentresSub {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 8px 0 0 0;
+}
+
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.otherCard {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.otherCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.1);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+.otherImgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.otherImg {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.otherCard:hover .otherImg {
+  transform: scale(1.04);
+}
+
+.otherInfo {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.otherName {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #1a3330;
+  margin: 0 0 8px 0;
+}
+
+.otherAddress {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0 0 6px 0;
+  white-space: pre-line;
+}
+
+.otherPhone {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: #0d9488;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.otherDivider {
+  height: 1px;
+  background-color: #f1f5f9;
+  margin-top: auto;
+  margin-bottom: 14px;
+}
+
+.otherLink {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0d9488;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .twoColGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cliniciansGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .findUsCard {
+    grid-template-columns: 1fr;
+  }
+
+  .otherGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cliniciansGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .findUsInfo {
+    padding: 24px;
+  }
+}

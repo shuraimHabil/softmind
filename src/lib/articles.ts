@@ -118,7 +118,7 @@ export const articles: Article[] = [
     badge: "Therapy",
     category: "Therapy",
     language: "English",
-    title: "talking therapy for stress relief in kochi",
+    title: "Talking Therapy for Stress Relief in Kochi",
     excerpt:
       "Evidence-based talk therapy provides a confidential, structured space to unpack emotional burnout, anxiety, and interpersonal strains.",
     author: "Dr. Anand Kumar",

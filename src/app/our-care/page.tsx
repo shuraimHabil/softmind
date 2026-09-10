@@ -5,7 +5,7 @@ import OurApproachPhilosophy from "@/components/OurApproach/OurApproachPhilosoph
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
 export const metadata: Metadata = {
-  title: "Our Care | Softmind – You Don't Need a Diagnosis to Begin",
+  title: "Our Care | Softmind – You Don't Need A Diagnosis To Begin",
   description:
     "Softmind's primary care model starts with understanding your most pressing concerns. We make it simple to find the pathway that's right for you.",
   keywords: ["mental health care", "therapy", "counselling", "care plan", "Softmind", "evidence-based"],

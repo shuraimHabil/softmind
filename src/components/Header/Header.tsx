@@ -31,27 +31,57 @@ const navLinks: NavLink[] = [
   },
   {
     label: "Knowledge Centre",
-    href: "#",
+    href: "/knowledge-centre",
   },
   {
     label: "Centres",
-    href: "#",
+    href: "/centres",
   },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isTopBarClosed, setIsTopBarClosed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { openModal } = useBookingModal();
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.offsetHeight;
+        document.documentElement.style.setProperty("--header-height", `${height}px`);
+      }
+    };
+
+    updateHeaderHeight();
+
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateHeaderHeight);
+
+    let animationFrameId: number;
+    const observer = new ResizeObserver(() => {
+      animationFrameId = requestAnimationFrame(updateHeaderHeight);
+    });
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateHeaderHeight);
+      observer.disconnect();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isTopBarClosed, isScrolled]);
 
   const handleMouseEnter = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -63,8 +93,8 @@ export default function Header() {
   };
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.sticky : ""}`}>
-      <div className={`${styles.topBar} ${isScrolled ? styles.topBarHidden : ""}`}>
+    <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.sticky : ""}`}>
+      <div className={`${styles.topBar} ${isScrolled || isTopBarClosed ? styles.topBarHidden : ""}`}>
         <div className={styles.topBarLeft}>
           <span className={styles.followUs}>Follow us:</span>
           <a href="#" className={styles.socialIcon}><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
@@ -82,6 +112,18 @@ export default function Header() {
             <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             info@softmindindia.com
           </a>
+          <button
+            type="button"
+            className={styles.topBarCloseBtn}
+            onClick={() => setIsTopBarClosed(true)}
+            aria-label="Close top bar"
+            title="Close"
+          >
+            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
       </div>
       <div className={styles.container}>

@@ -1,0 +1,144 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  margin-top: var(--header-height);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #dbe3de;
+  padding: 60px 0;
+}
+
+/* Background wrap */
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  position: absolute;
+  inset: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.content {
+  max-width: 480px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 400;
+  color: #1a3330;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #4a5d59;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 420px;
+}
+
+/* ── 4 Pillars Row ── */
+.pillars {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  width: fit-content;
+}
+
+.pillarItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 0 18px;
+}
+
+.pillarItem:first-child {
+  padding-left: 0;
+}
+
+.pillarDivider {
+  border-right: 1px solid rgba(26, 51, 48, 0.22);
+}
+
+.pillarIcon {
+  color: #314a45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+}
+
+.pillarTitle {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #2b403c;
+  line-height: 1.35;
+  white-space: pre-line;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding: 48px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  .pillarItem {
+    padding: 8px 10px;
+    align-items: flex-start;
+    text-align: left;
+    border-left: 1px solid rgba(26, 51, 48, 0.22);
+  }
+
+  .pillarItem:first-child {
+    padding-left: 10px;
+  }
+
+  .pillarDivider {
+    border-right: none;
+  }
+
+  .pillarTitle {
+    text-align: left;
+    white-space: normal;
+  }
+}

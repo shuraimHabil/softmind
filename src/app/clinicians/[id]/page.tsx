@@ -3,7 +3,6 @@ import { clinicians, getClinicianById } from "@/lib/clinicians";
 import ClinicianDetailHero from "@/components/ClinicianDetail/ClinicianDetailHero";
 import ClinicianDetailAbout from "@/components/ClinicianDetail/ClinicianDetailAbout";
 import ClinicianDetailExpertise from "@/components/ClinicianDetail/ClinicianDetailExpertise";
-import ClinicianDetailBlogs from "@/components/ClinicianDetail/ClinicianDetailBlogs";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
 export async function generateStaticParams() {
@@ -39,7 +38,6 @@ export default async function ClinicianDetailPage({
       <ClinicianDetailHero clinician={clinician} />
       <ClinicianDetailAbout clinician={clinician} />
       <ClinicianDetailExpertise expertise={clinician.expertise} />
-      <ClinicianDetailBlogs articles={clinician.articles} />
       <CliniciansCTA />
     </main>
   );

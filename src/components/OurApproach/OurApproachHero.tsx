@@ -30,7 +30,7 @@ export default function OurApproachHero() {
 
         {/* Heading */}
         <h1 className={styles.heading}>
-          You don&apos;t need a diagnosis to begin.
+          You Don&apos;t Need A Diagnosis To Begin.
         </h1>
         <p className={styles.subtext}>
           Softmind&apos;s primary care model starts with understanding your most pressing concerns.

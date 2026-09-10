@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
 
           <div className={styles.appDownload}>
-            <p className={styles.appTitle}>Get the Softmind app</p>
+            <p className={styles.appTitle}>Get the Softmind App</p>
             <div className={styles.appBadges}>
               <Link href="#" className={styles.appBadge}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -82,10 +82,10 @@ export default function Footer() {
           {
             heading: "KNOWLEDGE",
             links: [
+              { label: "Knowledge Centre", href: "/knowledge-centre" },
               { label: "All Articles", href: "/articles" },
               { label: "Video Hub", href: "#" },
               { label: "Interactive Check-ins", href: "#" },
-              { label: "CBT Resources", href: "#" },
             ],
           },
           {

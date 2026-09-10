@@ -9,13 +9,6 @@
   padding: 0 24px;
 }
 
-.aboutGrid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
 /* ── Main About Card ────────────────── */
 .aboutCard {
   background-color: #ffffff;
@@ -28,7 +21,7 @@
 .aboutTitle {
   font-family: var(--font-serif);
   font-size: 1.35rem;
-  font-weight: 200;
+  font-weight: 400;
   color: #1a3330;
   margin: 0 0 20px 0;
   letter-spacing: -0.01em;
@@ -38,7 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .paragraph {
@@ -49,6 +42,26 @@
   margin: 0;
 }
 
+/* ── Languages Single Line directly above footer line ── */
+.languagesLine {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #1a3330;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.languagesLabel {
+  font-weight: 600;
+  color: #1a3330;
+}
+
+.languagesValue {
+  font-weight: 500;
+  color: #2c4a45;
+}
+
+/* ── Footer line with social icons + button ── */
 .cardFooter {
   display: flex;
   align-items: center;
@@ -104,83 +117,8 @@
   color: #ffffff;
 }
 
-/* ── Side Cards ────────────────── */
-.sideCol {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.sideCard {
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 32px;
-  border: 1px solid rgba(13, 148, 136, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.sideTitle {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 200;
-  color: #1a3330;
-  margin: 0 0 16px 0;
-  letter-spacing: -0.01em;
-}
-
-.languageList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.languageItem {
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  color: #4a6460;
-}
-
-/* Quote Card */
-.quoteIcon {
-  font-family: var(--font-serif);
-  font-size: 2.6rem;
-  color: #0d9488;
-  line-height: 1;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.quoteText {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-style: normal;
-  color: #334d49;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
-}
-
-.quoteAuthor {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  color: #64748b;
-  text-align: right;
-  display: block;
-  font-weight: 500;
-}
-
-@media (max-width: 900px) {
-  .aboutGrid {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 768px) {
   .aboutCard {
-    padding: 28px 24px;
-  }
-
-  .sideCard {
-    padding: 24px 20px;
+    padding: 28px 20px;
   }
 }

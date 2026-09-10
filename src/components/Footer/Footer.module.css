@@ -80,10 +80,12 @@
 
 .appTitle {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 400;
   color: var(--accent);
   margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .appBadges {
@@ -200,6 +202,9 @@
   }
   .brand {
     grid-column: span 1;
+  }
+  .appTitle {
+    font-size: 1.05rem;
   }
   .bottomInner {
     flex-direction: column;

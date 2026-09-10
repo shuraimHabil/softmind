@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--header-height);
+  height: 72px;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 40px;
@@ -41,13 +41,18 @@
   align-items: center;
   padding: 0 40px;
   font-size: 0.8rem;
-  transition: height 0.3s ease, opacity 0.3s ease;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  transform: translateY(0);
 }
 
 .topBarHidden {
   height: 0;
   opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
 }
 
 .topBarLeft,
@@ -73,6 +78,34 @@
 
 .topBarDivider {
   color: rgba(15, 23, 42, 0.15);
+}
+
+.topBarCloseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-body);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.topBarCloseBtn:hover {
+  opacity: 1;
+  color: var(--primary);
+  background-color: rgba(13, 148, 136, 0.12);
+  transform: rotate(90deg);
+}
+
+.topBarCloseBtn:active {
+  transform: rotate(90deg) scale(0.9);
 }
 
 .followUs {

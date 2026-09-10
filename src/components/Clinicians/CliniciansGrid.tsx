@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./CliniciansGrid.module.css";
+import { clinicians } from "@/lib/clinicians";
 
 const CATEGORIES = [
   "All",
@@ -12,7 +13,6 @@ const CATEGORIES = [
   "Children & Adolescents",
   "Personal & Life Challenges",
 ];
-import { clinicians } from "@/lib/clinicians";
 
 interface CliniciansGridProps {
   searchQuery?: string;
@@ -52,7 +52,7 @@ export default function CliniciansGrid({
   return (
     <section className={styles.section} id="clinicians-grid">
       <div className={styles.container}>
-        {/* Category Filter Tabs */}
+        {/* Category Filter Tabs & Search Bar */}
         <div className={styles.filterRow}>
           <div className={styles.tabs} role="tablist" aria-label="Clinician specialisations">
             {CATEGORIES.map((cat) => (
@@ -68,6 +68,42 @@ export default function CliniciansGrid({
                 {cat}
               </button>
             ))}
+          </div>
+
+          {/* Search bar placed at the end of the tabs */}
+          <div className={styles.searchWrap}>
+            <div className={styles.searchBar}>
+              <svg
+                className={styles.searchIcon}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                type="text"
+                className={styles.searchInput}
+                placeholder="Search clinicians..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
+                aria-label="Search clinicians"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  className={styles.searchClearBtn}
+                  onClick={() => setSearchQuery && setSearchQuery("")}
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
@@ -91,7 +127,12 @@ export default function CliniciansGrid({
         {filtered.length > 0 ? (
           <div className={styles.grid}>
             {filtered.map((clinician) => (
-              <article key={clinician.id} className={styles.card} id={`clinician-${clinician.id}`}>
+              <Link
+                key={clinician.id}
+                href={`/clinicians/${clinician.id}`}
+                className={styles.card}
+                id={`clinician-${clinician.id}`}
+              >
                 <div className={styles.imgWrap}>
                   <Image
                     src={clinician.img}
@@ -105,24 +146,8 @@ export default function CliniciansGrid({
                   <h3 className={styles.name}>{clinician.name}</h3>
                   <span className={styles.role}>{clinician.role}</span>
                   <p className={styles.desc}>{clinician.desc}</p>
-                  <Link
-                    href={`/clinicians/${clinician.id}`}
-                    className={styles.viewLink}
-                    id={`view-${clinician.id}`}
-                  >
-                    View Details
-                    <svg viewBox="0 0 16 16" fill="none" width="12" height="12">
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </Link>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         ) : (
