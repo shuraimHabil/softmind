@@ -19,11 +19,11 @@
   --bg-navy-light: #1e293b;
 
   /* Titles: Fraunces (Google Fonts) with Anek fallback for Malayalam */
-  --font-serif: "Fraunces", var(--font-fraunces), var(--font-anek-malayalam), "Anek Malayalam", Georgia, serif;
+  --font-serif: "Fraunces", var(--font-fraunces), "Noto Sans Malayalam", Georgia, serif;
   --font-playfair: var(--font-serif);
 
   /* Body: Noto Sans Malayalam & Anek Latin across the entire website */
-  --font-sans: "Noto Sans Malayalam", "Anek Latin", var(--font-anek-latin), var(--font-anek-malayalam), system-ui, -apple-system, sans-serif;
+  --font-sans: "Noto Sans Malayalam", "Anek Latin", var(--font-anek-latin), system-ui, -apple-system, sans-serif;
   --font-jakarta: var(--font-sans);
   --font-anek: var(--font-sans);
 
@@ -85,7 +85,7 @@ p {
 [lang="ml"],
 .malayalam,
 [data-language="Malayalam"] {
-  font-family: var(--font-anek-malayalam), "Anek Malayalam", sans-serif !important;
+  font-family: "Noto Sans Malayalam", sans-serif !important;
 }
 
 :lang(ml) h1,
@@ -105,7 +105,7 @@ p {
 [data-language="Malayalam"] [class*="heading"],
 [data-language="Malayalam"] [class*="Heading"],
 .malayalamTitle {
-  font-family: var(--font-anek-malayalam), "Anek Malayalam", sans-serif !important;
+  font-family: "Noto Sans Malayalam", sans-serif !important;
   font-weight: 600;
   line-height: 1.38;
 }
@@ -114,7 +114,7 @@ p {
 :lang(ml) p,
 [lang="ml"] p,
 .malayalamExcerpt {
-  font-family: var(--font-anek-malayalam), "Anek Malayalam", sans-serif !important;
+  font-family: "Noto Sans Malayalam", sans-serif !important;
   line-height: 1.65;
 }
 

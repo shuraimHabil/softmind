@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Anek_Latin, Anek_Malayalam } from "next/font/google";
+import { Fraunces, Anek_Latin } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -21,12 +21,7 @@ const anekLatin = Anek_Latin({
   display: "swap",
 });
 
-const anekMalayalam = Anek_Malayalam({
-  subsets: ["latin", "malayalam"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-anek-malayalam",
-  display: "swap",
-});
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://softmind.vercel.app"),
@@ -68,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${anekLatin.variable} ${anekMalayalam.variable}`}
+      className={`${fraunces.variable} ${anekLatin.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
