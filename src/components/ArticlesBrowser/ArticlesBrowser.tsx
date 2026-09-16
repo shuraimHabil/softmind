@@ -362,9 +362,6 @@ export default function ArticlesBrowser({
                       />
                       <div className={styles.badgeGroup}>
                         <span className={styles.cardBadge}>{art.badge}</span>
-                        {art.language === "Malayalam" && (
-                          <span className={styles.langBadge} lang="ml">മലയാളം</span>
-                        )}
                       </div>
                     </div>
                     <div className={styles.cardBody}>
