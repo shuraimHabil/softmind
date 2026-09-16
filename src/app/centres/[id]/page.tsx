@@ -27,13 +27,35 @@ export async function generateMetadata({ params }: CentrePageProps): Promise<Met
     };
   }
 
+  const canonicalUrl = `https://www.softmindindia.com/centres/${centre.slug}`;
+  const title = `Softmind ${centre.shortName} – Mental Health Centre in ${centre.city}`;
+  const description = centre.tagline;
+
   return {
-    title: `${centre.name} - ${centre.shortName} | Softmind Wellness Centres`,
-    description: centre.tagline,
+    title,
+    description,
     openGraph: {
-      title: `${centre.name} | Softmind`,
-      description: centre.tagline,
-      images: [{ url: centre.thumbnail }],
+      title,
+      description,
+      url: canonicalUrl,
+      type: "website",
+      images: [
+        {
+          url: "https://www.softmindindia.com/og/default.jpg",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.softmindindia.com/og/default.jpg"],
+    },
+    alternates: {
+      canonical: canonicalUrl,
     },
   };
 }

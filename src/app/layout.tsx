@@ -24,16 +24,21 @@ const anekLatin = Anek_Latin({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://softmind.vercel.app"),
-  title: "Softmind - Evidence-Based & Personalized Psychological Care",
+  metadataBase: new URL("https://www.softmindindia.com"),
+  title: "Softmind Wellness | Psychologists in Kochi, Thrissur & Across Kerala",
   description:
-    "Softmind is a pioneer in evidence-based and personalized mental healthcare, offering psychiatric services, psychological therapy, child counseling, and online consultations.",
+    "Softmind Wellness offers evidence-based therapy and psychiatric care at our centres in Panampilly Nagar, Kakkanad, Thrissur, and Kochi. We also assist residents in Malaysia with online sessions.",
   openGraph: {
     siteName: "Softmind Wellness",
     locale: "en_IN",
+    type: "website",
+    title: "Softmind Wellness: psychological care across Kerala",
+    description:
+      "Visit Softmind Wellness in Kochi, or attend our sessions in Malaysia & online",
+    url: "https://www.softmindindia.com",
     images: [
       {
-        url: "/og/default.jpg",
+        url: "https://www.softmindindia.com/og/default.jpg",
         width: 1200,
         height: 630,
         alt: "Softmind Wellness",
@@ -42,6 +47,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "Softmind Wellness: psychological care across Kerala",
+    description:
+      "Visit Softmind Wellness in Kochi, or attend our sessions in Malaysia & online",
+    images: ["https://www.softmindindia.com/og/default.jpg"],
   },
   robots: {
     index: true,
@@ -49,7 +58,7 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.softmindindia.com",
   },
 };
 

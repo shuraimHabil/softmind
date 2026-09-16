@@ -12,16 +12,31 @@ export const metadata: Metadata = {
   title: "Browse Clinical Articles | Softmind Healthcare",
   description:
     "Explore evidence-based mental health articles, psychology research, and clinical insights curated by Softmind's licensed specialists in Kerala.",
-  keywords: [
-    "mental health articles",
-    "psychology insights",
-    "anxiety and worry",
-    "depression help",
-    "therapy kochi",
-    "mindfulness",
-    "Softmind",
-    "Malayalam mental health articles",
-  ],
+  openGraph: {
+    title: "Browse Clinical Articles | Softmind Healthcare",
+    description:
+      "Explore evidence-based mental health articles, psychology research, and clinical insights curated by Softmind's licensed specialists in Kerala.",
+    url: "https://www.softmindindia.com/articles",
+    type: "website",
+    images: [
+      {
+        url: "https://www.softmindindia.com/og/default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Browse Clinical Articles | Softmind Healthcare",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Browse Clinical Articles | Softmind Healthcare",
+    description:
+      "Explore evidence-based mental health articles, psychology research, and clinical insights curated by Softmind's licensed specialists in Kerala.",
+    images: ["https://www.softmindindia.com/og/default.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.softmindindia.com/articles",
+  },
 };
 
 export default function ArticlesPage() {

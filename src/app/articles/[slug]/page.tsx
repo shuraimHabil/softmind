@@ -14,9 +14,43 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) return {};
+
+  const canonicalUrl = `https://www.softmindindia.com/articles/${slug}`;
+  const title = article.title;
+  const description = article.excerpt;
+
+  // Parse reviewedDate ("Aug 28, 2026") → ISO string for article:published_time
+  const publishedDate = article.reviewedDate
+    ? new Date(article.reviewedDate).toISOString()
+    : undefined;
+
   return {
-    title: `${article.title} | Softmind`,
-    description: article.excerpt,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      type: "article",
+      images: [
+        {
+          url: "https://www.softmindindia.com/og/default.jpg",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      ...(publishedDate ? { publishedTime: publishedDate } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.softmindindia.com/og/default.jpg"],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
   };
 }
 

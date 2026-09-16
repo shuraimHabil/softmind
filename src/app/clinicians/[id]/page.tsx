@@ -18,9 +18,40 @@ export async function generateMetadata({
   const clinician = getClinicianById(id);
   if (!clinician) return {};
 
+  const firstName = clinician.name.split(" ")[0];
+  const canonicalUrl = `https://www.softmindindia.com/clinicians/${id}`;
+  const title = `${clinician.name} – ${clinician.role} | Softmind Wellness`;
+  const description = clinician.tagline;
+
   return {
-    title: `${clinician.name} - ${clinician.role} | Softmind`,
-    description: clinician.tagline || clinician.desc,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      type: "profile",
+      images: [
+        {
+          url: "https://www.softmindindia.com/og/default.jpg",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.softmindindia.com/og/default.jpg"],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    other: {
+      "profile:first_name": firstName,
+    },
   };
 }
 
