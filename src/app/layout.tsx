@@ -29,7 +29,7 @@ const anekMalayalam = Anek_Malayalam({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.softmindindia.com"),
+  metadataBase: new URL("https://softmind.vercel.app"),
   title: "Softmind - Evidence-Based & Personalized Psychological Care",
   description:
     "Softmind is a pioneer in evidence-based and personalized mental healthcare, offering psychiatric services, psychological therapy, child counseling, and online consultations.",
