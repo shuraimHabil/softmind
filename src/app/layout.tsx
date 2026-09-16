@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Anek_Latin, Anek_Malayalam } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
@@ -29,10 +29,37 @@ const anekMalayalam = Anek_Malayalam({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.softmindindia.com"),
   title: "Softmind - Evidence-Based & Personalized Psychological Care",
   description:
     "Softmind is a pioneer in evidence-based and personalized mental healthcare, offering psychiatric services, psychological therapy, child counseling, and online consultations.",
-  keywords: ["mental health", "psychology", "therapy", "psychiatry", "Kerala", "Softmind"],
+  openGraph: {
+    siteName: "Softmind Wellness",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/og/default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Softmind Wellness",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B1F3A",
 };
 
 export default function RootLayout({
