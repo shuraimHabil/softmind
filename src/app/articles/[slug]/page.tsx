@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         },
       ],
       ...(publishedDate ? { publishedTime: publishedDate } : {}),
+      ...(article.category ? { section: article.category } : {}),
     },
     twitter: {
       card: "summary_large_image",

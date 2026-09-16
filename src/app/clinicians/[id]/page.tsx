@@ -18,7 +18,9 @@ export async function generateMetadata({
   const clinician = getClinicianById(id);
   if (!clinician) return {};
 
-  const firstName = clinician.name.split(" ")[0];
+  const nameParts = clinician.name.replace(/^Dr\.\s*/, "").split(" ");
+  const firstName = nameParts[0] ?? clinician.name;
+  const lastName = nameParts.slice(1).join(" ") || "";
   const canonicalUrl = `https://www.softmindindia.com/clinicians/${id}`;
   const title = `${clinician.name} – ${clinician.role} | Softmind Wellness`;
   const description = clinician.tagline;
@@ -51,6 +53,7 @@ export async function generateMetadata({
     },
     other: {
       "profile:first_name": firstName,
+      ...(lastName ? { "profile:last_name": lastName } : {}),
     },
   };
 }
