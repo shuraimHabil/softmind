@@ -25,16 +25,17 @@ export const centres: Centre[] = [
   {
     id: "panampilly-nagar",
     slug: "panampilly-nagar",
-    name: "Softmind Kochi",
+    name: "Softmind Panampilly Nagar, Kochi",
     shortName: "Panampilly Nagar",
     city: "Kochi, Kerala",
     tagline:
-      "Our Panampilly Nagar centre offers a calm and welcoming space for individuals, couples and families. A dedicated team of psychologists provide comprehensive mental health care tailored for your journey.",
+      "Our Panampilly Nagar centre is a quiet, private space for therapy, psychological assessment and psychiatric consultation.",
     phone: "+91 90618 18732",
-    email: "kochi@softmind.in",
+    email: "info@softmindindia.com",
     address: "Panampilly Nagar Ave,\nErnakulam",
-    fullAddress: "4th Floor, Skyline Bay Towers, Panampilly Nagar Ave, Kochi, Kerala 682036",
-    hours: "Mon – Sat: 9:00 AM – 8:00 PM",
+    fullAddress:
+      "Second Floor, Kerala State Housing Board, G-23, Panampilly Nagar Avenue, Panampilly Nagar, Kochi, Ernakulam, Kerala 682036",
+    hours: "Mon – Sat: 9:00 AM – 7:00 PM",
     thumbnail: "/assets/panampilly-nagar.webp",
     gallery: {
       main: "/assets/panampilly-nagar.webp",
@@ -47,25 +48,25 @@ export const centres: Centre[] = [
       "Child & adolescent therapy space",
       "Psychological assessment room",
       "Comfortable waiting lounge",
-      "Wheelchair accessible & parking",
-      "Safe, confidential & soundproof suites",
+      "Safe, confidential & soundproof consultation suites",
     ],
-    clinicianIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    clinicianIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     mapQuery: "Panampilly+Nagar,+Kochi,+Kerala",
   },
   {
     id: "kakkanad",
     slug: "kakkanad",
-    name: "Softmind Kakkanad",
+    name: "Softmind Kakkanad, Kochi",
     shortName: "Kakkanad",
     city: "Kochi, Kerala",
     tagline:
-      "Conveniently situated near InfoPark and CSEZ, our Kakkanad centre provides a private sanctuary for tech professionals, students, and families seeking evidence-based therapy in a relaxing atmosphere.",
+      "Conveniently situated near InfoPark and CSEZ, our Kakkanad centre offers psychological assessment, therapy and psychiatric care for adults, couples and families.",
     phone: "+91 98460 60111",
-    email: "kakkanad@softmind.in",
+    email: "info@softmindindia.com",
     address: "Seaport-Airport Rd, CSEZ,\nKochi",
-    fullAddress: "3rd Floor, Express Arcade, Seaport-Airport Rd, Near CSEZ, Kakkanad, Kochi, Kerala 682037",
-    hours: "Mon – Sat: 9:00 AM – 8:30 PM",
+    fullAddress:
+      "Isac & Geetha's Image Centre, Seaport-Airport Road, CSEZ P.O., Kakkanad, Kochi, Kerala 682037",
+    hours: "Mon – Sat: 9:00 AM – 7:00 PM",
     thumbnail: "/assets/kakkanad.webp",
     gallery: {
       main: "/assets/kakkanad.webp",
@@ -74,46 +75,13 @@ export const centres: Centre[] = [
     },
     facilities: [
       "Individual therapy rooms",
-      "Work-stress & corporate wellness pods",
+      "Work-stress & corporate wellness support",
       "Couple & family therapy rooms",
-      "Psychological diagnostic suite",
-      "High-speed confidential tele-therapy booth",
-      "Soundproof consultation rooms",
-      "On-site visitor parking",
+      "Psychological assessment suites",
+      "Confidential tele-therapy facility",
     ],
-    clinicianIds: [1, 3, 5, 7, 9, 11, 12, 13, 2, 4, 6, 8],
+    clinicianIds: [1, 3, 5, 7, 9, 11, 12, 13, 2, 4],
     mapQuery: "Kakkanad,+Kochi,+Kerala",
-  },
-  {
-    id: "trivandrum",
-    slug: "trivandrum",
-    name: "Softmind Trivandrum",
-    shortName: "Trivandrum",
-    city: "Thiruvananthapuram, Kerala",
-    tagline:
-      "Located in the serene neighbourhood of Kowdiar, our Trivandrum centre delivers compassionate psychiatric and psychological interventions in an elegant, soothing setting designed for genuine healing.",
-    phone: "+91 0471 299238",
-    email: "trivandrum@softmind.in",
-    address: "Ambalamukku, Kowdiar,\nThiruvananthapuram",
-    fullAddress: "2nd Floor, Lotus Heritage, Ambalamukku - Kowdiar Main Rd, Thiruvananthapuram, Kerala 695003",
-    hours: "Mon – Sat: 9:00 AM – 7:30 PM",
-    thumbnail: "/assets/trivandrum.webp",
-    gallery: {
-      main: "/assets/trivandrum.webp",
-      sub1: "/assets/insight_3.jpg",
-      sub2: "/assets/child_session.jpg",
-    },
-    facilities: [
-      "Individual therapy rooms",
-      "Child & developmental therapy suite",
-      "Couple & family counselling room",
-      "Senior psychiatric consultation lounge",
-      "Comprehensive psychometric assessment",
-      "Peaceful garden-facing waiting lounge",
-      "Dedicated parking facility",
-    ],
-    clinicianIds: [2, 4, 6, 8, 10, 14, 15, 1, 3, 5, 7],
-    mapQuery: "Kowdiar,+Thiruvananthapuram,+Kerala",
   },
   {
     id: "thrissur",
@@ -122,12 +90,13 @@ export const centres: Centre[] = [
     shortName: "Thrissur",
     city: "Thrissur, Kerala",
     tagline:
-      "Nestled in the cultural heart of Thrissur, our centre offers warm, discreet, and patient-centered psychological support for individuals, couples, and children facing emotional and behavioral challenges.",
+      "Our Thrissur centre offers therapy for adults, children and families, with psychiatric consultations arranged as needed.",
     phone: "+91 90618 18732",
-    email: "thrissur@softmind.in",
+    email: "care@softmindindia.com",
     address: "Father Vadakkan Road, Shakthan\nNagar, Thrissur",
-    fullAddress: "1st Floor, Centre Square Annex, Father Vadakkan Road, Shakthan Nagar, Thrissur, Kerala 680001",
-    hours: "Mon – Sat: 9:00 AM – 8:00 PM",
+    fullAddress:
+      "Forms Villas, near Shakthan Manar Flat, Father Vadakkan Road (Mundupalam Road), Shakthan Thampuran Nagar, Veliyannur, Thrissur, Kerala 680001",
+    hours: "Mon – Sat: 10:00 AM – 1:00 PM (Afternoons by prior booking)",
     thumbnail: "/assets/thrissur.webp",
     gallery: {
       main: "/assets/thrissur.webp",
@@ -137,23 +106,77 @@ export const centres: Centre[] = [
     facilities: [
       "Individual therapy rooms",
       "Family counselling suites",
-      "Child behavioral play zone",
-      "Cognitive & neuro-psychological assessments",
-      "Warm and welcoming reception lounge",
-      "Sound-isolated quiet suites",
-      "Convenient central city access & parking",
+      "Child behavioral support",
+      "Cognitive assessments",
+      "Sound-isolated consultation rooms",
     ],
-    clinicianIds: [1, 2, 4, 5, 8, 11, 13, 3, 6, 9, 10],
+    clinicianIds: [1, 2, 4, 5, 8, 11, 13, 3, 6, 9],
     mapQuery: "Shakthan+Nagar,+Thrissur,+Kerala",
+  },
+  {
+    id: "aroor",
+    slug: "aroor",
+    name: "Softmind Aroor",
+    shortName: "Aroor",
+    city: "Aroor, Alappuzha, Kerala",
+    tagline:
+      "Located inside Lakshmi Hospital, our Aroor centre serves families across Aroor and Alappuzha district with experienced psychologists and psychiatric support.",
+    phone: "+91 77364 84813",
+    email: "care@softmindindia.com",
+    address: "Lakshmi Hospital, opposite Malayala Manorama,\nAroor",
+    fullAddress:
+      "Softmind Counselling Centre, Lakshmi Hospital, opposite Malayala Manorama, Aroor, Alappuzha, Kerala",
+    hours: "Mon – Sun: 10:00 AM – 5:00 PM",
+    thumbnail: "/assets/panampilly-nagar.webp",
+    gallery: {
+      main: "/assets/panampilly-nagar.webp",
+      sub1: "/assets/therapy_session.jpg",
+      sub2: "/assets/hero_therapy.jpg",
+    },
+    facilities: [
+      "Individual therapy rooms",
+      "Child and family support space",
+      "Psychiatric consultation",
+      "Hospital-supported clinical setting",
+    ],
+    clinicianIds: [1, 2, 4, 10, 15],
+    mapQuery: "Aroor,+Alappuzha,+Kerala",
+  },
+  {
+    id: "trivandrum",
+    slug: "trivandrum",
+    name: "Softmind Online Services (Thiruvananthapuram)",
+    shortName: "Online (Trivandrum)",
+    city: "Thiruvananthapuram, Kerala",
+    tagline:
+      "Secure online psychological care and psychiatric consultations in Malayalam and English for clients in Thiruvananthapuram and across Kerala.",
+    phone: "+91 90618 18732",
+    email: "info@softmindindia.com",
+    address: "Online Consultations\nThiruvananthapuram",
+    fullAddress: "Secure Tele-health services across Thiruvananthapuram, Kerala",
+    hours: "Mon – Sat: 9:00 AM – 8:00 PM (By Appointment)",
+    thumbnail: "/assets/trivandrum.webp",
+    gallery: {
+      main: "/assets/trivandrum.webp",
+      sub1: "/assets/insight_3.jpg",
+      sub2: "/assets/child_session.jpg",
+    },
+    facilities: [
+      "High-definition encrypted video sessions",
+      "Individual therapy & psychiatric consultation",
+      "Malayalam & English consultations",
+    ],
+    clinicianIds: [1, 2, 3, 5, 8],
+    mapQuery: "Thiruvananthapuram,+Kerala",
   },
 ];
 
 export function getCentreBySlug(slug: string): Centre | undefined {
-  const normalized = slug.toLowerCase();
+  const normalized = slug.toLowerCase().trim();
   if (normalized === "kochi") return centres.find((c) => c.id === "panampilly-nagar");
   return centres.find((c) => c.slug === normalized || c.id === normalized);
 }
 
 export function getAllCentres(): Centre[] {
-  return centres;
+  return centres.filter((c) => c.id !== "trivandrum");
 }

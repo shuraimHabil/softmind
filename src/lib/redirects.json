@@ -1,0 +1,2552 @@
+[
+  {
+    "source": "/About-Us",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Advisory-Board/George-Kottarathil-Social-Psychologist",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/Advisory-Board/Prasanth",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/Advisory-Board/Preetha-Ajith",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/Advisory-Board/lavinia-h",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/Appointments/",
+    "destination": "/book",
+    "permanent": true
+  },
+  {
+    "source": "/BOOK-AN-APPOINTMENT",
+    "destination": "/book",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Adolescents-Brains-Development-and-Food",
+    "destination": "/articles/adolescent-brain-development-and-food",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Adolescents-Brains-Transformed-By-Surrounding",
+    "destination": "/articles/adolescent-brain-and-environment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Adolescents-Brains-Transformed-by-Surroundings-The-Power-of-Environmental-Influences",
+    "destination": "/articles/adolescent-brain-and-environment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Aura-Healing-And-Spiritual-Energy-A-Clear-Look-At-What-Actually-Happens-In-The-Brain",
+    "destination": "/articles/aura-healing-and-the-brain",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Benefits-Of-Unconditional-Love",
+    "destination": "/articles/benefits-of-unconditional-love",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Best-Talking-Therapy-For-Stress-Kochi",
+    "destination": "/articles/talking-therapy-stress-relief-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Beyond-Theft-the-Hidden-Impulses-of-Kleptomania",
+    "destination": "/articles/kleptomania",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Building-Resilience-A-Psychological-Perspective",
+    "destination": "/articles/building-resilience",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Can-Rationalist-Have-Anxiety-Disorders",
+    "destination": "/articles/anxiety-in-rationalists",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Can-counselling-cure-everyone",
+    "destination": "/articles/can-counselling-cure-everyone",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Emotional-Struggles-in-Retirement",
+    "destination": "/articles/emotional-struggles-in-retirement",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Exploring-the-Roots-of-Envy-and-Jealousy-A-Psychological-Perspective",
+    "destination": "/articles/roots-of-envy-and-jealousy",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/From-Menstrual-Taboos-to-Menstrual-Rights",
+    "destination": "/articles/menstrual-taboos-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Future-Of-Depression",
+    "destination": "/articles/future-of-depression",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Gen-Z-Mental-Health-Kochi",
+    "destination": "/articles/gen-z-mental-health-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Hidden-Costs-Of-Being-Stingy",
+    "destination": "/articles/hidden-costs-of-being-stingy",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/How-Information-Overload-Affects-Mental-Health-In-The-Digital-Age",
+    "destination": "/articles/information-overload-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/How-Memory-Distortions-Affect-Our-Recollection-of-the-Past",
+    "destination": "/articles/memory-distortions",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/How-Relations-with-Parents-and-Peers-Help-Teens-Become-Well-Adjusted-Adults",
+    "destination": "/articles/teen-relationships-parents-and-peers",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/How-Your-Parenting-Style-Affects-Your-Childs-Development",
+    "destination": "/articles/parenting-styles-and-child-development",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/How-long-does-falling-in-love-last",
+    "destination": "/articles/how-long-does-love-last",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/How-the-placebo-effect-works-even-when-you-know",
+    "destination": "/articles/how-the-placebo-effect-works",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Insomnia-disorder-causes-sleep-hygiene-and-cognitive-techniques",
+    "destination": "/articles/insomnia-causes-and-sleep-hygiene",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Instagram-And-Mental-Health-Beyond-Screen-Time",
+    "destination": "/articles/instagram-human-psychology-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Kochi-And-The-Changing-Psychology-Of-Urban-Life",
+    "destination": "/articles/kochi-urban-life-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Mind -The-Myth-and-Reality",
+    "destination": "/articles/what-is-the-mind",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Myths-and-Misconceptions-About-Borderline-Personality-Disorder",
+    "destination": "/articles/borderline-personality-disorder-myths-and-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Navigating-the-Complexities-of-Borderline-Personality-Disorder-Diagnosis-and-Treatment",
+    "destination": "/articles/borderline-personality-disorder-myths-and-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Overcoming-Procrastination-Causes-Consequences-and-Effective-Strategies",
+    "destination": "/articles/overcoming-procrastination",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Parenting",
+    "destination": "/articles/parenting-and-gender-expectations",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Relationship-Counselling-Modern-Relationships",
+    "destination": "/articles/relationship-counselling-modern-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Revenge-and-Forgiveness-The-Emotional-Impetus-for-Justice",
+    "destination": "/articles/revenge-and-forgiveness",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Revolutionary-Tool-with-Psychological-Impact",
+    "destination": "/articles/social-media-psychological-impact",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Shattered-Self-Traumatic-Experiences-and-Our-Sense-of-Identity",
+    "destination": "/articles/trauma-and-sense-of-identity",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Sleep-Matters-REM-Sleep-Deep-Sleep-Insomnia-Apnea-and-Somnambulism",
+    "destination": "/articles/sleep-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Social-Of-Conformity-And-Obedience",
+    "destination": "/articles/conformity-and-obedience",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Social-Psychology-Of-Conformity-And-Obedience",
+    "destination": "/articles/conformity-and-obedience",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Taming-Stress-Strategies-for-a-More-Relaxed-Life",
+    "destination": "/articles/strategies-to-manage-stress",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Complexity-of-Superiority",
+    "destination": "/articles/superiority-complex",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Concept-of-Emotional-Intelligence",
+    "destination": "/articles/the-concept-of-emotional-intelligence",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Consequences-of-Skipping-Sleep",
+    "destination": "/articles/sleep-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Impact-of-Social-Comparison-on-Self-Esteem-and-Body-Image",
+    "destination": "/articles/social-comparison-self-esteem-body-image",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Meaning-of-Life",
+    "destination": "/articles/the-meaning-of-life",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Power-of-Operant-Conditioning-A-Psychological-Perspective",
+    "destination": "/articles/operant-conditioning",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Psychology-Behind-Mob-mentality",
+    "destination": "/articles/psychology-of-mob-mentality",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Psychology-of-Decision-Making-and-How-to-Make-Better-Choices",
+    "destination": "/articles/psychology-of-decision-making",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Psychology-of-Mental-Imagery-and-Visualization-Exploring-the-Science-Behind-the-Minds-Eye",
+    "destination": "/articles/psychology-of-mental-imagery",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-Role-of-Psychology-in-Addressing-Prejudice-and-Discrimination",
+    "destination": "/articles/psychology-of-prejudice-and-discrimination",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/The-intoxication-of-the-new-year",
+    "destination": "/articles/the-intoxication-of-the-new-year",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Understanding-Anxiety-The-Mind-Body-And-Why-It-Feels-Real",
+    "destination": "/articles/understanding-anxiety-mind-body",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Understanding-Learning-Disabilities-Psychological-and-Neurological-Perspectives",
+    "destination": "/articles/understanding-learning-disabilities",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Understanding-the-Impact-of-Work-Stress-on-Mental-Health",
+    "destination": "/articles/work-stress-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Understanding-the-Neural-Basis-of-Adolescent-Decision-Making",
+    "destination": "/articles/adolescent-decision-making",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/What-is-mental-health-treatment",
+    "destination": "/articles/what-is-mental-health-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/What-to-do-when-you-have-excessive-fear",
+    "destination": "/articles/overcoming-excessive-fear",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/When-the-Mind-Clashes-Understanding-Cognitive-Dissonance",
+    "destination": "/articles/cognitive-dissonance",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-Depression-Makes-You-Feel-Like-Youre-Losing-Yourself",
+    "destination": "/articles/why-depression-feels-like-losing-yourself",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-Do-Humans-Feel-Aging-Differently-Than-Other-Primates",
+    "destination": "/articles/why-humans-feel-ageing-differently",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-Stress-And-Anxiety-Feel-Higher-In-This-Era-Neuroscience-Informed-Reflection",
+    "destination": "/articles/why-stress-and-anxiety-feel-higher-today",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-We-Repeat-Emotional-Mistakes",
+    "destination": "/articles/why-we-repeat-emotional-mistakes",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-Windy-Days-Make-Us-Restless",
+    "destination": "/articles/why-windy-days-make-us-restless",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-You-Feel-Exhausted-After-Social-Events",
+    "destination": "/articles/why-you-feel-exhausted-after-social-events",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-You-Feel-Warm-Some-Days-And-Cold-Others",
+    "destination": "/articles/why-you-feel-warm-some-days-and-cold-others",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-Your-Voice-Trembles-When-You-Feel-Anxious",
+    "destination": "/articles/why-your-voice-trembles-when-you-feel-anxious",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-are-you-addicted",
+    "destination": "/articles/why-are-you-addicted",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/Why-is-it-always-sad",
+    "destination": "/articles/why-is-it-always-sad",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/all-about-stress-and-depression",
+    "destination": "/articles/stress-and-depression-relief",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/anorexia-nervosa-warning-signs-health-consequences-and-recovery",
+    "destination": "/articles/anorexia-nervosa-warning-signs-and-recovery",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/anxiety-disorders-in-rationalists",
+    "destination": "/articles/anxiety-in-rationalists",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/attention-deficit-hyperactivity-disorder-diagnosis-and-behavioural-interventions",
+    "destination": "/articles/adhd-diagnosis-and-behavioural-interventions",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/aura-healing-and-spiritual-energy-a-clear-look-at-what-actually-happens-in-the-brain",
+    "destination": "/articles/aura-healing-and-the-brain",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/autism-spectrum-disorder-early-identification-and-behavioural-support",
+    "destination": "/articles/autism-early-identification-and-support",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/autism-symptoms-treatments",
+    "destination": "/articles/autism-sexuality-and-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/awkward-sex-and-autism-guide",
+    "destination": "/articles/autism-sexuality-and-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/benefits-of-unconditional-love",
+    "destination": "/articles/benefits-of-unconditional-love",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/best-talking-therapy-for-stress-kochi",
+    "destination": "/articles/talking-therapy-stress-relief-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/breaking-boundaries-innovations-in-depression-treatment-and-the-road-ahead",
+    "destination": "/articles/innovations-in-depression-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/breaking-laziness-the-easy-way",
+    "destination": "/articles/overcoming-laziness",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/child-sexual-abuse-symptoms-treatment",
+    "destination": "/articles/child-sexual-abuse-signs-and-support",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/coffee-with-a-psychologist-psychological-counseling",
+    "destination": "/articles/coffee-with-a-psychologist",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/counseling-effects-on-women",
+    "destination": "/articles/counselling-for-women",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/counselling-for-women-ultimate-guide",
+    "destination": "/articles/counselling-for-women",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/counselling-older-adults-issues-and-awareness",
+    "destination": "/articles/cognitive-decline-and-dementia-support",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/couple-counseling",
+    "destination": "/articles/how-long-does-love-last",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/cultural-psychology-and-diversity",
+    "destination": "/articles/cultural-psychology-and-diversity",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/decoding-dreams-from-symbols-to-self-discovery",
+    "destination": "/articles/decoding-dreams-from-symbols-to-self-discovery",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/depression-treatment-depression-symptoms-get-help-managing-depression",
+    "destination": "/articles/depression-signs-symptoms-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/depression-unveiling-signs-symptoms-and-effective-treatment-approaches",
+    "destination": "/articles/depression-signs-symptoms-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/exploring-the-depths-of-depression-unveiling-different-Types",
+    "destination": "/articles/types-of-depression",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/flat-life-in-kochi-and-the-silent-mental-health-crisis-of-urban-living",
+    "destination": "/articles/flat-life-in-kochi-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/from-runners-high-to-endorphins-and-mood-enhancement",
+    "destination": "/articles/runners-high-endorphins-and-mood",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/future-of-depression",
+    "destination": "/articles/future-of-depression",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/gen-z-mental-health-kochi",
+    "destination": "/articles/gen-z-mental-health-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/hidden-costs-of-being-stingy",
+    "destination": "/articles/hidden-costs-of-being-stingy",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/how-information-overload-affects-mental-health-in-the-digital-age",
+    "destination": "/articles/information-overload-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/how-people-like-each-other",
+    "destination": "/articles/how-people-like-each-other",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/how-to-overcome-the-fear-of-flying",
+    "destination": "/articles/overcoming-fear-of-flying",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/impact-of-anxiety-disorders-on-daily-life-and-relationships",
+    "destination": "/articles/anxiety-disorders-daily-life-and-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/importance-of-teenage-counselling",
+    "destination": "/our-care/child-adolescent-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/importance-pregnancy-counselling",
+    "destination": "/articles/mental-health-during-pregnancy",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/instagram-and-mental-health-beyond-screen-time",
+    "destination": "/articles/instagram-human-psychology-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/kochi-and-the-changing-psychology-of-urban-life",
+    "destination": "/articles/kochi-urban-life-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/love-breakup-counseling",
+    "destination": "/articles/coping-with-a-breakup",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/mental-health-break-up-depression-treatment",
+    "destination": "/articles/coping-with-a-breakup",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/mental-health-stigma-and-awareness",
+    "destination": "/articles/mental-health-stigma-and-awareness",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/mind-psychology-emotion",
+    "destination": "/articles/what-is-the-mind",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/navigating-anxiety-unraveling-diagnoses-for-mental-health-care",
+    "destination": "/articles/anxiety-diagnosis-explained",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/neurosis-and-moral-policing",
+    "destination": "/articles/neurosis-and-moral-policing",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/nourishing-the-mind-and-body-a-story-of-overcoming-unhealthy-eating-patterns",
+    "destination": "/articles/overcoming-unhealthy-eating-patterns",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/obsessive-compulsive-disorder-intrusive-thoughts-and-behavioural-therapy",
+    "destination": "/articles/ocd-intrusive-thoughts-behavioural-therapy",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/overcoming-english-language-anxiety",
+    "destination": "/articles/overcoming-english-language-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/psychology-counseling-kochi",
+    "destination": "/articles/managing-stress-in-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/ptsd-treatment",
+    "destination": "/articles/ptsd-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/relationship-counselling-modern-relationships",
+    "destination": "/articles/relationship-counselling-modern-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/romantic-love-a-psychological-perspective",
+    "destination": "/articles/romantic-love-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/safeguarding-hope-exploring-suicide-depression-and-advancements-in-clinical-care",
+    "destination": "/articles/suicide-risk-and-depression-care",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/shame-guilt-and-self-concept-how-our-emotions-shape-our-identity",
+    "destination": "/articles/shame-guilt-and-self-concept",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/social-psychology-of-conformity-and-obedience",
+    "destination": "/articles/conformity-and-obedience",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/strengthening-the-lifeline-how-family-friends-and-community-propel-depression-recovery",
+    "destination": "/articles/family-support-in-depression-recovery",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/stress-depression-relief-tips-2023",
+    "destination": "/articles/stress-and-depression-relief",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/teenage-problems-and-solutions",
+    "destination": "/articles/teen-sexual-health-myths",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/the-Psychology-of-Platonic-Love",
+    "destination": "/articles/psychology-of-platonic-love",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/the-effect-of-love-on-the-brain",
+    "destination": "/articles/how-long-does-love-last",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/the-nature-of-conflict-different-conflict-styles-and-emotions",
+    "destination": "/articles/nature-of-conflict-and-conflict-styles",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/the-psychology-of-social-identity-understanding-group-dynamics-and-interactions",
+    "destination": "/articles/psychology-of-social-identity",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/tips-to-overcome-fear",
+    "destination": "/articles/overcoming-excessive-fear",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/understanding-anxiety-the-mind-body-and-why-it-feels-real",
+    "destination": "/articles/understanding-anxiety-mind-body",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/unraveling-anxiety-neurobiological-threads-from-genes-to-environment",
+    "destination": "/articles/neurobiology-of-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/why-depression-makes-you-feel-like-youre-losing-yourself",
+    "destination": "/articles/why-depression-feels-like-losing-yourself",
+    "permanent": true
+  },
+  {
+    "source": "/Blog/why-stress-and-anxiety-feel-higher-in-this-era-neuroscience-informed-reflection",
+    "destination": "/articles/why-stress-and-anxiety-feel-higher-today",
+    "permanent": true
+  },
+  {
+    "source": "/Book-An-Appointment",
+    "destination": "/book",
+    "permanent": true
+  },
+  {
+    "source": "/Calicut centre page",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Career",
+    "destination": "/careers",
+    "permanent": true
+  },
+  {
+    "source": "/Career/Appointments",
+    "destination": "/careers",
+    "permanent": true
+  },
+  {
+    "source": "/Career/Hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/Contact-Us",
+    "destination": "/contact",
+    "permanent": true
+  },
+  {
+    "source": "/Cookies-Policy",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/Courses",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/Courses/Hospitals",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/Downloads",
+    "destination": "/knowledge-centre",
+    "permanent": true
+  },
+  {
+    "source": "/English-Articles",
+    "destination": "/articles",
+    "permanent": true
+  },
+  {
+    "source": "/Ethics-Committe",
+    "destination": "/about/clinical-standards",
+    "permanent": true
+  },
+  {
+    "source": "/FAQ",
+    "destination": "/faq",
+    "permanent": true
+  },
+  {
+    "source": "/Gallery",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/Anju-kakkanad-psychologist-kochi",
+    "destination": "/clinicians/anju",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/Anly-Chandy-Leading-Psychologist-Kochi",
+    "destination": "/clinicians/anly-chandy",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/Binusha-Psychotherapist",
+    "destination": "/clinicians/binusha",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/Keerthana-Clinical-Psychologist-Kochi",
+    "destination": "/clinicians/keerthana-chandran",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/Kripa-Consultant-Psychologist",
+    "destination": "/clinicians/kripa-xavier",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/Lijo-Nellickal-Jose-Psychotherapist",
+    "destination": "/clinicians/lijo-nellickal-jose",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/afreen-lady-psychologist-kakkanad",
+    "destination": "/clinicians/afreen",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/albin-psychotherapist-kochi",
+    "destination": "/clinicians/albin-thomas",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/anly-chandy-leading-psychologist-kochi",
+    "destination": "/clinicians/anly-chandy",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/ashly-joshy-psychologist-kochi",
+    "destination": "/clinicians/ashly-joshy",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/bavij-consultant-psychiatrist",
+    "destination": "/clinicians/bavij-balan",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/best-lady-psychologist-aroor",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/best-lady-psychologist-calicut",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/best-lady-psychologist-cochin",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/best-lady-psychologist-cochin-gadha",
+    "destination": "/clinicians/gadha",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/best-lady-psychologist-kochi-meenakshi",
+    "destination": "/clinicians/meenakshi",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/binesh-managing-director-softmind",
+    "destination": "/about/leadership",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/chandra-mohan-consultant-psychologist-calicut",
+    "destination": "/clinicians/chandra-mohan",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/clinical-psychologist-thrissur-srithila",
+    "destination": "/clinicians/srithila",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/consultant-psychologist-thrissur",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/counselling-lady-psychologist-calicut",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/dr-haritha-psychologist-kochi",
+    "destination": "/clinicians/haritha-damodaran",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/gopalakrishnan-doctor-softmind-cochin",
+    "destination": "/clinicians/gopalakrishnan",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/hamna-lady-psychologist-kochi",
+    "destination": "/clinicians/hamna",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/hashim-abdul-psychologist-kochi",
+    "destination": "/clinicians/hashim-abdul-salam",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/jalita-clinical-psychologist-kochi",
+    "destination": "/clinicians/jalita-james",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/jis-joy-consultant-psychologist",
+    "destination": "/clinicians/jis-joy",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/jisiya-counseling-psychologist-thrissur",
+    "destination": "/clinicians/jisiya",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/karishma-psychologist-thrissur",
+    "destination": "/clinicians/karishma-k-valsan",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/keerthana-clinical-psychologist-kochi",
+    "destination": "/clinicians/keerthana-chandran",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/lady-psychiatrist-kochi",
+    "destination": "/clinicians/tehmina-asif",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/manikandan-counseling-psychologist",
+    "destination": "/clinicians/manikandan",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/naveen-consultant-psychologist",
+    "destination": "/clinicians/naveen",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/nayana-kurian-clinical-psychologist",
+    "destination": "/clinicians/nayana-kurian",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/nishma-lady-psychologist",
+    "destination": "/clinicians/nishma",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/prasad-amore-clinical-psychologist-Kerala",
+    "destination": "/clinicians/prasad-amore",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/psychotherapist-kochi",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/ramakrishnan-kv-psychotherapist",
+    "destination": "/clinicians/ramakrishnan-kv",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/reshma-consultant-psychologist-kochi",
+    "destination": "/clinicians/reshma-ramesh",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/shahzad-psychologist-psychotherapist-calicut",
+    "destination": "/clinicians/shahzad",
+    "permanent": true
+  },
+  {
+    "source": "/Health-Care-Team/sruthi-consultant-psychologist-thrissur",
+    "destination": "/clinicians/sruthi",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Aroor",
+    "destination": "/centres/aroor",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Calicut",
+    "destination": "/online-consultation/kozhikode",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Kakkanad-Kochi",
+    "destination": "/centres/kakkanad",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Kochi",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Panampilly-Kochi",
+    "destination": "/centres/panampilly-nagar",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Thrissur-Clinic",
+    "destination": "/centres/thrissur",
+    "permanent": true
+  },
+  {
+    "source": "/Hospitals/Trivandrum",
+    "destination": "/online-consultation/thiruvananthapuram",
+    "permanent": true
+  },
+  {
+    "source": "/Issue",
+    "destination": "/conditions",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Adhd-Treatment-Kerala",
+    "destination": "/conditions/adhd",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Anxiety-Treatment",
+    "destination": "/conditions/anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Borderline-Personality-Disorder",
+    "destination": "/conditions/borderline-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Depression-Treatment",
+    "destination": "/conditions/depression",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Health-Anxiety-Treatment",
+    "destination": "/conditions/health-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Paranoid-Personality-Disorder",
+    "destination": "/conditions/paranoid-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Somatic-Symptom-Disorder",
+    "destination": "/conditions/somatic-symptom-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Specific-Phobia",
+    "destination": "/conditions/specific-phobia",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/Stress-Counselling-Treatment",
+    "destination": "/conditions/stress",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/adhd-treatment-kerala",
+    "destination": "/conditions/adhd",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/agoraphobia-causes-treatment",
+    "destination": "/conditions/agoraphobia",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/anxiety-treatment",
+    "destination": "/conditions/anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/borderline-personality-disorder",
+    "destination": "/conditions/borderline-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/conduct-disorder-treatment",
+    "destination": "/conditions/conduct-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/depression-treatment",
+    "destination": "/conditions/depression",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/eating-problems-disorders",
+    "destination": "/conditions/eating-disorders",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/generalised-anxiety-disorder",
+    "destination": "/conditions/generalised-anxiety-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/health-anxiety-treatment",
+    "destination": "/conditions/health-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/irritable-bowel-syndrome-ibs",
+    "destination": "/conditions/irritable-bowel-syndrome",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/obsessive-compulsive-personality-disorder",
+    "destination": "/conditions/obsessive-compulsive-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/oppositional-defiant-disorder-odd",
+    "destination": "/conditions/oppositional-defiant-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/panic-disorder-treatments",
+    "destination": "/conditions/panic-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/paranoid-personality-disorder",
+    "destination": "/conditions/paranoid-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/personality-disorders-symptoms-treatments",
+    "destination": "/conditions/personality-disorders",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/post-traumatic-stress-disorder-ptsd",
+    "destination": "/conditions/ptsd",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/sleep-disturbance-insomnia",
+    "destination": "/conditions/insomnia",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/social-anxiety-treatment",
+    "destination": "/conditions/social-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/somatic-symptom-disorder",
+    "destination": "/conditions/somatic-symptom-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/specific-phobia",
+    "destination": "/conditions/specific-phobia",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/stress-counselling-treatment",
+    "destination": "/conditions/stress",
+    "permanent": true
+  },
+  {
+    "source": "/Issues/suicidal-thoughts-symptoms",
+    "destination": "/conditions/suicidal-thoughts",
+    "permanent": true
+  },
+  {
+    "source": "/Management-Team/Prasad-amore-managing-director",
+    "destination": "/clinicians/prasad-amore",
+    "permanent": true
+  },
+  {
+    "source": "/Management-Team/Sibi-s-paniker-director-Softmind",
+    "destination": "/about/leadership",
+    "permanent": true
+  },
+  {
+    "source": "/New page",
+    "destination": "/conditions/gambling-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/New page (old site covered OCD only in articles)",
+    "destination": "/conditions/ocd",
+    "permanent": true
+  },
+  {
+    "source": "/Not identified (possibly /Health-Care-Team/psychotherapist-kochi)",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Old menu item (URL not captured)",
+    "destination": "/conditions/gambling-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/Privacy-Policy",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/Psychotherapy",
+    "destination": "/our-care/psychotherapy",
+    "permanent": true
+  },
+  {
+    "source": "/Public-Relation-and-HR/Deepu-Head-PR-and-Liaison",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Public-Relation-and-HR/Muhsina-Assistant-manager-HR",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Public-Relation-and-HR/meenu-murali-client-care-executive",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/RCI-Regulations",
+    "destination": "/about/clinical-standards",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Breakup-Counselling",
+    "destination": "/our-care/relationship-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Child-Adolescent-Counselling",
+    "destination": "/our-care/child-adolescent-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Clinical-Psychology",
+    "destination": "/our-care/clinical-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Family-Counselling",
+    "destination": "/our-care/family-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Hypnotherapy",
+    "destination": "/our-care/hypnotherapy",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/LGBT-Counselling",
+    "destination": "/our-care/lgbtq-affirmative-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Online-Counselling-English",
+    "destination": "/our-care/online-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Online-Counselling-Malayalam",
+    "destination": "/our-care/online-counselling-malayalam",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Premarital-Counselling",
+    "destination": "/our-care/premarital-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Psychiatry",
+    "destination": "/our-care/psychiatry",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Psychological-Counselling",
+    "destination": "/our-care/psychological-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Relationship-Counselling",
+    "destination": "/our-care/relationship-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Sex-Therapy",
+    "destination": "/our-care/sex-therapy",
+    "permanent": true
+  },
+  {
+    "source": "/Services/Indvidual/Teenage-Counselling",
+    "destination": "/our-care/child-adolescent-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/Team",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/Team/Hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/Terms-Of-Use",
+    "destination": "/terms",
+    "permanent": true
+  },
+  {
+    "source": "/Testimonials",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/Trainings-and-Academics",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/Trainings-and-Academics/Course",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/Trainings-and-Academics/Internship",
+    "destination": "/professional-learning/internships",
+    "permanent": true
+  },
+  {
+    "source": "/Trainings-and-Academics/Workshops",
+    "destination": "/professional-learning/workshops",
+    "permanent": true
+  },
+  {
+    "source": "/appointments/",
+    "destination": "/book",
+    "permanent": true
+  },
+  {
+    "source": "/default.aspx",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/home/",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/about-us",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/advisory-board/george-kottarathil-social-psychologist",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/advisory-board/prasanth",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/advisory-board/preetha-ajith",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/advisory-board/lavinia-h",
+    "destination": "/about/advisory-board",
+    "permanent": true
+  },
+  {
+    "source": "/book-an-appointment",
+    "destination": "/book",
+    "permanent": true
+  },
+  {
+    "source": "/blog/adolescents-brains-development-and-food",
+    "destination": "/articles/adolescent-brain-development-and-food",
+    "permanent": true
+  },
+  {
+    "source": "/blog/adolescents-brains-transformed-by-surrounding",
+    "destination": "/articles/adolescent-brain-and-environment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/adolescents-brains-transformed-by-surroundings-the-power-of-environmental-influences",
+    "destination": "/articles/adolescent-brain-and-environment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/aura-healing-and-spiritual-energy-a-clear-look-at-what-actually-happens-in-the-brain",
+    "destination": "/articles/aura-healing-and-the-brain",
+    "permanent": true
+  },
+  {
+    "source": "/blog/benefits-of-unconditional-love",
+    "destination": "/articles/benefits-of-unconditional-love",
+    "permanent": true
+  },
+  {
+    "source": "/blog/best-talking-therapy-for-stress-kochi",
+    "destination": "/articles/talking-therapy-stress-relief-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/blog/beyond-theft-the-hidden-impulses-of-kleptomania",
+    "destination": "/articles/kleptomania",
+    "permanent": true
+  },
+  {
+    "source": "/blog/building-resilience-a-psychological-perspective",
+    "destination": "/articles/building-resilience",
+    "permanent": true
+  },
+  {
+    "source": "/blog/can-rationalist-have-anxiety-disorders",
+    "destination": "/articles/anxiety-in-rationalists",
+    "permanent": true
+  },
+  {
+    "source": "/blog/can-counselling-cure-everyone",
+    "destination": "/articles/can-counselling-cure-everyone",
+    "permanent": true
+  },
+  {
+    "source": "/blog/emotional-struggles-in-retirement",
+    "destination": "/articles/emotional-struggles-in-retirement",
+    "permanent": true
+  },
+  {
+    "source": "/blog/exploring-the-roots-of-envy-and-jealousy-a-psychological-perspective",
+    "destination": "/articles/roots-of-envy-and-jealousy",
+    "permanent": true
+  },
+  {
+    "source": "/blog/from-menstrual-taboos-to-menstrual-rights",
+    "destination": "/articles/menstrual-taboos-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/future-of-depression",
+    "destination": "/articles/future-of-depression",
+    "permanent": true
+  },
+  {
+    "source": "/blog/gen-z-mental-health-kochi",
+    "destination": "/articles/gen-z-mental-health-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/blog/hidden-costs-of-being-stingy",
+    "destination": "/articles/hidden-costs-of-being-stingy",
+    "permanent": true
+  },
+  {
+    "source": "/blog/hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-information-overload-affects-mental-health-in-the-digital-age",
+    "destination": "/articles/information-overload-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-memory-distortions-affect-our-recollection-of-the-past",
+    "destination": "/articles/memory-distortions",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-relations-with-parents-and-peers-help-teens-become-well-adjusted-adults",
+    "destination": "/articles/teen-relationships-parents-and-peers",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-your-parenting-style-affects-your-childs-development",
+    "destination": "/articles/parenting-styles-and-child-development",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-long-does-falling-in-love-last",
+    "destination": "/articles/how-long-does-love-last",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-the-placebo-effect-works-even-when-you-know",
+    "destination": "/articles/how-the-placebo-effect-works",
+    "permanent": true
+  },
+  {
+    "source": "/blog/insomnia-disorder-causes-sleep-hygiene-and-cognitive-techniques",
+    "destination": "/articles/insomnia-causes-and-sleep-hygiene",
+    "permanent": true
+  },
+  {
+    "source": "/blog/instagram-and-mental-health-beyond-screen-time",
+    "destination": "/articles/instagram-human-psychology-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/kochi-and-the-changing-psychology-of-urban-life",
+    "destination": "/articles/kochi-urban-life-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/blog/mind -the-myth-and-reality",
+    "destination": "/articles/what-is-the-mind",
+    "permanent": true
+  },
+  {
+    "source": "/blog/myths-and-misconceptions-about-borderline-personality-disorder",
+    "destination": "/articles/borderline-personality-disorder-myths-and-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/navigating-the-complexities-of-borderline-personality-disorder-diagnosis-and-treatment",
+    "destination": "/articles/borderline-personality-disorder-myths-and-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/overcoming-procrastination-causes-consequences-and-effective-strategies",
+    "destination": "/articles/overcoming-procrastination",
+    "permanent": true
+  },
+  {
+    "source": "/blog/parenting",
+    "destination": "/articles/parenting-and-gender-expectations",
+    "permanent": true
+  },
+  {
+    "source": "/blog/relationship-counselling-modern-relationships",
+    "destination": "/articles/relationship-counselling-modern-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/blog/revenge-and-forgiveness-the-emotional-impetus-for-justice",
+    "destination": "/articles/revenge-and-forgiveness",
+    "permanent": true
+  },
+  {
+    "source": "/blog/revolutionary-tool-with-psychological-impact",
+    "destination": "/articles/social-media-psychological-impact",
+    "permanent": true
+  },
+  {
+    "source": "/blog/shattered-self-traumatic-experiences-and-our-sense-of-identity",
+    "destination": "/articles/trauma-and-sense-of-identity",
+    "permanent": true
+  },
+  {
+    "source": "/blog/sleep-matters-rem-sleep-deep-sleep-insomnia-apnea-and-somnambulism",
+    "destination": "/articles/sleep-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/social-of-conformity-and-obedience",
+    "destination": "/articles/conformity-and-obedience",
+    "permanent": true
+  },
+  {
+    "source": "/blog/social-psychology-of-conformity-and-obedience",
+    "destination": "/articles/conformity-and-obedience",
+    "permanent": true
+  },
+  {
+    "source": "/blog/taming-stress-strategies-for-a-more-relaxed-life",
+    "destination": "/articles/strategies-to-manage-stress",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-complexity-of-superiority",
+    "destination": "/articles/superiority-complex",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-concept-of-emotional-intelligence",
+    "destination": "/articles/the-concept-of-emotional-intelligence",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-consequences-of-skipping-sleep",
+    "destination": "/articles/sleep-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-impact-of-social-comparison-on-self-esteem-and-body-image",
+    "destination": "/articles/social-comparison-self-esteem-body-image",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-meaning-of-life",
+    "destination": "/articles/the-meaning-of-life",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-power-of-operant-conditioning-a-psychological-perspective",
+    "destination": "/articles/operant-conditioning",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-psychology-behind-mob-mentality",
+    "destination": "/articles/psychology-of-mob-mentality",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-psychology-of-decision-making-and-how-to-make-better-choices",
+    "destination": "/articles/psychology-of-decision-making",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-psychology-of-mental-imagery-and-visualization-exploring-the-science-behind-the-minds-eye",
+    "destination": "/articles/psychology-of-mental-imagery",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-role-of-psychology-in-addressing-prejudice-and-discrimination",
+    "destination": "/articles/psychology-of-prejudice-and-discrimination",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-intoxication-of-the-new-year",
+    "destination": "/articles/the-intoxication-of-the-new-year",
+    "permanent": true
+  },
+  {
+    "source": "/blog/understanding-anxiety-the-mind-body-and-why-it-feels-real",
+    "destination": "/articles/understanding-anxiety-mind-body",
+    "permanent": true
+  },
+  {
+    "source": "/blog/understanding-learning-disabilities-psychological-and-neurological-perspectives",
+    "destination": "/articles/understanding-learning-disabilities",
+    "permanent": true
+  },
+  {
+    "source": "/blog/understanding-the-impact-of-work-stress-on-mental-health",
+    "destination": "/articles/work-stress-and-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/understanding-the-neural-basis-of-adolescent-decision-making",
+    "destination": "/articles/adolescent-decision-making",
+    "permanent": true
+  },
+  {
+    "source": "/blog/what-is-mental-health-treatment",
+    "destination": "/articles/what-is-mental-health-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/what-to-do-when-you-have-excessive-fear",
+    "destination": "/articles/overcoming-excessive-fear",
+    "permanent": true
+  },
+  {
+    "source": "/blog/when-the-mind-clashes-understanding-cognitive-dissonance",
+    "destination": "/articles/cognitive-dissonance",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-depression-makes-you-feel-like-youre-losing-yourself",
+    "destination": "/articles/why-depression-feels-like-losing-yourself",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-do-humans-feel-aging-differently-than-other-primates",
+    "destination": "/articles/why-humans-feel-ageing-differently",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-stress-and-anxiety-feel-higher-in-this-era-neuroscience-informed-reflection",
+    "destination": "/articles/why-stress-and-anxiety-feel-higher-today",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-we-repeat-emotional-mistakes",
+    "destination": "/articles/why-we-repeat-emotional-mistakes",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-windy-days-make-us-restless",
+    "destination": "/articles/why-windy-days-make-us-restless",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-you-feel-exhausted-after-social-events",
+    "destination": "/articles/why-you-feel-exhausted-after-social-events",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-you-feel-warm-some-days-and-cold-others",
+    "destination": "/articles/why-you-feel-warm-some-days-and-cold-others",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-your-voice-trembles-when-you-feel-anxious",
+    "destination": "/articles/why-your-voice-trembles-when-you-feel-anxious",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-are-you-addicted",
+    "destination": "/articles/why-are-you-addicted",
+    "permanent": true
+  },
+  {
+    "source": "/blog/why-is-it-always-sad",
+    "destination": "/articles/why-is-it-always-sad",
+    "permanent": true
+  },
+  {
+    "source": "/blog/all-about-stress-and-depression",
+    "destination": "/articles/stress-and-depression-relief",
+    "permanent": true
+  },
+  {
+    "source": "/blog/anorexia-nervosa-warning-signs-health-consequences-and-recovery",
+    "destination": "/articles/anorexia-nervosa-warning-signs-and-recovery",
+    "permanent": true
+  },
+  {
+    "source": "/blog/anxiety-disorders-in-rationalists",
+    "destination": "/articles/anxiety-in-rationalists",
+    "permanent": true
+  },
+  {
+    "source": "/blog/attention-deficit-hyperactivity-disorder-diagnosis-and-behavioural-interventions",
+    "destination": "/articles/adhd-diagnosis-and-behavioural-interventions",
+    "permanent": true
+  },
+  {
+    "source": "/blog/autism-spectrum-disorder-early-identification-and-behavioural-support",
+    "destination": "/articles/autism-early-identification-and-support",
+    "permanent": true
+  },
+  {
+    "source": "/blog/autism-symptoms-treatments",
+    "destination": "/articles/autism-sexuality-and-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/blog/awkward-sex-and-autism-guide",
+    "destination": "/articles/autism-sexuality-and-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/blog/breaking-boundaries-innovations-in-depression-treatment-and-the-road-ahead",
+    "destination": "/articles/innovations-in-depression-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/breaking-laziness-the-easy-way",
+    "destination": "/articles/overcoming-laziness",
+    "permanent": true
+  },
+  {
+    "source": "/blog/child-sexual-abuse-symptoms-treatment",
+    "destination": "/articles/child-sexual-abuse-signs-and-support",
+    "permanent": true
+  },
+  {
+    "source": "/blog/coffee-with-a-psychologist-psychological-counseling",
+    "destination": "/articles/coffee-with-a-psychologist",
+    "permanent": true
+  },
+  {
+    "source": "/blog/counseling-effects-on-women",
+    "destination": "/articles/counselling-for-women",
+    "permanent": true
+  },
+  {
+    "source": "/blog/counselling-for-women-ultimate-guide",
+    "destination": "/articles/counselling-for-women",
+    "permanent": true
+  },
+  {
+    "source": "/blog/counselling-older-adults-issues-and-awareness",
+    "destination": "/articles/cognitive-decline-and-dementia-support",
+    "permanent": true
+  },
+  {
+    "source": "/blog/couple-counseling",
+    "destination": "/articles/how-long-does-love-last",
+    "permanent": true
+  },
+  {
+    "source": "/blog/cultural-psychology-and-diversity",
+    "destination": "/articles/cultural-psychology-and-diversity",
+    "permanent": true
+  },
+  {
+    "source": "/blog/decoding-dreams-from-symbols-to-self-discovery",
+    "destination": "/articles/decoding-dreams-from-symbols-to-self-discovery",
+    "permanent": true
+  },
+  {
+    "source": "/blog/depression-treatment-depression-symptoms-get-help-managing-depression",
+    "destination": "/articles/depression-signs-symptoms-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/depression-unveiling-signs-symptoms-and-effective-treatment-approaches",
+    "destination": "/articles/depression-signs-symptoms-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/exploring-the-depths-of-depression-unveiling-different-types",
+    "destination": "/articles/types-of-depression",
+    "permanent": true
+  },
+  {
+    "source": "/blog/flat-life-in-kochi-and-the-silent-mental-health-crisis-of-urban-living",
+    "destination": "/articles/flat-life-in-kochi-mental-health",
+    "permanent": true
+  },
+  {
+    "source": "/blog/from-runners-high-to-endorphins-and-mood-enhancement",
+    "destination": "/articles/runners-high-endorphins-and-mood",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-people-like-each-other",
+    "destination": "/articles/how-people-like-each-other",
+    "permanent": true
+  },
+  {
+    "source": "/blog/how-to-overcome-the-fear-of-flying",
+    "destination": "/articles/overcoming-fear-of-flying",
+    "permanent": true
+  },
+  {
+    "source": "/blog/impact-of-anxiety-disorders-on-daily-life-and-relationships",
+    "destination": "/articles/anxiety-disorders-daily-life-and-relationships",
+    "permanent": true
+  },
+  {
+    "source": "/blog/importance-of-teenage-counselling",
+    "destination": "/our-care/child-adolescent-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/blog/importance-pregnancy-counselling",
+    "destination": "/articles/mental-health-during-pregnancy",
+    "permanent": true
+  },
+  {
+    "source": "/blog/love-breakup-counseling",
+    "destination": "/articles/coping-with-a-breakup",
+    "permanent": true
+  },
+  {
+    "source": "/blog/mental-health-break-up-depression-treatment",
+    "destination": "/articles/coping-with-a-breakup",
+    "permanent": true
+  },
+  {
+    "source": "/blog/mental-health-stigma-and-awareness",
+    "destination": "/articles/mental-health-stigma-and-awareness",
+    "permanent": true
+  },
+  {
+    "source": "/blog/mind-psychology-emotion",
+    "destination": "/articles/what-is-the-mind",
+    "permanent": true
+  },
+  {
+    "source": "/blog/navigating-anxiety-unraveling-diagnoses-for-mental-health-care",
+    "destination": "/articles/anxiety-diagnosis-explained",
+    "permanent": true
+  },
+  {
+    "source": "/blog/neurosis-and-moral-policing",
+    "destination": "/articles/neurosis-and-moral-policing",
+    "permanent": true
+  },
+  {
+    "source": "/blog/nourishing-the-mind-and-body-a-story-of-overcoming-unhealthy-eating-patterns",
+    "destination": "/articles/overcoming-unhealthy-eating-patterns",
+    "permanent": true
+  },
+  {
+    "source": "/blog/obsessive-compulsive-disorder-intrusive-thoughts-and-behavioural-therapy",
+    "destination": "/articles/ocd-intrusive-thoughts-behavioural-therapy",
+    "permanent": true
+  },
+  {
+    "source": "/blog/overcoming-english-language-anxiety",
+    "destination": "/articles/overcoming-english-language-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/blog/psychology-counseling-kochi",
+    "destination": "/articles/managing-stress-in-kochi",
+    "permanent": true
+  },
+  {
+    "source": "/blog/ptsd-treatment",
+    "destination": "/articles/ptsd-treatment",
+    "permanent": true
+  },
+  {
+    "source": "/blog/romantic-love-a-psychological-perspective",
+    "destination": "/articles/romantic-love-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/blog/safeguarding-hope-exploring-suicide-depression-and-advancements-in-clinical-care",
+    "destination": "/articles/suicide-risk-and-depression-care",
+    "permanent": true
+  },
+  {
+    "source": "/blog/shame-guilt-and-self-concept-how-our-emotions-shape-our-identity",
+    "destination": "/articles/shame-guilt-and-self-concept",
+    "permanent": true
+  },
+  {
+    "source": "/blog/strengthening-the-lifeline-how-family-friends-and-community-propel-depression-recovery",
+    "destination": "/articles/family-support-in-depression-recovery",
+    "permanent": true
+  },
+  {
+    "source": "/blog/stress-depression-relief-tips-2023",
+    "destination": "/articles/stress-and-depression-relief",
+    "permanent": true
+  },
+  {
+    "source": "/blog/teenage-problems-and-solutions",
+    "destination": "/articles/teen-sexual-health-myths",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-psychology-of-platonic-love",
+    "destination": "/articles/psychology-of-platonic-love",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-effect-of-love-on-the-brain",
+    "destination": "/articles/how-long-does-love-last",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-nature-of-conflict-different-conflict-styles-and-emotions",
+    "destination": "/articles/nature-of-conflict-and-conflict-styles",
+    "permanent": true
+  },
+  {
+    "source": "/blog/the-psychology-of-social-identity-understanding-group-dynamics-and-interactions",
+    "destination": "/articles/psychology-of-social-identity",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tips-to-overcome-fear",
+    "destination": "/articles/overcoming-excessive-fear",
+    "permanent": true
+  },
+  {
+    "source": "/blog/unraveling-anxiety-neurobiological-threads-from-genes-to-environment",
+    "destination": "/articles/neurobiology-of-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/calicut centre page",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/career",
+    "destination": "/careers",
+    "permanent": true
+  },
+  {
+    "source": "/career/appointments",
+    "destination": "/careers",
+    "permanent": true
+  },
+  {
+    "source": "/career/hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/contact-us",
+    "destination": "/contact",
+    "permanent": true
+  },
+  {
+    "source": "/cookies-policy",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/courses",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/courses/hospitals",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/downloads",
+    "destination": "/knowledge-centre",
+    "permanent": true
+  },
+  {
+    "source": "/english-articles",
+    "destination": "/articles",
+    "permanent": true
+  },
+  {
+    "source": "/ethics-committe",
+    "destination": "/about/clinical-standards",
+    "permanent": true
+  },
+  {
+    "source": "/faq",
+    "destination": "/faq",
+    "permanent": true
+  },
+  {
+    "source": "/gallery",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/anju-kakkanad-psychologist-kochi",
+    "destination": "/clinicians/anju",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/anly-chandy-leading-psychologist-kochi",
+    "destination": "/clinicians/anly-chandy",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/binusha-psychotherapist",
+    "destination": "/clinicians/binusha",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/keerthana-clinical-psychologist-kochi",
+    "destination": "/clinicians/keerthana-chandran",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/kripa-consultant-psychologist",
+    "destination": "/clinicians/kripa-xavier",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/lijo-nellickal-jose-psychotherapist",
+    "destination": "/clinicians/lijo-nellickal-jose",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/afreen-lady-psychologist-kakkanad",
+    "destination": "/clinicians/afreen",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/albin-psychotherapist-kochi",
+    "destination": "/clinicians/albin-thomas",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/ashly-joshy-psychologist-kochi",
+    "destination": "/clinicians/ashly-joshy",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/bavij-consultant-psychiatrist",
+    "destination": "/clinicians/bavij-balan",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/best-lady-psychologist-aroor",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/best-lady-psychologist-calicut",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/best-lady-psychologist-cochin",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/best-lady-psychologist-cochin-gadha",
+    "destination": "/clinicians/gadha",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/best-lady-psychologist-kochi-meenakshi",
+    "destination": "/clinicians/meenakshi",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/binesh-managing-director-softmind",
+    "destination": "/about/leadership",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/chandra-mohan-consultant-psychologist-calicut",
+    "destination": "/clinicians/chandra-mohan",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/clinical-psychologist-thrissur-srithila",
+    "destination": "/clinicians/srithila",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/consultant-psychologist-thrissur",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/counselling-lady-psychologist-calicut",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/dr-haritha-psychologist-kochi",
+    "destination": "/clinicians/haritha-damodaran",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/gopalakrishnan-doctor-softmind-cochin",
+    "destination": "/clinicians/gopalakrishnan",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/hamna-lady-psychologist-kochi",
+    "destination": "/clinicians/hamna",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/hashim-abdul-psychologist-kochi",
+    "destination": "/clinicians/hashim-abdul-salam",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/jalita-clinical-psychologist-kochi",
+    "destination": "/clinicians/jalita-james",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/jis-joy-consultant-psychologist",
+    "destination": "/clinicians/jis-joy",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/jisiya-counseling-psychologist-thrissur",
+    "destination": "/clinicians/jisiya",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/karishma-psychologist-thrissur",
+    "destination": "/clinicians/karishma-k-valsan",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/lady-psychiatrist-kochi",
+    "destination": "/clinicians/tehmina-asif",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/manikandan-counseling-psychologist",
+    "destination": "/clinicians/manikandan",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/naveen-consultant-psychologist",
+    "destination": "/clinicians/naveen",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/nayana-kurian-clinical-psychologist",
+    "destination": "/clinicians/nayana-kurian",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/nishma-lady-psychologist",
+    "destination": "/clinicians/nishma",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/prasad-amore-clinical-psychologist-kerala",
+    "destination": "/clinicians/prasad-amore",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/psychotherapist-kochi",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/ramakrishnan-kv-psychotherapist",
+    "destination": "/clinicians/ramakrishnan-kv",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/reshma-consultant-psychologist-kochi",
+    "destination": "/clinicians/reshma-ramesh",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/shahzad-psychologist-psychotherapist-calicut",
+    "destination": "/clinicians/shahzad",
+    "permanent": true
+  },
+  {
+    "source": "/health-care-team/sruthi-consultant-psychologist-thrissur",
+    "destination": "/clinicians/sruthi",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/aroor",
+    "destination": "/centres/aroor",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/calicut",
+    "destination": "/online-consultation/kozhikode",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/kakkanad-kochi",
+    "destination": "/centres/kakkanad",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/kochi",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/panampilly-kochi",
+    "destination": "/centres/panampilly-nagar",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/thrissur-clinic",
+    "destination": "/centres/thrissur",
+    "permanent": true
+  },
+  {
+    "source": "/hospitals/trivandrum",
+    "destination": "/online-consultation/thiruvananthapuram",
+    "permanent": true
+  },
+  {
+    "source": "/issue",
+    "destination": "/conditions",
+    "permanent": true
+  },
+  {
+    "source": "/issues/adhd-treatment-kerala",
+    "destination": "/conditions/adhd",
+    "permanent": true
+  },
+  {
+    "source": "/issues/anxiety-treatment",
+    "destination": "/conditions/anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/issues/borderline-personality-disorder",
+    "destination": "/conditions/borderline-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/depression-treatment",
+    "destination": "/conditions/depression",
+    "permanent": true
+  },
+  {
+    "source": "/issues/health-anxiety-treatment",
+    "destination": "/conditions/health-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/issues/paranoid-personality-disorder",
+    "destination": "/conditions/paranoid-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/somatic-symptom-disorder",
+    "destination": "/conditions/somatic-symptom-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/specific-phobia",
+    "destination": "/conditions/specific-phobia",
+    "permanent": true
+  },
+  {
+    "source": "/issues/stress-counselling-treatment",
+    "destination": "/conditions/stress",
+    "permanent": true
+  },
+  {
+    "source": "/issues/agoraphobia-causes-treatment",
+    "destination": "/conditions/agoraphobia",
+    "permanent": true
+  },
+  {
+    "source": "/issues/conduct-disorder-treatment",
+    "destination": "/conditions/conduct-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/eating-problems-disorders",
+    "destination": "/conditions/eating-disorders",
+    "permanent": true
+  },
+  {
+    "source": "/issues/generalised-anxiety-disorder",
+    "destination": "/conditions/generalised-anxiety-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/irritable-bowel-syndrome-ibs",
+    "destination": "/conditions/irritable-bowel-syndrome",
+    "permanent": true
+  },
+  {
+    "source": "/issues/obsessive-compulsive-personality-disorder",
+    "destination": "/conditions/obsessive-compulsive-personality-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/oppositional-defiant-disorder-odd",
+    "destination": "/conditions/oppositional-defiant-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/panic-disorder-treatments",
+    "destination": "/conditions/panic-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/issues/personality-disorders-symptoms-treatments",
+    "destination": "/conditions/personality-disorders",
+    "permanent": true
+  },
+  {
+    "source": "/issues/post-traumatic-stress-disorder-ptsd",
+    "destination": "/conditions/ptsd",
+    "permanent": true
+  },
+  {
+    "source": "/issues/sleep-disturbance-insomnia",
+    "destination": "/conditions/insomnia",
+    "permanent": true
+  },
+  {
+    "source": "/issues/social-anxiety-treatment",
+    "destination": "/conditions/social-anxiety",
+    "permanent": true
+  },
+  {
+    "source": "/issues/suicidal-thoughts-symptoms",
+    "destination": "/conditions/suicidal-thoughts",
+    "permanent": true
+  },
+  {
+    "source": "/management-team/prasad-amore-managing-director",
+    "destination": "/clinicians/prasad-amore",
+    "permanent": true
+  },
+  {
+    "source": "/management-team/sibi-s-paniker-director-softmind",
+    "destination": "/about/leadership",
+    "permanent": true
+  },
+  {
+    "source": "/new page",
+    "destination": "/conditions/gambling-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/new page (old site covered ocd only in articles)",
+    "destination": "/conditions/ocd",
+    "permanent": true
+  },
+  {
+    "source": "/not identified (possibly /health-care-team/psychotherapist-kochi)",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/old menu item (url not captured)",
+    "destination": "/conditions/gambling-disorder",
+    "permanent": true
+  },
+  {
+    "source": "/privacy-policy",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/psychotherapy",
+    "destination": "/our-care/psychotherapy",
+    "permanent": true
+  },
+  {
+    "source": "/public-relation-and-hr/deepu-head-pr-and-liaison",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/public-relation-and-hr/muhsina-assistant-manager-hr",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/public-relation-and-hr/meenu-murali-client-care-executive",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/rci-regulations",
+    "destination": "/about/clinical-standards",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/breakup-counselling",
+    "destination": "/our-care/relationship-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/child-adolescent-counselling",
+    "destination": "/our-care/child-adolescent-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/clinical-psychology",
+    "destination": "/our-care/clinical-psychology",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/family-counselling",
+    "destination": "/our-care/family-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/hypnotherapy",
+    "destination": "/our-care/hypnotherapy",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/lgbt-counselling",
+    "destination": "/our-care/lgbtq-affirmative-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/online-counselling-english",
+    "destination": "/our-care/online-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/online-counselling-malayalam",
+    "destination": "/our-care/online-counselling-malayalam",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/premarital-counselling",
+    "destination": "/our-care/premarital-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/psychiatry",
+    "destination": "/our-care/psychiatry",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/psychological-counselling",
+    "destination": "/our-care/psychological-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/relationship-counselling",
+    "destination": "/our-care/relationship-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/sex-therapy",
+    "destination": "/our-care/sex-therapy",
+    "permanent": true
+  },
+  {
+    "source": "/services/indvidual/teenage-counselling",
+    "destination": "/our-care/child-adolescent-counselling",
+    "permanent": true
+  },
+  {
+    "source": "/team",
+    "destination": "/clinicians",
+    "permanent": true
+  },
+  {
+    "source": "/team/hospitals",
+    "destination": "/centres",
+    "permanent": true
+  },
+  {
+    "source": "/terms-of-use",
+    "destination": "/terms",
+    "permanent": true
+  },
+  {
+    "source": "/testimonials",
+    "destination": "/about",
+    "permanent": true
+  },
+  {
+    "source": "/trainings-and-academics",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/trainings-and-academics/course",
+    "destination": "/professional-learning",
+    "permanent": true
+  },
+  {
+    "source": "/trainings-and-academics/internship",
+    "destination": "/professional-learning/internships",
+    "permanent": true
+  },
+  {
+    "source": "/trainings-and-academics/workshops",
+    "destination": "/professional-learning/workshops",
+    "permanent": true
+  }
+]

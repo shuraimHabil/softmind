@@ -5,6 +5,10 @@ import ArticleTrustBar from "@/components/Article/ArticleTrustBar";
 import ArticleBody from "@/components/Article/ArticleBody";
 import ArticleContinueExploring from "@/components/Article/ArticleContinueExploring";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
+import JsonLd, {
+  generateBreadcrumbsLd,
+  generateArticleLd,
+} from "@/components/SEO/JsonLd";
 
 export async function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -16,13 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) return {};
 
   const canonicalUrl = `https://www.softmindindia.com/articles/${slug}`;
-  const title = article.title;
+  const title = `${article.title} | Softmind Wellness`;
   const description = article.excerpt;
 
-  // Parse reviewedDate ("Aug 28, 2026") → ISO string for article:published_time
   const publishedDate = article.reviewedDate
     ? new Date(article.reviewedDate).toISOString()
-    : undefined;
+    : new Date("2026-07-21").toISOString();
 
   return {
     title,
@@ -62,8 +65,31 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const related = articles.filter((a) => a.slug !== slug).slice(0, 5);
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.softmindindia.com" },
+    { name: "Articles", url: "https://www.softmindindia.com/articles" },
+    {
+      name: article.title,
+      url: `https://www.softmindindia.com/articles/${article.slug}`,
+    },
+  ];
+
+  const breadcrumbsLd = generateBreadcrumbsLd(breadcrumbs);
+  const articleLd = generateArticleLd({
+    title: article.title,
+    headline: article.title,
+    datePublished: article.reviewedDate
+      ? new Date(article.reviewedDate).toISOString()
+      : "2026-07-21T00:00:00.000Z",
+    author: article.author || "Softmind Wellness Team",
+    url: `https://www.softmindindia.com/articles/${article.slug}`,
+    image: "https://www.softmindindia.com/og/default.jpg",
+  });
+
   return (
     <>
+      <JsonLd data={breadcrumbsLd} />
+      <JsonLd data={articleLd} />
       <ArticleHero article={article} />
       <ArticleTrustBar reviewedDate={article.reviewedDate} />
       <ArticleBody article={article} related={related} />

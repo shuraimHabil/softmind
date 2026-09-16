@@ -4,6 +4,10 @@ import { getAllCentres, getCentreBySlug } from "@/lib/centres";
 import CentresHero from "@/components/Centres/CentresHero";
 import CentreDetailView from "@/components/Centres/CentreDetailView";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
+import JsonLd, {
+  generateBreadcrumbsLd,
+  generateCentreLd,
+} from "@/components/SEO/JsonLd";
 
 interface CentrePageProps {
   params: Promise<{ id: string }>;
@@ -14,6 +18,7 @@ export async function generateStaticParams() {
   return [
     ...centres.map((c) => ({ id: c.slug })),
     { id: "kochi" },
+    { id: "aroor" },
   ];
 }
 
@@ -23,7 +28,7 @@ export async function generateMetadata({ params }: CentrePageProps): Promise<Met
 
   if (!centre) {
     return {
-      title: "Centre Not Found | Softmind",
+      title: "Centre Not Found | Softmind Wellness",
     };
   }
 
@@ -70,8 +75,28 @@ export default async function CentreDetailPage({ params }: CentrePageProps) {
 
   const allCentres = getAllCentres();
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.softmindindia.com" },
+    { name: "Centres", url: "https://www.softmindindia.com/centres" },
+    {
+      name: centre.shortName,
+      url: `https://www.softmindindia.com/centres/${centre.slug}`,
+    },
+  ];
+
+  const breadcrumbsLd = generateBreadcrumbsLd(breadcrumbs);
+  const centreLd = generateCentreLd({
+    name: centre.name,
+    url: `https://www.softmindindia.com/centres/${centre.slug}`,
+    phone: centre.phone,
+    fullAddress: centre.fullAddress,
+    city: centre.city,
+  });
+
   return (
     <>
+      <JsonLd data={breadcrumbsLd} />
+      <JsonLd data={centreLd} />
       <CentresHero />
       <CentreDetailView centre={centre} allCentres={allCentres} />
       <CliniciansCTA />

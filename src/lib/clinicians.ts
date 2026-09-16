@@ -13,6 +13,7 @@ export interface ClinicianArticle {
 
 export interface Clinician {
   id: number;
+  slug: string;
   name: string;
   role: string;
   eyebrow?: string;
@@ -43,439 +44,1533 @@ export interface Clinician {
 
 export const clinicians: Clinician[] = [
   {
-    id: 1,
-    name: "Dr. Prasad Amore",
-    role: "Chief Consultant",
-    eyebrow: "Chief Consultant",
-    tagline: "Vatted practitioner specializing in anxiety. CBT methodology, and healing pathways.",
-    desc: "Visionary psychiatrist specialising in anxiety, CBT methodology, and healing pathways.",
-    img: "/assets/clinicians/clinician_1.jpg",
-    categories: ["All", "Emotional Wellbeing", "Personal & Life Challenges"],
-    experience: "15+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "10000+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "CLINICAL PSYCHOLOGIST",
-    aboutParagraphs: [
-      "Dr. Prasad Amore is a qualified and experienced psychologist and licensed mental health practitioner, serving as the Managing Director of Softmind Wellness Pvt. Ltd., Kerala. With decades of experience across diverse age groups and clinical settings, he provides compassionate, confidential, and evidence-based psychological care.",
-      "His areas of expertise include Cognitive Behaviour Therapy (CBT), couples therapy, adolescent therapy, psychotherapy, hypnotherapy, and psychological assessments. He works with individuals experiencing concerns such as anxiety, depression, phobias, OCD, addiction, and other mental health challenges.",
-      "Alongside clinical practice, Dr. Prasad contributes as a consultant, trainer, and author, with a strong focus on helping individuals understand themselves, overcome challenges, and build healthier, more fulfilling lives.",
+    "id": 1,
+    "slug": "prasad-amore",
+    "name": "Prasad Amore",
+    "role": "Chief Consultant; Managing Director",
+    "eyebrow": "Chief Consultant",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Prasad Amore is a Chief Consultant; Managing Director at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_1.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "RCI licensed Rehabilitation Psychologist (RCI No. A50537)",
+    "licenseSub": "RCI LICENSED",
+    "aboutParagraphs": [
+      "Prasad Amore is an RCI-licensed Rehabilitation Psychologist and Managing Director of Softmind Wellness Pvt. Ltd., Kerala. He provides compassionate, confidential, and evidence-based psychological care.",
+      "His areas of clinical expertise include Cognitive Behaviour Therapy (CBT), psychotherapy, hypnotherapy, and psychological assessments.",
+      "Alongside clinical practice, he contributes as a consultant, trainer, and author, dedicated to advancing psychological care across Kerala."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Empowering Minds. Healing Hearts. Enabling Better Life.",
-    quoteAuthor: "- Prasad Amore",
-    expertise: [
-      {
-        title: "Anxiety And Stress Management",
-        description: "Helping you manage anxiety, stress, and overthinking with practical, evidence-based psychological care.",
-      },
-      {
-        title: "Emotional Regulation",
-        description: "Helping you understand and manage difficult emotions with greater awareness, balance, and control.",
-      },
-      {
-        title: "Panic Attacks And Phobias",
-        description: "Helping you manage panic attacks and overcome fears through evidence-based psychological support.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Prasad Amore",
+    "expertise": [
       {
-        title: "Deciphering Depression- Unraveling Neurobiological Threads for Targeted Treatment",
-        category: "Depression",
-        readTime: "7 min read",
-        img: "/assets/insight_1.jpg",
-        href: "/articles/understanding-depression-malayalam",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
       {
-        title: "Intellectual Disability – Understanding Adaptive Functioning and Supportive Interventions",
-        category: "Mental health",
-        readTime: "6 min read",
-        img: "/assets/therapy_session.jpg",
-        href: "/articles",
-      },
-      {
-        title: "Harmonizing Relief – Navigating Anxiety Disorders through Medication and Considered Choices",
-        category: "Anxiety",
-        readTime: "6 min read",
-        img: "/assets/anxiety_hero.jpg",
-        href: "/articles/anxiety-mindful-breathing-malayalam",
-      },
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": [
+      {
+        "title": "Understanding Anxiety: The Mind, Body, and Why It Feels Real",
+        "category": "Anxiety & Stress",
+        "readTime": "5 min read",
+        "img": "/assets/insight_1.jpg",
+        "href": "/articles/understanding-anxiety-mind-body"
+      }
+    ]
   },
   {
-    id: 2,
-    name: "Jalita James",
-    role: "Consultant Psychologist MCA",
-    eyebrow: "Consultant Psychologist",
-    tagline: "Psychiatric resilience leader focused on evidence-backed recovery systems.",
-    desc: "Psychiatric resilience leader focused on evidence-backed recovery systems.",
-    img: "/assets/clinicians/clinician_2.jpg",
-    categories: ["All", "Emotional Wellbeing", "Relationship & Family"],
-    experience: "8+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "5000+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "CONSULTANT PSYCHOLOGIST",
-    aboutParagraphs: [
-      "Jalita James is an experienced consultant psychologist specializing in trauma recovery, relationship counseling, and modern cognitive therapies.",
-      "She has worked extensively with young adults and couples, helping them navigate emotional dysregulation, workplace burnout, and relational attachment patterns.",
-      "Her practice combines humanistic principles with structured CBT methodologies to foster lasting resilience and self-awareness.",
+    "id": 2,
+    "slug": "bavij-balan",
+    "name": "Dr. Bavij Balan",
+    "role": "Consultant Psychiatrist",
+    "eyebrow": "Consultant Psychiatrist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Dr. Bavij Balan is a Consultant Psychiatrist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_2.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Dr. Bavij Balan is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Every journey toward healing begins with safe, empathetic understanding.",
-    quoteAuthor: "- Jalita James",
-    expertise: [
-      {
-        title: "Trauma & Emotional Recovery",
-        description: "Guiding clients through complex emotional processing with gentle, structured therapies.",
-      },
-      {
-        title: "Relationship & Couple Counseling",
-        description: "Improving relational dynamics, boundary setting, and empathetic communication.",
-      },
-      {
-        title: "Burnout & Workplace Stress",
-        description: "Evidence-based strategies to restore work-life balance and emotional energy.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Dr. Bavij Balan",
+    "expertise": [
       {
-        title: "Harmonizing Relief – Navigating Anxiety Disorders through Medication and Considered Choices",
-        category: "Anxiety",
-        readTime: "6 min read",
-        img: "/assets/anxiety_hero.jpg",
-        href: "/articles/anxiety-mindful-breathing-malayalam",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
   {
-    id: 3,
-    name: "Jis Joy",
-    role: "Consultant Psychologist",
-    eyebrow: "Consultant Psychologist",
-    tagline: "Caring family communicator and boundary-setter with secure, talent-backed behavioural work.",
-    desc: "Caring family communicator and boundary-setter with secure, talent-backed behavioural work.",
-    img: "/assets/clinicians/clinician_3.jpg",
-    categories: ["All", "Relationship & Family", "Children & Adolescents"],
-    experience: "10+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "6500+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "CLINICAL PSYCHOLOGIST",
-    aboutParagraphs: [
-      "Jis Joy brings extensive clinical expertise in adolescent behavioral intervention, family mediation, and developmental mental health.",
-      "With a collaborative approach, Jis assists families in understanding behavioral cues and fostering empathetic family communication.",
+    "id": 3,
+    "slug": "nishma",
+    "name": "Nishma",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Nishma is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_3.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Nishma is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Building strong foundations within the family creates resilient individuals.",
-    quoteAuthor: "- Jis Joy",
-    expertise: [
-      {
-        title: "Child & Adolescent Therapy",
-        description: "Specialized behavioral support for children and adolescents navigating growth challenges.",
-      },
-      {
-        title: "Family Systems Counseling",
-        description: "Strengthening communication and emotional harmony across diverse family structures.",
-      },
-      {
-        title: "Behavioral Interventions",
-        description: "Practical behavioral strategies tailored to each individual's developmental needs.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Nishma",
+    "expertise": [
       {
-        title: "Intellectual Disability – Understanding Adaptive Functioning and Supportive Interventions",
-        category: "Mental health",
-        readTime: "6 min read",
-        img: "/assets/therapy_session.jpg",
-        href: "/articles",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
   {
-    id: 4,
-    name: "Dr. Nishma",
-    role: "Consultant Psychologist",
-    eyebrow: "Consultant Psychologist",
-    tagline: "Specialist in relaxed engagement, cognitive patterns, and brain-wellness integration.",
-    desc: "Specialist in relaxed engagement, cognitive patterns, and brain-wellness integration.",
-    img: "/assets/clinicians/clinician_4.jpg",
-    categories: ["All", "Emotional Wellbeing", "Personal & Life Challenges"],
-    experience: "12+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "8000+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "CLINICAL PSYCHOLOGIST",
-    aboutParagraphs: [
-      "Dr. Nishma has over a decade of dedicated clinical practice in brain-wellness integration and modern mindfulness-based psychotherapy.",
-      "She specializes in treating chronic anxiety disorders, insomnia, and thought patterns affecting everyday vitality.",
+    "id": 4,
+    "slug": "afreen",
+    "name": "Afreen M. Duste",
+    "role": "Psychologist (Clinical)",
+    "eyebrow": "Psychologist (Clinical)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Afreen M. Duste is a Psychologist (Clinical) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_4.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Member of American Psychological Association (as stated)",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Afreen M. Duste is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Peace of mind is cultivated through intentional awareness and gentle guidance.",
-    quoteAuthor: "- Dr. Nishma",
-    expertise: [
-      {
-        title: "Mindfulness & Anxiety Care",
-        description: "Combining evidence-based mindfulness techniques with modern psychological therapy.",
-      },
-      {
-        title: "Cognitive Restructuring",
-        description: "Transforming negative thought patterns into healthy, constructive mental habits.",
-      },
-      {
-        title: "Stress & Sleep Health",
-        description: "Targeted psychological interventions to restore restful sleep and nervous system balance.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Afreen M. Duste",
+    "expertise": [
       {
-        title: "Deciphering Depression- Unraveling Neurobiological Threads for Targeted Treatment",
-        category: "Depression",
-        readTime: "7 min read",
-        img: "/assets/insight_1.jpg",
-        href: "/articles/understanding-depression-malayalam",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
   {
-    id: 5,
-    name: "Dr. Arjun Nair",
-    role: "Senior Psychiatrist",
-    eyebrow: "Senior Psychiatrist",
-    tagline: "Experienced psychiatrist with a focus on mood disorders, OCD, and pharmacotherapy.",
-    desc: "Experienced psychiatrist with a focus on mood disorders, OCD, and pharmacotherapy.",
-    img: "/assets/practitioner_1.jpg",
-    categories: ["All", "Emotional Wellbeing"],
-    experience: "16+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "11000+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "SENIOR PSYCHIATRIST",
-    aboutParagraphs: [
-      "Dr. Arjun Nair is a senior consultant psychiatrist with over 16 years of clinical leadership across India and abroad.",
-      "His diagnostic clarity and patient-first approach ensure comprehensive care for mood disorders, severe anxiety, and obsessive-compulsive spectrums.",
+    "id": 5,
+    "slug": "jalita-james",
+    "name": "Jalita James",
+    "role": "Clinical Psychologist",
+    "eyebrow": "Clinical Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Jalita James is a Clinical Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_5.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Jalita James is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam", "Hindi"],
-    quote: "Clinical precision combined with deep empathy creates the best therapeutic outcomes.",
-    quoteAuthor: "- Dr. Arjun Nair",
-    expertise: [
-      {
-        title: "Mood Disorders & Depression",
-        description: "Specialized psychiatric evaluation and evidence-based treatment plans.",
-      },
-      {
-        title: "Obsessive-Compulsive Disorder",
-        description: "Modern ERP and pharmacotherapy approaches for obsessive patterns.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Jalita James",
+    "expertise": [
       {
-        title: "Deciphering Depression- Unraveling Neurobiological Threads for Targeted Treatment",
-        category: "Depression",
-        readTime: "7 min read",
-        img: "/assets/insight_1.jpg",
-        href: "/articles/understanding-depression-malayalam",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
   {
-    id: 6,
-    name: "Deepa Menon",
-    role: "Clinical Psychologist",
-    eyebrow: "Clinical Psychologist",
-    tagline: "Specialises in trauma-informed care, grief counselling, and resilience building.",
-    desc: "Specialises in trauma-informed care, grief counselling, and resilience building.",
-    img: "/assets/practitioner_2.jpg",
-    categories: ["All", "Relationship & Family", "Personal & Life Challenges"],
-    experience: "9+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "5400+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "CLINICAL PSYCHOLOGIST",
-    aboutParagraphs: [
-      "Deepa Menon is a compassionate clinical psychologist dedicated to helping individuals navigate trauma, grief, and life transitions.",
-      "Her practice utilizes evidence-based narrative and cognitive techniques to foster healing and self-compassion.",
+    "id": 6,
+    "slug": "keerthana-chandran",
+    "name": "Keerthana Chandran",
+    "role": "Clinical Psychologist",
+    "eyebrow": "Clinical Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Keerthana Chandran is a Clinical Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_6.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Keerthana Chandran is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Healing isn't linear, but with proper support, transformation is always possible.",
-    quoteAuthor: "- Deepa Menon",
-    expertise: [
-      {
-        title: "Trauma-Informed Therapy",
-        description: "Gentle, paced therapeutic support for processing past adverse experiences.",
-      },
-      {
-        title: "Grief & Bereavement Support",
-        description: "Compassionate guidance through complex loss and major life shifts.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Keerthana Chandran",
+    "expertise": [
       {
-        title: "Harmonizing Relief – Navigating Anxiety Disorders through Medication and Considered Choices",
-        category: "Anxiety",
-        readTime: "6 min read",
-        img: "/assets/anxiety_hero.jpg",
-        href: "/articles/anxiety-mindful-breathing-malayalam",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
   {
-    id: 7,
-    name: "Rahul Krishnan",
-    role: "Child & Adolescent Specialist",
-    eyebrow: "Child & Adolescent Specialist",
-    tagline: "Dedicated to learning difficulties, ADHD assessment, and adolescent mental health.",
-    desc: "Dedicated to learning difficulties, ADHD assessment, and adolescent mental health.",
-    img: "/assets/practitioner_3.jpg",
-    categories: ["All", "Children & Adolescents"],
-    experience: "7+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "4200+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "CHILD PSYCHOLOGIST",
-    aboutParagraphs: [
-      "Rahul Krishnan focuses on supporting children, teenagers, and parents navigating developmental, behavioral, and academic challenges.",
-      "He conducts thorough neurodevelopmental assessments for ADHD, learning differences, and emotional regulation.",
+    "id": 7,
+    "slug": "kripa-xavier",
+    "name": "Kripa Xavier",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Kripa Xavier is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_7.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Kripa Xavier is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Every child possesses unique strengths waiting to be understood and nurtured.",
-    quoteAuthor: "- Rahul Krishnan",
-    expertise: [
-      {
-        title: "ADHD & Learning Assessments",
-        description: "Comprehensive testing and tailored educational accommodation support.",
-      },
-      {
-        title: "Adolescent Counseling",
-        description: "Safe, confidential space for teens to navigate identity, pressure, and emotions.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Kripa Xavier",
+    "expertise": [
       {
-        title: "Intellectual Disability – Understanding Adaptive Functioning and Supportive Interventions",
-        category: "Mental health",
-        readTime: "6 min read",
-        img: "/assets/child_session.jpg",
-        href: "/articles",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
   {
-    id: 8,
-    name: "Dr. Asha Pillai",
-    role: "Developmental Psychiatrist",
-    eyebrow: "Developmental Psychiatrist",
-    tagline: "Focused on child development, autism spectrum assessments, and family-centred care.",
-    desc: "Focused on child development, autism spectrum assessments, and family-centred care.",
-    img: "/assets/practitioner_4.jpg",
-    categories: ["All", "Children & Adolescents"],
-    experience: "14+ Years",
-    experienceSub: "CLINICAL EXPERIENCE",
-    sessions: "9000+",
-    sessionsSub: "SESSIONS CONDUCTED",
-    license: "RCI licensed",
-    licenseSub: "DEVELOPMENTAL PSYCHIATRIST",
-    aboutParagraphs: [
-      "Dr. Asha Pillai brings over 14 years of specialized expertise in developmental psychiatry, autism spectrum interventions, and early childhood mental health.",
-      "Her practice works closely with multidisciplinary teams to ensure holistic developmental progress for every child.",
+    "id": 8,
+    "slug": "reshma-ramesh",
+    "name": "Reshma Ramesh",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Reshma Ramesh is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_8.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
     ],
-    socialLinks: {
-      instagram: "https://instagram.com/softmindindia",
-      youtube: "https://youtube.com/@softmindindia",
-      facebook: "https://facebook.com/softmindindia",
-      twitter: "https://twitter.com/softmindindia",
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Reshma Ramesh is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
     },
-    portfolioUrl: "#",
-    languages: ["English", "Malayalam"],
-    quote: "Early support and loving guidance make all the difference in a child's developmental path.",
-    quoteAuthor: "- Dr. Asha Pillai",
-    expertise: [
-      {
-        title: "Autism & Developmental Support",
-        description: "Evidence-based developmental assessments and personalized intervention plans.",
-      },
-      {
-        title: "Parental Coaching & Guidance",
-        description: "Empowering parents with actionable, supportive behavioral tools.",
-      },
+    "languages": [
+      "English",
+      "Malayalam"
     ],
-    articles: [
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Reshma Ramesh",
+    "expertise": [
       {
-        title: "Intellectual Disability – Understanding Adaptive Functioning and Supportive Interventions",
-        category: "Mental health",
-        readTime: "6 min read",
-        img: "/assets/child_session.jpg",
-        href: "/articles",
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
       },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
     ],
+    "articles": []
   },
+  {
+    "id": 9,
+    "slug": "nayana-kurian",
+    "name": "Nayana Kurian",
+    "role": "Clinical Psychologist",
+    "eyebrow": "Clinical Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Nayana Kurian is a Clinical Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_1.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Nayana Kurian is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Nayana Kurian",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 10,
+    "slug": "haritha-damodaran",
+    "name": "Dr. Haritha Damodaran",
+    "role": "Consultant Psychiatrist",
+    "eyebrow": "Consultant Psychiatrist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Dr. Haritha Damodaran is a Consultant Psychiatrist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_2.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "MBBS, MD (Psychiatry)",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Dr. Haritha Damodaran is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Dr. Haritha Damodaran",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 11,
+    "slug": "karishma-k-valsan",
+    "name": "Karishma K Valsan",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Karishma K Valsan is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_3.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Karishma K Valsan is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Karishma K Valsan",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 12,
+    "slug": "albin-thomas",
+    "name": "Albin Thomas",
+    "role": "Psychotherapist",
+    "eyebrow": "Psychotherapist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Albin Thomas is a Psychotherapist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_4.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Albin Thomas is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Albin Thomas",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 13,
+    "slug": "jis-joy",
+    "name": "Jis Joy",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Jis Joy is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_5.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Jis Joy is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Jis Joy",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 14,
+    "slug": "ashly-joshy",
+    "name": "Ashly Joshy",
+    "role": "Psychotherapist",
+    "eyebrow": "Psychotherapist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Ashly Joshy is a Psychotherapist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_6.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Ashly Joshy is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Ashly Joshy",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 15,
+    "slug": "hamna",
+    "name": "Hamna",
+    "role": "Clinical Psychologist",
+    "eyebrow": "Clinical Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Hamna is a Clinical Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_7.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Hamna is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Hamna",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 16,
+    "slug": "hashim-abdul-salam",
+    "name": "Hashim Abdul Salam",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Hashim Abdul Salam is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_8.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Hashim Abdul Salam is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Hashim Abdul Salam",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 17,
+    "slug": "naveen",
+    "name": "Naveen",
+    "role": "Consultant Psychologist",
+    "eyebrow": "Consultant Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Naveen is a Consultant Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_1.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Naveen is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Naveen",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 18,
+    "slug": "manikandan",
+    "name": "Manikandan K A",
+    "role": "Counselling Psychologist",
+    "eyebrow": "Counselling Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Manikandan K A is a Counselling Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_2.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Manikandan K A is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Manikandan K A",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 19,
+    "slug": "tehmina-asif",
+    "name": "Dr. Tehmina Asif",
+    "role": "Psychiatrist (listed as \"Consultant Psychiatrist\")",
+    "eyebrow": "Psychiatrist (listed as \"Consultant Psychiatrist\")",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Dr. Tehmina Asif is a Psychiatrist (listed as \"Consultant Psychiatrist\") at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_3.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Dr. Tehmina Asif is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Dr. Tehmina Asif",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 20,
+    "slug": "anly-chandy",
+    "name": "Anly Chandy",
+    "role": "Consultant Psychologist & Psychotherapist",
+    "eyebrow": "Consultant Psychologist & Psychotherapist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Anly Chandy is a Consultant Psychologist & Psychotherapist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_4.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Anly Chandy is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Anly Chandy",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 21,
+    "slug": "ramakrishnan-kv",
+    "name": "Ramakrishnan K V",
+    "role": "Psychotherapist",
+    "eyebrow": "Psychotherapist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Ramakrishnan K V is a Psychotherapist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_5.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Ramakrishnan K V is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Ramakrishnan K V",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 22,
+    "slug": "anju",
+    "name": "Anju",
+    "role": "Psychologist (Kakkanad)",
+    "eyebrow": "Psychologist (Kakkanad)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Anju is a Psychologist (Kakkanad) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_6.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Anju is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Anju",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 23,
+    "slug": "sruthi",
+    "name": "Sruthi",
+    "role": "Consultant Psychologist (Thrissur)",
+    "eyebrow": "Consultant Psychologist (Thrissur)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Sruthi is a Consultant Psychologist (Thrissur) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_7.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Sruthi is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Sruthi",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 24,
+    "slug": "srithila",
+    "name": "Srithila",
+    "role": "Clinical Psychologist (Thrissur)",
+    "eyebrow": "Clinical Psychologist (Thrissur)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Srithila is a Clinical Psychologist (Thrissur) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_8.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Srithila is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Srithila",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 25,
+    "slug": "jisiya",
+    "name": "Jisiya",
+    "role": "Counselling Psychologist (Thrissur)",
+    "eyebrow": "Counselling Psychologist (Thrissur)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Jisiya is a Counselling Psychologist (Thrissur) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_1.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Jisiya is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Jisiya",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 26,
+    "slug": "gadha",
+    "name": "Gadha",
+    "role": "Psychologist",
+    "eyebrow": "Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Gadha is a Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_2.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Gadha is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Gadha",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 27,
+    "slug": "meenakshi",
+    "name": "Meenakshi",
+    "role": "Psychologist",
+    "eyebrow": "Psychologist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Meenakshi is a Psychologist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_3.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Meenakshi is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Meenakshi",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 28,
+    "slug": "lijo-nellickal-jose",
+    "name": "Lijo Nellickal Jose",
+    "role": "Psychotherapist",
+    "eyebrow": "Psychotherapist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Lijo Nellickal Jose is a Psychotherapist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_4.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Lijo Nellickal Jose is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Lijo Nellickal Jose",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 29,
+    "slug": "binusha",
+    "name": "Binusha",
+    "role": "Psychotherapist",
+    "eyebrow": "Psychotherapist",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Binusha is a Psychotherapist at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_5.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Binusha is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Binusha",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 30,
+    "slug": "gopalakrishnan",
+    "name": "Gopalakrishnan",
+    "role": "Doctor (role unclear)",
+    "eyebrow": "Doctor (role unclear)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Gopalakrishnan is a Doctor (role unclear) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_6.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Gopalakrishnan is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Gopalakrishnan",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 31,
+    "slug": "chandra-mohan",
+    "name": "Chandra Mohan",
+    "role": "Consultant Psychologist (Calicut)",
+    "eyebrow": "Consultant Psychologist (Calicut)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Chandra Mohan is a Consultant Psychologist (Calicut) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_7.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Chandra Mohan is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Chandra Mohan",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  },
+  {
+    "id": 32,
+    "slug": "shahzad",
+    "name": "Shahzad",
+    "role": "Psychologist & Psychotherapist (Calicut)",
+    "eyebrow": "Psychologist & Psychotherapist (Calicut)",
+    "tagline": "Dedicated practitioner providing evidence-based psychological support at Softmind.",
+    "desc": "Shahzad is a Psychologist & Psychotherapist (Calicut) at Softmind Wellness, offering evidence-based therapeutic care.",
+    "img": "/assets/clinicians/clinician_8.jpg",
+    "categories": [
+      "All",
+      "Emotional Wellbeing",
+      "Personal & Life Challenges"
+    ],
+    "experience": "Experienced",
+    "experienceSub": "CLINICAL PRACTICE",
+    "sessions": "1000+",
+    "sessionsSub": "SESSIONS CONDUCTED",
+    "license": "Licensed Practitioner",
+    "licenseSub": "QUALIFIED CARE",
+    "aboutParagraphs": [
+      "Shahzad is an experienced mental health professional serving at Softmind Wellness. Providing compassionate, confidential, and evidence-based psychological care.",
+      "Areas of focus include psychological counselling, evidence-based psychotherapies, and helping individuals navigate emotional and personal challenges.",
+      "Committed to supporting clients with clinical excellence, empathy, and practical guidance."
+    ],
+    "socialLinks": {
+      "instagram": "https://instagram.com/softmindindia",
+      "facebook": "https://facebook.com/softmindindia"
+    },
+    "languages": [
+      "English",
+      "Malayalam"
+    ],
+    "quote": "Empowering Minds. Healing Hearts. Enabling Better Life.",
+    "quoteAuthor": "- Shahzad",
+    "expertise": [
+      {
+        "title": "Emotional & Mental Wellbeing",
+        "description": "Helping individuals navigate anxiety, stress, and low mood with evidence-based therapeutic approaches."
+      },
+      {
+        "title": "Personal Growth & Relationships",
+        "description": "Supporting personal development, resilience building, and healthier relationships."
+      }
+    ],
+    "articles": []
+  }
 ];
 
-export function getClinicianById(id: string | number): Clinician | undefined {
-  const numericId = Number(id);
-  const found = clinicians.find((c) => c.id === numericId);
-  if (found) return found;
+export function getClinicianBySlug(slug: string): Clinician | undefined {
+  if (!slug) return undefined;
+  const normalized = slug.toLowerCase().trim();
+  return clinicians.find(
+    (c) => c.slug.toLowerCase() === normalized || String(c.id) === normalized
+  );
+}
 
-  // If someone enters an id not specifically listed, provide a fallback template
-  return {
-    ...clinicians[0],
-    id: numericId || 1,
-  };
+export function getClinicianById(id: string | number): Clinician | undefined {
+  if (!id) return undefined;
+  const strId = String(id).toLowerCase().trim();
+  const found = clinicians.find(
+    (c) => String(c.id) === strId || c.slug.toLowerCase() === strId
+  );
+  if (found) return found;
+  return clinicians[0];
 }

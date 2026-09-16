@@ -14,28 +14,28 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   {
-    label: "Explore Softmind",
-    href: "/",
-  },
-  {
     label: "Our Care",
     href: "/our-care",
   },
   {
-    label: "Articles",
-    href: "/articles",
+    label: "Conditions",
+    href: "/conditions",
   },
   {
     label: "Clinicians",
     href: "/clinicians",
   },
   {
-    label: "Knowledge Centre",
-    href: "/knowledge-centre",
-  },
-  {
     label: "Centres",
     href: "/centres",
+  },
+  {
+    label: "Articles",
+    href: "/articles",
+  },
+  {
+    label: "About",
+    href: "/about",
   },
 ];
 

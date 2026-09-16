@@ -18,7 +18,7 @@ export default function Footer() {
             {!logoError ? (
               <Image
                 src="/assets/Softmind Logo White.png"
-                alt="Softmind"
+                alt="Softmind Wellness"
                 width={150}
                 height={51}
                 className={styles.logoImg}
@@ -29,90 +29,92 @@ export default function Footer() {
             )}
           </Link>
           <p className={styles.desc}>
-            Providing compassionate, evidence-based psychiatric and psychological care resources in environments built entirely around your needs.
+            Evidence-based psychological and psychiatric care in Kerala, in person and online.
           </p>
 
           <div className={styles.socials}>
-            <Link href="#" aria-label="Facebook" className={styles.social}>
+            <a
+              href="https://facebook.com/softmindindia"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className={styles.social}
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
-            </Link>
-            <Link href="#" aria-label="Twitter" className={styles.social}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-              </svg>
-            </Link>
-            <Link href="#" aria-label="Instagram" className={styles.social}>
+            </a>
+            <a
+              href="https://instagram.com/softmindindia"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className={styles.social}
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
-            </Link>
-            <Link href="#" aria-label="YouTube" className={styles.social}>
+            </a>
+            <a
+              href="https://linkedin.com/company/softmindkerala"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className={styles.social}
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#131b2e" />
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
-            </Link>
-          </div>
-
-          <div className={styles.appDownload}>
-            <p className={styles.appTitle}>Get the Softmind App</p>
-            <div className={styles.appBadges}>
-              <Link href="#" className={styles.appBadge}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3.609 1.814L13.793 12 3.61 22.186a1.986 1.986 0 01-.61-.92L3 2.734c0-.337.218-.654.609-.92zM15.207 13.414l2.578 2.578-11.83 6.822 9.252-9.4zM15.207 10.586L5.955 1.186 17.785 8.008l-2.578 2.578zM18.89 9.113l2.846 1.643a1.442 1.442 0 010 2.488l-2.846 1.643-2.184-2.184 2.184-2.19z" />
-                </svg>
-                <span>Google Play</span>
-              </Link>
-              <Link href="#" className={styles.appBadge}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.64 1.35-.58.66-.99 1.73-.85 2.76 1.01.08 2.05-.51 2.57-1.26z" />
-                </svg>
-                <span>App Store</span>
-              </Link>
-            </div>
+            </a>
           </div>
         </div>
 
         {/* Link Columns */}
         {[
           {
-            heading: "KNOWLEDGE",
+            heading: "OUR CARE",
             links: [
-              { label: "Knowledge Centre", href: "/knowledge-centre" },
-              { label: "All Articles", href: "/articles" },
-              { label: "Video Hub", href: "#" },
-              { label: "Interactive Check-ins", href: "#" },
+              { label: "All Care Services", href: "/our-care" },
+              { label: "Psychological Counselling", href: "/our-care/psychological-counselling" },
+              { label: "Couple & Relationship", href: "/our-care/relationship-counselling" },
+              { label: "Child & Adolescent", href: "/our-care/child-adolescent-counselling" },
+              { label: "Clinical Psychology", href: "/our-care/clinical-psychology" },
+              { label: "Psychiatry", href: "/our-care/psychiatry" },
             ],
           },
           {
-            heading: "TOPICS",
+            heading: "CONDITIONS",
             links: [
-              { label: "Anxiety & Worry", href: "/articles?category=Anxiety%20%26%20Worry" },
-              { label: "Depression", href: "/articles?category=Depression" },
-              { label: "Relationships", href: "#" },
-              { label: "Mindfulness", href: "/articles?category=Mindfulness" },
+              { label: "Conditions Hub", href: "/conditions" },
+              { label: "Anxiety & Stress", href: "/conditions/anxiety" },
+              { label: "Depression", href: "/conditions/depression" },
+              { label: "OCD", href: "/conditions/ocd" },
+              { label: "PTSD & Trauma", href: "/conditions/ptsd" },
+              { label: "ADHD", href: "/conditions/adhd" },
             ],
           },
           {
-            heading: "ABOUT",
+            heading: "CENTRES",
             links: [
-              { label: "Our Mission", href: "/our-care" },
-              { label: "Clinicians", href: "/clinicians" },
-              { label: "Clinical Science", href: "#" },
-              { label: "Careers", href: "#" },
+              { label: "Find a Centre", href: "/centres" },
+              { label: "Panampilly Nagar, Kochi", href: "/centres/panampilly-nagar" },
+              { label: "Kakkanad, Kochi", href: "/centres/kakkanad" },
+              { label: "Thrissur", href: "/centres/thrissur" },
+              { label: "Aroor", href: "/centres/aroor" },
             ],
           },
           {
-            heading: "CONNECT",
+            heading: "ORGANISATION",
             links: [
-              { label: "Book Session", href: "#" },
-              { label: "Contact Hub", href: "#" },
-              { label: "FAQ & Support", href: "#" },
-              { label: "Privacy Policy", href: "#" },
+              { label: "About Softmind", href: "/about" },
+              { label: "Clinical Standards", href: "/about/clinical-standards" },
+              { label: "Meet Clinicians", href: "/clinicians" },
+              { label: "Professional Learning", href: "/professional-learning" },
+              { label: "Articles & Knowledge", href: "/articles" },
+              { label: "Careers", href: "/careers" },
+              { label: "FAQ & Contact", href: "/faq" },
             ],
           },
         ].map((col) => (
@@ -132,12 +134,12 @@ export default function Footer() {
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
           <p className={styles.copyright}>
-            © {year} Softmind Healthcare. All rights reserved. &nbsp;|&nbsp;{" "}
-            <Link href="#">Terms & Conditions</Link> &nbsp;|&nbsp;{" "}
-            <Link href="#">Privacy Policy</Link>
+            © {year} Softmind Wellness Pvt. Ltd. All rights reserved. &nbsp;|&nbsp;{" "}
+            <Link href="/terms">Terms & Conditions</Link> &nbsp;|&nbsp;{" "}
+            <Link href="/privacy-policy">Privacy Policy</Link>
           </p>
           <p className={styles.crisis}>
-            If you are experiencing an immediate mental health crisis, please contact your local emergency services.
+            If you are in crisis or thinking about suicide, call Tele-MANAS on <strong>14416</strong> (free, 24 hours) or go to your nearest emergency department.
           </p>
         </div>
       </div>
