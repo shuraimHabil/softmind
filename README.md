@@ -1,3 +1,6 @@
+> [!WARNING]
+> **SEO CONFIGURATION REMINDER:** The `metadataBase` in `src/app/layout.tsx` is temporarily set to `https://softmind.vercel.app` for Open Graph image testing. **Remember to change it back to `https://www.softmindindia.com`** when the real domain is ready to go live!
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
