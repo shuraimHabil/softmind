@@ -33,18 +33,9 @@ export default function AboutPage() {
       <JsonLd data={generateOrganizationLd()} />
 
       <div className={styles.container}>
-        <nav aria-label="Breadcrumbs" className={styles.breadcrumbs}>
-          <ol>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li aria-current="page">About</li>
-          </ol>
-        </nav>
+
 
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>ORGANISATION & VALUES</p>
           <h1 className={styles.h1}>About Softmind Wellness</h1>
           <p className={styles.intro}>
             Softmind Wellness Pvt. Ltd. is an established mental health organisation in Kerala,

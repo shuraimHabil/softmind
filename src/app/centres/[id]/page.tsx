@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllCentres, getCentreBySlug } from "@/lib/centres";
+import { fetchCentres, fetchCentreBySlug } from "@/lib/centres";
+import { fetchClinicians } from "@/lib/clinicians";
 import CentresHero from "@/components/Centres/CentresHero";
 import CentreDetailView from "@/components/Centres/CentreDetailView";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
@@ -14,7 +15,7 @@ interface CentrePageProps {
 }
 
 export async function generateStaticParams() {
-  const centres = getAllCentres();
+  const centres = await fetchCentres();
   return [
     ...centres.map((c) => ({ id: c.slug })),
     { id: "kochi" },
@@ -24,7 +25,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CentrePageProps): Promise<Metadata> {
   const { id } = await params;
-  const centre = getCentreBySlug(id);
+  const centre = await fetchCentreBySlug(id);
 
   if (!centre) {
     return {
@@ -67,13 +68,14 @@ export async function generateMetadata({ params }: CentrePageProps): Promise<Met
 
 export default async function CentreDetailPage({ params }: CentrePageProps) {
   const { id } = await params;
-  const centre = getCentreBySlug(id);
+  const centre = await fetchCentreBySlug(id);
 
   if (!centre) {
     notFound();
   }
 
-  const allCentres = getAllCentres();
+  const allCentres = await fetchCentres();
+  const clinicians = await fetchClinicians();
 
   const breadcrumbs = [
     { name: "Home", url: "https://www.softmindindia.com" },
@@ -98,7 +100,7 @@ export default async function CentreDetailPage({ params }: CentrePageProps) {
       <JsonLd data={breadcrumbsLd} />
       <JsonLd data={centreLd} />
       <CentresHero />
-      <CentreDetailView centre={centre} allCentres={allCentres} />
+      <CentreDetailView centre={centre} allCentres={allCentres} clinicians={clinicians} />
       <CliniciansCTA />
     </>
   );

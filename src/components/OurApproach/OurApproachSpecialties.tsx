@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./OurApproachSpecialties.module.css";
-import { useBookingModal } from "@/components/BookingModal/BookingModalContext";
 
 const specialties = [
   {
@@ -15,6 +15,7 @@ const specialties = [
     img: "/assets/hero_therapy.jpg",
     imgAlt: "Person meditating in a garden",
     reversed: false,
+    category: "Emotional Wellbeing",
   },
   {
     id: "relationships-family",
@@ -27,6 +28,7 @@ const specialties = [
     img: "/assets/couple_session.jpg",
     imgAlt: "Couple holding hands in a therapy session",
     reversed: true,
+    category: "Relationship & Family",
   },
   {
     id: "children-adolescents",
@@ -39,11 +41,11 @@ const specialties = [
     img: "/assets/child_session.jpg",
     imgAlt: "Group of children playing outdoors",
     reversed: false,
+    category: "Children & Adolescents",
   },
 ];
 
 export default function OurApproachSpecialties() {
-  const { openModal } = useBookingModal();
   return (
     <section className={styles.section} id="approach-specialties">
       {specialties.map((item) => (
@@ -58,9 +60,9 @@ export default function OurApproachSpecialties() {
             <p className={styles.intro}>{item.intro}</p>
             <p className={styles.subheading}>{item.subheading}</p>
             <p className={styles.detail}>{item.detail}</p>
-            <button onClick={openModal} className={styles.bookBtn} id={`book-${item.id}`}>
+            <Link href={`/clinicians?category=${encodeURIComponent(item.category)}#clinicians-grid`} className={styles.bookBtn} id={`book-${item.id}`}>
               Book Now &rarr;
-            </button>
+            </Link>
           </div>
 
           {/* Image side */}

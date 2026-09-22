@@ -1,3 +1,6 @@
+import axios from "axios";
+import { Clinician, stripHtml } from "./clinicians";
+
 export interface Centre {
   id: string;
   slug: string;
@@ -17,166 +20,179 @@ export interface Centre {
     sub2: string;
   };
   facilities: string[];
-  clinicianIds: number[];
+  clinicianIds: (number | string)[];
+  clinicians?: Clinician[];
+  googleMapUrl?: string;
   mapQuery: string;
 }
 
-export const centres: Centre[] = [
-  {
-    id: "panampilly-nagar",
-    slug: "panampilly-nagar",
-    name: "Softmind Panampilly Nagar, Kochi",
-    shortName: "Panampilly Nagar",
-    city: "Kochi, Kerala",
-    tagline:
-      "Our Panampilly Nagar centre is a quiet, private space for therapy, psychological assessment and psychiatric consultation.",
-    phone: "+91 90618 18732",
-    email: "info@softmindindia.com",
-    address: "Panampilly Nagar Ave,\nErnakulam",
-    fullAddress:
-      "Second Floor, Kerala State Housing Board, G-23, Panampilly Nagar Avenue, Panampilly Nagar, Kochi, Ernakulam, Kerala 682036",
-    hours: "Mon – Sat: 9:00 AM – 7:00 PM",
-    thumbnail: "/assets/panampilly-nagar.webp",
-    gallery: {
-      main: "/assets/panampilly-nagar.webp",
-      sub1: "/assets/therapy_session.jpg",
-      sub2: "/assets/hero_therapy.jpg",
-    },
-    facilities: [
-      "Individual therapy rooms",
-      "Couple & family therapy rooms",
-      "Child & adolescent therapy space",
-      "Psychological assessment room",
-      "Comfortable waiting lounge",
-      "Safe, confidential & soundproof consultation suites",
-    ],
-    clinicianIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    mapQuery: "Panampilly+Nagar,+Kochi,+Kerala",
-  },
-  {
-    id: "kakkanad",
-    slug: "kakkanad",
-    name: "Softmind Kakkanad, Kochi",
-    shortName: "Kakkanad",
-    city: "Kochi, Kerala",
-    tagline:
-      "Conveniently situated near InfoPark and CSEZ, our Kakkanad centre offers psychological assessment, therapy and psychiatric care for adults, couples and families.",
-    phone: "+91 98460 60111",
-    email: "info@softmindindia.com",
-    address: "Seaport-Airport Rd, CSEZ,\nKochi",
-    fullAddress:
-      "Isac & Geetha's Image Centre, Seaport-Airport Road, CSEZ P.O., Kakkanad, Kochi, Kerala 682037",
-    hours: "Mon – Sat: 9:00 AM – 7:00 PM",
-    thumbnail: "/assets/kakkanad.webp",
-    gallery: {
-      main: "/assets/kakkanad.webp",
-      sub1: "/assets/insight_1.jpg",
-      sub2: "/assets/insight_2.jpg",
-    },
-    facilities: [
-      "Individual therapy rooms",
-      "Work-stress & corporate wellness support",
-      "Couple & family therapy rooms",
-      "Psychological assessment suites",
-      "Confidential tele-therapy facility",
-    ],
-    clinicianIds: [1, 3, 5, 7, 9, 11, 12, 13, 2, 4],
-    mapQuery: "Kakkanad,+Kochi,+Kerala",
-  },
-  {
-    id: "thrissur",
-    slug: "thrissur",
-    name: "Softmind Thrissur",
-    shortName: "Thrissur",
-    city: "Thrissur, Kerala",
-    tagline:
-      "Our Thrissur centre offers therapy for adults, children and families, with psychiatric consultations arranged as needed.",
-    phone: "+91 90618 18732",
-    email: "care@softmindindia.com",
-    address: "Father Vadakkan Road, Shakthan\nNagar, Thrissur",
-    fullAddress:
-      "Forms Villas, near Shakthan Manar Flat, Father Vadakkan Road (Mundupalam Road), Shakthan Thampuran Nagar, Veliyannur, Thrissur, Kerala 680001",
-    hours: "Mon – Sat: 10:00 AM – 1:00 PM (Afternoons by prior booking)",
-    thumbnail: "/assets/thrissur.webp",
-    gallery: {
-      main: "/assets/thrissur.webp",
-      sub1: "/assets/therapy_session.jpg",
-      sub2: "/assets/couple_session.png",
-    },
-    facilities: [
-      "Individual therapy rooms",
-      "Family counselling suites",
-      "Child behavioral support",
-      "Cognitive assessments",
-      "Sound-isolated consultation rooms",
-    ],
-    clinicianIds: [1, 2, 4, 5, 8, 11, 13, 3, 6, 9],
-    mapQuery: "Shakthan+Nagar,+Thrissur,+Kerala",
-  },
-  {
-    id: "aroor",
-    slug: "aroor",
-    name: "Softmind Aroor",
-    shortName: "Aroor",
-    city: "Aroor, Alappuzha, Kerala",
-    tagline:
-      "Located inside Lakshmi Hospital, our Aroor centre serves families across Aroor and Alappuzha district with experienced psychologists and psychiatric support.",
-    phone: "+91 77364 84813",
-    email: "care@softmindindia.com",
-    address: "Lakshmi Hospital, opposite Malayala Manorama,\nAroor",
-    fullAddress:
-      "Softmind Counselling Centre, Lakshmi Hospital, opposite Malayala Manorama, Aroor, Alappuzha, Kerala",
-    hours: "Mon – Sun: 10:00 AM – 5:00 PM",
-    thumbnail: "/assets/panampilly-nagar.webp",
-    gallery: {
-      main: "/assets/panampilly-nagar.webp",
-      sub1: "/assets/therapy_session.jpg",
-      sub2: "/assets/hero_therapy.jpg",
-    },
-    facilities: [
-      "Individual therapy rooms",
-      "Child and family support space",
-      "Psychiatric consultation",
-      "Hospital-supported clinical setting",
-    ],
-    clinicianIds: [1, 2, 4, 10, 15],
-    mapQuery: "Aroor,+Alappuzha,+Kerala",
-  },
-  {
-    id: "trivandrum",
-    slug: "trivandrum",
-    name: "Softmind Online Services (Thiruvananthapuram)",
-    shortName: "Online (Trivandrum)",
-    city: "Thiruvananthapuram, Kerala",
-    tagline:
-      "Secure online psychological care and psychiatric consultations in Malayalam and English for clients in Thiruvananthapuram and across Kerala.",
-    phone: "+91 90618 18732",
-    email: "info@softmindindia.com",
-    address: "Online Consultations\nThiruvananthapuram",
-    fullAddress: "Secure Tele-health services across Thiruvananthapuram, Kerala",
-    hours: "Mon – Sat: 9:00 AM – 8:00 PM (By Appointment)",
-    thumbnail: "/assets/trivandrum.webp",
-    gallery: {
-      main: "/assets/trivandrum.webp",
-      sub1: "/assets/insight_3.jpg",
-      sub2: "/assets/child_session.jpg",
-    },
-    facilities: [
-      "High-definition encrypted video sessions",
-      "Individual therapy & psychiatric consultation",
-      "Malayalam & English consultations",
-    ],
-    clinicianIds: [1, 2, 3, 5, 8],
-    mapQuery: "Thiruvananthapuram,+Kerala",
-  },
-];
+export const centres: Centre[] = [];
+
+export async function fetchCentres(): Promise<Centre[]> {
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/method/softmind_custom.api.centers_api.get_centres`
+    );
+    const json = res.data;
+    const data = json.message?.data || json.message || [];
+    
+    if (!Array.isArray(data) || data.length === 0) {
+      return [];
+    }
+
+    const apiCentres = data.map((item: any) => {
+      const rawName = item.name || item.centre_name || item.title || "Softmind Centre";
+      const cleanName = stripHtml(rawName);
+      const cleanTagline = stripHtml(item.tagline || item.description || item.about || "");
+      const cleanAddress = stripHtml(item.address || "");
+      const cleanFullAddress = stripHtml(item.full_address || item.address || "");
+      
+      const rawSlug = item["id/slug"] || item.slug || item.id || cleanName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const slug = String(rawSlug).trim();
+
+      const imagePath = item.image || item.thumbnail || item.main_image;
+      const encodedImg = imagePath ? encodeURI(imagePath) : "/invalid-image.jpg";
+
+      const cityState = item.city 
+        ? `${stripHtml(item.city)}${item.state ? ", " + stripHtml(item.state) : ""}`
+        : "Kerala";
+
+      return {
+        id: slug,
+        slug: slug,
+        name: cleanName,
+        shortName: stripHtml(item.short_name || item.shortName || cleanName.replace(/^Softmind\s*/i, "")),
+        city: cityState,
+        tagline: cleanTagline,
+        phone: item.phone || item.mobile || "",
+        email: item.email || "",
+        address: cleanAddress || `${cleanName}, ${cityState}`,
+        fullAddress: cleanFullAddress || cleanAddress || `${cleanName}, ${cityState}`,
+        hours: item.hours || "",
+        thumbnail: encodedImg,
+        gallery: {
+          main: item.gallery?.main ? encodeURI(item.gallery.main) : encodedImg,
+          sub1: item.gallery?.sub1 ? encodeURI(item.gallery.sub1) : encodedImg,
+          sub2: item.gallery?.sub2 ? encodeURI(item.gallery.sub2) : encodedImg,
+        },
+        facilities: Array.isArray(item.facilities)
+          ? item.facilities.map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
+          : Array.isArray(item.services)
+          ? item.services.map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
+          : typeof item.facilities === "string"
+          ? item.facilities.split(/,|\n/).map((f: string) => stripHtml(f.trim())).filter(Boolean)
+          : [],
+        clinicianIds: Array.isArray(item.clinician_ids)
+          ? item.clinician_ids
+          : Array.isArray(item.clinicians)
+          ? item.clinicians.map((c: any) => c.id || c.slug || c)
+          : [],
+        mapQuery: item.map_query || `${encodeURIComponent(cleanName)},+${encodeURIComponent(item.city || "Kerala")}`
+      } as Centre;
+    });
+
+    return apiCentres;
+  } catch (err) {
+    console.error("fetchCentres error:", err);
+    return [];
+  }
+}
+
+export async function fetchCentreBySlug(slug: string): Promise<Centre | undefined> {
+  const allCentres = await fetchCentres();
+  const normalized = slug.toLowerCase().trim();
+  
+  let summaryItem = allCentres.find((c) => c.slug === normalized || c.id === normalized);
+  const targetSlug = summaryItem ? summaryItem.slug : normalized;
+
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/method/softmind_custom.api.centers_api.get_centre_detail?centre=${encodeURIComponent(targetSlug)}`
+    );
+    const json = res.data;
+    const detail = json.message?.data || json.message;
+    if (detail && (detail.id || detail.name)) {
+        const rawName = detail.name || detail.centre_name || summaryItem?.name || "Softmind Centre";
+        const cleanName = stripHtml(rawName);
+        const cleanTagline = stripHtml(detail.tagline || detail.description || summaryItem?.tagline || "");
+        const cleanAddress = stripHtml(detail.address || summaryItem?.address || "");
+        const cleanFullAddress = stripHtml(detail.full_address || detail.address || summaryItem?.fullAddress || "");
+        
+        const cityState = detail.city
+          ? `${stripHtml(detail.city)}${detail.state ? ", " + stripHtml(detail.state) : ""}`
+          : summaryItem?.city || "Kerala";
+
+        const images = Array.isArray(detail.images) ? detail.images.map((img: string) => encodeURI(img)) : [];
+        const mainImg = images[0] || detail.image || summaryItem?.thumbnail || "/invalid-image.jpg";
+
+        const mappedFacilities: string[] = Array.isArray(detail.facilities)
+          ? detail.facilities.map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
+          : summaryItem?.facilities || [];
+
+        const mappedClinicians: Clinician[] | undefined = Array.isArray(detail.clinicians)
+          ? detail.clinicians.map((c: any) => ({
+              id: String(c.id || c.slug || c.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              slug: String(c.id || c.slug || c.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              name: stripHtml(c.name || ""),
+              role: stripHtml(c.title || c.role || "Consultant"),
+              eyebrow: stripHtml(c.title || c.role || "Consultant"),
+              tagline: "",
+              desc: "",
+              img: c.image ? encodeURI(c.image) : "/invalid-image.jpg",
+              categories: ["All"],
+              experience: "",
+              experienceSub: "",
+              sessions: "",
+              sessionsSub: "",
+              license: "",
+              licenseSub: "",
+              aboutParagraphs: [],
+              socialLinks: {},
+              languages: ["English", "Malayalam"],
+              quote: "",
+              quoteAuthor: "",
+              expertise: [],
+              articles: []
+            } as Clinician))
+          : undefined;
+
+        return {
+          id: detail.id || summaryItem?.id || targetSlug,
+          slug: detail.id || summaryItem?.slug || targetSlug,
+          name: cleanName,
+          shortName: stripHtml(detail.short_name || cleanName.replace(/^Softmind\s*/i, "")),
+          city: cityState,
+          tagline: cleanTagline,
+          phone: detail.phone || summaryItem?.phone || "",
+          email: detail.email || summaryItem?.email || "",
+          address: cleanAddress || `${cleanName}, ${cityState}`,
+          fullAddress: cleanFullAddress || cleanAddress || `${cleanName}, ${cityState}`,
+          hours: detail.hours || summaryItem?.hours || "",
+          thumbnail: mainImg,
+          gallery: {
+            main: mainImg,
+            sub1: images[1] || summaryItem?.gallery?.sub1 || mainImg,
+            sub2: images[2] || summaryItem?.gallery?.sub2 || mainImg,
+          },
+          facilities: mappedFacilities,
+          clinicianIds: summaryItem?.clinicianIds || [],
+          clinicians: mappedClinicians,
+          googleMapUrl: detail.google_map_url || undefined,
+          mapQuery: detail.map_query || `${encodeURIComponent(cleanName)},+${encodeURIComponent(detail.city || "Kerala")}`
+        } as Centre;
+      }
+  } catch (err) {
+    console.error("fetchCentreBySlug error:", err);
+  }
+
+  return summaryItem;
+}
 
 export function getCentreBySlug(slug: string): Centre | undefined {
   const normalized = slug.toLowerCase().trim();
-  if (normalized === "kochi") return centres.find((c) => c.id === "panampilly-nagar");
   return centres.find((c) => c.slug === normalized || c.id === normalized);
 }
 
 export function getAllCentres(): Centre[] {
-  return centres.filter((c) => c.id !== "trivandrum");
+  return centres;
 }

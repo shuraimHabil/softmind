@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { clinicians, getClinicianBySlug, getClinicianById } from "@/lib/clinicians";
+import { fetchClinicians, fetchClinicianBySlug } from "@/lib/clinicians";
 import ClinicianDetailHero from "@/components/ClinicianDetail/ClinicianDetailHero";
 import ClinicianDetailAbout from "@/components/ClinicianDetail/ClinicianDetailAbout";
 import ClinicianDetailExpertise from "@/components/ClinicianDetail/ClinicianDetailExpertise";
@@ -10,12 +10,7 @@ import JsonLd, {
 } from "@/components/SEO/JsonLd";
 
 export async function generateStaticParams() {
-  const params: { id: string }[] = [];
-  for (const c of clinicians) {
-    params.push({ id: c.slug });
-    params.push({ id: String(c.id) });
-  }
-  return params;
+  return [];
 }
 
 export async function generateMetadata({
@@ -24,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const clinician = getClinicianBySlug(id) || getClinicianById(id);
+  const clinician = await fetchClinicianBySlug(id);
   if (!clinician) return {};
 
   const nameParts = clinician.name.replace(/^Dr\.\s*/, "").split(" ");
@@ -75,7 +70,7 @@ export default async function ClinicianDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const clinician = getClinicianBySlug(id) || getClinicianById(id);
+  const clinician = await fetchClinicianBySlug(id);
   if (!clinician) notFound();
 
   const breadcrumbs = [

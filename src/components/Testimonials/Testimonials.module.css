@@ -29,7 +29,7 @@
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 400;
-  color: #64748b;
+  color: #000000;
   letter-spacing: 0.02em;
 }
 
@@ -100,9 +100,9 @@
 
 .authorInfo {
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #243c39;
+  color: #000000;
   letter-spacing: 0.02em;
   margin-bottom: 14px;
 }
@@ -122,18 +122,17 @@
 /* ── Quote Text ────────────────── */
 .quoteText {
   font-family: var(--font-sans);
-  font-size: 0.94rem;
+  font-size: 0.95rem;
   font-style: normal;
-  font-weight: 400;
-  color: #334d49;
+  font-weight: 300;
+  color: #000000;
   line-height: 1.6;
   text-align: center;
   margin: 0;
-  letter-spacing: normal;
+  letter-spacing: 0.02em;
 }
 
 .centerCard .quoteText {
-  font-size: 1rem;
   line-height: 1.65;
 }
 

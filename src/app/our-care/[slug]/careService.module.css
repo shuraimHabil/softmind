@@ -1,7 +1,7 @@
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: calc(40px + var(--header-height)) 24px 80px;
   color: #1a202c;
   font-family: var(--font-anek-latin), sans-serif;
 }

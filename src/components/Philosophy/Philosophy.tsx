@@ -36,7 +36,7 @@ export default function Philosophy() {
         {/* Top row: heading + link */}
         <div className={styles.topRow}>
           <h2 className={styles.title}>
-            A Whole-Person Approach Rooted In Science And Delivered With Humanity.
+            A Whole-Person Approach Rooted in Science and Delivered with Humanity.
           </h2>
           <Link href="/our-care" className={styles.link}>
             Explore Our Care →

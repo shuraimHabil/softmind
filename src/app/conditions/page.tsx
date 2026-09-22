@@ -36,18 +36,7 @@ export default function ConditionsHubPage() {
     <>
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
-        <nav aria-label="Breadcrumbs" className={styles.breadcrumbs}>
-          <ol>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li aria-current="page">Conditions</li>
-          </ol>
-        </nav>
-
         <header className={styles.header}>
-          <p className={styles.eyebrow}>CLINICAL GUIDES</p>
           <h1 className={styles.h1}>Mental Health Conditions & Care</h1>
           <p className={styles.subtitle}>
             Clear, clinically responsible information to help you understand
@@ -69,7 +58,9 @@ export default function ConditionsHubPage() {
                   >
                     <h3 className={styles.cardTitle}>{cond.name}</h3>
                     <p className={styles.cardSnippet}>{cond.whatItIs}</p>
-                    <span className={styles.learnMore}>Read guide &rarr;</span>
+                    <span className={styles.learnMore}>
+                      Read guide <span className={styles.arrow}>&rarr;</span>
+                    </span>
                   </Link>
                 ))}
               </div>

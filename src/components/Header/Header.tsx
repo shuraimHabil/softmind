@@ -26,12 +26,20 @@ const navLinks: NavLink[] = [
     href: "/clinicians",
   },
   {
+    label: "Online Consultation",
+    href: "/online-consultation",
+  },
+  {
     label: "Centres",
     href: "/centres",
   },
   {
     label: "Articles",
     href: "/articles",
+  },
+  {
+    label: "Knowledge Centre",
+    href: "/knowledge-centre",
   },
   {
     label: "About",
@@ -209,11 +217,19 @@ export default function Header() {
             className={styles.btnAppointment}
             id="btn-book-session"
           >
-            Book a Session
-            <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
+            Book Now &rarr;
           </button>
+          <a
+            href="https://wa.me/917736484813"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.headerWhatsAppBtn}
+            aria-label="Chat on WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.763.459 3.483 1.332 5.001l-1.417 5.176 5.297-1.389c1.463.798 3.111 1.218 4.774 1.218h.004c5.506 0 9.989-4.478 9.99-9.984 0-2.669-1.038-5.176-2.925-7.062a9.925 9.925 0 0 0-7.065-2.944zm5.71 14.162c-.237.667-1.383 1.272-1.905 1.342-.486.065-1.121.093-1.802-.125-.415-.133-.948-.308-1.636-.606-2.883-1.248-4.757-4.177-4.901-4.37-.142-.193-1.168-1.558-1.168-2.97 0-1.412.735-2.107 1.002-2.392.237-.253.52-.317.694-.317.174 0 .348.002.497.009.157.007.368-.06.577.441.213.511.724 1.77.787 1.899.063.129.105.28.021.448-.084.168-.126.272-.252.42-.126.148-.266.33-.38.442-.126.126-.258.263-.111.515.147.253.652 1.077 1.401 1.745.962.859 1.775 1.126 2.028 1.252.253.126.401.105.548-.063.147-.168.631-.737.8-.99.168-.253.337-.21.569-.126.232.084 1.474.695 1.727.821.253.126.421.189.484.295.063.105.063.61-.174 1.277z"/>
+            </svg>
+          </a>
 
           {/* Mobile toggle */}
           <button

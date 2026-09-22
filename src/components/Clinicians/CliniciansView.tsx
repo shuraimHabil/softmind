@@ -3,8 +3,13 @@
 import { useState } from "react";
 import CliniciansHero from "./CliniciansHero";
 import CliniciansGrid from "./CliniciansGrid";
+import { Clinician } from "@/lib/clinicians";
 
-export default function CliniciansView() {
+interface CliniciansViewProps {
+  initialClinicians: Clinician[];
+}
+
+export default function CliniciansView({ initialClinicians }: CliniciansViewProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -13,6 +18,7 @@ export default function CliniciansView() {
       <CliniciansGrid
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        clinicians={initialClinicians}
       />
     </>
   );

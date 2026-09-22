@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Image from "next/image";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import styles from "./CliniciansGrid.module.css";
-import { clinicians } from "@/lib/clinicians";
+import { Clinician } from "@/lib/clinicians";
 
 const CATEGORIES = [
   "All",
@@ -17,13 +17,27 @@ const CATEGORIES = [
 interface CliniciansGridProps {
   searchQuery?: string;
   setSearchQuery?: (q: string) => void;
+  clinicians: Clinician[];
 }
 
 export default function CliniciansGrid({
   searchQuery = "",
   setSearchQuery,
+  clinicians,
 }: CliniciansGridProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  
+  const initialCategory = categoryParam && CATEGORIES.includes(categoryParam) ? categoryParam : "All";
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    if (categoryParam && CATEGORIES.includes(categoryParam)) {
+      setActiveCategory(categoryParam);
+    } else if (!categoryParam) {
+      setActiveCategory("All");
+    }
+  }, [categoryParam]);
 
   const filtered = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -64,7 +78,6 @@ export default function CliniciansGrid({
                 onClick={() => setActiveCategory(cat)}
                 id={`tab-${cat.replace(/\s+/g, "-").toLowerCase()}`}
               >
-                {cat === "All" && <span className={styles.allDot} />}
                 {cat}
               </button>
             ))}
@@ -134,13 +147,28 @@ export default function CliniciansGrid({
                 id={`clinician-${clinician.id}`}
               >
                 <div className={styles.imgWrap}>
-                  <Image
-                    src={clinician.img}
+                  <img
+                    src={clinician.img || "/broken-image.jpg"}
                     alt={clinician.name}
-                    fill
                     className={styles.img}
-                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
+                  {(clinician.isRciLicensed ||
+                    clinician.rci_licensed ||
+                    clinician.license?.toLowerCase().includes("rci") ||
+                    clinician.tagline?.toLowerCase().includes("rci") ||
+                    clinician.desc?.toLowerCase().includes("rci")) && (
+                    <div
+                      className={styles.rciBadge}
+                      title="RCI Licensed Practitioner"
+                      aria-label="RCI Licensed Practitioner"
+                    >
+                      <img
+                        src="/assets/rci_license_logo.png"
+                        alt="RCI Licensed"
+                        className={styles.rciBadgeImg}
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className={styles.cardBody}>
                   <h3 className={styles.name}>{clinician.name}</h3>

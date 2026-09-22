@@ -1,13 +1,17 @@
 import { MetadataRoute } from "next";
 import { careServices } from "@/lib/careServices";
 import { conditions } from "@/lib/conditions";
-import { clinicians } from "@/lib/clinicians";
-import { centres } from "@/lib/centres";
+import { fetchClinicians } from "@/lib/clinicians";
+import { fetchCentres } from "@/lib/centres";
 import { articles } from "@/lib/articles";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.softmindindia.com";
   const now = new Date();
+  const [centresList, cliniciansList] = await Promise.all([
+    fetchCentres(),
+    fetchClinicians(),
+  ]);
 
   // Static core routes
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -129,19 +133,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // Dynamic centre routes (verified only)
-  const centreRoutes: MetadataRoute.Sitemap = centres
-    .filter((c) => c.id !== "trivandrum")
-    .map((centre) => ({
-      url: `${baseUrl}/centres/${centre.id}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    }));
+  // Dynamic centre routes (from API)
+  const centreRoutes: MetadataRoute.Sitemap = centresList.map((centre) => ({
+    url: `${baseUrl}/centres/${centre.slug || centre.id}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
 
-  // Dynamic clinician routes
-  const clinicianRoutes: MetadataRoute.Sitemap = clinicians.map((c) => ({
-    url: `${baseUrl}/clinicians/${c.slug}`,
+  // Dynamic clinician routes (from API)
+  const clinicianRoutes: MetadataRoute.Sitemap = cliniciansList.map((c) => ({
+    url: `${baseUrl}/clinicians/${c.slug || c.id}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,

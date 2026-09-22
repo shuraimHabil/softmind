@@ -99,10 +99,6 @@ export default function Footer() {
             heading: "CENTRES",
             links: [
               { label: "Find a Centre", href: "/centres" },
-              { label: "Panampilly Nagar, Kochi", href: "/centres/panampilly-nagar" },
-              { label: "Kakkanad, Kochi", href: "/centres/kakkanad" },
-              { label: "Thrissur", href: "/centres/thrissur" },
-              { label: "Aroor", href: "/centres/aroor" },
             ],
           },
           {

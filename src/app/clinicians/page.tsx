@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import CliniciansView from "@/components/Clinicians/CliniciansView";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
+import { fetchClinicians } from "@/lib/clinicians";
 
 export const metadata: Metadata = {
   title: "Our Clinicians | Softmind – Experienced Mental Health Professionals",
@@ -33,10 +35,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CliniciansPage() {
+export default async function CliniciansPage() {
+  const clinicians = await fetchClinicians();
   return (
     <>
-      <CliniciansView />
+      <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
+        <CliniciansView initialClinicians={clinicians} />
+      </Suspense>
       <CliniciansCTA />
     </>
   );

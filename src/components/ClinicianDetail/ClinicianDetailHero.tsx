@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Clinician } from "@/lib/clinicians";
 import styles from "./ClinicianDetailHero.module.css";
 
@@ -7,20 +6,43 @@ interface ClinicianDetailHeroProps {
 }
 
 export default function ClinicianDetailHero({ clinician }: ClinicianDetailHeroProps) {
+  const isRci = Boolean(
+    clinician.isRciLicensed ||
+    clinician.rci_licensed ||
+    clinician.license?.toLowerCase().includes("rci") ||
+    clinician.tagline?.toLowerCase().includes("rci") ||
+    clinician.role?.toLowerCase().includes("rci") ||
+    clinician.desc?.toLowerCase().includes("rci") ||
+    clinician.aboutParagraphs?.some((p) => p.toLowerCase().includes("rci"))
+  );
+
   return (
     <section className={styles.heroSection} id="clinician-hero">
       <div className={styles.container}>
         <div className={styles.heroGrid}>
-          {/* Clinician Photo */}
-          <div className={styles.imageWrap}>
-            <Image
-              src={clinician.img}
-              alt={clinician.name}
-              fill
-              priority
-              className={styles.image}
-              sizes="(max-width: 900px) 320px, 320px"
-            />
+          {/* Clinician Photo Container */}
+          <div className={styles.imageContainer}>
+            <div className={styles.imageWrap}>
+              <img
+                src={clinician.img || "/broken-image.jpg"}
+                alt={clinician.name}
+                className={styles.image}
+              />
+            </div>
+
+            {isRci && (
+              <div
+                className={styles.rciBadge}
+                title="RCI Licensed Practitioner"
+                aria-label="RCI Licensed Practitioner"
+              >
+                <img
+                  src="/assets/rci_license_logo.png"
+                  alt="RCI Licensed"
+                  className={styles.rciBadgeImg}
+                />
+              </div>
+            )}
           </div>
 
           {/* Right Info Column */}

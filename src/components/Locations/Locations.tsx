@@ -1,37 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Locations.module.css";
+import { fetchCentres } from "@/lib/centres";
 
-const locations = [
-  {
-    name: "Softmind Kochi",
-    address: "Panampilly Nagar Ave,\nErnakulam",
-    phone: "9061818732",
-    img: "/assets/panampilly-nagar.webp",
-    href: "/centres/panampilly-nagar",
-  },
-  {
-    name: "Softmind Kakkanad",
-    address: "Seaport-Airport Rd, CSEZ,\nKochi",
-    phone: "9846060111",
-    img: "/assets/kakkanad.webp",
-    href: "/centres/kakkanad",
-  },
-  {
-    name: "Softmind Trivandrum",
-    address: "Ambalamukku, Kowdiar,\nThiruvananthapuram",
-    phone: "0471299238",
-    img: "/assets/trivandrum.webp",
-    href: "/centres/trivandrum",
-  },
-  {
-    name: "Softmind Thrissur",
-    address: "Father Vadakkan Road, Shakthan\nNagar, Thrissur",
-    phone: "9061818732",
-    img: "/assets/thrissur.webp",
-    href: "/centres/thrissur",
-  },
-];
+
 
 const features = [
   {
@@ -65,7 +37,13 @@ const features = [
   },
 ];
 
-export default function Locations() {
+export default async function Locations() {
+  const centres = await fetchCentres();
+
+  if (!centres || centres.length === 0) {
+    return null;
+  }
+
   return (
     <section className={styles.section} id="centres">
       <div className={styles.container}>
@@ -97,14 +75,14 @@ export default function Locations() {
           </div>
         </div>
 
-        {/* 4 Location Cards Grid */}
+        {/* Dynamic Location Cards Grid */}
         <div className={styles.grid}>
-          {locations.map((loc) => (
-            <Link key={loc.name} href={loc.href} className={styles.card}>
+          {centres.map((loc) => (
+            <Link key={loc.id} href={`/centres/${loc.slug}`} className={styles.card}>
               <div className={styles.imgWrap}>
                 <Image
-                  src={loc.img}
-                  alt={`Softmind ${loc.name} centre`}
+                  src={loc.thumbnail || "/invalid-image.jpg"}
+                  alt={`${loc.name} centre`}
                   fill
                   className={styles.img}
                   sizes="(max-width: 768px) 100vw, 25vw"
@@ -121,10 +99,6 @@ export default function Locations() {
                   ))}
                 </p>
                 <p className={styles.cardPhone}>{loc.phone}</p>
-                <div className={styles.cardDivider} />
-                <span className={styles.cardLink}>
-                  View Details →
-                </span>
               </div>
             </Link>
           ))}

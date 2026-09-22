@@ -1,0 +1,255 @@
+.section {
+  padding: 80px 0 60px;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+/* Left Start Card */
+.startCard {
+  background-color: #eff5f2;
+  border-radius: 20px;
+  padding: 36px 32px;
+  border: 1px solid #e0ebe6;
+}
+
+.plantIcon {
+  color: #1c3d37;
+  margin-bottom: 16px;
+}
+
+.startTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+  font-weight: 400;
+  color: #1a3330;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.startSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #4a6460;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.actionCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.actionCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px 14px;
+  border: 1px solid #e0ebe6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.actionIcon {
+  color: #1c3d37;
+  margin-bottom: 10px;
+}
+
+.actionCardTitle {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a3330;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 10px;
+  background-color: #1c3d37;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background-color: #122a26;
+}
+
+/* Right FAQ Column */
+.faqCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.faqSectionTitle {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #1a3330;
+  margin: 0;
+}
+
+.viewAllFaqsLink {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1c3d37;
+  text-decoration: none;
+}
+
+.viewAllFaqsLink:hover {
+  color: #0d9488;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faqItem {
+  background-color: #fafbf9;
+  border: 1px solid #e8eeeb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faqItemOpen {
+  background-color: #ffffff;
+  border-color: #1c3d37;
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1a3330;
+  text-align: left;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.chevronIcon {
+  color: #5c7873;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: #1c3d37;
+}
+
+.faqAnswer {
+  padding: 0 20px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: #5c7873;
+  line-height: 1.55;
+  border-top: 1px solid #f0f4f2;
+  margin-top: 4px;
+  padding-top: 12px;
+}
+
+.faqAnswer p {
+  margin: 0;
+}
+
+/* Trust Banner Footer */
+.trustBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid #e5ebe8;
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #3f5e58;
+}
+
+.trustItem svg {
+  color: #2b574e;
+}
+
+.trustDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #cbd8d4;
+}
+
+.trustItemNote {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: #8fa8a3;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .actionCardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustBanner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .trustDivider {
+    display: none;
+  }
+}

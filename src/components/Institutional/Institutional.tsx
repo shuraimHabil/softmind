@@ -19,13 +19,6 @@ const pillars = [
   },
 ];
 
-const partners = [
-  "WHO Global Integration",
-  "Harvard Science Review",
-  "British Psychological Soc.",
-  "Kerala Health Alliance",
-];
-
 export default function Institutional() {
   return (
     <section className={styles.section}>
@@ -46,14 +39,7 @@ export default function Institutional() {
           ))}
         </div>
 
-        {/* Partner list row matching Figma */}
-        <div className={styles.partnersRow}>
-          {partners.map((p) => (
-            <span key={p} className={styles.partnerItem}>
-              {p}
-            </span>
-          ))}
-        </div>
+        
       </div>
     </section>
   );
