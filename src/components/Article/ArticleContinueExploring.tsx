@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { articles } from "@/lib/articles";
+import { fetchPublishedArticles } from "@/lib/articles";
 import styles from "./ArticleContinueExploring.module.css";
 
-export default function ArticleContinueExploring({ current }: { current: string }) {
-  // Get 5 exploring items (matching the 5 cards in the screenshot)
-  const otherArticles = articles.filter((a) => a.slug !== current);
+export default async function ArticleContinueExploring({ current }: { current: string }) {
+  const allArticles = await fetchPublishedArticles();
+
+  // Get up to 5 articles excluding current
+  const otherArticles = allArticles.filter((a) => a.slug !== current);
   const items = otherArticles.length >= 5
     ? otherArticles.slice(0, 5)
-    : [...otherArticles, ...articles].slice(0, 5);
+    : [...otherArticles, ...allArticles].slice(0, 5);
 
   return (
     <section className={styles.section} id="continue-exploring">
@@ -41,3 +43,6 @@ export default function ArticleContinueExploring({ current }: { current: string 
     </section>
   );
 }
+
+
+

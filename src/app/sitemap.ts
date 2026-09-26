@@ -3,14 +3,15 @@ import { careServices } from "@/lib/careServices";
 import { conditions } from "@/lib/conditions";
 import { fetchClinicians } from "@/lib/clinicians";
 import { fetchCentres } from "@/lib/centres";
-import { articles } from "@/lib/articles";
+import { fetchPublishedArticles } from "@/lib/articles";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.softmindindia.com";
   const now = new Date();
-  const [centresList, cliniciansList] = await Promise.all([
+  const [centresList, cliniciansList, articlesList] = await Promise.all([
     fetchCentres(),
     fetchClinicians(),
+    fetchPublishedArticles(),
   ]);
 
   // Static core routes
@@ -157,8 +158,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
-  // Dynamic article routes
-  const articleRoutes: MetadataRoute.Sitemap = articles.map((art) => ({
+  // Dynamic article routes (from CMS API)
+  const articleRoutes: MetadataRoute.Sitemap = articlesList.map((art) => ({
     url: `${baseUrl}/articles/${art.slug}`,
     lastModified: now,
     changeFrequency: "monthly",

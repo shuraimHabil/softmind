@@ -28,10 +28,13 @@ export interface Centre {
 
 export const centres: Centre[] = [];
 
+const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
+
 export async function fetchCentres(): Promise<Centre[]> {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/method/softmind_custom.api.centers_api.get_centres`
+      `${BASE_URL}/api/method/softmind_custom.api.centers_api.get_centres`,
+      { headers: { "Cache-Control": "no-cache" }, timeout: 10000 }
     );
     const json = res.data;
     const data = json.message?.data || json.message || [];
@@ -107,7 +110,8 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
 
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/method/softmind_custom.api.centers_api.get_centre_detail?centre=${encodeURIComponent(targetSlug)}`
+      `${BASE_URL}/api/method/softmind_custom.api.centers_api.get_centre_detail?centre=${encodeURIComponent(targetSlug)}`,
+      { headers: { "Cache-Control": "no-cache" }, timeout: 10000 }
     );
     const json = res.data;
     const detail = json.message?.data || json.message;

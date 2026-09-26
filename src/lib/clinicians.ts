@@ -76,10 +76,13 @@ export function stripHtml(html: string): string {
     .trim();
 }
 
+const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
+
 export async function fetchClinicians(): Promise<Clinician[]> {
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/method/softmind_custom.api.clinician_api.get_clinicians`
+      `${BASE_URL}/api/method/softmind_custom.api.clinician_api.get_clinicians`,
+      { headers: { "Cache-Control": "no-cache" }, timeout: 10000 }
     );
     const json = res.data;
     const data: ApiClinician[] = json.message?.data || [];
@@ -163,8 +166,8 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
 
   try {
     const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/method/softmind_custom.api.clinician_api.get_clinician_detail?practitioner=${encodeURIComponent(targetSlug)}`,
-      { timeout: 5000 }
+      `${BASE_URL}/api/method/softmind_custom.api.clinician_api.get_clinician_detail?practitioner=${encodeURIComponent(targetSlug)}`,
+      { headers: { "Cache-Control": "no-cache" }, timeout: 10000 }
     );
     const json = res.data;
     const detail = json.message?.data || json.message;

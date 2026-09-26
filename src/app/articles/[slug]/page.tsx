@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { articles, getArticleBySlug } from "@/lib/articles";
+import { fetchPublishedArticles, fetchArticleBySlug } from "@/lib/articles";
 import ArticleHero from "@/components/Article/ArticleHero";
 import ArticleTrustBar from "@/components/Article/ArticleTrustBar";
 import ArticleBody from "@/components/Article/ArticleBody";
@@ -11,12 +11,13 @@ import JsonLd, {
 } from "@/components/SEO/JsonLd";
 
 export async function generateStaticParams() {
+  const articles = await fetchPublishedArticles();
   return articles.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await fetchArticleBySlug(slug);
   if (!article) return {};
 
   const canonicalUrl = `https://www.softmindindia.com/articles/${slug}`;
@@ -60,10 +61,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+
+  const [article, allArticles] = await Promise.all([
+    fetchArticleBySlug(slug),
+    fetchPublishedArticles(),
+  ]);
+
   if (!article) notFound();
 
-  const related = articles.filter((a) => a.slug !== slug).slice(0, 5);
+  const related = allArticles.filter((a) => a.slug !== slug).slice(0, 5);
 
   const breadcrumbs = [
     { name: "Home", url: "https://www.softmindindia.com" },
@@ -98,3 +104,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     </>
   );
 }
+
+
+

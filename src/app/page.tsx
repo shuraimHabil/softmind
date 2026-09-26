@@ -8,6 +8,8 @@ import Institutional from "@/components/Institutional/Institutional";
 import Topics from "@/components/Topics/Topics";
 import Insights from "@/components/Insights/Insights";
 import Newsletter from "@/components/Newsletter/Newsletter";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default function Home() {
   return (

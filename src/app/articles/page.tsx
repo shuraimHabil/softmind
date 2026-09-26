@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import {
-  articles,
-  articleCategories,
-  articleLanguages,
-  articleDoctors,
+  fetchPublishedArticles,
+  deriveFilterData,
 } from "@/lib/articles";
 import ArticlesBrowser from "@/components/ArticlesBrowser/ArticlesBrowser";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
@@ -39,16 +37,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+  const articles = await fetchPublishedArticles();
+  const { categories, languages, doctors } = deriveFilterData(articles);
+
   return (
     <main>
       <ArticlesBrowser
         articles={articles}
-        categories={articleCategories}
-        languages={articleLanguages}
-        doctors={articleDoctors}
+        categories={categories}
+        languages={languages}
+        doctors={doctors}
       />
       <CliniciansCTA />
     </main>
   );
 }
+
