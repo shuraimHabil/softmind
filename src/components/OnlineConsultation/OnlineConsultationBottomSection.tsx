@@ -86,7 +86,7 @@ export default function OnlineConsultationBottomSection() {
                 </div>
                 <h4 className={styles.actionCardTitle}>Chat on WhatsApp</h4>
                 <a 
-                  href="https://wa.me/917736484813" 
+                  href="https://wa.me/919496864960" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className={styles.actionBtn}
