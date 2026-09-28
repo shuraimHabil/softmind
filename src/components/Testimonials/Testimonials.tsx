@@ -3,52 +3,43 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./Testimonials.module.css";
 
-const stories = [
-  {
-    id: 1,
-    author: "Meera James",
-    role: "Teacher",
-    quote:
-      "“The therapy was highly structural, clear, thoughtful, and deeply insightful. I finally understood my patterns.”",
-  },
-  {
-    id: 2,
-    author: "Dr. Arun K.",
-    role: "Medical Practitioner",
-    quote:
-      "“An exceptionally thoughtful, evidence-led therapeutic experience. It gave me practical tools grounded in modern behavioral science.”",
-  },
-  {
-    id: 3,
-    author: "Sarah Thomas",
-    role: "Product Designer",
-    quote:
-      "“The structured sessions helped me navigate intense burnout and establish healthy emotional boundaries that transformed my life.”",
-  },
-  {
-    id: 4,
-    author: "Naveen Raj",
-    role: "Software Architect",
-    quote:
-      "“Having a clinician who understood neurodiversity and high-stress environments made a world of difference in my daily life.”",
-  },
-  {
-    id: 5,
-    author: "Priya Menon",
-    role: "Entrepreneur",
-    quote:
-      "“The evidence-based CBT exercises helped me regain confidence and clarity during a pivotal career transition.”",
-  },
-];
-
-// Tripled array for smooth, infinite bidirectional horizontal scrolling
-const loopedStories = [...stories, ...stories, ...stories];
 const GAP = 24;
 
+interface Story {
+  id: number;
+  author: string;
+  role: string;
+  quote: string;
+}
+
 export default function Testimonials() {
+  const [stories, setStories] = useState<Story[]>([]);
+  const [loopedStories, setLoopedStories] = useState<Story[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const containerRef = useRef<HTMLDivElement>(null);
-  // Start at index stories.length + 1 so Dr. Arun K. is the initial highlighted center card
-  const [currentIndex, setCurrentIndex] = useState(stories.length + 1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    fetch('/api/testimonials')
+      .then(res => res.json())
+      .then(data => {
+        if (data?.message?.success && Array.isArray(data.message.data) && data.message.data.length > 0) {
+          const apiStories = data.message.data.map((item: any, idx: number) => ({
+             id: idx + 1,
+             author: item.patient_name || "Anonymous",
+             role: item.occupation || "Patient",
+             quote: item.review ? `“${item.review}”` : "“A great experience.”"
+          }));
+          setStories(apiStories);
+          setLoopedStories([...apiStories, ...apiStories, ...apiStories]);
+          const startIndex = apiStories.length > 1 ? apiStories.length + 1 : apiStories.length;
+          setCurrentIndex(startIndex);
+        }
+      })
+      .catch(err => console.error("Failed to fetch testimonials", err))
+      .finally(() => setIsLoading(false));
+  }, []);
   const [isHovered, setIsHovered] = useState(false);
   const [cardWidth, setCardWidth] = useState(380);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -123,6 +114,23 @@ export default function Testimonials() {
   const containerWidth = containerRef.current?.offsetWidth || 1192;
   const cardStep = cardWidth + GAP;
   const translateX = containerWidth / 2 - (currentIndex * cardStep + cardWidth / 2);
+
+  if (isLoading) {
+    return (
+      <section className={styles.section} id="testimonials-section">
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>In Their Own Words</h2>
+            <p className={styles.subtitle}>Loading stories...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (stories.length === 0) {
+    return null;
+  }
 
   return (
     <section className={styles.section} id="testimonials-section">

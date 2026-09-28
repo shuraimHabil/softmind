@@ -91,8 +91,8 @@ export async function fetchClinicians(): Promise<Clinician[]> {
       return [];
     }
     
-    const apiClinicians = data.map((item) => {
-       const cleanName = stripHtml(item.name || "");
+    const apiClinicians = data.map((item: any) => {
+       const cleanName = stripHtml(item.practitioner_name || item.name || "");
        const cleanTitle = stripHtml(item.title || "Consultant");
        const cleanTagline = stripHtml(item.tagline || "");
        const cleanAbout = stripHtml(item.about || "");
@@ -113,7 +113,7 @@ export async function fetchClinicians(): Promise<Clinician[]> {
 
        return {
          id: item.id,
-         slug: item.id,
+         slug: item.website_slug || item.id,
          name: cleanName,
          role: cleanTitle,
          eyebrow: cleanTitle,

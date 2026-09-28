@@ -37,9 +37,15 @@ export const metadata: Metadata = {
   },
 };
 
+import { fetchClinicians } from "@/lib/clinicians";
+
 export default async function ArticlesPage() {
-  const articles = await fetchPublishedArticles();
-  const { categories, languages, doctors } = deriveFilterData(articles);
+  const [articles, allClinicians] = await Promise.all([
+    fetchPublishedArticles(),
+    fetchClinicians(),
+  ]);
+  const clinicianNames = allClinicians.map((c) => c.name);
+  const { categories, languages, doctors } = deriveFilterData(articles, clinicianNames);
 
   return (
     <main>

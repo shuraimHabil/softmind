@@ -20,6 +20,7 @@ export interface Article {
   widerView: string;
   toc: string[];
   sections: ArticleSection[];
+  content: string;
 }
 
 // ── Raw shape returned by the Frappe API ──────────────────────────────────────
@@ -76,19 +77,48 @@ function parseSections(html: string): ArticleSection[] {
   });
 }
 
+/** Process raw HTML to add IDs to headings and extract TOC */
+function processHTMLAndTOC(html: string) {
+  let processedHTML = html;
+  const toc: string[] = [];
+  
+  const regex = /<(h[23])([^>]*)>(.*?)<\/\1>/gi;
+  processedHTML = processedHTML.replace(regex, (match, tag, attrs, innerText) => {
+    const cleanText = innerText.replace(/<[^>]+>/g, "").trim();
+    if (cleanText) {
+      toc.push(cleanText);
+    }
+    const id = cleanText.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    if (!attrs.includes("id=")) {
+      return `<${tag}${attrs} id="${id}">${innerText}</${tag}>`;
+    }
+    return match;
+  });
+
+  return { processedHTML, toc };
+}
+
+/** Helper to make URL-friendly slugs */
+function sanitizeSlug(slug: string): string {
+  return slug
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 /** Map a raw API article to the Article interface */
 function mapArticle(raw: RawArticle): Article {
   const sections = parseSections(raw.content ?? "");
-  const toc = sections.map((s) => s.heading);
+  const { processedHTML, toc } = processHTMLAndTOC(raw.content ?? "");
 
   return {
-    slug: raw.slug ?? raw.name,
+    slug: sanitizeSlug(raw.slug || raw.name || raw.title || ""),
     badge: raw.badge ?? "Article",
     category: raw.category ?? "General",
     language: (raw.language === "Malayalam" ? "Malayalam" : "English") as Article["language"],
     title: raw.title,
     excerpt: raw.excerpt ?? "",
-    author: raw.author ?? "Softmind Team",
+    author: raw.author ?? "PRASAD AMORE",
     authorRole: raw.author_role ?? "Clinical Specialist",
     readTime: raw.read_time ?? estimateReadTime(raw.content ?? ""),
     reviewedDate: formatDate(raw.published_on),
@@ -96,6 +126,7 @@ function mapArticle(raw: RawArticle): Article {
     widerView: raw.excerpt ?? "",
     toc,
     sections,
+    content: processedHTML,
   };
 }
 
@@ -145,14 +176,20 @@ export const articleDoctors = [
 ];
 
 /** Derive filter metadata — merges static defaults with any new values from live API data */
-export function deriveFilterData(articles: Article[]) {
+export function deriveFilterData(articles: Article[], dynamicDoctors: string[] = []) {
   const apiCategories = articles.map((a) => a.category).filter(Boolean);
   const apiLanguages = articles.map((a) => a.language).filter(Boolean) as Article["language"][];
   const apiDoctors = articles.map((a) => a.author).filter(Boolean);
 
   const categories = [...new Set([...articleCategories, ...apiCategories])];
   const languages = [...new Set([...articleLanguages, ...apiLanguages])] as Article["language"][];
-  const doctors = [...new Set([...articleDoctors, ...apiDoctors])];
+  
+  // Clean empty strings from dynamic doctors
+  const validDynamic = dynamicDoctors.filter(d => Boolean(d && d.trim()));
+
+  const doctors = validDynamic.length > 0 
+    ? [...new Set(validDynamic)] 
+    : [...new Set([...articleDoctors, ...apiDoctors])];
 
   return { categories, languages, doctors };
 }

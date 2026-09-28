@@ -8,9 +8,7 @@ export default async function ArticleContinueExploring({ current }: { current: s
 
   // Get up to 5 articles excluding current
   const otherArticles = allArticles.filter((a) => a.slug !== current);
-  const items = otherArticles.length >= 5
-    ? otherArticles.slice(0, 5)
-    : [...otherArticles, ...allArticles].slice(0, 5);
+  const items = otherArticles.slice(0, 5);
 
   return (
     <section className={styles.section} id="continue-exploring">

@@ -11,9 +11,11 @@ export default function ArticleBody({
   related: Article[];
 }) {
   // Take up to 5 related items for the sidebar
-  const sidebarRelated = related.length >= 5 
-    ? related.slice(0, 5) 
-    : [...related, ...Array(5 - related.length).fill(related[0])].slice(0, 5);
+  const sidebarRelated = related.length === 0 
+    ? [] 
+    : related.length >= 5 
+      ? related.slice(0, 5) 
+      : [...related, ...Array(5 - related.length).fill(related[0])].slice(0, 5);
 
   return (
     <section className={styles.section}>
@@ -26,22 +28,11 @@ export default function ArticleBody({
             <p className={styles.widerViewText}>{article.widerView}</p>
           </div>
 
-          {/* Numbered sections */}
-          <div className={styles.sectionsList}>
-            {article.sections.slice(0, 3).map((sec) => (
-              <div
-                key={sec.num}
-                className={styles.section_block}
-                id={sec.heading.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
-              >
-                <div className={styles.secNum}>{sec.num}</div>
-                <div className={styles.secContent}>
-                  <h2 className={styles.secHeading}>{sec.heading}</h2>
-                  <p className={styles.secBody}>{sec.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Article Content */}
+          <div 
+            className={styles.articleContent}
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
 
           <div className={styles.continueAction}>
             <Link href="#continue-exploring" className={styles.continueReading}>
