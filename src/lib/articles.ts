@@ -102,7 +102,7 @@ function processHTMLAndTOC(html: string) {
 function sanitizeSlug(slug: string): string {
   return slug
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/[^\p{L}\p{M}\p{N}]+/gu, "-")
     .replace(/(^-|-$)/g, "");
 }
 
@@ -111,11 +111,13 @@ function mapArticle(raw: RawArticle): Article {
   const sections = parseSections(raw.content ?? "");
   const { processedHTML, toc } = processHTMLAndTOC(raw.content ?? "");
 
+  const isMalayalam = /[\u0D00-\u0D7F]/.test(raw.title || "");
+
   return {
     slug: sanitizeSlug(raw.slug || raw.name || raw.title || ""),
     badge: raw.badge ?? "Article",
     category: raw.category ?? "General",
-    language: (raw.language === "Malayalam" ? "Malayalam" : "English") as Article["language"],
+    language: (raw.language === "Malayalam" || isMalayalam ? "Malayalam" : "English") as Article["language"],
     title: raw.title,
     excerpt: raw.excerpt ?? "",
     author: raw.author ?? "PRASAD AMORE",
@@ -151,7 +153,8 @@ export async function fetchPublishedArticles(): Promise<Article[]> {
 /** Fetch a single article by slug from the CMS API */
 export async function fetchArticleBySlug(slug: string): Promise<Article | undefined> {
   const articles = await fetchPublishedArticles();
-  return articles.find((a) => a.slug === slug);
+  const normalizedInput = sanitizeSlug(decodeURIComponent(slug));
+  return articles.find((a) => sanitizeSlug(a.slug) === normalizedInput);
 }
 
 // ── Static filter options (shown in the sidebar) ─────────────────────────────
