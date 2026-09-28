@@ -4,12 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useBookingModal } from "./BookingModalContext";
 import styles from "./BookingModal.module.css";
 
-const centres = [
-  "Panampilly Nagar, Kochi",
-  "Kakkanad, Kochi",
-  "Aroor, Alleppey",
-  "Thrissur",
-];
+
 
 const consultationTopics = [
   "Anxiety & Stress",
@@ -29,6 +24,18 @@ const timeSlots = [
 
 type Tab = "direct" | "online";
 
+interface CentreOption {
+  id: string;
+  name: string;
+}
+
+/** Convert YYYY-MM-DD → DD-MM-YYYY for the API */
+function formatDateForApi(isoDate: string): string {
+  if (!isoDate) return "";
+  const [y, m, d] = isoDate.split("-");
+  return `${d}-${m}-${y}`;
+}
+
 export default function BookingModal() {
   const { isOpen, closeModal } = useBookingModal();
   const [tab, setTab] = useState<Tab>("direct");
@@ -41,7 +48,35 @@ export default function BookingModal() {
   const [time, setTime] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  // Centres fetched from API
+  const [centreOptions, setCentreOptions] = useState<CentreOption[]>([]);
+  const [centresLoading, setCentresLoading] = useState(false);
+
   const overlayRef = useRef<HTMLDivElement>(null);
+
+  // Fetch centres once on mount via internal API route (avoids CORS)
+  useEffect(() => {
+    setCentresLoading(true);
+    fetch("/api/centres")
+      .then((r) => r.json())
+      .then((data: any[]) => {
+        if (Array.isArray(data)) {
+          setCentreOptions(
+            data.map((c) => ({
+              id: c.id || c.slug,
+              name: c.name,
+            }))
+          );
+        }
+      })
+      .catch(() => {
+        // fallback — dropdown stays empty, user can proceed
+      })
+      .finally(() => setCentresLoading(false));
+  }, []);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -49,9 +84,9 @@ export default function BookingModal() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      // reset form on close
       setTimeout(() => {
         setSubmitted(false);
+        setSubmitError("");
         setName("");
         setContactValue("");
         setUseEmail(false);
@@ -79,10 +114,37 @@ export default function BookingModal() {
     if (e.target === overlayRef.current) closeModal();
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitError("");
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          full_name: name,
+          phone: contactValue,
+          preferred_date: formatDateForApi(date),
+          ...(centre ? { preferred_centre: centre } : {}),
+          ...(topic ? { consultation_for: topic } : {}),
+          ...(time ? { preferred_time: time } : {}),
+          ...(message ? { notes: message } : {}),
+          appointment_type: tab === "direct" ? "Direct Visit" : "Online Appointment",
+        }),
+      });
+
+      if (!res.ok) throw new Error(`Server error ${res.status}`);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Booking submission failed:", err);
+      setSubmitError("Something went wrong. Please call us or try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
+
 
   // Today's date for min attribute
   const todayStr = new Date().toISOString().split("T")[0];
@@ -122,7 +184,7 @@ export default function BookingModal() {
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
-            <h2 className={styles.successTitle}>We've received your request!</h2>
+            <h2 className={styles.successTitle}>We&apos;ve received your request!</h2>
             <p className={styles.successText}>
               Our team will reach out within 24 hours to confirm your{" "}
               {tab === "direct" ? "in-person" : "online"} appointment.
@@ -177,6 +239,7 @@ export default function BookingModal() {
                     onChange={e => setName(e.target.value)}
                     className={styles.input}
                     autoComplete="name"
+                    required
                   />
                 </div>
 
@@ -190,6 +253,7 @@ export default function BookingModal() {
                     onChange={e => setContactValue(e.target.value)}
                     className={styles.input}
                     autoComplete={useEmail ? "email" : "tel"}
+                    required
                   />
                   <button
                     type="button"
@@ -211,10 +275,13 @@ export default function BookingModal() {
                       value={centre}
                       onChange={e => setCentre(e.target.value)}
                       className={`${styles.input} ${styles.select}`}
+                      disabled={centresLoading}
                     >
-                      <option value="">Preferred Centre</option>
-                      {centres.map(c => (
-                        <option key={c} value={c}>{c}</option>
+                      <option value="">
+                        {centresLoading ? "Loading centres…" : "Preferred Centre"}
+                      </option>
+                      {centreOptions.map(c => (
+                        <option key={c.id} value={c.name}>{c.name}</option>
                       ))}
                     </select>
                   </div>
@@ -235,7 +302,6 @@ export default function BookingModal() {
                   </select>
                 </div>
 
-                {/* If online, shift centre here */}
                 {tab === "online" && (
                   <div className={styles.field} />
                 )}
@@ -251,6 +317,7 @@ export default function BookingModal() {
                     min={todayStr}
                     onChange={e => setDate(e.target.value)}
                     className={`${styles.input} ${styles.dateInput} ${!date ? styles.placeholder : ""}`}
+                    required
                   />
                 </div>
 
@@ -282,18 +349,26 @@ export default function BookingModal() {
                 />
               </div>
 
+              {/* Error message */}
+              {submitError && (
+                <p style={{ color: "red", fontSize: "0.85rem", marginTop: "-8px", marginBottom: "4px" }}>
+                  {submitError}
+                </p>
+              )}
+
               {/* Submit */}
               <button
                 type="submit"
                 className={styles.confirmBtn}
                 id="booking-confirm"
+                disabled={submitting}
               >
-                Confirm →
+                {submitting ? "Sending…" : "Confirm →"}
               </button>
 
               {/* Footer links */}
               <div className={styles.formFooter}>
-                <a href="tel:+918089005676" className={styles.footerLink} id="booking-call-link">
+                <a href="tel:+919496864960" className={styles.footerLink} id="booking-call-link">
                   <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
                     <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
                   </svg>
