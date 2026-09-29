@@ -31,6 +31,8 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
     setImgErrors((prev) => ({ ...prev, [id]: true }));
   };
 
+  const displayedClinicians = (clinicians || []).slice(0, 4);
+
   return (
     <div className={styles.pageWrapper}>
       {/* 1. HERO SECTION */}
@@ -44,7 +46,7 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
           <div className={styles.bgOverlay} />
         </div>
 
-        <div className={styles.container}>
+        <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <span className={styles.eyebrow}>SOFTMIND ONLINE</span>
             <h1 className={styles.heroTitle}>
@@ -184,8 +186,8 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
           </div>
 
           <div className={styles.cliniciansGrid}>
-            {clinicians && clinicians.length > 0 ? (
-              clinicians.map((clinician) => {
+            {displayedClinicians && displayedClinicians.length > 0 ? (
+              displayedClinicians.map((clinician) => {
                 const hasImg =
                   clinician.img &&
                   !imgErrors[clinician.id] &&
@@ -209,10 +211,12 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
                         />
                       ) : (
                         <div className={styles.cardBlankImg}>
-                          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                          </svg>
+                          <div className={styles.cardAvatarCircle}>
+                            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -220,17 +224,7 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
                     <div className={styles.cardBody}>
                       <h3 className={styles.cardName}>{clinician.name}</h3>
                       <span className={styles.cardRole}>{clinician.role || "Mental Health Professional"}</span>
-                      <hr className={styles.cardDivider} />
                       <p className={styles.cardFocus}>{focusAreas}</p>
-
-                      <div className={styles.cardLangRow}>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <line x1="2" y1="12" x2="22" y2="12"></line>
-                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                        </svg>
-                        <span>Malayalam &middot; English</span>
-                      </div>
 
                       <div className={styles.cardBtnRow}>
                         <Link
