@@ -44,7 +44,7 @@ export async function fetchCentres(): Promise<Centre[]> {
     }
 
     const apiCentres = data.map((item: any) => {
-      const rawName = item.name || item.centre_name || item.title || "Softmind Centre";
+      const rawName = item["Service_unit_name"] || item.Service_unit_name || item.service_unit_name || item.centre_name || item.title || item.name || "Softmind Centre";
       const cleanName = stripHtml(rawName);
       const cleanTagline = stripHtml(item.tagline || item.description || item.about || "");
       const cleanAddress = stripHtml(item.address || "");
@@ -116,7 +116,7 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
     const json = res.data;
     const detail = json.message?.data || json.message;
     if (detail && (detail.id || detail.name)) {
-        const rawName = detail.name || detail.centre_name || summaryItem?.name || "Softmind Centre";
+        const rawName = detail["Service_unit_name"] || detail.Service_unit_name || detail.service_unit_name || detail.centre_name || summaryItem?.name || "Softmind Centre";
         const cleanName = stripHtml(rawName);
         const cleanTagline = stripHtml(detail.tagline || detail.description || summaryItem?.tagline || "");
         const cleanAddress = stripHtml(detail.address || summaryItem?.address || "");

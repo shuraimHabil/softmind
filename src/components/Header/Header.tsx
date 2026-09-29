@@ -18,10 +18,6 @@ const navLinks: NavLink[] = [
     href: "/our-care",
   },
   {
-    label: "Conditions",
-    href: "/conditions",
-  },
-  {
     label: "Clinicians",
     href: "/clinicians",
   },
@@ -40,6 +36,12 @@ const navLinks: NavLink[] = [
   {
     label: "Knowledge Centre",
     href: "/knowledge-centre",
+    dropdown: [
+      {
+        label: "Conditions",
+        href: "/conditions",
+      },
+    ],
   },
   {
     label: "About",
