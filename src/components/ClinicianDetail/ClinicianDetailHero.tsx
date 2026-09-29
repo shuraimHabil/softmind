@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Clinician } from "@/lib/clinicians";
 import styles from "./ClinicianDetailHero.module.css";
 
@@ -6,15 +9,13 @@ interface ClinicianDetailHeroProps {
 }
 
 export default function ClinicianDetailHero({ clinician }: ClinicianDetailHeroProps) {
-  const isRci = Boolean(
-    clinician.isRciLicensed ||
-    clinician.rci_licensed ||
-    clinician.license?.toLowerCase().includes("rci") ||
-    clinician.tagline?.toLowerCase().includes("rci") ||
-    clinician.role?.toLowerCase().includes("rci") ||
-    clinician.desc?.toLowerCase().includes("rci") ||
-    clinician.aboutParagraphs?.some((p) => p.toLowerCase().includes("rci"))
-  );
+  const [imgError, setImgError] = useState(false);
+
+  const hasValidImg =
+    Boolean(clinician.img) &&
+    !imgError &&
+    !clinician.img.includes("invalid-image") &&
+    !clinician.img.includes("broken-image");
 
   return (
     <section className={styles.heroSection} id="clinician-hero">
@@ -23,26 +24,33 @@ export default function ClinicianDetailHero({ clinician }: ClinicianDetailHeroPr
           {/* Clinician Photo Container */}
           <div className={styles.imageContainer}>
             <div className={styles.imageWrap}>
-              <img
-                src={clinician.img || "/broken-image.jpg"}
-                alt={clinician.name}
-                className={styles.image}
-              />
-            </div>
-
-            {isRci && (
-              <div
-                className={styles.rciBadge}
-                title="RCI Licensed Practitioner"
-                aria-label="RCI Licensed Practitioner"
-              >
+              {hasValidImg ? (
                 <img
-                  src="/assets/rci_license_logo.png"
-                  alt="RCI Licensed"
-                  className={styles.rciBadgeImg}
+                  src={clinician.img}
+                  alt={clinician.name}
+                  className={styles.image}
+                  onError={() => setImgError(true)}
                 />
-              </div>
-            )}
+              ) : (
+                <div className={styles.avatarWrap} aria-label={clinician.name}>
+                  <div className={styles.avatarCircle}>
+                    <svg
+                      width="54"
+                      height="54"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Right Info Column */}

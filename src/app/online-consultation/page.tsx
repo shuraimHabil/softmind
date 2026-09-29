@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import OnlineConsultationHero from "@/components/OnlineConsultation/OnlineConsultationHero";
-import OnlineConsultationProcess from "@/components/OnlineConsultation/OnlineConsultationProcess";
-import OnlineConsultationBetweenSessions from "@/components/OnlineConsultation/OnlineConsultationBetweenSessions";
-import OnlineConsultationCareSection from "@/components/OnlineConsultation/OnlineConsultationCareSection";
-import OnlineConsultationWhyChoose from "@/components/OnlineConsultation/OnlineConsultationWhyChoose";
-import OnlineConsultationBottomSection from "@/components/OnlineConsultation/OnlineConsultationBottomSection";
 import JsonLd, { generateBreadcrumbsLd } from "@/components/SEO/JsonLd";
+import OnlineConsultationView from "./OnlineConsultationView";
+import { fetchClinicians } from "@/lib/clinicians";
 
 export const metadata: Metadata = {
-  title: "Online Consultation & Tele-Therapy | Softmind Wellness",
+  title: "Online Psychological Consultation | Softmind Wellness",
   description:
-    "Confidential online consultation with Softmind professionals, supported by personalised resources between sessions. Connect with experienced psychologists and psychiatrists.",
+    "A conversation is a place to begin understanding. Professional psychological care, wherever you are. Book an online consultation with Softmind professionals.",
   openGraph: {
-    title: "Online Consultation & Tele-Therapy | Softmind Wellness",
+    title: "Online Psychological Consultation | Softmind Wellness",
     description:
-      "Confidential online consultation with Softmind professionals, supported by personalised resources between sessions.",
+      "A conversation is a place to begin understanding. Professional psychological care, wherever you are.",
     url: "https://www.softmindindia.com/online-consultation",
     type: "website",
     images: [
@@ -22,15 +18,15 @@ export const metadata: Metadata = {
         url: "https://www.softmindindia.com/og/default.jpg",
         width: 1200,
         height: 630,
-        alt: "Online Consultation | Softmind Wellness",
+        alt: "Online Psychological Consultation | Softmind Wellness",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Online Consultation & Tele-Therapy | Softmind Wellness",
+    title: "Online Psychological Consultation | Softmind Wellness",
     description:
-      "Confidential online consultation with Softmind professionals, supported by personalised resources between sessions.",
+      "A conversation is a place to begin understanding. Professional psychological care, wherever you are.",
     images: ["https://www.softmindindia.com/og/default.jpg"],
   },
   alternates: {
@@ -38,7 +34,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function OnlineConsultationPage() {
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function OnlineConsultationPage() {
   const breadcrumbs = [
     { name: "Home", url: "https://www.softmindindia.com" },
     {
@@ -47,18 +46,13 @@ export default function OnlineConsultationPage() {
     },
   ];
 
-  const breadcrumbsLd = generateBreadcrumbsLd(breadcrumbs);
+  const clinicians = await fetchClinicians();
 
   return (
     <>
-      <JsonLd data={breadcrumbsLd} />
+      <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <main>
-        <OnlineConsultationHero />
-        <OnlineConsultationProcess />
-        <OnlineConsultationBetweenSessions />
-        <OnlineConsultationCareSection />
-        <OnlineConsultationWhyChoose />
-        <OnlineConsultationBottomSection />
+        <OnlineConsultationView clinicians={clinicians} />
       </main>
     </>
   );

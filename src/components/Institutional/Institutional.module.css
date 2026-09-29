@@ -23,7 +23,32 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
-  margin-bottom: 72px;
+  margin-bottom: 24px;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.viewMoreLink {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0d9488;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.viewMoreLink:hover {
+  color: #0f766e;
+  transform: translateX(3px);
 }
 
 .col {
@@ -47,23 +72,7 @@
   font-weight: 400;
   color: #556865;
   line-height: 1.65;
-  margin-bottom: 24px;
-}
-
-.link {
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #0d9488;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.link:hover {
-  color: #0f766e;
-  transform: translateX(3px);
+  margin-bottom: 0;
 }
 
 /* ── Partners Row ────────────────── */
@@ -89,7 +98,12 @@
   .grid {
     grid-template-columns: 1fr;
     gap: 36px;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
+  }
+
+  .bottomRow {
+    justify-content: flex-start;
+    margin-bottom: 40px;
   }
 
   .partnersRow {

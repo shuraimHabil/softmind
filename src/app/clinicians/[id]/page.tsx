@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { fetchClinicians, fetchClinicianBySlug } from "@/lib/clinicians";
 import ClinicianDetailHero from "@/components/ClinicianDetail/ClinicianDetailHero";
 import ClinicianDetailAbout from "@/components/ClinicianDetail/ClinicianDetailAbout";
+import ClinicianDetailHowIWork from "@/components/ClinicianDetail/ClinicianDetailHowIWork";
 import ClinicianDetailExpertise from "@/components/ClinicianDetail/ClinicianDetailExpertise";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 import JsonLd, {
@@ -102,6 +103,7 @@ export default async function ClinicianDetailPage({
       <main>
         <ClinicianDetailHero clinician={clinician} />
         <ClinicianDetailAbout clinician={clinician} />
+        <ClinicianDetailHowIWork />
         <ClinicianDetailExpertise expertise={clinician.expertise} />
         <CliniciansCTA />
       </main>

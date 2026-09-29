@@ -30,6 +30,11 @@ export default function CliniciansGrid({
   
   const initialCategory = categoryParam && CATEGORIES.includes(categoryParam) ? categoryParam : "All";
   const [activeCategory, setActiveCategory] = useState(initialCategory);
+  const [imgErrors, setImgErrors] = useState<Record<string | number, boolean>>({});
+
+  const handleImgError = (id: string | number) => {
+    setImgErrors((prev) => ({ ...prev, [id]: true }));
+  };
 
   useEffect(() => {
     if (categoryParam && CATEGORIES.includes(categoryParam)) {
@@ -139,44 +144,56 @@ export default function CliniciansGrid({
         {/* Grid */}
         {filtered.length > 0 ? (
           <div className={styles.grid}>
-            {filtered.map((clinician) => (
-              <Link
-                key={clinician.id}
-                href={`/clinicians/${clinician.id}`}
-                className={styles.card}
-                id={`clinician-${clinician.id}`}
-              >
-                <div className={styles.imgWrap}>
-                  <img
-                    src={clinician.img || "/broken-image.jpg"}
-                    alt={clinician.name}
-                    className={styles.img}
-                  />
-                  {(clinician.isRciLicensed ||
-                    clinician.rci_licensed ||
-                    clinician.license?.toLowerCase().includes("rci") ||
-                    clinician.tagline?.toLowerCase().includes("rci") ||
-                    clinician.desc?.toLowerCase().includes("rci")) && (
-                    <div
-                      className={styles.rciBadge}
-                      title="RCI Licensed Practitioner"
-                      aria-label="RCI Licensed Practitioner"
-                    >
+            {filtered.map((clinician) => {
+              const hasValidImg =
+                Boolean(clinician.img) &&
+                !imgErrors[clinician.id] &&
+                !clinician.img.includes("invalid-image") &&
+                !clinician.img.includes("broken-image");
+
+              return (
+                <Link
+                  key={clinician.id}
+                  href={`/clinicians/${clinician.id}`}
+                  className={styles.card}
+                  id={`clinician-${clinician.id}`}
+                >
+                  <div className={styles.imgWrap}>
+                    {hasValidImg ? (
                       <img
-                        src="/assets/rci_license_logo.png"
-                        alt="RCI Licensed"
-                        className={styles.rciBadgeImg}
+                        src={clinician.img}
+                        alt={clinician.name}
+                        className={styles.img}
+                        onError={() => handleImgError(clinician.id)}
                       />
-                    </div>
-                  )}
-                </div>
-                <div className={styles.cardBody}>
-                  <h3 className={styles.name}>{clinician.name}</h3>
-                  <span className={styles.role}>{clinician.role}</span>
-                  <p className={styles.desc}>{clinician.desc}</p>
-                </div>
-              </Link>
-            ))}
+                    ) : (
+                      <div className={styles.avatarWrap} aria-label={clinician.name}>
+                        <div className={styles.avatarCircle}>
+                          <svg
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.name}>{clinician.name}</h3>
+                    <span className={styles.role}>{clinician.role}</span>
+                    <p className={styles.desc}>{clinician.desc}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         ) : (
           <div className={styles.emptyState}>

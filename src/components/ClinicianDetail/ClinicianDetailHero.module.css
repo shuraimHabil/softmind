@@ -44,34 +44,29 @@
   object-position: center 25%;
 }
 
-.rciBadge {
+.avatarWrap {
   position: absolute;
-  /* Overlap the bottom-right corner of the image */
-  bottom: -12px;
-  right: -12px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  padding: 4px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #eef5f2 0%, #e0ece7 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 20;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
 }
 
-.rciBadge:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-}
-
-.rciBadgeImg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+.avatarCircle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(13, 148, 136, 0.2);
+  box-shadow: 0 4px 16px rgba(18, 40, 36, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
 }
 
 .content {
@@ -97,6 +92,7 @@
   line-height: 1.2;
   margin: 0 0 16px 0;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
 .tagline {

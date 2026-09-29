@@ -32,11 +32,15 @@ export default function Institutional() {
             <div key={item.title} className={styles.col}>
               <h3 className={styles.colTitle}>{item.title}</h3>
               <p className={styles.colDesc}>{item.desc}</p>
-              <Link href={item.href} className={styles.link}>
-                View Details →
-              </Link>
             </div>
           ))}
+        </div>
+
+        {/* Bottom View More Link */}
+        <div className={styles.bottomRow}>
+          <Link href="/research-and-collaboration" className={styles.viewMoreLink}>
+            View More &rarr;
+          </Link>
         </div>
 
         

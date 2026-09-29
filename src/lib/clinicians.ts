@@ -92,7 +92,7 @@ export async function fetchClinicians(): Promise<Clinician[]> {
     }
     
     const apiClinicians = data.map((item: any) => {
-       const cleanName = stripHtml(item.practitioner_name || item.name || "");
+       const cleanName = stripHtml(item.practitioner_name || item.name || "").toUpperCase();
        const cleanTitle = stripHtml(item.title || "Consultant");
        const cleanTagline = stripHtml(item.tagline || "");
        const cleanAbout = stripHtml(item.about || "");
