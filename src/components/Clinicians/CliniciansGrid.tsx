@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import styles from "./CliniciansGrid.module.css";
-import { Clinician } from "@/lib/clinicians";
+import { Clinician, isHealthCareClinician } from "@/lib/clinicians";
 
 const CATEGORIES = [
   "All",
@@ -46,9 +46,13 @@ export default function CliniciansGrid({
 
   const filtered = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    return clinicians.filter((c) => {
+    // Only show clinicians with category "Health Care"
+    const healthCareList = clinicians.filter(isHealthCareClinician);
+
+    return healthCareList.filter((c) => {
       const matchesCategory =
-        activeCategory === "All" || c.categories.includes(activeCategory);
+        activeCategory === "All" ||
+        c.categories.some((cat) => cat.toLowerCase() === activeCategory.toLowerCase());
 
       const matchesSearch =
         !q ||
@@ -59,7 +63,7 @@ export default function CliniciansGrid({
 
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [clinicians, activeCategory, searchQuery]);
 
   const clearFilters = () => {
     setActiveCategory("All");

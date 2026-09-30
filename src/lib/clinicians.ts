@@ -84,6 +84,15 @@ export function toTitleCase(str: string): string {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+export function isHealthCareClinician(clinician: Clinician): boolean {
+  if (!clinician || !clinician.categories || !Array.isArray(clinician.categories)) return false;
+  return clinician.categories.some((cat) => {
+    if (!cat) return false;
+    const norm = String(cat).toLowerCase().replace(/[\s-_]+/g, "");
+    return norm === "healthcare" || norm.includes("healthcare");
+  });
+}
+
 const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
 
 export async function fetchClinicians(): Promise<Clinician[]> {
