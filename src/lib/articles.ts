@@ -106,6 +106,15 @@ function sanitizeSlug(slug: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
+/** Helper to convert string to Title Case */
+export function toTitleCase(str: string): string {
+  if (!str) return "";
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 /** Map a raw API article to the Article interface */
 function mapArticle(raw: RawArticle): Article {
   const sections = parseSections(raw.content ?? "");
@@ -120,7 +129,7 @@ function mapArticle(raw: RawArticle): Article {
     language: (raw.language === "Malayalam" || isMalayalam ? "Malayalam" : "English") as Article["language"],
     title: raw.title,
     excerpt: raw.excerpt ?? "",
-    author: raw.author ?? "PRASAD AMORE",
+    author: toTitleCase(raw.author ?? "Prasad Amore"),
     authorRole: raw.author_role ?? "Clinical Specialist",
     readTime: raw.read_time ?? estimateReadTime(raw.content ?? ""),
     reviewedDate: formatDate(raw.published_on),
@@ -187,12 +196,14 @@ export function deriveFilterData(articles: Article[], dynamicDoctors: string[] =
   const categories = [...new Set([...articleCategories, ...apiCategories])];
   const languages = [...new Set([...articleLanguages, ...apiLanguages])] as Article["language"][];
   
-  // Clean empty strings from dynamic doctors
-  const validDynamic = dynamicDoctors.filter(d => Boolean(d && d.trim()));
+  // Clean empty strings from dynamic doctors and ensure Title Case
+  const validDynamic = dynamicDoctors
+    .filter((d) => Boolean(d && d.trim()))
+    .map((d) => toTitleCase(d));
 
   const doctors = validDynamic.length > 0 
     ? [...new Set(validDynamic)] 
-    : [...new Set([...articleDoctors, ...apiDoctors])];
+    : [...new Set([...articleDoctors.map(toTitleCase), ...apiDoctors.map(toTitleCase)])];
 
   return { categories, languages, doctors };
 }

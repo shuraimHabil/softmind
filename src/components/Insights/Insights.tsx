@@ -34,7 +34,6 @@ export default async function Insights() {
             <article key={a.slug} className={`${styles.card} ${!a.showOnMobile ? styles.hideOnMobile : ""}`}>
               <div className={styles.imgWrap}>
                 <Image src={a.img} alt={a.title} fill className={styles.img} sizes="33vw" />
-                <span className={styles.badge}>{a.badge}</span>
               </div>
               <div className={styles.content}>
                 <h3 className={styles.cardTitle}><Link href={`/articles/${a.slug}`}>{a.title}</Link></h3>

@@ -76,6 +76,14 @@ export function stripHtml(html: string): string {
     .trim();
 }
 
+export function toTitleCase(str: string): string {
+  if (!str) return "";
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
 
 export async function fetchClinicians(): Promise<Clinician[]> {
@@ -92,7 +100,7 @@ export async function fetchClinicians(): Promise<Clinician[]> {
     }
     
     const apiClinicians = data.map((item: any) => {
-       const cleanName = stripHtml(item.practitioner_name || item.name || "").toUpperCase();
+       const cleanName = toTitleCase(stripHtml(item.practitioner_name || item.name || ""));
        const cleanTitle = stripHtml(item.title || "Consultant");
        const cleanTagline = stripHtml(item.tagline || "");
        const cleanAbout = stripHtml(item.about || "");
@@ -172,7 +180,7 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
     const json = res.data;
     const detail = json.message?.data || json.message;
     if (detail && (detail.id || detail.name)) {
-      const cleanName = stripHtml(detail.name || summaryItem?.name || "");
+      const cleanName = toTitleCase(stripHtml(detail.name || summaryItem?.name || ""));
       const cleanTitle = stripHtml(detail.title || detail.role || summaryItem?.role || "Consultant");
       const cleanTagline = stripHtml(detail.tagline || summaryItem?.tagline || "");
       const cleanAbout = stripHtml(detail.about || "");

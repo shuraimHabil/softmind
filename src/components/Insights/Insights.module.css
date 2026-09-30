@@ -52,10 +52,10 @@
 
 .card {
   background: var(--bg-white);
-  border-radius: var(--border-radius);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
 
@@ -66,7 +66,7 @@
 
 .imgWrap {
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 

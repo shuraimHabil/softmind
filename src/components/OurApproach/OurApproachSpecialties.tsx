@@ -25,8 +25,8 @@ const specialties = [
     subheading: "Some areas we can help with:",
     detail:
       "Couples & relationship | Families, communication & conflicts | Parenting support | Premarital counseling | Separation & divorce",
-    img: "/assets/couple_session.jpg",
-    imgAlt: "Couple holding hands in a therapy session",
+    img: "/assets/relationship_n_relationship.webp",
+    imgAlt: "Family enjoying a joyful moment together outdoors",
     reversed: true,
     category: "Relationship & Family",
   },

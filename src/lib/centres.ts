@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Clinician, stripHtml } from "./clinicians";
+import { Clinician, stripHtml, toTitleCase } from "./clinicians";
 
 export interface Centre {
   id: string;
@@ -137,7 +137,7 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
           ? detail.clinicians.map((c: any) => ({
               id: String(c.id || c.slug || c.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
               slug: String(c.id || c.slug || c.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-              name: stripHtml(c.name || ""),
+              name: toTitleCase(stripHtml(c.name || "")),
               role: stripHtml(c.title || c.role || "Consultant"),
               eyebrow: stripHtml(c.title || c.role || "Consultant"),
               tagline: "",
