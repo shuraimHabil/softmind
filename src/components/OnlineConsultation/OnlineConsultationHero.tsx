@@ -25,7 +25,7 @@ export default function OnlineConsultationHero() {
             </p>
 
             <div className={styles.actions}>
-              <button onClick={openModal} className={styles.primaryBtn} id="btn-hero-book-online">
+              <button onClick={() => openModal("online")} className={styles.primaryBtn} id="btn-hero-book-online">
                 Book an Online Consultation
               </button>
 

@@ -23,7 +23,7 @@
   align-items: center;
   overflow: hidden;
   background-color: #ffffff;
-  padding: 64px 0;
+  padding: 0;
 }
 
 /* Full-Bleed Background with Soft Fade */
@@ -77,13 +77,15 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 0 clamp(24px, 4vw, 56px);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 60px 24px 40px;
 }
 
 .heroContent {
   position: relative;
   z-index: 2;
-  max-width: 480px;
+  max-width: 520px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -101,27 +103,27 @@
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
-  font-weight: 300;
-  line-height: 1.15;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.25;
   color: #122824;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin-bottom: 20px;
 }
 
 .heroSubtitle {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
   color: #475569;
-  line-height: 1.4;
+  line-height: 1.6;
   margin-bottom: 8px;
 }
 
 .heroDesc {
   font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 300;
+  font-size: 0.88rem;
+  font-weight: 400;
   color: #64748b;
   margin-bottom: 0;
 }
@@ -136,17 +138,11 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.bringsGrid {
-  display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
-  gap: 56px;
-  align-items: center;
-}
-
 .bringsTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2.1rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
+  line-height: 1.25;
   color: #122824;
   letter-spacing: -0.01em;
   margin-bottom: 36px;
@@ -202,23 +198,6 @@
   color: #0d9488;
 }
 
-.bringsQuoteCol {
-  border-left: 1px solid #e2e8f0;
-  padding-left: 52px;
-  min-height: 160px;
-  display: flex;
-  align-items: center;
-}
-
-.bringsQuoteText {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 300;
-  line-height: 1.45;
-  color: #475569;
-  max-width: 320px;
-}
-
 /* ============================================================
    3. THE SOFTMIND APPROACH SECTION
    ============================================================ */
@@ -230,8 +209,9 @@
 
 .approachTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.2vw, 2.5rem);
-  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.25;
   color: #122824;
   letter-spacing: -0.01em;
   margin-bottom: 6px;
@@ -254,8 +234,8 @@
 
 .approachDesc {
   font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 300;
+  font-size: 0.88rem;
+  font-weight: 400;
   color: #556865;
   line-height: 1.7;
 }
@@ -318,8 +298,9 @@
 
 .sectionTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.2vw, 2.5rem);
-  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.25;
   color: #122824;
   letter-spacing: -0.01em;
   margin: 0;
@@ -560,8 +541,8 @@
 
 .bottomSubtitle {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 0.88rem;
+  font-weight: 400;
   color: #556865;
   line-height: 1.65;
   margin-bottom: 32px;
@@ -608,17 +589,6 @@
     gap: 40px;
   }
 
-  .bringsGrid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .bringsQuoteCol {
-    border-left: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-left: 0;
-    padding-top: 24px;
-  }
 
   .approachContentGrid {
     grid-template-columns: 1fr;
@@ -639,7 +609,11 @@
 @media (max-width: 768px) {
   .heroSection {
     min-height: 400px;
-    padding: 48px 0;
+    padding: 0;
+  }
+
+  .heroContainer {
+    padding: 32px 20px;
   }
 
   .bgWrap {
@@ -706,3 +680,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .heroContainer {
+    padding: 24px 16px;
+  }
+
+  .heroTitle,
+  .bringsTitle,
+  .approachTitle,
+  .sectionTitle {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+    line-height: 1.25;
+  }
+}
+

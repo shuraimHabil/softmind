@@ -23,7 +23,7 @@
 /* ── Modal card ── */
 .modal {
   position: relative;
-  background: linear-gradient(145deg, #f0f9f7 0%, #e8f5f0 40%, #d6eee8 100%);
+  background: #f2f5f0;
   border-radius: 24px;
   width: 100%;
   max-width: 680px;
@@ -32,8 +32,8 @@
   overflow-x: hidden;
   padding: 48px 48px 40px;
   box-shadow:
-    0 25px 60px rgba(13, 148, 136, 0.15),
-    0 8px 24px rgba(0, 0, 0, 0.12);
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.08);
   transform: translateY(28px) scale(0.97);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
   opacity: 0;
@@ -52,25 +52,11 @@
 
 /* ── Decorative blobs ── */
 .blob1 {
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(13, 148, 136, 0.18) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  display: none;
 }
 
 .blob2 {
-  position: absolute;
-  bottom: -40px;
-  left: -40px;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(45, 212, 191, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  display: none;
 }
 
 /* ── Close button ── */
@@ -123,7 +109,7 @@
 .title {
   font-family: var(--font-serif);
   font-size: 1.65rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #1a3330;
   margin-bottom: 8px;
   line-height: 1.2;
@@ -195,7 +181,7 @@
 .input {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.75);
+  background: #ffffff;
   border: 1.5px solid rgba(13, 148, 136, 0.2);
   border-radius: 10px;
   font-family: var(--font-sans);
@@ -203,7 +189,7 @@
   color: #1a3330;
   outline: none;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .input::placeholder {
@@ -212,7 +198,7 @@
 
 .input:focus {
   border-color: #0d9488;
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
   box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
 }
 

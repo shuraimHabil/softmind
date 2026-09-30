@@ -73,8 +73,7 @@ export default function ArticlesBrowser({
   const hasActiveFilters =
     selectedCategories.length > 0 ||
     selectedLanguages.length > 0 ||
-    selectedDoctors.length > 0 ||
-    searchQuery.trim().length > 0;
+    selectedDoctors.length > 0;
 
   const totalActiveFilterCount =
     selectedCategories.length + selectedLanguages.length + selectedDoctors.length;
@@ -134,21 +133,11 @@ export default function ArticlesBrowser({
         <div className={styles.container}>
           <div className={styles.bannerInner}>
             <div>
-              <h1 className={styles.pageTitle}>Clinical Articles & Insights</h1>
+              <h1 className={styles.pageTitle}>Articles and Blogs</h1>
               <p className={styles.pageSubtitle}>
                 Evidence-based psychology, psychiatric perspectives, and mental wellness guides
               </p>
             </div>
-
-            <SearchBar
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              onSubmit={() => {
-                // Articles search is live, so we don't strictly need a submit action, 
-                // but we can scroll to results or just let it update.
-              }}
-              placeholder="Search articles, keywords, topics..."
-            />
           </div>
         </div>
       </section>
@@ -314,85 +303,109 @@ export default function ArticlesBrowser({
         <div className={styles.mainLayout}>
           {/* ── Results Content Area ── */}
           <main className={styles.contentArea}>
+            {/* Featured Article: Weekly Research Report */}
+            {filteredArticles.length > 0 && (
+              <div className={styles.featuredArticle}>
+                <div className={styles.featuredContent}>
+                  <span className={styles.featuredBadge}>Weekly Research Report</span>
+                  <h3 className={styles.featuredTitle}>The Impact of Digital Wellness on Cognitive Function</h3>
+                  <p className={styles.featuredExcerpt}>
+                    Our latest clinical review explores how structured digital detox protocols can improve working memory, reduce baseline anxiety, and enhance overall cognitive performance in adult populations.
+                  </p>
+                  <Link href="/articles" className={styles.featuredReadMore}>
+                    Read full report &rarr;
+                  </Link>
+                </div>
+                <div className={styles.featuredImageWrap}>
+                  <Image
+                    src="/assets/anxiety_hero.jpg"
+                    alt="Weekly Research Report"
+                    fill
+                    className={styles.featuredImage}
+                  />
+                </div>
+              </div>
+            )}
+
             {/* Status Bar */}
             <div className={styles.statusBar}>
-              <div className={styles.statusBarLeft}>
-                <button
-                  type="button"
-                  onClick={() => setFiltersOpen(true)}
-                  className={styles.filterToggleBtn}
-                  id="btn-toggle-filters"
-                  aria-label="Open Filters"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="4" y1="6" x2="20" y2="6" />
-                    <line x1="4" y1="12" x2="14" y2="12" />
-                    <line x1="4" y1="18" x2="8" y2="18" />
-                  </svg>
-                  <span>Filters</span>
-                  {totalActiveFilterCount > 0 && (
-                    <span className={styles.filterCountBadge}>{totalActiveFilterCount}</span>
-                  )}
-                </button>
+              <div className={styles.statusBarMain}>
+                <div className={styles.statusBarLeft}>
+                  <button
+                    type="button"
+                    onClick={() => setFiltersOpen(true)}
+                    className={styles.filterToggleBtn}
+                    id="btn-toggle-filters"
+                    aria-label="Open Filters"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="4" y1="6" x2="20" y2="6" />
+                      <line x1="4" y1="12" x2="14" y2="12" />
+                      <line x1="4" y1="18" x2="8" y2="18" />
+                    </svg>
+                    <span>Filters</span>
+                    {totalActiveFilterCount > 0 && (
+                      <span className={styles.filterCountBadge}>{totalActiveFilterCount}</span>
+                    )}
+                  </button>
 
                 <p className={styles.resultsHeading}>
                   <span className={styles.resultsCountBold}>{filteredArticles.length}</span>{" "}
                   {filteredArticles.length === 1 ? "Result" : "Results"}
-                  {searchQuery && ` for "${searchQuery}"`}
                 </p>
               </div>
 
-              {/* Active Filter Chips */}
-              {hasActiveFilters && (
-                <div className={styles.activeTagsRow}>
-                  {selectedCategories.map((c) => (
-                    <button
-                      key={c}
-                      onClick={() => toggleCategory(c)}
-                      className={styles.activeTag}
-                      title="Remove category filter"
-                    >
-                      <span>Category: {c}</span>
-                      <span className={styles.removeTagIcon}>×</span>
-                    </button>
-                  ))}
-                  {selectedLanguages.map((l) => (
-                    <button
-                      key={l}
-                      onClick={() => toggleLanguage(l)}
-                      className={styles.activeTag}
-                      title="Remove language filter"
-                    >
-                      <span>Language: {l}</span>
-                      <span className={styles.removeTagIcon}>×</span>
-                    </button>
-                  ))}
-                  {selectedDoctors.map((d) => (
-                    <button
-                      key={d}
-                      onClick={() => toggleDoctor(d)}
-                      className={styles.activeTag}
-                      title="Remove doctor filter"
-                    >
-                      <span>Doctor: {d}</span>
-                      <span className={styles.removeTagIcon}>×</span>
-                    </button>
-                  ))}
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery("")}
-                      className={styles.activeTag}
-                      title="Remove search query"
-                    >
-                      <span>Search: &quot;{searchQuery}&quot;</span>
-                      <span className={styles.removeTagIcon}>×</span>
-                    </button>
-                  )}
-                  <button onClick={clearAllFilters} className={styles.clearAllBtn}>
-                    Clear all
+              <div className={styles.statusBarRight}>
+                <SearchBar
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                  onSubmit={() => {}}
+                  placeholder="Search topic"
+                />
+              </div>
+            </div>
+
+            {/* Active Filter Chips */}
+            {hasActiveFilters && (
+              <div className={styles.activeTagsRow}>
+                {selectedCategories.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => toggleCategory(c)}
+                    className={styles.activeTag}
+                    title="Remove category filter"
+                  >
+                    <span>Category: {c}</span>
+                    <span className={styles.removeTagIcon}>×</span>
                   </button>
-                </div>
-              )}
+                ))}
+                {selectedLanguages.map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => toggleLanguage(l)}
+                    className={styles.activeTag}
+                    title="Remove language filter"
+                  >
+                    <span>Language: {l}</span>
+                    <span className={styles.removeTagIcon}>×</span>
+                  </button>
+                ))}
+                {selectedDoctors.map((d) => (
+                  <button
+                    key={d}
+                    onClick={() => toggleDoctor(d)}
+                    className={styles.activeTag}
+                    title="Remove doctor filter"
+                  >
+                    <span>Doctor: {d}</span>
+                    <span className={styles.removeTagIcon}>×</span>
+                  </button>
+                ))}
+                <button onClick={clearAllFilters} className={styles.clearAllBtn}>
+                  Clear all
+                </button>
+              </div>
+            )}
             </div>
 
             {/* Articles Grid */}

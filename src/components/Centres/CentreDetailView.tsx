@@ -156,7 +156,7 @@ export default function CentreDetailView({ centre, allCentres = [], clinicians =
           <div className={styles.findUsCard}>
             {/* Left Info */}
             <div className={styles.findUsInfo}>
-              <h3 className={styles.sectionHeading}>Find Us</h3>
+              <h3 className={styles.sectionHeading}>Find us</h3>
               <p className={styles.fullAddress}>{centre.fullAddress}</p>
               
               <div className={styles.contactDetails}>

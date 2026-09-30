@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import KnowledgeCentreHero from "@/components/KnowledgeCentre/KnowledgeCentreHero";
 import KnowledgeCentreFeatured from "@/components/KnowledgeCentre/KnowledgeCentreFeatured";
 import KnowledgeCentreCollections from "@/components/KnowledgeCentre/KnowledgeCentreCollections";
+import KnowledgeCentreConditions from "@/components/KnowledgeCentre/KnowledgeCentreConditions";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function KnowledgeCentrePage() {
     <main>
       <KnowledgeCentreHero />
       <KnowledgeCentreFeatured />
+      <KnowledgeCentreConditions />
       <KnowledgeCentreCollections />
       <CliniciansCTA />
     </main>

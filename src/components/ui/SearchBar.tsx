@@ -71,9 +71,6 @@ export default function SearchBar({
             ✕
           </button>
         )}
-        <button type="submit" className={styles.searchBtn}>
-          Search
-        </button>
       </div>
 
       {quickTags && quickTags.length > 0 && (

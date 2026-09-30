@@ -73,7 +73,7 @@ export default function OnlineConsultationBottomSection() {
                   </svg>
                 </div>
                 <h4 className={styles.actionCardTitle}>Book an Online Consultation</h4>
-                <button onClick={openModal} className={styles.actionBtn}>
+                <button onClick={() => openModal("online")} className={styles.actionBtn}>
                   Book Now
                 </button>
               </div>

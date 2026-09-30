@@ -6,20 +6,10 @@ import styles from "./BookingModal.module.css";
 
 
 
-const consultationTopics = [
-  "Anxiety & Stress",
-  "Depression",
-  "Relationships",
-  "Child / Adolescent",
-  "Grief & Trauma",
-  "OCD",
-  "Mood Disorders",
+const genderOptions = [
+  "Female",
+  "Male",
   "Other",
-];
-
-const timeSlots = [
-  "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-  "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM",
 ];
 
 type Tab = "direct" | "online";
@@ -37,15 +27,14 @@ function formatDateForApi(isoDate: string): string {
 }
 
 export default function BookingModal() {
-  const { isOpen, closeModal } = useBookingModal();
-  const [tab, setTab] = useState<Tab>("direct");
+  const { isOpen, closeModal, activeTab } = useBookingModal();
+  const [tab, setTab] = useState<Tab>(activeTab || "direct");
   const [name, setName] = useState("");
   const [contactValue, setContactValue] = useState("");
   const [useEmail, setUseEmail] = useState(false);
   const [centre, setCentre] = useState("");
-  const [topic, setTopic] = useState("");
+  const [gender, setGender] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -78,9 +67,10 @@ export default function BookingModal() {
       .finally(() => setCentresLoading(false));
   }, []);
 
-  // Lock body scroll when open
+  // Lock body scroll and sync tab when open
   useEffect(() => {
     if (isOpen) {
+      setTab(activeTab || "direct");
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -91,15 +81,13 @@ export default function BookingModal() {
         setContactValue("");
         setUseEmail(false);
         setCentre("");
-        setTopic("");
+        setGender("");
         setDate("");
-        setTime("");
         setMessage("");
-        setTab("direct");
       }, 300);
     }
     return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
+  }, [isOpen, activeTab]);
 
   // Close on Escape key
   useEffect(() => {
@@ -127,9 +115,8 @@ export default function BookingModal() {
           full_name: name,
           phone: contactValue,
           preferred_date: formatDateForApi(date),
-          ...(centre ? { preferred_centre: centre } : {}),
-          ...(topic ? { consultation_for: topic } : {}),
-          ...(time ? { preferred_time: time } : {}),
+          ...(centre && tab === "direct" ? { preferred_centre: centre } : {}),
+          ...(gender ? { gender } : {}),
           ...(message ? { notes: message } : {}),
           appointment_type: tab === "direct" ? "Direct Visit" : "Online Appointment",
         }),
@@ -197,7 +184,6 @@ export default function BookingModal() {
           <>
             {/* ── Header ── */}
             <div className={styles.header}>
-              <span className={styles.tagline}>Get started today</span>
               <h2 className={styles.title}>Start a Conversation</h2>
               <p className={styles.subtitle}>
                 Not sure where to begin? Share a few details and our team will help you find an appropriate next step.
@@ -287,55 +273,54 @@ export default function BookingModal() {
                   </div>
                 )}
 
-                {/* Consultation For */}
+                {/* Gender */}
                 <div className={styles.field}>
                   <select
-                    id="booking-topic"
-                    value={topic}
-                    onChange={e => setTopic(e.target.value)}
+                    id="booking-gender"
+                    value={gender}
+                    onChange={e => setGender(e.target.value)}
                     className={`${styles.input} ${styles.select}`}
                   >
-                    <option value="">Consultation For</option>
-                    {consultationTopics.map(t => (
-                      <option key={t} value={t}>{t}</option>
+                    <option value="">Gender</option>
+                    {genderOptions.map(g => (
+                      <option key={g} value={g}>{g}</option>
                     ))}
                   </select>
                 </div>
 
+                {/* Date (for online appointment, paired with Gender) */}
                 {tab === "online" && (
-                  <div className={styles.field} />
+                  <div className={styles.field}>
+                    <input
+                      id="booking-date"
+                      type="date"
+                      value={date}
+                      min={todayStr}
+                      onChange={e => setDate(e.target.value)}
+                      className={`${styles.input} ${styles.dateInput} ${!date ? styles.placeholder : ""}`}
+                      required
+                    />
+                  </div>
                 )}
               </div>
 
-              <div className={styles.row}>
-                {/* Date */}
-                <div className={styles.field}>
-                  <input
-                    id="booking-date"
-                    type="date"
-                    value={date}
-                    min={todayStr}
-                    onChange={e => setDate(e.target.value)}
-                    className={`${styles.input} ${styles.dateInput} ${!date ? styles.placeholder : ""}`}
-                    required
-                  />
+              {/* Date for direct visit */}
+              {tab === "direct" && (
+                <div className={styles.row}>
+                  <div className={styles.field}>
+                    <input
+                      id="booking-date"
+                      type="date"
+                      value={date}
+                      min={todayStr}
+                      onChange={e => setDate(e.target.value)}
+                      className={`${styles.input} ${styles.dateInput} ${!date ? styles.placeholder : ""}`}
+                      required
+                    />
+                  </div>
+                  <div className={styles.field} />
                 </div>
-
-                {/* Time */}
-                <div className={styles.field}>
-                  <select
-                    id="booking-time"
-                    value={time}
-                    onChange={e => setTime(e.target.value)}
-                    className={`${styles.input} ${styles.select}`}
-                  >
-                    <option value="">Choose Time</option>
-                    {timeSlots.map(t => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              )}
 
               {/* Message */}
               <div className={styles.fieldFull}>

@@ -55,7 +55,9 @@ export default async function ArticlesPage() {
         languages={languages}
         doctors={doctors}
       />
-      <CliniciansCTA />
+      <div style={{ marginTop: "-60px" }}>
+        <CliniciansCTA />
+      </div>
     </main>
   );
 }

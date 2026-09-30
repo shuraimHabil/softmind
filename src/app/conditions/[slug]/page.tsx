@@ -88,21 +88,6 @@ export default async function ConditionDetailPage({
       {faqLd && <JsonLd data={faqLd} />}
 
       <article className={styles.container}>
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumbs" className={styles.breadcrumbs}>
-          <ol>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li>
-              <Link href="/conditions">Conditions</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li aria-current="page">{condition.name}</li>
-          </ol>
-        </nav>
-
         {/* High-priority Safe Messaging Crisis Alert (for suicidal thoughts or severe distress) */}
         {condition.isEmergency && (
           <div className={styles.urgentHelpBoxTop} role="alert">
@@ -118,7 +103,6 @@ export default async function ConditionDetailPage({
 
         {/* Header */}
         <header className={styles.header}>
-          <p className={styles.groupBadge}>{condition.group}</p>
           <h1 className={styles.h1}>{condition.name}</h1>
           <p className={styles.leadText}>{condition.whatItIs}</p>
           <div className={styles.reviewerNote}>

@@ -3,12 +3,12 @@ import Link from "next/link";
 import styles from "./ServicesNav.module.css";
 
 const categories = [
-  { name: "Anxiety Stress & Overwhelm", href: "#", icon: "icon-anxiety.png" },
-  { name: "Children & Adolescents", href: "#", icon: "icon-children.png" },
-  { name: "Depression", href: "#", icon: "icon-depression.png" },
-  { name: "Difficult Feel & Overwhelm", href: "#", icon: "icon-difficult.png" },
-  { name: "Relationships & Family", href: "#", icon: "icon-relationships.png" },
-  { name: "Personal Growth & Well Being", href: "#", icon: "icon-growth.png" },
+  { name: "Anxiety Stress & Overwhelm", href: "/knowledge-centre#conditions", icon: "icon-anxiety.png" },
+  { name: "Children & Adolescents", href: "/knowledge-centre#conditions", icon: "icon-children.png" },
+  { name: "Depression", href: "/knowledge-centre#conditions", icon: "icon-depression.png" },
+  { name: "Difficult Feel & Overwhelm", href: "/knowledge-centre#conditions", icon: "icon-difficult.png" },
+  { name: "Relationships & Family", href: "/knowledge-centre#conditions", icon: "icon-relationships.png" },
+  { name: "Personal Growth & Well Being", href: "/knowledge-centre#conditions", icon: "icon-growth.png" },
 ];
 
 export default function ServicesNav() {
@@ -19,7 +19,7 @@ export default function ServicesNav() {
         <div className={styles.headerBlock}>
           <div className={styles.titleRow}>
             <h2 className={styles.title}>Not Sure Where To Start?</h2>
-            <Link href="#" className={styles.exploreLink}>
+            <Link href="/knowledge-centre#conditions" className={styles.exploreLink}>
               Explore all areas &rarr;
             </Link>
           </div>

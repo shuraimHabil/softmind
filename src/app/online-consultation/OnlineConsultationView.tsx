@@ -66,50 +66,40 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
       {/* 2. WHAT BRINGS YOU HERE SECTION */}
       <section className={styles.bringsSection}>
         <div className={styles.container}>
-          <div className={styles.bringsGrid}>
-            <div>
-              <h2 className={styles.bringsTitle}>What brings you here?</h2>
-              <div className={styles.concernsGrid}>
-                <div className={styles.concernCol}>
-                  {column1Items.map((item) => (
-                    <button
-                      key={item.label}
-                      type="button"
-                      onClick={openModal}
-                      className={styles.concernItem}
-                    >
-                      <span>{item.label}</span>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </button>
-                  ))}
-                </div>
-
-                <div className={styles.concernCol}>
-                  {column2Items.map((item) => (
-                    <button
-                      key={item.label}
-                      type="button"
-                      onClick={openModal}
-                      className={styles.concernItem}
-                    >
-                      <span>{item.label}</span>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </button>
-                  ))}
-                </div>
-              </div>
+          <h2 className={styles.bringsTitle}>What brings you here?</h2>
+          <div className={styles.concernsGrid}>
+            <div className={styles.concernCol}>
+              {column1Items.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => openModal("online")}
+                  className={styles.concernItem}
+                >
+                  <span>{item.label}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              ))}
             </div>
 
-            <div className={styles.bringsQuoteCol}>
-              <p className={styles.bringsQuoteText}>
-                You don’t need to know the name of what you’re experiencing before you begin.
-              </p>
+            <div className={styles.concernCol}>
+              {column2Items.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => openModal("online")}
+                  className={styles.concernItem}
+                >
+                  <span>{item.label}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -235,7 +225,7 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
                         </Link>
                         <button
                           type="button"
-                          onClick={openModal}
+                          onClick={() => openModal("online")}
                           className={styles.cardBookBtn}
                         >
                           Book Online

@@ -30,18 +30,12 @@ const navLinks: NavLink[] = [
     href: "/centres",
   },
   {
-    label: "Articles",
+    label: "Blogs",
     href: "/articles",
   },
   {
     label: "Knowledge Centre",
     href: "/knowledge-centre",
-    dropdown: [
-      {
-        label: "Conditions",
-        href: "/conditions",
-      },
-    ],
   },
   {
     label: "About",

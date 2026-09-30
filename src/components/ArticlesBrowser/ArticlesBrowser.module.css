@@ -1,7 +1,7 @@
 .browser {
   background: #f8faf9;
   min-height: 100vh;
-  padding-bottom: 80px;
+  padding-bottom: 0;
 }
 
 /* ── Top Header Banner ── */
@@ -126,6 +126,23 @@
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.statusBarMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.statusBarRight {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 250px;
 }
 
 /* Filter Trigger Button */
@@ -451,6 +468,100 @@
 
 .applyBtn:hover {
   background: #0b7c72;
+}
+
+/* ── Featured Article ── */
+.featuredArticle {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featuredArticle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(13, 148, 136, 0.08);
+}
+
+.featuredContent {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featuredBadge {
+  display: inline-block;
+  background: #0d9488;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.featuredTitle {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #1a3330;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.featuredExcerpt {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.featuredReadMore {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0d9488;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: color 0.2s;
+}
+
+.featuredReadMore:hover {
+  color: #0b7c72;
+}
+
+.featuredImageWrap {
+  flex: 1;
+  position: relative;
+  min-height: 300px;
+}
+
+.featuredImage {
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .featuredArticle {
+    flex-direction: column-reverse;
+  }
+  .featuredImageWrap {
+    min-height: 200px;
+  }
+  .featuredContent {
+    padding: 24px;
+  }
+  .featuredTitle {
+    font-size: 1.5rem;
+  }
 }
 
 /* ── Articles Grid ── */
