@@ -7,6 +7,7 @@ import JsonLd, {
   generateFaqLd,
 } from "@/components/SEO/JsonLd";
 import styles from "./conditionDetail.module.css";
+import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
 export async function generateStaticParams() {
   return conditions.map((c) => ({ slug: c.slug }));
@@ -155,18 +156,11 @@ export default async function ConditionDetailPage({
             <p className={styles.paragraph}>{condition.treatment}</p>
           </section>
 
-          {/* Section 6: When to Get Help Urgently */}
-          <section className={`${styles.section} ${styles.urgentSection}`}>
-            <h2 className={styles.h2}>6. When to Get Help Urgently</h2>
-            <p className={styles.paragraph}>{condition.urgentHelp}</p>
-            <div className={styles.callout}>
-              <strong>Tele-MANAS Crisis Helpline:</strong> Call <strong>14416</strong> (Available 24 hours, free of charge, across all states).
-            </div>
-          </section>
 
-          {/* Section 7: Related Care Pages & Clinicians */}
+
+          {/* Section 6: Related Care Pages & Clinicians */}
           <section className={styles.section}>
-            <h2 className={styles.h2}>7. Related Care Services & Support</h2>
+            <h2 className={styles.h2}>6. Related Care Services & Support</h2>
             <p className={styles.paragraph}>
               Our multidisciplinary team provides tailored psychological therapy and psychiatric consultations for {condition.name.toLowerCase()}:
             </p>
@@ -186,9 +180,9 @@ export default async function ConditionDetailPage({
             </div>
           </section>
 
-          {/* Section 8: FAQ */}
+          {/* Section 7: FAQ */}
           <section className={styles.section}>
-            <h2 className={styles.h2}>8. Frequently Asked Questions</h2>
+            <h2 className={styles.h2}>7. Frequently Asked Questions</h2>
             <div className={styles.faqList}>
               {condition.faqs.map((faq, idx) => (
                 <div key={idx} className={styles.faqItem}>
@@ -199,9 +193,9 @@ export default async function ConditionDetailPage({
             </div>
           </section>
 
-          {/* Section 9: Clinical Sign-off */}
+          {/* Section 8: Clinical Sign-off */}
           <section className={styles.section}>
-            <h2 className={styles.h2}>9. Clinical Sign-Off</h2>
+            <h2 className={styles.h2}>8. Clinical Sign-Off</h2>
             <div className={styles.signOffCard}>
               <p><strong>Clinical Reviewer:</strong> {condition.reviewer.name}</p>
               <p><strong>Professional Designation:</strong> {condition.reviewer.role}</p>
@@ -209,9 +203,9 @@ export default async function ConditionDetailPage({
             </div>
           </section>
 
-          {/* Section 10: Reputable References */}
+          {/* Section 9: Reputable References */}
           <section className={styles.section}>
-            <h2 className={styles.h2}>10. Reputable References</h2>
+            <h2 className={styles.h2}>9. Reputable References</h2>
             <ol className={styles.refList}>
               {condition.references.map((ref, idx) => (
                 <li key={idx} className={styles.refItem}>
@@ -222,22 +216,10 @@ export default async function ConditionDetailPage({
           </section>
         </div>
 
-        {/* Booking CTA Footer */}
-        <div className={styles.bottomCta}>
-          <h3 className={styles.bottomCtaTitle}>Ready to speak with a psychologist?</h3>
-          <p className={styles.bottomCtaText}>
-            Our team offers thoughtful, confidential consultations at our centres in Kochi, Thrissur, Aroor, and online.
-          </p>
-          <div className={styles.ctaRow}>
-            <Link href="/book" className={styles.primaryBtn}>
-              Book a consultation
-            </Link>
-            <Link href="/centres" className={styles.secondaryBtn}>
-              Our centres
-            </Link>
-          </div>
-        </div>
       </article>
+
+      {/* Booking CTA Footer */}
+      <CliniciansCTA />
     </>
   );
 }

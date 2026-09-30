@@ -32,22 +32,8 @@ export default function ClinicalStandardsPage() {
     <>
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
-        <nav aria-label="Breadcrumbs" className={styles.breadcrumbs}>
-          <ol>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li aria-current="page">Clinical Standards</li>
-          </ol>
-        </nav>
 
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>CLINICAL GOVERNANCE</p>
           <h1 className={styles.h1}>Clinical Standards and Ethics</h1>
           <p className={styles.intro}>
             At Softmind Wellness, our clinical work is governed by clear standards of

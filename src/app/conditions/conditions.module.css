@@ -34,14 +34,15 @@
 .groupList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 64px;
 }
 
 /* Gap between heading and its own cards content */
 .groupSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  padding: 0;
 }
 
 .groupTitle {
@@ -169,7 +170,7 @@
   }
 
   .groupSection {
-    gap: 10px;
+    gap: 12px;
   }
 
   .cardsGrid {

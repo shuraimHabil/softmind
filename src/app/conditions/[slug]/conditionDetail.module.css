@@ -2,7 +2,9 @@
   max-width: 900px;
   margin: 0 auto;
   padding: calc(24px + var(--header-height)) 24px 60px;
-  font-family: var(--font-anek-latin), sans-serif;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
   color: #1e293b;
 }
 
@@ -23,7 +25,6 @@
 
 .urgentTopText {
   color: #991b1b;
-  font-size: 0.95rem;
   line-height: 1.55;
 }
 
@@ -36,21 +37,19 @@
 .h1 {
   font-family: var(--font-fraunces), serif;
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #0f172a;
   line-height: 1.2;
   margin-bottom: 12px;
 }
 
 .leadText {
-  font-size: 1.1rem;
   line-height: 1.6;
   color: #334155;
   margin-bottom: 14px;
 }
 
 .reviewerNote {
-  font-size: 0.85rem;
   color: #64748b;
   display: flex;
   gap: 8px;
@@ -73,9 +72,9 @@
 }
 
 .h2 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-noto-sans);
   font-size: 1.45rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #0f172a;
   margin-bottom: 10px;
   border-bottom: 1px solid #f1f5f9;
@@ -83,7 +82,6 @@
 }
 
 .paragraph {
-  font-size: 1rem;
   line-height: 1.65;
   color: #334155;
 }
@@ -97,7 +95,6 @@
 }
 
 .bulletItem {
-  font-size: 1rem;
   line-height: 1.55;
   color: #334155;
 }
@@ -115,7 +112,6 @@
   background-color: #ffedd5;
   border-radius: 6px;
   color: #9a3412;
-  font-size: 0.95rem;
 }
 
 .careLinks {
@@ -133,7 +129,6 @@
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
   transition: all 0.2s ease;
 }
 
@@ -164,7 +159,6 @@
 }
 
 .faqAnswer {
-  font-size: 0.975rem;
   line-height: 1.6;
   color: #475569;
 }
@@ -174,7 +168,6 @@
   border-left: 3px solid #0284c7;
   padding: 16px 20px;
   border-radius: 4px;
-  font-size: 0.95rem;
   color: #334155;
   line-height: 1.6;
 }
@@ -187,7 +180,6 @@
 }
 
 .refItem {
-  font-size: 0.95rem;
   color: #64748b;
   line-height: 1.5;
 }

@@ -1,5 +1,5 @@
 .pageWrapper {
-  background-color: #ffffff;
+  background-color: #f8faf9;
   color: #1a3330;
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #f8faf9;
   padding: 0;
 }
 
@@ -66,9 +66,9 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.1) 25%,
-    rgba(255, 255, 255, 0) 55%
+    rgba(248, 250, 249, 1) 0%,
+    rgba(248, 250, 249, 0.7) 25%,
+    rgba(248, 250, 249, 0) 55%
   );
   z-index: 1;
 }
