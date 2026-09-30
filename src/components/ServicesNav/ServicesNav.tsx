@@ -20,7 +20,7 @@ export default function ServicesNav() {
           <div className={styles.titleRow}>
             <h2 className={styles.title}>Not Sure Where To Start?</h2>
             <Link href="#" className={styles.exploreLink}>
-              Explore All Areas &rarr;
+              Explore all areas &rarr;
             </Link>
           </div>
           <p className={styles.subtitle}>Start with what you&apos;re experiencing.</p>

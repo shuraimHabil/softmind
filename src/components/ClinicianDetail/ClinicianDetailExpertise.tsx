@@ -13,7 +13,7 @@ export default function ClinicianDetailExpertise({
   return (
     <section className={styles.expertiseSection} id="clinician-expertise">
       <div className={styles.container}>
-        <h2 className={styles.heading}>Areas Of Expertise</h2>
+        <h2 className={styles.heading}>Areas of Expertise</h2>
         <div className={styles.grid}>
           {expertise.map((item, idx) => (
             <div key={idx} className={styles.item}>

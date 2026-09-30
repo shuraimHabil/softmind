@@ -9,162 +9,19 @@
   padding: 0 24px;
 }
 
-/* ── Filter Row & Tabs ── */
-.filterRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+/* ── Section Header ── */
+.header {
+  margin-bottom: 32px;
 }
 
-.tabs {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  flex: 1;
-}
-
-.tab {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: 1px solid transparent;
-  border-radius: 50px;
-  padding: 7px 18px;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: #64748b;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.tab:hover {
-  background: #f0fdf9;
-  color: #0d9488;
-}
-
-.tabActive {
-  background: #f0fdf9;
-  border-color: rgba(13, 148, 136, 0.3);
-  color: #0d9488;
-  font-weight: 600;
-}
-
-.allDot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #0d9488;
-}
-
-/* ── Search Bar at the end of tabs ── */
-.searchWrap {
-  display: flex;
-  align-items: center;
-}
-
-.searchBar {
-  display: flex;
-  align-items: center;
-  background: #ffffff;
-  border: 1.5px solid rgba(13, 148, 136, 0.22);
-  border-radius: 50px;
-  padding: 6px 14px;
-  min-width: 250px;
-  max-width: 300px;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-}
-
-.searchBar:focus-within {
-  border-color: #0d9488;
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12), 0 4px 12px rgba(13, 148, 136, 0.08);
-}
-
-.searchIcon {
-  width: 16px;
-  height: 16px;
-  color: #0d9488;
-  margin-right: 8px;
-  flex-shrink: 0;
-}
-
-.searchInput {
-  flex: 1;
-  border: none;
-  background: transparent;
-  outline: none;
-  font-family: var(--font-sans);
-  font-size: 0.84rem;
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 400;
   color: #1a3330;
-  width: 100%;
-}
-
-.searchInput::placeholder {
-  color: #8fa8a5;
-  font-size: 0.82rem;
-}
-
-.searchClearBtn {
-  background: transparent;
-  border: none;
-  color: #94a3b8;
-  font-size: 0.85rem;
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-}
-
-.searchClearBtn:hover {
-  color: #0f172a;
-}
-
-/* ── Active Search Notice ── */
-.activeSearchNotice {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
-  padding: 10px 16px;
-  background: #f0fdf9;
-  border: 1px solid rgba(13, 148, 136, 0.2);
-  border-radius: 10px;
-}
-
-.noticeText {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: #1a3330;
-}
-
-.clearSearchChip {
-  background: none;
-  border: 1px solid rgba(13, 148, 136, 0.4);
-  color: #0d9488;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.clearSearchChip:hover {
-  background: #0d9488;
-  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
 }
 
 /* ── Empty State ── */
@@ -195,26 +52,8 @@
   font-size: 0.88rem;
   color: #64748b;
   max-width: 440px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   line-height: 1.6;
-}
-
-.emptyResetBtn {
-  background: #0d9488;
-  color: #ffffff;
-  border: none;
-  font-family: var(--font-sans);
-  font-size: 0.84rem;
-  font-weight: 500;
-  padding: 9px 22px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.emptyResetBtn:hover {
-  background: #0f766e;
-  transform: translateY(-1px);
 }
 
 /* ── Card Grid ── */
@@ -351,36 +190,10 @@
   }
 }
 
-@media (max-width: 900px) {
-  .filterRow {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-  }
-
-  .searchWrap {
-    width: 100%;
-  }
-
-  .searchBar {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-  }
-
-  .tabs {
-    gap: 4px;
-  }
-
-  .tab {
-    font-size: 0.77rem;
-    padding: 6px 14px;
   }
 }
 
@@ -393,25 +206,14 @@
     padding: 0;
   }
 
-  .filterRow {
-    padding: 0 16px 14px;
-    gap: 12px;
+  .header {
+    padding: 0 16px;
+    margin-bottom: 20px;
   }
 
-  .tabs {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    min-width: max-content;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-  }
-
-  .tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .searchWrap {
-    padding: 0;
+  .heading {
+    font-size: 1.3rem;
+    line-height: 1.3;
   }
 
   .grid {
@@ -461,9 +263,5 @@
     font-size: 0.76rem;
     margin-bottom: 8px;
     -webkit-line-clamp: 2;
-  }
-
-  .viewLink {
-    font-size: 0.76rem;
   }
 }

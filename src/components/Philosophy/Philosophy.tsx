@@ -39,7 +39,7 @@ export default function Philosophy() {
             A Whole-Person Approach Rooted in Science and Delivered with Humanity.
           </h2>
           <Link href="/our-care" className={styles.link}>
-            Explore Our Care →
+            Explore our Care →
           </Link>
         </div>
 

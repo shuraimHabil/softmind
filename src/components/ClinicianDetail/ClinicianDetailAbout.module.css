@@ -42,7 +42,32 @@
   margin: 0;
 }
 
-/* ── Languages Single Line directly above footer line ── */
+/* ── Languages & Expertise Lines directly above footer line ── */
+.metaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.metaLine {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #1a3330;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.metaLabel {
+  font-weight: 600;
+  color: #1a3330;
+}
+
+.metaValue {
+  font-weight: 500;
+  color: #2c4a45;
+}
+
 .languagesLine {
   font-family: var(--font-sans);
   font-size: 0.9rem;
