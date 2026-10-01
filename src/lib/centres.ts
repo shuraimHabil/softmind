@@ -5,6 +5,7 @@ export interface Centre {
   id: string;
   slug: string;
   name: string;
+  erpName: string;  // Original Service_unit_name from Frappe — used for enquiry submissions
   shortName: string;
   city: string;
   tagline: string;
@@ -46,6 +47,9 @@ export async function fetchCentres(): Promise<Centre[]> {
     const apiCentres = data.map((item: any) => {
       const rawName = item["Service_unit_name"] || item.Service_unit_name || item.service_unit_name || item.centre_name || item.title || item.name || "Softmind Centre";
       const cleanName = stripHtml(rawName);
+      // erpName: Frappe internal doc name used by the enquiry API for preferred_centre lookup
+      // e.g. "Kakkanad Clinic - SW" — NOT Service_unit_name
+      const erpName = String(item.name || rawName).trim();
       const cleanTagline = stripHtml(item.tagline || item.description || item.about || "");
       const cleanAddress = stripHtml(item.address || "");
       const cleanFullAddress = stripHtml(item.full_address || item.address || "");
@@ -64,6 +68,7 @@ export async function fetchCentres(): Promise<Centre[]> {
         id: slug,
         slug: slug,
         name: cleanName,
+        erpName, // Frappe internal doc name for enquiry API (e.g. "Kakkanad Clinic - SW")
         shortName: stripHtml(item.short_name || item.shortName || cleanName.replace(/^Softmind\s*/i, "")),
         city: cityState,
         tagline: cleanTagline,

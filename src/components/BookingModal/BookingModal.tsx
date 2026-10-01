@@ -16,7 +16,8 @@ type Tab = "direct" | "online";
 
 interface CentreOption {
   id: string;
-  name: string;
+  name: string;       // display name
+  erpName: string;    // Frappe Service_unit_name for the enquiry API
 }
 
 /** Convert YYYY-MM-DD → DD-MM-YYYY for the API */
@@ -57,6 +58,7 @@ export default function BookingModal() {
             data.map((c) => ({
               id: c.id || c.slug,
               name: c.name,
+              erpName: c.erpName || c.name,
             }))
           );
         }
@@ -105,6 +107,17 @@ export default function BookingModal() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
+
+    // Client-side validation
+    if (!gender) {
+      setSubmitError("Please select your gender.");
+      return;
+    }
+    if (!contactValue) {
+      setSubmitError("Please enter your phone number.");
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -113,7 +126,7 @@ export default function BookingModal() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: name,
-          phone: contactValue,
+          phone: contactValue,  // Frappe API only accepts phone, not email
           preferred_date: formatDateForApi(date),
           ...(centre && tab === "direct" ? { preferred_centre: centre } : {}),
           ...(gender ? { gender } : {}),
@@ -122,11 +135,22 @@ export default function BookingModal() {
         }),
       });
 
-      if (!res.ok) throw new Error(`Server error ${res.status}`);
+      const responseData = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        // Surface the real Frappe error message if available
+        // route.ts returns: { error: "API error 4xx", detail: <frappe json object> }
+        const frappe = responseData?.detail?.message; // frappe wraps in { message: {...} }
+        const errMsg =
+          frappe?.message ||
+          frappe?.error ||
+          responseData?.error ||
+          `Something went wrong (${res.status})`;
+        throw new Error(errMsg);
+      }
       setSubmitted(true);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Booking submission failed:", err);
-      setSubmitError("Something went wrong. Please call us or try again.");
+      setSubmitError(err?.message ?? "Something went wrong. Please call us or try again.");
     } finally {
       setSubmitting(false);
     }
@@ -229,26 +253,18 @@ export default function BookingModal() {
                   />
                 </div>
 
-                {/* Phone / Email */}
+                {/* Phone / WhatsApp — Frappe API only accepts phone, not email */}
                 <div className={styles.field}>
                   <input
                     id="booking-contact"
-                    type={useEmail ? "email" : "tel"}
-                    placeholder={useEmail ? "Email Address" : "Phone / WhatsApp"}
+                    type="tel"
+                    placeholder="Phone / WhatsApp"
                     value={contactValue}
                     onChange={e => setContactValue(e.target.value)}
                     className={styles.input}
-                    autoComplete={useEmail ? "email" : "tel"}
+                    autoComplete="tel"
                     required
                   />
-                  <button
-                    type="button"
-                    className={styles.switchContact}
-                    onClick={() => { setUseEmail(!useEmail); setContactValue(""); }}
-                    id="booking-switch-contact"
-                  >
-                    {useEmail ? "Use Phone" : "Use Email"}
-                  </button>
                 </div>
               </div>
 
@@ -267,7 +283,8 @@ export default function BookingModal() {
                         {centresLoading ? "Loading centres…" : "Preferred Centre"}
                       </option>
                       {centreOptions.map(c => (
-                        <option key={c.id} value={c.name}>{c.name}</option>
+                        // value = erpName (e.g. "Kakkanad Clinic - SW") — what Frappe enquiry API expects
+                        <option key={c.id} value={c.erpName}>{c.name}</option>
                       ))}
                     </select>
                   </div>
