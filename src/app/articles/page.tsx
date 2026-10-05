@@ -39,7 +39,14 @@ export const metadata: Metadata = {
 
 import { fetchClinicians } from "@/lib/clinicians";
 
-export default async function ArticlesPage() {
+export default async function ArticlesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ doctor?: string }>;
+}) {
+  const resolvedParams = await searchParams;
+  const initialDoctor = resolvedParams?.doctor;
+
   const [articles, allClinicians] = await Promise.all([
     fetchPublishedArticles(),
     fetchClinicians(),
@@ -54,6 +61,7 @@ export default async function ArticlesPage() {
         categories={categories}
         languages={languages}
         doctors={doctors}
+        initialDoctor={initialDoctor}
       />
       <div style={{ marginTop: "-60px" }}>
         <CliniciansCTA />

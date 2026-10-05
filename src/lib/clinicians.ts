@@ -13,6 +13,11 @@ export interface ClinicianArticle {
   href: string;
 }
 
+export interface TherapeuticApproach {
+  title: string;
+  description: string;
+}
+
 export interface Clinician {
   id: string | number;
   slug: string;
@@ -23,6 +28,7 @@ export interface Clinician {
   desc: string;
   img: string;
   categories: string[];
+  keywords?: string[];
   experience: string;
   experienceSub: string;
   sessions: string;
@@ -44,6 +50,10 @@ export interface Clinician {
   articles: ClinicianArticle[];
   isRciLicensed?: boolean;
   rci_licensed?: boolean;
+  qualifications?: string[];
+  rca_number?: string | null;
+  areasOfPractice?: string[];
+  therapeuticApproaches?: TherapeuticApproach[];
 }
 
 export interface ApiClinician {
@@ -128,6 +138,11 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          cleanTitle.toLowerCase().includes("rci")
        );
 
+       const rawKeywords = item.keywords || item.keyword || "";
+       const parsedKeywords: string[] = typeof rawKeywords === "string" && rawKeywords.trim()
+         ? rawKeywords.split(",").map((k: string) => k.trim()).filter(Boolean)
+         : Array.isArray(rawKeywords) ? rawKeywords.map((k: any) => String(k).trim()).filter(Boolean) : [];
+
        return {
          id: item.id,
          slug: item.website_slug || item.id,
@@ -138,6 +153,7 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          desc: cleanTagline || (aboutParagraphs.length > 0 ? aboutParagraphs[0] : ""),
          img: item.image ? encodeURI(item.image) : "/invalid-image.jpg",
          categories: item.categories && item.categories.length > 0 ? item.categories : ["All"],
+         keywords: parsedKeywords,
          isRciLicensed: isRci,
          rci_licensed: isRci,
          experience: "Experienced",
@@ -152,7 +168,11 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          quote: "Empowering Minds. Healing Hearts. Enabling Better Life.",
          quoteAuthor: `- ${cleanName}`,
          expertise: [],
-         articles: []
+         articles: [],
+         qualifications: [],
+         rca_number: null,
+         areasOfPractice: [],
+         therapeuticApproaches: [],
        } as Clinician;
     });
 
@@ -229,6 +249,11 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
         ...(detail.social || {}),
       };
 
+      const rawDetailKeywords = detail.keywords || detail.keyword || "";
+      const detailKeywords: string[] = typeof rawDetailKeywords === "string" && rawDetailKeywords.trim()
+        ? rawDetailKeywords.split(",").map((k: string) => k.trim()).filter(Boolean)
+        : Array.isArray(rawDetailKeywords) ? rawDetailKeywords.map((k: any) => String(k).trim()).filter(Boolean) : [];
+
       return {
         id: detail.id || summaryItem?.id || targetSlug,
         slug: detail.id || summaryItem?.slug || targetSlug,
@@ -241,6 +266,7 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
         categories: Array.isArray(detail.categories) && detail.categories.length > 0
           ? detail.categories
           : (summaryItem?.categories || ["All"]),
+        keywords: detailKeywords.length > 0 ? detailKeywords : (summaryItem?.keywords || []),
         isRciLicensed: isRci,
         rci_licensed: isRci,
         experience: summaryItem?.experience || "Experienced",
@@ -256,7 +282,82 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
         quote: summaryItem?.quote || "Empowering Minds. Healing Hearts. Enabling Better Life.",
         quoteAuthor: summaryItem?.quoteAuthor || `- ${cleanName}`,
         expertise: mappedExpertise.length > 0 ? mappedExpertise : (summaryItem?.expertise || []),
-        articles: summaryItem?.articles || []
+        articles: summaryItem?.articles || [],
+        areasOfPractice: (() => {
+          const rawPractice = (detail.area_of_practice && detail.area_of_practice.length > 0)
+            ? detail.area_of_practice
+            : [];
+          let parsed: string[] = [];
+          if (Array.isArray(rawPractice)) {
+            parsed = rawPractice.map((item: any) => {
+              if (typeof item === "string") return stripHtml(item).trim();
+              return stripHtml(item.title || item.name || item.practice || item.area || item.practice_name || "").trim();
+            }).filter(Boolean);
+          } else if (typeof rawPractice === "string" && rawPractice.trim()) {
+            parsed = rawPractice.split(",").map((s) => stripHtml(s).trim()).filter(Boolean);
+          }
+          if (parsed.length === 0) {
+            parsed = [
+              "Anxiety, Fear & Panic",
+              "Stress & Emotional Difficulties",
+              "Low Mood & Depression-Related Concerns",
+              "Obsessive Thoughts & Repetitive Patterns",
+              "Relationships & Couples",
+              "Behaviour & Habit Patterns",
+              "Life Transitions & Adjustment",
+              "Personal Development"
+            ];
+          }
+          return parsed;
+        })(),
+        qualifications: (() => {
+          const rawQ = detail.educational_qualification || detail.educational_qualifications || detail.qualifications || "";
+          if (Array.isArray(rawQ)) {
+            return rawQ.map((q: any) => String(q).trim()).filter(Boolean);
+          }
+          if (typeof rawQ === "string" && rawQ.trim()) {
+            return rawQ.split(",").map((q: string) => q.trim()).filter(Boolean);
+          }
+          return summaryItem?.qualifications || [];
+        })(),
+        rca_number: detail.rca_number || detail.rci_number || summaryItem?.rca_number || null,
+        therapeuticApproaches: (() => {
+          const rawAppr = (detail.therapeutic_approaches && detail.therapeutic_approaches.length > 0)
+            ? detail.therapeutic_approaches
+            : [];
+          let parsed: TherapeuticApproach[] = [];
+          if (Array.isArray(rawAppr) && rawAppr.length > 0) {
+            parsed = rawAppr.map((item: any) => {
+              if (typeof item === "string") {
+                return { title: stripHtml(item).trim(), description: "" };
+              }
+              const title = stripHtml(item.approach_name || item.title || item.approach || item.name || "").trim();
+              const description = stripHtml(item.description || item.desc || "").trim();
+              return { title, description };
+            }).filter((a: TherapeuticApproach) => Boolean(a.title));
+          }
+          if (parsed.length === 0) {
+            parsed = [
+              {
+                title: "Psychological Therapies",
+                description: "CBT · ACT\nBehavioural Activation\nExposure-Based Approaches",
+              },
+              {
+                title: "Experiential & Brain-Body Approaches",
+                description: "Interoceptive Work\nMindfulness\nExperiential Methods\nRelaxation",
+              },
+              {
+                title: "Cognitive & Adaptive Work",
+                description: "Cognitive Remediation\nAttention\nCognitive Flexibility\nExecutive Skills",
+              },
+              {
+                title: "Measurement & Technology-Assisted Care",
+                description: "Psychological Measures\nqEEG\nNeurofeedback\nBiofeedback\nSelected Neurotechnology",
+              },
+            ];
+          }
+          return parsed;
+        })(),
       } as Clinician;
     }
   } catch (err) {

@@ -1,8 +1,12 @@
 import { notFound } from "next/navigation";
 import { fetchClinicians, fetchClinicianBySlug } from "@/lib/clinicians";
+import { fetchPublishedArticles } from "@/lib/articles";
 import ClinicianDetailHero from "@/components/ClinicianDetail/ClinicianDetailHero";
 import ClinicianDetailAbout from "@/components/ClinicianDetail/ClinicianDetailAbout";
+import ClinicianDetailAreasOfPractice from "@/components/ClinicianDetail/ClinicianDetailAreasOfPractice";
 import ClinicianDetailHowIWork from "@/components/ClinicianDetail/ClinicianDetailHowIWork";
+import ClinicianDetailTherapeuticApproaches from "@/components/ClinicianDetail/ClinicianDetailTherapeuticApproaches";
+import ClinicianDetailBlogs from "@/components/ClinicianDetail/ClinicianDetailBlogs";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 import JsonLd, {
   generateBreadcrumbsLd,
@@ -74,8 +78,29 @@ export default async function ClinicianDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const clinician = await fetchClinicianBySlug(id);
+  const [clinician, allArticles] = await Promise.all([
+    fetchClinicianBySlug(id),
+    fetchPublishedArticles(),
+  ]);
   if (!clinician) notFound();
+
+  const cleanClinicianName = clinician.name
+    .toLowerCase()
+    .replace(/^dr\.?\s*/i, "")
+    .trim();
+
+  const doctorArticles = allArticles.filter((art) => {
+    if (!art.author) return false;
+    const cleanAuthor = art.author
+      .toLowerCase()
+      .replace(/^dr\.?\s*/i, "")
+      .trim();
+    return (
+      cleanAuthor === cleanClinicianName ||
+      cleanAuthor.includes(cleanClinicianName) ||
+      cleanClinicianName.includes(cleanAuthor)
+    );
+  });
 
   const breadcrumbs = [
     { name: "Home", url: "https://www.softmindindia.com" },
@@ -102,7 +127,14 @@ export default async function ClinicianDetailPage({
       <main>
         <ClinicianDetailHero clinician={clinician} />
         <ClinicianDetailAbout clinician={clinician} />
+        <ClinicianDetailAreasOfPractice areas={clinician.areasOfPractice} />
         <ClinicianDetailHowIWork />
+        <ClinicianDetailTherapeuticApproaches approaches={clinician.therapeuticApproaches} />
+        <ClinicianDetailBlogs
+          clinician={clinician}
+          articles={doctorArticles.slice(0, 3)}
+          hasMore={doctorArticles.length > 3}
+        />
         <CliniciansCTA />
       </main>
     </>

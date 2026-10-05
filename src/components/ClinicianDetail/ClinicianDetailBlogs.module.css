@@ -1,4 +1,4 @@
-.blogsSection {
+.section {
   background-color: #f4f8f6;
   padding: 0 0 80px;
 }
@@ -9,41 +9,153 @@
   padding: 0 24px;
 }
 
-.heading {
+.twoColGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: start;
+}
+
+.singleCol {
+  grid-template-columns: 1fr;
+}
+
+/* ── Headings ────────────────────────── */
+.columnTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-  font-weight: 200;
+  font-size: clamp(1.45rem, 2.3vw, 1.85rem);
+  font-weight: 400;
   color: #1a3330;
-  margin: 0 0 32px 0;
+  margin: 0 0 26px 0;
   letter-spacing: -0.01em;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 26px;
 }
 
-.card {
+.headerRow .columnTitle {
+  margin: 0;
+}
+
+.viewAllLink {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0d9488;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.viewAllLink:hover {
+  color: #0f766e;
+  transform: translateX(3px);
+}
+
+/* ── Left Column: Qualifications & Registration ── */
+.leftCol {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  text-decoration: none;
-  transition: transform 0.25s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
+.qualificationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.qualificationItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 1px solid rgba(13, 148, 136, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.qualificationItem:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.08);
+}
+
+.qualIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #e6f4f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
+  flex-shrink: 0;
+}
+
+.qualTextWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.qualTitle {
+  font-family: var(--font-sans);
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #1a3330;
+  line-height: 1.35;
+}
+
+
+
+/* ── Right Column: Blogs ────────────── */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.blogCard {
+  display: flex;
+  gap: 16px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid rgba(13, 148, 136, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.blogCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.1);
+  border-color: rgba(13, 148, 136, 0.25);
 }
 
 .imgWrap {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 16px;
+  width: 135px;
+  min-width: 135px;
+  height: 98px;
+  border-radius: 10px;
   overflow: hidden;
   background-color: #e2eeea;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
 }
 
 .img {
@@ -51,23 +163,33 @@
   transition: transform 0.35s ease;
 }
 
-.card:hover .img {
-  transform: scale(1.04);
+.blogCard:hover .img {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
 }
 
 .metaRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: #64748b;
-  padding: 0 2px;
 }
 
 .category {
-  color: #64748b;
-  font-weight: 500;
+  color: #0d9488;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .readTime {
@@ -76,10 +198,10 @@
 
 .cardTitle {
   font-family: var(--font-sans);
-  font-size: 1.08rem;
-  font-weight: 400;
-  color: var(--text-dark);
-  line-height: 1.4;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a3330;
+  line-height: 1.35;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -88,18 +210,90 @@
   transition: color 0.2s ease;
 }
 
-.card:hover .cardTitle {
+.blogCard:hover .cardTitle {
   color: #0d9488;
 }
 
+.cardExcerpt {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: #556865;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readArticleLink {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0d9488;
+  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s ease;
+}
+
+.blogCard:hover .readArticleLink {
+  transform: translateX(3px);
+  color: #0f766e;
+}
+
+.footerRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.readMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background-color: #0d9488;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(13, 148, 136, 0.2);
+}
+
+.readMoreBtn:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(13, 148, 136, 0.3);
+  color: #ffffff;
+}
+
+/* ── Responsive ─────────────────────── */
 @media (max-width: 960px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .twoColGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .imgWrap {
+    width: 120px;
+    min-width: 120px;
+    height: 90px;
   }
 }
 
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
+@media (max-width: 520px) {
+  .blogCard {
+    flex-direction: column;
+  }
+
+  .imgWrap {
+    width: 100%;
+    min-width: 100%;
+    height: 160px;
   }
 }

@@ -12,6 +12,7 @@ interface ArticlesBrowserProps {
   categories: string[];
   languages: string[];
   doctors: string[];
+  initialDoctor?: string;
 }
 
 export default function ArticlesBrowser({
@@ -19,10 +20,21 @@ export default function ArticlesBrowser({
   categories,
   languages,
   doctors,
+  initialDoctor,
 }: ArticlesBrowserProps) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
-  const [selectedDoctors, setSelectedDoctors] = useState<string[]>([]);
+  const [selectedDoctors, setSelectedDoctors] = useState<string[]>(() => {
+    if (!initialDoctor) return [];
+    const decoded = decodeURIComponent(initialDoctor).trim().toLowerCase();
+    const cleanDoc = (name: string) => name.toLowerCase().replace(/^dr\.?\s*/i, "").trim();
+    const match = doctors.find((d) => {
+      const cd = cleanDoc(d);
+      const cInit = cleanDoc(decoded);
+      return cd === cInit || cd.includes(cInit) || cInit.includes(cd);
+    });
+    return match ? [match] : [initialDoctor];
+  });
   const [searchQuery, setSearchQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -312,7 +324,7 @@ export default function ArticlesBrowser({
                   <p className={styles.featuredExcerpt}>
                     Our latest clinical review explores how structured digital detox protocols can improve working memory, reduce baseline anxiety, and enhance overall cognitive performance in adult populations.
                   </p>
-                  <Link href="/articles" className={styles.featuredReadMore}>
+                  <Link href="/articles/digital-wellness-cognitive-function" className={styles.featuredReadMore}>
                     Read full report &rarr;
                   </Link>
                 </div>

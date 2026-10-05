@@ -103,6 +103,75 @@
   margin: 0;
 }
 
+.keywordsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.keywordChip {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #2d6a5f;
+  background: rgba(45, 106, 95, 0.08);
+  border: 1px solid rgba(45, 106, 95, 0.18);
+  border-radius: 999px;
+  padding: 4px 12px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.rciBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 12px 18px;
+  background-color: #eaf5f2;
+  border: 1px solid rgba(13, 148, 136, 0.22);
+  border-radius: 14px;
+  max-width: fit-content;
+}
+
+.rciIconWrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid rgba(13, 148, 136, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.rciContent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.rciTitle {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1a3330;
+  line-height: 1.3;
+}
+
+.rciSub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #3b5550;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
 @media (max-width: 900px) {
   .heroGrid {
     grid-template-columns: 1fr;

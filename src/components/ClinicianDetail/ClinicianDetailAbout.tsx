@@ -21,19 +21,8 @@ export default function ClinicianDetailAbout({ clinician }: ClinicianDetailAbout
             ))}
           </div>
 
-          {/* Languages & Area of Expertise in single lines */}
+          {/* Languages line */}
           <div className={styles.metaGroup}>
-            {clinician.expertise && clinician.expertise.length > 0 && (
-              <p className={styles.metaLine}>
-                <span className={styles.metaLabel}>
-                  {clinician.expertise.length > 1 ? "Areas of Expertise:" : "Area of Expertise:"}
-                </span>{" "}
-                <span className={styles.metaValue}>
-                  {clinician.expertise.map((e) => e.title).filter(Boolean).join(", ")}
-                </span>
-              </p>
-            )}
-
             {clinician.languages && clinician.languages.length > 0 && (
               <p className={styles.metaLine}>
                 <span className={styles.languagesLabel}>Languages:</span>{" "}
