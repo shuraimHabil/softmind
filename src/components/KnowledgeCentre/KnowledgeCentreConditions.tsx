@@ -75,11 +75,9 @@ export default function KnowledgeCentreConditions() {
                 className={styles.card}
               >
                 <div className={styles.cardTop}>
-                  <span className={styles.groupTag}>{condition.group}</span>
                   <h3 className={styles.cardTitle}>{condition.name}</h3>
                 </div>
                 <p className={styles.cardDesc}>{condition.whatItIs.slice(0, 100)}…</p>
-                <span className={styles.cardArrow}>Read guide →</span>
               </Link>
             ))}
           </div>

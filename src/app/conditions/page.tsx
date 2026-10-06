@@ -58,9 +58,6 @@ export default function ConditionsHubPage() {
                   >
                     <h3 className={styles.cardTitle}>{cond.name}</h3>
                     <p className={styles.cardSnippet}>{cond.whatItIs}</p>
-                    <span className={styles.learnMore}>
-                      Read guide <span className={styles.arrow}>&rarr;</span>
-                    </span>
                   </Link>
                 ))}
               </div>
