@@ -352,26 +352,6 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
               return { title, description };
             }).filter((a: TherapeuticApproach) => Boolean(a.title));
           }
-          if (parsed.length === 0) {
-            parsed = [
-              {
-                title: "Psychological Therapies",
-                description: "CBT · ACT\nBehavioural Activation\nExposure-Based Approaches",
-              },
-              {
-                title: "Experiential & Brain-Body Approaches",
-                description: "Interoceptive Work\nMindfulness\nExperiential Methods\nRelaxation",
-              },
-              {
-                title: "Cognitive & Adaptive Work",
-                description: "Cognitive Remediation\nAttention\nCognitive Flexibility\nExecutive Skills",
-              },
-              {
-                title: "Measurement & Technology-Assisted Care",
-                description: "Psychological Measures\nqEEG\nNeurofeedback\nBiofeedback\nSelected Neurotechnology",
-              },
-            ];
-          }
           return parsed;
         })(),
       } as Clinician;
