@@ -1284,60 +1284,6 @@ export const conditions: Condition[] = [
       "American Psychological Association (APA). Clinical Practice Guidelines.",
       "Indian Journal of Psychiatry / National Institute of Mental Health and Neurosciences (NIMHANS)."
     ]
-  },
-  {
-    "slug": "gambling-disorder",
-    "name": "Gambling disorder",
-    "group": "Addiction",
-    "url": "/conditions/gambling-disorder",
-    "sensitivity": "Confirm whether addiction care is offered before publishing.",
-    "isEmergency": false,
-    "isEatingDisorder": false,
-    "isTrauma": false,
-    "isMedicalFirst": false,
-    "metaDescription": "Evidence-based clinical understanding, symptoms, assessment, and therapeutic treatment for gambling disorder at Softmind Wellness centres in Kerala and online.",
-    "whatItIs": "Gambling disorder is a recognised clinical condition characterised by specific cognitive, emotional, and behavioural patterns that affect personal wellbeing and everyday life. With appropriate evidence-based intervention, individuals can experience significant relief and long-term recovery.",
-    "commonSigns": [
-      "Persistent feelings or physical tension associated with gambling disorder.",
-      "Interference with daily routines, work, or interpersonal relationships.",
-      "Difficulty concentrating, fluctuating sleep patterns, or feeling easily overwhelmed.",
-      "Changes in energy levels or withdrawal from previously enjoyed activities."
-    ],
-    "causes": [
-      "Complex interactions of genetic vulnerability and neurobiological factors.",
-      "Psychological stressors, high-pressure life events, or relational difficulties.",
-      "Environmental pressures, chronic work stress, or past unresolved experiences."
-    ],
-    "assessment": "At Softmind, assessment for gambling disorder is conducted through a structured clinical interview and validated psychological rating scales. Our clinical psychologists assess cognitive patterns, emotional triggers, and situational factors to create a tailored care plan.",
-    "treatment": "Treatment typically involves evidence-based psychotherapy, such as Cognitive Behaviour Therapy (CBT). When appropriate, our psychiatrists collaborate with the treating psychologist if medication may support symptom management.",
-    "urgentHelp": "If you or someone you care about is experiencing overwhelming distress or severe symptoms, immediate professional support is available. Call the national mental health helpline Tele-MANAS on 14416 (toll-free, 24/7) or visit your nearest hospital emergency department.",
-    "relatedCare": [
-      "/our-care/psychological-counselling"
-    ],
-    "faqs": [
-      {
-        "question": "How do I know if I need professional help for gambling disorder?",
-        "answer": "If symptoms of gambling disorder persist for more than two weeks and begin impacting your sleep, relationships, or ability to work, a clinical consultation with a qualified psychologist or psychiatrist is recommended."
-      },
-      {
-        "question": "What therapies are most effective for gambling disorder?",
-        "answer": "Evidence-based modalities such as Cognitive Behaviour Therapy (CBT), mindfulness-informed therapy, and solution-focused interventions are tailored to your specific clinical assessment."
-      },
-      {
-        "question": "Can I receive consultation online?",
-        "answer": "Yes, Softmind Wellness offers secure, confidential online consultations in both Malayalam and English, as well as in-person sessions at our centres in Kerala."
-      }
-    ],
-    "reviewer": {
-      "name": "Prasad Amore",
-      "role": "RCI Licensed Rehabilitation Psychologist",
-      "date": "September 2026"
-    },
-    "references": [
-      "World Health Organization (WHO). Comprehensive Mental Health Action Plan.",
-      "American Psychological Association (APA). Clinical Practice Guidelines.",
-      "Indian Journal of Psychiatry / National Institute of Mental Health and Neurosciences (NIMHANS)."
-    ]
   }
 ];
 
