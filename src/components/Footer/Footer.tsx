@@ -77,11 +77,6 @@ export default function Footer() {
             heading: "OUR CARE",
             links: [
               { label: "All Care Services", href: "/our-care" },
-              { label: "Psychological Counselling", href: "/our-care/psychological-counselling" },
-              { label: "Couple & Relationship", href: "/our-care/relationship-counselling" },
-              { label: "Child & Adolescent", href: "/our-care/child-adolescent-counselling" },
-              { label: "Clinical Psychology", href: "/our-care/clinical-psychology" },
-              { label: "Psychiatry", href: "/our-care/psychiatry" },
             ],
           },
           {
@@ -129,14 +124,16 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <p className={styles.copyright}>
-            © {year} Softmind Wellness Pvt. Ltd. All rights reserved. &nbsp;|&nbsp;{" "}
-            <Link href="/terms">Terms & Conditions</Link> &nbsp;|&nbsp;{" "}
-            <Link href="/privacy-policy">Privacy Policy</Link>
-          </p>
-          <p className={styles.crisis}>
-            If you are in crisis or thinking about suicide, call Tele-MANAS on <strong>14416</strong> (free, 24 hours) or go to your nearest emergency department.
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <p className={styles.copyright}>
+              © {year} Softmind Wellness Pvt. Ltd. All rights reserved. &nbsp;|&nbsp;{" "}
+              <Link href="/terms">Terms & Conditions</Link> &nbsp;|&nbsp;{" "}
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </p>
+            <p className={styles.crisis}>
+              Powered by <a href="https://finlytyx.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Finlytyx AI Labs</a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

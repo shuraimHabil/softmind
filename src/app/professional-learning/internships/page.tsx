@@ -29,22 +29,9 @@ export default function InternshipsPage() {
     <>
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
-        <nav aria-label="Breadcrumbs" className={styles.breadcrumbs}>
-          <ol>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li>
-              <Link href="/professional-learning">Professional Learning</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li aria-current="page">Internships</li>
-          </ol>
-        </nav>
+
 
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>STUDENT TRAINING</p>
           <h1 className={styles.h1}>Psychology Internships at Softmind</h1>
           <p className={styles.intro}>
             Comprehensive practical exposure in clinical and counselling settings, guided

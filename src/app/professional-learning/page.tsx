@@ -26,7 +26,6 @@ export default function ProfessionalLearningPage() {
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>ACADEMIC & CLINICAL ADVANCEMENT</p>
           <h1 className={styles.h1}>Professional Learning at Softmind</h1>
           <p className={styles.intro}>
             Structured clinical training, internships, and skill-building workshops led by
@@ -36,38 +35,22 @@ export default function ProfessionalLearningPage() {
 
         <div className={styles.content}>
           <div className={styles.missionGrid}>
-            <div className={styles.missionCard}>
+            <Link href="/professional-learning/internships" className={styles.missionCard} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
               <h2 className={styles.cardHeading}>Clinical Internships</h2>
               <p className={styles.cardText}>
                 Intensive, supervised practical exposure for postgraduate students of psychology
                 (MSc / MA Psychology and MSW). Observe clinical case formulations, psychological
                 assessments, and ethical therapy practice.
               </p>
-              <p style={{ marginTop: "16px" }}>
-                <Link
-                  href="/professional-learning/internships"
-                  className={styles.textLink}
-                >
-                  Explore Internship Programmes &rarr;
-                </Link>
-              </p>
-            </div>
+            </Link>
 
-            <div className={styles.missionCard}>
+            <Link href="/professional-learning/workshops" className={styles.missionCard} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
               <h2 className={styles.cardHeading}>Workshops & Seminars</h2>
               <p className={styles.cardText}>
                 Focussed continuing education modules on CBT techniques, adolescent counselling,
                 psychometrics, and neuroscience-informed psychotherapy.
               </p>
-              <p style={{ marginTop: "16px" }}>
-                <Link
-                  href="/professional-learning/workshops"
-                  className={styles.textLink}
-                >
-                  View Clinical Workshops &rarr;
-                </Link>
-              </p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

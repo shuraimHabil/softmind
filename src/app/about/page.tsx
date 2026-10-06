@@ -7,16 +7,16 @@ import JsonLd, {
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
-  title: "About Softmind Wellness | Psychological Care in Kerala",
+  title: "About Softmind | Psychological Science. Human Understanding.",
   description:
-    "Learn about Softmind Wellness Pvt. Ltd., our clinical governance, multidisciplinary team of licensed psychologists and psychiatrists, and our commitment to evidence-based care.",
+    "Softmind began in 2011 with a simple idea: psychological care should begin with understanding the person, not simply naming the problem. Learn about our approach across our four centres in Kerala.",
   alternates: {
     canonical: "https://www.softmindindia.com/about",
   },
   openGraph: {
-    title: "About Softmind Wellness | Psychological Care in Kerala",
+    title: "About Softmind | Psychological Science. Human Understanding.",
     description:
-      "Grounded in science, free of stigma, and dedicated to compassionate psychological care across Kerala and online.",
+      "Science guides the care. Technology supports it. The person remains at the centre.",
     url: "https://www.softmindindia.com/about",
   },
 };
@@ -33,151 +33,327 @@ export default function AboutPage() {
       <JsonLd data={generateOrganizationLd()} />
 
       <div className={styles.container}>
-
-
+        {/* Hero */}
         <header className={styles.hero}>
-          <h1 className={styles.h1}>Privacy Policy & Terms</h1>
+          <h1 className={styles.h1}>Psychological science. Human understanding.</h1>
           <p className={styles.intro}>
-            Softmind Wellness Pvt. Ltd.
+            Softmind began in 2011 with a simple idea: psychological care should begin with
+            understanding the person, not simply naming the problem. People are shaped by many
+            things — biology and development, learning and memory, relationships, environment,
+            culture and the experiences accumulated across life.
           </p>
         </header>
 
         <div className={styles.content}>
+          {/* Overview */}
           <section className={styles.section}>
-            <h2 className={styles.h2}>Privacy Policy</h2>
-            <p className={styles.paragraph}><strong>Effective: 1 October 2026</strong></p>
             <p className={styles.paragraph}>
-              Softmind Wellness Pvt. Ltd. (“Softmind”, “we”, “us”) respects the privacy and confidentiality of clients, website visitors and users of our digital services. This policy explains how we collect, use and protect personal information.
+              Our work therefore draws from contemporary understanding in applied psychology,
+              affective and evolutionary neuroscience, developmental science and biology, cognitive
+              science, psychophysiology and human behaviour. These perspectives do not give us one
+              complete explanation of a person. Instead, they help us ask better questions about
+              how people feel, think, relate, learn and behave.
+            </p>
+            <p className={styles.paragraph}>
+              Across our four centres in Kerala, our multidisciplinary team brings this thinking
+              into psychological care for individuals, couples and families, children and adolescents.
+              Our approach brings together evidence-based psychological therapies,
+              neuroscience-informed care, technology-assisted interventions and
+              measurement-informed care, shaped around the individual.
+            </p>
+            <p className={styles.paragraph}>
+              Where clinically appropriate, qEEG-based assessment and brain mapping, neurofeedback,
+              biofeedback and specialised neuromodulation approaches may provide additional information
+              or support an intervention. We use technology when it has a clear purpose—not simply
+              because it is available. Technology is never the centre of our work. Understanding the
+              person is.
+            </p>
+            <p className={styles.paragraph}>
+              Beyond clinical care, our work extends to Human Experience, psychological knowledge,
+              research and innovation, professional training and international collaborations.
             </p>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>1. Information We Collect</h3>
-            <p className={styles.paragraph}>
-              Depending on the service used, we may collect your name, age/date of birth, contact details, appointment and payment information, communications, and information reasonably required for psychological assessment or care. Our website may also collect limited technical information such as device/browser information, IP address and cookies.
-            </p>
+            <div className={styles.principleCallout}>
+              <p className={styles.principleText}>
+                Science guides the care. Technology supports it. The person remains at the centre.
+              </p>
+            </div>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>2. How We Use Information</h3>
-            <p className={styles.paragraph}>
-              Information may be used to provide and manage psychological services, appointments, payments and communications; maintain appropriate clinical and administrative records; support continuity and quality of care; meet legal and professional obligations; maintain service security; and improve our services. Anonymised or aggregated information may be used for legitimate service evaluation, statistics and quality improvement.
-            </p>
+            <div className={styles.ctaRow}>
+              <Link href="/our-care" className={styles.primaryBtn}>
+                Explore Softmind →
+              </Link>
+            </div>
+          </section>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>3. Confidentiality</h3>
+          {/* Understanding the person comes first */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>Understanding the person comes first</h2>
             <p className={styles.paragraph}>
-              Information disclosed during psychological consultation, assessment or therapy is treated as confidential. Information may be disclosed where the client provides valid consent, where reasonably necessary for authorised professional care or supervision, where required by law or a competent authority, or where disclosure is legally permitted or required in relation to serious risk of harm or safety. Where disclosure is necessary, we seek to limit it to information reasonably required for that purpose. The Mental Healthcare Act, 2017 provides confidentiality protections for mental-health information, including information stored electronically or digitally.
+              Softmind began with a question that still matters to us: how do we understand a person
+              without reducing their experience to a diagnosis or a label? People are complicated.
+              What we feel, think and do can be influenced by our biology, early development, learning,
+              relationships, bodily states, environment and the experiences we accumulate over time.
+              Two people may describe what appears to be the same problem and still have very different
+              reasons for experiencing it.
             </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>4. Online Services & Minors</h3>
             <p className={styles.paragraph}>
-              Online consultations use internet-based technologies and cannot be guaranteed to be completely secure or uninterrupted. Users should participate from a reasonably private environment and protect access to their devices. Additional consent and privacy safeguards may apply to children and adolescents, including parental or lawful-guardian consent where required by law.
+              No single theory explains all of this. That is why our work draws from different areas of
+              contemporary science, including applied psychology, affective and evolutionary neuroscience,
+              developmental science and biology, cognitive science, psychophysiology and the study of
+              human behaviour.
             </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>5. AI-Assisted Services</h3>
             <p className={styles.paragraph}>
-              Softmind may provide AI-assisted features for general information, education, website navigation and access to services. AI assistance is not a psychologist, therapist, psychiatrist, physician or emergency service. AI responses may be inaccurate or incomplete and should not be considered a diagnosis, prescription, treatment plan or professional clinical opinion. Interaction with an AI-assisted service does not by itself establish a professional relationship with Softmind or a Softmind professional. Please avoid sharing unnecessary sensitive personal or clinical information through general AI interfaces.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>6. Payments & Service Providers</h3>
-            <p className={styles.paragraph}>
-              Payments and certain digital functions may be provided through authorised third-party providers. Depending on the services used, this may include payment, hosting, communication, booking, video consultation, analytics and AI technology providers. Softmind does not intentionally store complete card credentials where payment information is processed directly by a payment provider. Softmind does not sell identifiable clinical information.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>7. Security, Retention & Data Breaches</h3>
-            <p className={styles.paragraph}>
-              Softmind uses reasonable administrative, technical and organisational safeguards to protect personal information. No electronic system, however, can guarantee absolute security. Information is retained for as long as reasonably necessary or as required by applicable legal, clinical, regulatory or professional obligations and is securely deleted, anonymised or disposed of when appropriate. Where a personal-data breach occurs, Softmind will take reasonable containment and remedial measures and provide legally required notifications where applicable.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>8. Recording & Research</h3>
-            <p className={styles.paragraph}>
-              Psychological consultations are not routinely recorded. Where Softmind proposes audio/video recording for a specific purpose, appropriate notice and consent will be obtained where required. Receiving services from Softmind does not automatically constitute consent to participate in identifiable research. Separate consent and applicable safeguards will be used where required.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>9. Your Rights</h3>
-            <p className={styles.paragraph}>
-              Subject to applicable law, you may have rights concerning access, correction, updating, erasure, withdrawal of consent, nomination and grievance redressal. The applicable Indian data-protection framework includes rights and obligations relating to consent, correction, erasure and grievance redressal.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>10. Contact Privacy & Grievance Officer</h3>
-            <p className={styles.paragraph}>
-              Softmind Wellness Pvt. Ltd.<br />
-              Second Floor, Kerala State Housing Board<br />
-              G-23, Panampilly Nagar Avenue<br />
-              Panampilly Nagar, Kochi, Ernakulam<br />
-              Kerala – 682036, India<br />
-              Phone: +91 90618 18732<br />
-              Email: hello@softmindindia.com
+              From our centres in Kerala, including Kochi, Softmind brings this way of thinking into
+              psychological care for individuals, couples and families, children and adolescents.
             </p>
           </section>
 
-          <section className={styles.section} style={{ marginTop: "40px" }}>
-            <h2 className={styles.h2}>Terms & Conditions</h2>
-            <p className={styles.paragraph}><strong>Effective: 1 October 2026</strong></p>
+          {/* From understanding to intervention */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>From understanding to intervention</h2>
             <p className={styles.paragraph}>
-              By accessing Softmind's website or digital services, you agree to these Terms to the extent permitted by applicable law.
+              We prefer to understand what is happening before deciding what should be done. That means
+              looking beyond the immediate difficulty. How did it develop? What may be maintaining it?
+              What is happening in the person&apos;s relationships and environment? How does the body respond?
+              What has been learned from previous experiences? What helps? What seems to make things worse?
+            </p>
+            <p className={styles.paragraph}>
+              The answers are rarely the same from one person to another. Our therapeutic work therefore
+              draws from evidence-based psychological interventions, but an intervention is considered in
+              relation to the individual rather than applied simply because a particular label has been given.
             </p>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>1. Website Information</h3>
+            <div className={styles.processCard}>
+              <div className={styles.processLabel}>Our way of working can be expressed simply:</div>
+              <div className={styles.processSteps}>
+                {["Understand", "Personalise", "Intervene", "Measure", "Adapt"].map((step, i, arr) => (
+                  <span key={step} style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
+                    <span className={styles.stepBadge}>{step}</span>
+                    {i < arr.length - 1 && <span className={styles.stepArrow}>→</span>}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             <p className={styles.paragraph}>
-              Website articles, resources and other information are provided primarily for general educational and informational purposes. They do not constitute individual psychological assessment, diagnosis, prescription or personalised treatment advice.
+              If something is helping, we want to know. If it is not helping, that matters too.
+            </p>
+          </section>
+
+          {/* Four dimensions of our care */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>Four dimensions of our care</h2>
+            <p className={styles.paragraph}>
+              These are not four separate services. They are different ways of informing the same process
+              of understanding and care.
             </p>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>2. Professional Services</h3>
+            <div className={styles.missionGrid}>
+              <div className={styles.missionCard}>
+                <h3 className={styles.cardHeading}>Evidence-Based Therapies</h3>
+                <p className={styles.cardText}>
+                  Evidence matters. Our psychological interventions draw from established research and
+                  clinical practice. But evidence still has to meet the individual in front of us —
+                  their history, circumstances, preferences, strengths and difficulties. For us,
+                  evidence-based practice is not about applying a technique mechanically. It is about
+                  bringing together good evidence, professional judgement and an understanding of the
+                  person receiving care.
+                </p>
+              </div>
+
+              <div className={styles.missionCard}>
+                <h3 className={styles.cardHeading}>Neuroscience-Informed Care</h3>
+                <p className={styles.cardText}>
+                  Our understanding of human behaviour continues to change as neuroscience develops.
+                  Research into emotion, memory, learning, attention, prediction, bodily regulation,
+                  development and social experience gives us additional ways of thinking about
+                  psychological difficulties and human behaviour. But we are careful not to reduce a person to the brain.
+                  The brain develops within a body, within relationships and within an environment.
+                  Development, learning and experience continuously shape one another.
+                  Neuroscience therefore informs our thinking; it does not replace psychological understanding.
+                </p>
+              </div>
+
+              <div className={styles.missionCard}>
+                <h3 className={styles.cardHeading}>Technology-Assisted Interventions</h3>
+                <p className={styles.cardText}>
+                  We are interested in technology when it has a useful role — not simply because it is new.
+                  Depending on the person, the purpose and the clinical context, selected technologies such as
+                  neurofeedback, biofeedback and other neurotechnology or neuromodulation approaches may be used
+                  alongside psychological interventions. Technology may help us observe certain processes, provide
+                  feedback, support training or complement an intervention. But technology remains a tool.
+                  It should have a reason to be there. It does not replace clinical judgement, human interaction
+                  or the therapeutic relationship.
+                </p>
+              </div>
+
+              <div className={styles.missionCard}>
+                <h3 className={styles.cardHeading}>Measurement-Informed Care</h3>
+                <p className={styles.cardText}>
+                  Clinical observation matters, but we also want to know what is actually changing. Where appropriate,
+                  we follow psychological, behavioural, functional and physiological measures over time. In selected
+                  situations, qEEG/EEG-based assessment and brain mapping may provide additional information about
+                  patterns of recorded brain activity. Biofeedback and other physiological measures may also contribute
+                  useful information. We do not treat a brain map, a score or a physiological measurement as an
+                  explanation of the whole person. It is another piece of information. We consider it alongside the
+                  person&apos;s experience, clinical assessment, history, behaviour and other relevant findings.
+                </p>
+                <div className={styles.cardFooterText}>
+                  The purpose of measurement is practical: What is changing? What are we learning? Do we need to change what we are doing?
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Beyond labels */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>Beyond labels</h2>
             <p className={styles.paragraph}>
-              Browsing the website, sending an enquiry, using WhatsApp, interacting with AI assistance or requesting an appointment does not by itself establish a professional relationship. A professional relationship begins through an appropriately accepted professional engagement. Softmind professionals work within their respective qualifications, registrations and professional scope. Referral to another professional or service may be recommended where appropriate.
+              A diagnosis can describe something. It cannot describe everything.
+            </p>
+            <p className={styles.paragraph}>
+              Diagnostic language can be useful. It can help professionals organise information,
+              communicate with one another and make certain clinical decisions. But a diagnosis cannot
+              contain the whole person.
+            </p>
+            <p className={styles.paragraph}>
+              A person&apos;s present experience has a history. Biology, development, learning, relationships,
+              culture, environment and life events may all have contributed to what we see today. We are
+              therefore interested not only in what a difficulty is called, but in how it came to exist
+              in this particular person&apos;s life.
             </p>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>3. Clinical Consent</h3>
+            <div className={styles.calloutCard}>
+              <span className={styles.calloutTag}>That distinction matters to us.</span>
+              <p className={styles.calloutHighlight}>Beyond labels. Towards understanding.</p>
+            </div>
+          </section>
+
+          {/* Human Experience */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>Human Experience</h2>
             <p className={styles.paragraph}>
-              Acceptance of these website Terms does not replace clinical informed consent. Separate consent may be required for psychological services, online consultations, services involving minors, specific procedures, recording or research participation.
+              Psychology is also about ordinary life. Not every important human experience is a disorder.
+            </p>
+            <p className={styles.paragraph}>
+              Why do we become deeply attached to some people? Why can rejection stay with us for years?
+              Why does the body sometimes respond before we understand what we are feeling? How does a
+              sense of self develop? Why do apparently similar experiences affect two people differently?
+              How do relationships change the way we experience ourselves and other people?
+            </p>
+            <p className={styles.paragraph}>
+              These are psychological questions too.
+            </p>
+            <p className={styles.paragraph}>
+              Through Human Experience, we explore how people feel, think, relate and behave across:
             </p>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>4. Appointments & Payments</h3>
+            <div className={styles.pillGrid}>
+              {[
+                "Emotions",
+                "Relationships",
+                "Self",
+                "Body & Experience",
+                "Behaviour",
+                "Life Transitions",
+              ].map((topic) => (
+                <span key={topic} className={styles.pillItem}>
+                  {topic}
+                </span>
+              ))}
+            </div>
+
             <p className={styles.paragraph}>
-              Appointments are subject to availability and confirmation. Applicable fees and relevant cancellation, rescheduling and refund conditions will be communicated during the booking process. No particular therapeutic or psychological outcome can be guaranteed.
+              Our intention is to bring psychological science closer to the questions people actually
+              encounter in everyday life.
+            </p>
+          </section>
+
+          {/* Knowledge Centre */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>Knowledge Centre</h2>
+            <p className={styles.paragraph}>
+              Science should be understandable without being oversimplified.
+            </p>
+            <p className={styles.paragraph}>
+              Psychological ideas now travel quickly, particularly through social media. Complex experiences
+              can easily become labels, lists, personality types and simple explanations. Human behaviour is rarely that simple.
+            </p>
+            <p className={styles.paragraph}>
+              Through the Softmind Knowledge Centre, we share articles, perspectives, videos, podcasts
+              and other resources exploring psychology, neuroscience, relationships, emotions and human
+              behaviour. We want scientific ideas to be understandable without pretending that science
+              has a simple answer for every human experience. Where evidence is strong, we should say so.
+              Where questions remain, we should be equally comfortable saying that too.
+            </p>
+            <div className={styles.ctaRow}>
+              <Link href="/knowledge-centre" className={styles.primaryBtn}>
+                Knowledge Centre →
+              </Link>
+            </div>
+          </section>
+
+          {/* Research, Learning & Collaboration */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>Research, Learning &amp; Collaboration</h2>
+            <p className={styles.paragraph}>
+              Our understanding should continue to change.
+            </p>
+            <p className={styles.paragraph}>
+              Psychological science does not stand still, and professional practice should not stand still
+              either. We remain interested in developments across psychology, neuroscience, psychophysiology,
+              neurotechnology and technology-assisted psychological care.
             </p>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>5. Online Consultation</h3>
-            <p className={styles.paragraph}>
-              Users are responsible for providing accurate information, maintaining reasonable privacy and having adequate internet connectivity. A professional may recommend in-person consultation or referral where online consultation is not appropriate.
-            </p>
+            <ul className={styles.bulletList}>
+              <li className={styles.bulletItem}>
+                Through <strong>research and innovation</strong>, we explore emerging approaches and
+                consider where they may — or may not — add value to psychological care.
+              </li>
+              <li className={styles.bulletItem}>
+                Through <strong>professional training</strong>, we create opportunities for psychologists
+                and other professionals to deepen their knowledge, clinical thinking and practical skills.
+              </li>
+              <li className={styles.bulletItem}>
+                Through <strong>collaborations in India and internationally</strong>, we seek opportunities
+                to work with researchers, professional organisations, institutions and technology partners
+                around research, learning, knowledge exchange and the responsible evaluation of emerging approaches.
+              </li>
+            </ul>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>6. AI-Assisted Services</h3>
-            <p className={styles.paragraph}>
-              AI-assisted services are intended for general information, education, navigation and access to Softmind services. They do not provide diagnosis, psychotherapy, medical treatment, prescriptions or emergency assessment. AI-generated information may contain errors. Users should not rely solely on AI for decisions concerning diagnosis, medication, treatment, self-harm, harm to others, emergencies or significant health and safety matters.
-            </p>
+            <div className={styles.quoteCard}>
+              For us, innovation does not mean accepting every new idea. It means remaining curious enough to explore it and critical enough to question it.
+            </div>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>7. Emergencies</h3>
-            <p className={styles.paragraph}>
-              Softmind's website, AI assistance, WhatsApp, email and routine booking systems are not emergency services. Where there is an immediate threat to life or safety, appropriate emergency assistance should be sought without waiting for a response from Softmind.
-            </p>
+            <div className={styles.ctaRow}>
+              <Link href="/research-and-collaboration" className={styles.primaryBtn}>
+                Research &amp; Collaboration →
+              </Link>
+              <Link href="/professional-learning" className={styles.secondaryBtn}>
+                Professional Learning
+              </Link>
+            </div>
+          </section>
 
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>8. Intellectual Property & Acceptable Use</h3>
+          {/* An evolving practice */}
+          <section className={styles.section}>
+            <h2 className={styles.h2}>An evolving practice</h2>
             <p className={styles.paragraph}>
-              Softmind's original website content, branding and educational materials are owned by or appropriately licensed to Softmind Wellness Pvt. Ltd. Users must not unlawfully reproduce content, interfere with Softmind systems, impersonate others, misuse professional identities or credentials, introduce malicious software, or use the services for unlawful purposes.
+              There are things about human behaviour that psychological science understands reasonably well.
+              There are many things we are still learning. We think it is important to acknowledge both.
             </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>9. Third-Party Services & Availability</h3>
             <p className={styles.paragraph}>
-              Softmind may use third-party payment, hosting, communication, video, analytics and AI services. These providers may have their own terms and privacy practices. Softmind does not guarantee uninterrupted availability of its website or third-party digital infrastructure.
+              As evidence changes, our understanding should be capable of changing with it. As new
+              technologies emerge, they should be examined rather than automatically adopted. And when
+              the person in front of us does not fit our assumptions, our assumptions deserve another look.
             </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>10. Liability</h3>
             <p className={styles.paragraph}>
-              To the maximum extent permitted by applicable law, Softmind is not responsible for indirect or consequential losses arising solely from general website information, temporary service interruptions, third-party systems or unreasonable reliance on AI-generated information. Nothing in these Terms excludes professional duties, consumer rights or liability that cannot lawfully be excluded.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>11. Governing Law & Jurisdiction</h3>
-            <p className={styles.paragraph}>
-              These Terms and Softmind's digital services are governed by the laws of India. Subject to applicable law and statutory forums that cannot legally be excluded, the competent courts at Ernakulam (Kochi), Kerala, India shall have jurisdiction over disputes relating to these Terms or Softmind's digital services. Nothing in this clause restricts any non-waivable statutory consumer right, remedy or forum.
-            </p>
-
-            <h3 className={styles.h2} style={{ fontSize: "1.2rem", marginTop: "24px" }}>12. Contact</h3>
-            <p className={styles.paragraph}>
-              Softmind Wellness Pvt. Ltd.<br />
-              Second Floor, Kerala State Housing Board<br />
-              G-23, Panampilly Nagar Avenue<br />
-              Panampilly Nagar, Kochi, Ernakulam<br />
-              Kerala – 682036, India<br />
-              Phone: +91 90618 18732<br />
-              Email: hello@softmindindia.com
+              That matters because psychological care is ultimately about a person — not a theory, a
+              diagnosis, a brain map, a technology or a treatment protocol. This is the kind of practice
+              we want Softmind to continue building: a place where psychological science, professional
+              care, technology, curiosity and human understanding can meet without any one of them
+              becoming more important than the person.
             </p>
           </section>
         </div>

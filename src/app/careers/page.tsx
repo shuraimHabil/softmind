@@ -23,7 +23,6 @@ export default function CareersPage() {
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>JOIN OUR TEAM</p>
           <h1 className={styles.h1}>Careers at Softmind Wellness</h1>
           <p className={styles.intro}>
             We are always seeking committed, licensed mental health practitioners who share our

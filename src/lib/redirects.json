@@ -750,11 +750,6 @@
     "permanent": true
   },
   {
-    "source": "/FAQ",
-    "destination": "/faq",
-    "permanent": true
-  },
-  {
     "source": "/Gallery",
     "destination": "/about",
     "permanent": true
@@ -1192,11 +1187,6 @@
   {
     "source": "/Old menu item (URL not captured)",
     "destination": "/conditions/gambling-disorder",
-    "permanent": true
-  },
-  {
-    "source": "/Privacy-Policy",
-    "destination": "/privacy-policy",
     "permanent": true
   },
   {
@@ -2020,11 +2010,6 @@
     "permanent": true
   },
   {
-    "source": "/faq",
-    "destination": "/faq",
-    "permanent": true
-  },
-  {
     "source": "/gallery",
     "destination": "/about",
     "permanent": true
@@ -2407,11 +2392,6 @@
   {
     "source": "/old menu item (url not captured)",
     "destination": "/conditions/gambling-disorder",
-    "permanent": true
-  },
-  {
-    "source": "/privacy-policy",
-    "destination": "/privacy-policy",
     "permanent": true
   },
   {

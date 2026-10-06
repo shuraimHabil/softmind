@@ -27,7 +27,7 @@ export default function ClinicianDetailBlogs({
   return (
     <section className={styles.section} id="qualifications-blogs">
       <div className={styles.container}>
-        <div className={`${styles.twoColGrid} ${!hasQualifications || !hasArticles ? styles.singleCol : ""}`}>
+        <div className={`${styles.twoColGrid} ${!hasQualifications && hasArticles ? styles.singleCol : ""}`}>
           {/* Left Column: Qualifications */}
           {hasQualifications && (
             <div className={styles.leftCol}>

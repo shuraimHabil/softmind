@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd, { generateBreadcrumbsLd } from "@/components/SEO/JsonLd";
 import OnlineConsultationView from "./OnlineConsultationView";
-import { fetchClinicians } from "@/lib/clinicians";
+import { fetchClinicians, isOnlineAvailableClinician } from "@/lib/clinicians";
 
 export const metadata: Metadata = {
   title: "Online Psychological Consultation | Softmind Wellness",
@@ -47,12 +47,13 @@ export default async function OnlineConsultationPage() {
   ];
 
   const clinicians = await fetchClinicians();
+  const onlineClinicians = clinicians.filter(isOnlineAvailableClinician);
 
   return (
     <>
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <main>
-        <OnlineConsultationView clinicians={clinicians} />
+        <OnlineConsultationView clinicians={onlineClinicians} />
       </main>
     </>
   );

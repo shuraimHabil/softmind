@@ -50,6 +50,8 @@ export interface Clinician {
   articles: ClinicianArticle[];
   isRciLicensed?: boolean;
   rci_licensed?: boolean;
+  online_available?: boolean;
+  isOnlineAvailable?: boolean;
   qualifications?: string[];
   rca_number?: string | null;
   areasOfPractice?: string[];
@@ -67,6 +69,7 @@ export interface ApiClinician {
   rca_registered?: number | boolean | null;
   rci_registered?: number | boolean | null;
   rci_license?: number | boolean | null;
+  online_available?: number | boolean | string | null;
 }
 
 export function stripHtml(html: string): string {
@@ -101,6 +104,11 @@ export function isHealthCareClinician(clinician: Clinician): boolean {
     const norm = String(cat).toLowerCase().replace(/[\s-_]+/g, "");
     return norm === "healthcare" || norm.includes("healthcare");
   });
+}
+
+export function isOnlineAvailableClinician(clinician: Clinician): boolean {
+  if (!clinician) return false;
+  return Boolean(clinician.isOnlineAvailable ?? clinician.online_available);
 }
 
 const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
@@ -138,6 +146,12 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          cleanTitle.toLowerCase().includes("rci")
        );
 
+       const isOnline = Boolean(
+         item.online_available === 1 ||
+         item.online_available === true ||
+         item.online_available === "1"
+       );
+
        const rawKeywords = item.keywords || item.keyword || "";
        const parsedKeywords: string[] = typeof rawKeywords === "string" && rawKeywords.trim()
          ? rawKeywords.split(",").map((k: string) => k.trim()).filter(Boolean)
@@ -156,6 +170,8 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          keywords: parsedKeywords,
          isRciLicensed: isRci,
          rci_licensed: isRci,
+         online_available: isOnline,
+         isOnlineAvailable: isOnline,
          experience: "Experienced",
          experienceSub: "CLINICAL PRACTICE",
          sessions: "1000+",

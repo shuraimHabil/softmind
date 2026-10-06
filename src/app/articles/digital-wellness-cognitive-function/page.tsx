@@ -5,7 +5,7 @@ export default function DigitalWellnessReport() {
   return (
     /* pt-[108px] accounts for the fixed header: 36px topbar + 72px nav */
     <div className="min-h-screen bg-slate-100 font-sans text-slate-800" style={{ paddingTop: "108px", paddingBottom: "64px" }}>
-      <div className="mx-auto px-4 sm:px-6" style={{ maxWidth: "820px" }}>
+      <div className="mx-auto px-4 sm:px-6" style={{ maxWidth: "820px", margin: "0 auto" }}>
 
         {/* Back link — sits above the A4 card */}
         <Link
@@ -39,21 +39,21 @@ export default function DigitalWellnessReport() {
           </header>
 
           {/* Body */}
-          <main style={{ fontFamily: "Georgia, serif", fontSize: "1.125rem", lineHeight: "1.9", color: "#1e293b" }}>
+          <main style={{ fontFamily: "var(--font-sans)", fontSize: "0.88rem", lineHeight: "1.9", color: "#1e293b", columnCount: 2, columnGap: "40px" }}>
             <p style={{ marginBottom: "28px" }}>
               Our latest clinical review explores how structured digital detox protocols can improve
               working memory, reduce baseline anxiety, and enhance overall cognitive performance in
               adult populations.
             </p>
 
-            <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.25rem", fontWeight: "700", color: "#0f172a", marginTop: "40px", marginBottom: "12px" }}>Abstract</h3>
+            <h3 style={{ fontFamily: "var(--font-sans)", fontSize: "1.25rem", fontWeight: "700", color: "#0f172a", marginTop: "40px", marginBottom: "12px" }}>Abstract</h3>
             <p style={{ marginBottom: "28px" }}>
               Comprehensive analysis of clinical outcomes across adolescent and adult cohorts
               undergoing blended cognitive behavioral therapy sessions combined with weekly digital
               behavioral tracking.
             </p>
 
-            <h3 style={{ fontFamily: "Georgia, serif", fontSize: "1.25rem", fontWeight: "700", color: "#0f172a", marginTop: "40px", marginBottom: "12px" }}>Key Findings</h3>
+            <h3 style={{ fontFamily: "var(--font-sans)", fontSize: "1.25rem", fontWeight: "700", color: "#0f172a", marginTop: "40px", marginBottom: "12px" }}>Key Findings</h3>
             <ul style={{ paddingLeft: "24px", marginBottom: "28px" }}>
               <li style={{ marginBottom: "10px" }}>34% reduction in generalized anxiety symptom scores after 6 weeks</li>
               <li style={{ marginBottom: "10px" }}>Higher patient engagement in digital self-reporting compared to traditional journals</li>

@@ -247,9 +247,6 @@ export default function ClinicianDetailAreasOfPractice({
       <div className={styles.container}>
         <div className={styles.headerRow}>
           <h2 className={styles.title}>Areas of Practice</h2>
-          <Link href="/our-care" className={styles.viewAllLink}>
-            View all services &rarr;
-          </Link>
         </div>
 
         <div className={styles.grid}>

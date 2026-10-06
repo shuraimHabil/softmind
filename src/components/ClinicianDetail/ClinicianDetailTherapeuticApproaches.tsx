@@ -27,9 +27,6 @@ export default function ClinicianDetailTherapeuticApproaches({
       <div className={styles.container}>
         <div className={styles.headerRow}>
           <h2 className={styles.title}>Therapeutic Approaches</h2>
-          <Link href="/our-care" className={styles.exploreLink}>
-            Explore our approach &rarr;
-          </Link>
         </div>
 
         <div className={styles.grid}>

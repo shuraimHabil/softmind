@@ -23,7 +23,6 @@ export default function TermsPage() {
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>LEGAL</p>
           <h1 className={styles.h1}>Terms and Conditions</h1>
           <p className={styles.intro}>
             These terms govern clinical appointments, online consultations, and website usage

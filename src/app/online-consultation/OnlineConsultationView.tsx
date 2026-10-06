@@ -31,7 +31,9 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
     setImgErrors((prev) => ({ ...prev, [id]: true }));
   };
 
-  const displayedClinicians = (clinicians || []).slice(0, 4);
+  const displayedClinicians = (clinicians || []).filter(
+    (c) => Boolean(c.online_available || c.isOnlineAvailable)
+  );
 
   return (
     <div className={styles.pageWrapper}>

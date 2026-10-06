@@ -29,22 +29,9 @@ export default function WorkshopsPage() {
     <>
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <div className={styles.container}>
-        <nav aria-label="Breadcrumbs" className={styles.breadcrumbs}>
-          <ol>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li>
-              <Link href="/professional-learning">Professional Learning</Link>
-            </li>
-            <span className={styles.divider}>/</span>
-            <li aria-current="page">Workshops</li>
-          </ol>
-        </nav>
+
 
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>CONTINUING EDUCATION</p>
           <h1 className={styles.h1}>Clinical Workshops & Masterclasses</h1>
           <p className={styles.intro}>
             Practical, evidence-based training seminars conducted by senior psychologists and
