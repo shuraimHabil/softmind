@@ -47,9 +47,7 @@ export default function ClinicianDetailTherapeuticApproaches({
           })}
         </div>
 
-        <p className={styles.footerNote}>
-          Approaches are selected according to individual needs, therapeutic goals, available evidence and professional judgement.
-        </p>
+
       </div>
     </section>
   );
