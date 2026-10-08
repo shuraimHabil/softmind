@@ -106,7 +106,7 @@ export default function Hero() {
       <div className={styles.contentWrap}>
         <div className={styles.content}>
           <h1 className={styles.title}>
-            Science Guide the Care.<br />
+            Science Guides the Care.<br />
             The Person Remains at<br />
             the Centre.
           </h1>

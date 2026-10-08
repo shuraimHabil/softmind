@@ -3,14 +3,14 @@ import { ArrowLeft, Calendar, User } from "lucide-react";
 
 export default function DigitalWellnessReport() {
   return (
-    /* pt-[108px] accounts for the fixed header: 36px topbar + 72px nav */
-    <div className="min-h-screen bg-slate-100 font-sans text-slate-800" style={{ paddingTop: "108px", paddingBottom: "64px" }}>
+    <div className="min-h-screen bg-slate-100 font-sans text-slate-800" style={{ paddingTop: "140px", paddingBottom: "64px" }}>
       <div className="mx-auto px-4 sm:px-6" style={{ maxWidth: "820px", margin: "0 auto" }}>
 
         {/* Back link — sits above the A4 card */}
         <Link
           href="/articles"
-          className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-800 text-sm font-medium transition-colors mb-6"
+          className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 text-sm font-semibold transition-colors"
+          style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "28px" }}
         >
           <ArrowLeft className="w-4 h-4" /> Back to Articles
         </Link>
@@ -22,7 +22,7 @@ export default function DigitalWellnessReport() {
         >
           {/* Header */}
           <header style={{ marginBottom: "48px", paddingBottom: "32px", borderBottom: "1px solid #e2e8f0", textAlign: "center" }}>
-            <h1 style={{ fontFamily: "Georgia, serif", fontSize: "2.25rem", fontWeight: "700", color: "#0f172a", lineHeight: 1.3, marginBottom: "24px" }}>
+            <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(1.6rem, 2.8vw, 2.1rem)", fontWeight: 400, color: "#0f172a", lineHeight: 1.3, marginBottom: "24px", letterSpacing: "-0.01em" }}>
               The Impact of Digital Wellness on Cognitive Function
             </h1>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "24px", fontSize: "0.875rem", color: "#64748b", fontWeight: 500 }}>

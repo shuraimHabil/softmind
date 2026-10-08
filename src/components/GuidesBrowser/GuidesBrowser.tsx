@@ -8,6 +8,14 @@ interface GuidesBrowserProps {
   guides: PDFGuide[];
 }
 
+function toSentenceCase(str?: string): string {
+  if (!str) return "";
+  const trimmed = str.trim();
+  if (!trimmed) return "";
+  const lower = trimmed.toLowerCase();
+  return lower.replace(/(^\s*|\.\s*|\!\s*|\?\s*)([a-z])/g, (_, p1, p2) => p1 + p2.toUpperCase());
+}
+
 export default function GuidesBrowser({ guides }: GuidesBrowserProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedGuideForPreview, setSelectedGuideForPreview] = useState<PDFGuide | null>(null);
@@ -117,7 +125,7 @@ export default function GuidesBrowser({ guides }: GuidesBrowserProps) {
                     <span className={styles.pdfBadge}>PDF</span>
                   </div>
 
-                  <h3 className={styles.pdfTitle}>{guide.title}</h3>
+                  <h3 className={styles.pdfTitle}>{toSentenceCase(guide.title)}</h3>
 
                   <div className={styles.cardFooter}>
                     <span className={styles.dateText}>
@@ -218,7 +226,7 @@ export default function GuidesBrowser({ guides }: GuidesBrowserProps) {
               </div>
               <div>
                 <h4 style={{ margin: 0, fontSize: "1.1rem", color: "#1e293b", fontFamily: "var(--font-serif)" }}>
-                  {selectedGuideForPreview.title}
+                  {toSentenceCase(selectedGuideForPreview.title)}
                 </h4>
                 <p style={{ margin: "2px 0 0", fontSize: "0.78rem", color: "#64748b" }}>
                   {selectedGuideForPreview.date ? `Registered on ${selectedGuideForPreview.date}` : "Knowledge Center Guide"}

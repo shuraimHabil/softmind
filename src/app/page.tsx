@@ -3,7 +3,6 @@ import Philosophy from "@/components/Philosophy/Philosophy";
 import ServicesNav from "@/components/ServicesNav/ServicesNav";
 import Locations from "@/components/Locations/Locations";
 import Practitioners from "@/components/Practitioners/Practitioners";
-import Testimonials from "@/components/Testimonials/Testimonials";
 import Institutional from "@/components/Institutional/Institutional";
 import Topics from "@/components/Topics/Topics";
 import Insights from "@/components/Insights/Insights";
@@ -19,7 +18,6 @@ export default function Home() {
       <ServicesNav />
       <Locations />
       <Practitioners />
-      <Testimonials />
       <Institutional />
       <Topics />
       <Insights />

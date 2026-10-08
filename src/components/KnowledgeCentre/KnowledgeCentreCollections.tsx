@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./KnowledgeCentreCollections.module.css";
+import VideoCarouselModal from "./VideoCarouselModal";
 
 const collections = [
   {
@@ -7,6 +11,7 @@ const collections = [
     desc: "In-depth reads on mental health and human behavior.",
     count: "32 Articles",
     href: "/articles",
+    isVideo: false,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -22,6 +27,7 @@ const collections = [
     desc: "Practical, evidence-informed guides for everyday life.",
     count: "18 Guides",
     href: "/guides",
+    isVideo: false,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
@@ -34,6 +40,7 @@ const collections = [
     desc: "Expert reflections on psychological science and society.",
     count: "14 Perspectives",
     href: "/articles",
+    isVideo: false,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -43,9 +50,10 @@ const collections = [
   },
   {
     title: "Videos",
-    desc: "Short videos key concepts and therapeutic insights.",
-    count: "22 Videos",
-    href: "/articles",
+    desc: "Short videos on key concepts and therapeutic insights.",
+    count: "46 Videos",
+    href: "#",
+    isVideo: true,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
@@ -53,12 +61,12 @@ const collections = [
       </svg>
     ),
   },
-
   {
     title: "FAQs",
     desc: "Questions and answers about therapy and care.",
     count: "24 FAQs",
     href: "/#faq",
+    isVideo: false,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -70,24 +78,50 @@ const collections = [
 ];
 
 export default function KnowledgeCentreCollections() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Explore By Collection</h2>
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
-        <div className={styles.grid}>
-          {collections.map((item, idx) => (
-            <Link key={idx} href={item.href} className={styles.card}>
-              <div className={styles.iconWrap}>{item.icon}</div>
-              <h3 className={styles.title}>{item.title}</h3>
-              <p className={styles.desc}>{item.desc}</p>
-              <span className={styles.countLink}>
-                {item.count} &rarr;
-              </span>
-            </Link>
-          ))}
+  return (
+    <>
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionTitle}>Explore By Collection</h2>
+
+          <div className={styles.grid}>
+            {collections.map((item, idx) =>
+              item.isVideo ? (
+                <button
+                  key={idx}
+                  className={styles.card}
+                  onClick={() => setVideoModalOpen(true)}
+                  aria-haspopup="dialog"
+                  aria-label="Open video library"
+                >
+                  <div className={styles.iconWrap}>{item.icon}</div>
+                  <h3 className={styles.title}>{item.title}</h3>
+                  <p className={styles.desc}>{item.desc}</p>
+                  <span className={styles.countLink}>
+                    {item.count} &rarr;
+                  </span>
+                </button>
+              ) : (
+                <Link key={idx} href={item.href} className={styles.card}>
+                  <div className={styles.iconWrap}>{item.icon}</div>
+                  <h3 className={styles.title}>{item.title}</h3>
+                  <p className={styles.desc}>{item.desc}</p>
+                  <span className={styles.countLink}>
+                    {item.count} &rarr;
+                  </span>
+                </Link>
+              )
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <VideoCarouselModal
+        isOpen={videoModalOpen}
+        onClose={() => setVideoModalOpen(false)}
+      />
+    </>
   );
 }
