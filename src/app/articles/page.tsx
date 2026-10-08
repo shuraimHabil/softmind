@@ -54,6 +54,22 @@ export default async function ArticlesPage({
   const clinicianNames = allClinicians.map((c) => c.name);
   const { categories, languages, doctors } = deriveFilterData(articles, clinicianNames);
 
+  let latestReport = null;
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud";
+    const res = await fetch(`${baseUrl}/api/method/softmind_custom.cms_api.weekly_research_api.get_weekly_research_reports`, {
+      next: { revalidate: 60 }
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json.message?.success && Array.isArray(json.message.data) && json.message.data.length > 0) {
+        latestReport = json.message.data[0];
+      }
+    }
+  } catch (err) {
+    console.error("Failed to fetch latest research report", err);
+  }
+
   return (
     <main>
       <ArticlesBrowser
@@ -62,6 +78,7 @@ export default async function ArticlesPage({
         languages={languages}
         doctors={doctors}
         initialDoctor={initialDoctor}
+        latestReport={latestReport}
       />
       <div style={{ marginTop: "-60px" }}>
         <CliniciansCTA />

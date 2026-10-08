@@ -61,7 +61,7 @@ const resources = [
     label: "Use",
     description: "Guides, worksheets and trackers to support your progress.",
     linkText: "Browse Guides →",
-    href: "#care-library"
+    href: "/guides"
   }
 ];
 

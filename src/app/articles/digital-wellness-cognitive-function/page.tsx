@@ -32,9 +32,6 @@ export default function DigitalWellnessReport() {
               <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                 <User className="w-4 h-4" /> Dr. Clinical Lead
               </span>
-              <span style={{ background: "#f1f5f9", color: "#475569", padding: "2px 8px", borderRadius: "4px", fontFamily: "monospace", fontSize: "0.75rem" }}>
-                WRR-2026-W40
-              </span>
             </div>
           </header>
 

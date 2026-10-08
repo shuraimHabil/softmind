@@ -21,7 +21,7 @@ const collections = [
     title: "Guides",
     desc: "Practical, evidence-informed guides for everyday life.",
     count: "18 Guides",
-    href: "/articles",
+    href: "/guides",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />

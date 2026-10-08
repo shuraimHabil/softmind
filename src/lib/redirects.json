@@ -1,5 +1,15 @@
 [
   {
+    "source": "/knowledge-centre/guides",
+    "destination": "/guides",
+    "permanent": true
+  },
+  {
+    "source": "/knowledge-center/guides",
+    "destination": "/guides",
+    "permanent": true
+  },
+  {
     "source": "/About-Us",
     "destination": "/about",
     "permanent": true

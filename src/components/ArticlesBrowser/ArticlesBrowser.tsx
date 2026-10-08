@@ -13,6 +13,7 @@ interface ArticlesBrowserProps {
   languages: string[];
   doctors: string[];
   initialDoctor?: string;
+  latestReport?: any;
 }
 
 export default function ArticlesBrowser({
@@ -21,6 +22,7 @@ export default function ArticlesBrowser({
   languages,
   doctors,
   initialDoctor,
+  latestReport,
 }: ArticlesBrowserProps) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
@@ -317,24 +319,67 @@ export default function ArticlesBrowser({
           <main className={styles.contentArea}>
             {/* Featured Article: Weekly Research Report */}
             {filteredArticles.length > 0 && (
-              <div className={styles.featuredArticle}>
-                <div className={styles.featuredContent}>
-                  <span className={styles.featuredBadge}>Weekly Research Report</span>
-                  <h3 className={styles.featuredTitle}>The Impact of Digital Wellness on Cognitive Function</h3>
-                  <p className={styles.featuredExcerpt}>
-                    Our latest clinical review explores how structured digital detox protocols can improve working memory, reduce baseline anxiety, and enhance overall cognitive performance in adult populations.
-                  </p>
-                  <Link href="/articles/digital-wellness-cognitive-function" className={styles.featuredReadMore}>
-                    Read full report &rarr;
+              <div className="mb-6">
+                {latestReport ? (
+                  <div className={styles.featuredArticle}>
+                    <div className={styles.featuredContent}>
+                      <span className={styles.featuredBadge}>Weekly Research Report</span>
+                      <h3 className={styles.featuredTitle}>{latestReport.title}</h3>
+                      <p className={styles.featuredExcerpt}>
+                        {latestReport.date ? `Published on ${latestReport.date}` : "A weekly summary of psychiatric research and clinical efficacy reports."}
+                      </p>
+                      <div className={styles.featuredActionsRow}>
+                        <Link
+                          href={latestReport.title ? `/articles/report/${encodeURIComponent(latestReport.title)}` : "#"}
+                          className={styles.featuredReadMore}
+                        >
+                          Read full report &rarr;
+                        </Link>
+                      </div>
+                    </div>
+                    <div className={styles.featuredImageWrap}>
+                      <Image
+                        src="/assets/anxiety_hero.jpg"
+                        alt="Weekly Research Report"
+                        fill
+                        className={styles.featuredImage}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.featuredArticle}>
+                    <div className={styles.featuredContent}>
+                      <span className={styles.featuredBadge}>Weekly Research Report</span>
+                      <h3 className={styles.featuredTitle}>The Impact of Digital Wellness on Cognitive Function</h3>
+                      <p className={styles.featuredExcerpt}>
+                        Our latest clinical review explores how structured digital detox protocols can improve working memory, reduce baseline anxiety, and enhance overall cognitive performance in adult populations.
+                      </p>
+                      <div className={styles.featuredActionsRow}>
+                        <Link href="/articles/digital-wellness-cognitive-function" className={styles.featuredReadMore}>
+                          Read full report &rarr;
+                        </Link>
+                      </div>
+                    </div>
+                    <div className={styles.featuredImageWrap}>
+                      <Image
+                        src="/assets/anxiety_hero.jpg"
+                        alt="Weekly Research Report"
+                        fill
+                        className={styles.featuredImage}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Text link placed directly under the featured article matching 'Explore all areas →' */}
+                <div className={styles.underFeaturedActionRow}>
+                  <Link
+                    href="/weekly-research-reports"
+                    className={styles.viewAllWeeklyBtn}
+                    id="btn-view-all-weekly-research"
+                  >
+                    View all weekly research reports &rarr;
                   </Link>
-                </div>
-                <div className={styles.featuredImageWrap}>
-                  <Image
-                    src="/assets/anxiety_hero.jpg"
-                    alt="Weekly Research Report"
-                    fill
-                    className={styles.featuredImage}
-                  />
                 </div>
               </div>
             )}
