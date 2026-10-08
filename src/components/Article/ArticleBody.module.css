@@ -4,13 +4,9 @@
 }
 
 .container {
-  max-width: var(--container-width);
+  max-width: 840px;
   margin: 0 auto;
   padding: 0 24px;
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 56px;
-  align-items: start;
 }
 
 /* ── Main content ── */

@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { fetchPublishedArticles, fetchArticleBySlug } from "@/lib/articles";
 import ArticleHero from "@/components/Article/ArticleHero";
-import ArticleTrustBar from "@/components/Article/ArticleTrustBar";
 import ArticleBody from "@/components/Article/ArticleBody";
 import ArticleContinueExploring from "@/components/Article/ArticleContinueExploring";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
@@ -97,8 +96,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <JsonLd data={breadcrumbsLd} />
       <JsonLd data={articleLd} />
       <ArticleHero article={article} />
-      <ArticleTrustBar reviewedDate={article.reviewedDate} />
-      <ArticleBody article={article} related={related} />
+      <ArticleBody article={article} />
       <ArticleContinueExploring current={slug} />
       <CliniciansCTA />
     </>

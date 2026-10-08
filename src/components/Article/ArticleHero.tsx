@@ -33,7 +33,7 @@ export default function ArticleHero({ article }: { article: Article }) {
             <div className={styles.metaRow}>
               <span>{article.readTime}</span>
               <span className={styles.dot}>•</span>
-              <span>Reviewed {article.reviewedDate}</span>
+              <span>{article.reviewedDate}</span>
             </div>
           </div>
         </div>

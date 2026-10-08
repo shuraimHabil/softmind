@@ -27,7 +27,7 @@ export default async function Insights() {
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.title}>Latest Insights</h2>
-          <Link href="/articles" className={styles.btnOutline}>View All Articles</Link>
+          <Link href="/articles" className={styles.viewMoreLink}>View All Articles &rarr;</Link>
         </div>
         <div className={styles.grid}>
           {displayArticles.map((a) => (

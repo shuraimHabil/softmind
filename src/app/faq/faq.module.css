@@ -84,18 +84,15 @@
 
 .ctaBox {
   margin-top: 56px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 32px;
+  padding: 32px 0;
   text-align: center;
 }
 
 .ctaHeading {
   font-family: var(--font-fraunces), serif;
-  font-size: 1.75rem;
-  color: #0f172a;
-  margin-bottom: 10px;
+  font-size: 2.25rem;
+  color: #112d2d;
+  margin-bottom: 12px;
 }
 
 .ctaText {
@@ -110,25 +107,44 @@
 .ctaRow {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
 }
 
 .primaryBtn {
-  background-color: #0b1f3a;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #163636;
   color: #ffffff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 1rem;
   text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #0f2626;
 }
 
 .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background-color: transparent;
-  color: #0b1f3a;
+  color: #163636;
   border: 1px solid #cbd5e1;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 1rem;
   text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: #f1f5f9;
 }

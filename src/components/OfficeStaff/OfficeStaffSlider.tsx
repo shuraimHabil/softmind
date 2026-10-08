@@ -3,28 +3,19 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./Practitioners.module.css";
-import { Clinician, toTitleCase } from "@/lib/clinicians";
+import styles from "../Practitioners/Practitioners.module.css";
+import { StaffMember } from "./OfficeStaff";
 
 const GAP = 24;
 
-interface PractitionersSliderProps {
-  clinicians: Clinician[];
+interface OfficeStaffSliderProps {
+  staff: StaffMember[];
 }
 
-function shuffleArray(arr: Clinician[]): Clinician[] {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
-export default function PractitionersSlider({ clinicians }: PractitionersSliderProps) {
-  const [items, setItems] = useState<Clinician[]>(clinicians);
+export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
+  const [items, setItems] = useState<StaffMember[]>(staff);
   const [isHovered, setIsHovered] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(clinicians.length);
+  const [currentIndex, setCurrentIndex] = useState(staff.length);
   const [cardWidth, setCardWidth] = useState(280);
   const [enableTransition, setEnableTransition] = useState(true);
 
@@ -33,16 +24,7 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
   const touchDeltaX = useRef<number>(0);
 
   // Triple the list to create a seamless infinite loop
-  const loopedClinicians = items.length > 0 ? [...items, ...items, ...items] : [];
-
-  // Shuffle on client mount to ensure dynamic order without SSR hydration mismatch
-  useEffect(() => {
-    if (clinicians.length > 1) {
-      const shuffled = shuffleArray(clinicians);
-      setItems(shuffled);
-      setCurrentIndex(shuffled.length);
-    }
-  }, [clinicians]);
+  const loopedStaff = items.length > 0 ? [...items, ...items, ...items] : [];
 
   // Dynamic card dimension calculation based on container width
   const updateDimensions = useCallback(() => {
@@ -159,8 +141,8 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
             type="button"
             onClick={prev}
             className={styles.navBtn}
-            title="Previous clinicians"
-            aria-label="Previous clinicians"
+            title="Previous staff"
+            aria-label="Previous staff"
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
@@ -170,8 +152,8 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
             type="button"
             onClick={next}
             className={styles.navBtn}
-            title="Next clinicians"
-            aria-label="Next clinicians"
+            title="Next staff"
+            aria-label="Next staff"
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
@@ -199,9 +181,9 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
             gap: `${GAP}px`,
           }}
         >
-          {loopedClinicians.map((p, idx) => (
+          {loopedStaff.map((p, idx) => (
             <div
-              key={`${p.id || p.slug || idx}-${idx}`}
+              key={`${p.id}-${idx}`}
               className={styles.cardSlide}
               style={{
                 width: `${cardWidth}px`,
@@ -209,28 +191,28 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
                 maxWidth: `${cardWidth}px`,
               }}
             >
-              <Link href={`/clinicians/${p.slug}`} className={styles.card}>
+              <div className={styles.card} style={{ cursor: "default" }}>
                 <div className={styles.imgWrap}>
                   <Image
                     src={p.img || "/assets/practitioner_1.jpg"}
-                    alt={toTitleCase(p.name)}
+                    alt={p.name}
                     fill
                     className={styles.img}
                     sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
                   />
                 </div>
                 <div className={styles.info}>
-                  <h3 className={styles.name}>{toTitleCase(p.name)}</h3>
+                  <h3 className={styles.name}>{p.name}</h3>
                   <span className={styles.role}>{p.role}</span>
                   <p className={styles.desc}>{p.desc}</p>
                 </div>
-              </Link>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom Row: Position Dots + View All Button */}
+      {/* Bottom Row: Position Dots */}
       <div className={styles.bottomRow}>
         <div className={styles.dots} aria-hidden="true">
           {items.map((_, i) => (
@@ -246,10 +228,6 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
             />
           ))}
         </div>
-
-        <Link href="/clinicians" className={styles.viewAllBtn}>
-          View All Clinicians &rarr;
-        </Link>
       </div>
     </div>
   );

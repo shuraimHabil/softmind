@@ -30,18 +30,23 @@
 }
 
 .link {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--primary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0d9488;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   white-space: nowrap;
-  padding-top: 6px;
+  text-decoration: none;
   transition: var(--transition);
+  padding-top: 6px;
   flex-shrink: 0;
 }
 
 .link:hover {
-  color: var(--primary-hover);
-  letter-spacing: 0.01em;
+  color: #0f766e;
+  transform: translateX(3px);
 }
 
 /* ── Pillars row ────────────────────── */

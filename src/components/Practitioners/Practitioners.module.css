@@ -226,26 +226,22 @@
 }
 
 .viewAllBtn {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0d9488;
   display: inline-flex;
   align-items: center;
-  padding: 11px 26px;
-  border: 1.5px solid var(--primary);
-  color: var(--primary);
-  border-radius: 30px;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: all 0.25s ease;
+  gap: 6px;
   white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
   margin-left: auto;
 }
 
 .viewAllBtn:hover {
-  background: var(--primary);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25);
+  color: #0f766e;
+  transform: translateX(3px);
 }
 
 /* ── Responsive ── */
@@ -280,7 +276,7 @@
 
   .viewAllBtn {
     margin-left: 0;
-    width: 100%;
+    width: auto;
     justify-content: center;
   }
 }

@@ -530,13 +530,18 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: #0d9488;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
   text-decoration: none;
+  transition: var(--transition);
   align-self: flex-start;
-  transition: color 0.2s;
 }
 
 .featuredReadMore:hover {
-  color: #0b7c72;
+  color: #0f766e;
+  transform: translateX(3px);
 }
 
 .featuredImageWrap {
@@ -768,12 +773,12 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: #0d9488;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition);
   background: transparent;
   border: none;
   padding: 4px 0;
@@ -782,8 +787,5 @@
 
 .viewAllWeeklyBtn:hover {
   color: #0f766e;
-  transform: translateX(4px);
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  transform: translateX(3px);
 }

@@ -5,6 +5,7 @@ import JsonLd, {
   generateOrganizationLd,
 } from "@/components/SEO/JsonLd";
 import styles from "./about.module.css";
+import OfficeStaff from "@/components/OfficeStaff/OfficeStaff";
 
 export const metadata: Metadata = {
   title: "About Softmind | Psychological Science. Human Understanding.",
@@ -358,6 +359,7 @@ export default function AboutPage() {
           </section>
         </div>
       </div>
+      <OfficeStaff />
     </>
   );
 }
