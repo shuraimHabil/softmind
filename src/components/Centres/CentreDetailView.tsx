@@ -59,8 +59,9 @@ export default function CentreDetailView({ centre, allCentres = [], clinicians =
             </div>
 
             {/* Right Gallery Collage */}
-            <div className={styles.galleryGrid}>
-              <div className={styles.galleryMain}>
+            <div className={styles.galleryWrap}>
+              <div className={styles.galleryGrid}>
+                <div className={styles.galleryMain}>
                 <Image
                   src={mainGalleryImg}
                   alt={`${centre.name} Main Lounge`}
@@ -89,6 +90,19 @@ export default function CentreDetailView({ centre, allCentres = [], clinicians =
                   />
                 </div>
               </div>
+            </div>
+            {centre.googleReviewUrl && (
+              <div className={styles.galleryActionRow}>
+                <a
+                  href={centre.googleReviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.viewReviewBtn}
+                >
+                  View Reviews ★
+                </a>
+              </div>
+            )}
             </div>
           </div>
         </div>
@@ -181,14 +195,33 @@ export default function CentreDetailView({ centre, allCentres = [], clinicians =
                 >
                   Get Direction →
                 </a>
+                {centre.googleReviewUrl && (
+                  <a
+                    href={centre.googleReviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.reviewBtn}
+                  >
+                    Leave a Review ★
+                  </a>
+                )}
               </div>
             </div>
 
             {/* Right Map Visual */}
             <div className={styles.mapWrap}>
+              {centre.googleMapUrl && (
+                <a
+                  href={centre.googleMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.mapOverlay}
+                  aria-label={`View ${centre.name} on Google Maps`}
+                />
+              )}
               <iframe
                 title={`Map of ${centre.name}`}
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(centre.name + " " + centre.fullAddress)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                src={`https://maps.google.com/maps?q=${centre.mapQuery || encodeURIComponent(centre.name + " " + (centre.fullAddress || centre.city))}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                 className={styles.mapIframe}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

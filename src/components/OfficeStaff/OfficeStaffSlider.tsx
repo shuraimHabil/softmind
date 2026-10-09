@@ -19,6 +19,17 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
   const [cardWidth, setCardWidth] = useState(280);
   const [enableTransition, setEnableTransition] = useState(true);
 
+  useEffect(() => {
+    setItems(staff);
+    setCurrentIndex(staff.length);
+  }, [staff]);
+
+  const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+
+  const handleImgError = (id: string) => {
+    setImgErrors((prev) => ({ ...prev, [id]: true }));
+  };
+
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchDeltaX = useRef<number>(0);
@@ -129,6 +140,67 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
     return null;
   }
 
+  // When staff count is small (e.g. 1 to 3 items), center them cleanly rather than looping duplicates
+  if (items.length <= 3) {
+    return (
+      <div className={styles.sliderRoot}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "stretch",
+            gap: `${GAP}px`,
+            flexWrap: "wrap",
+            margin: "20px auto 40px",
+          }}
+        >
+          {items.map((p) => {
+            const hasValidImg = Boolean(p.img) && !imgErrors[p.id] && !p.img.includes("invalid-image");
+
+            return (
+              <div
+                key={p.id}
+                style={{
+                  width: `${cardWidth}px`,
+                  minWidth: "260px",
+                  maxWidth: "320px",
+                }}
+              >
+                <div className={styles.card} style={{ cursor: "default", height: "100%" }}>
+                  <div className={styles.imgWrap}>
+                    {hasValidImg ? (
+                      <img
+                        src={p.img}
+                        alt={p.name}
+                        className={styles.img}
+                        onError={() => handleImgError(p.id)}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={styles.avatarWrap} aria-label={p.name}>
+                        <div className={styles.avatarCircle}>
+                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.info}>
+                    <h3 className={styles.name}>{p.name}</h3>
+                    <span className={styles.role}>{p.role}</span>
+                    {p.desc && <p className={styles.desc}>{p.desc}</p>}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
   const translateX = -(currentIndex * (cardWidth + GAP));
   const activeDotIndex = ((currentIndex % items.length) + items.length) % items.length;
 
@@ -181,34 +253,49 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
             gap: `${GAP}px`,
           }}
         >
-          {loopedStaff.map((p, idx) => (
-            <div
-              key={`${p.id}-${idx}`}
-              className={styles.cardSlide}
-              style={{
-                width: `${cardWidth}px`,
-                minWidth: `${cardWidth}px`,
-                maxWidth: `${cardWidth}px`,
-              }}
-            >
-              <div className={styles.card} style={{ cursor: "default" }}>
-                <div className={styles.imgWrap}>
-                  <Image
-                    src={p.img || "/assets/practitioner_1.jpg"}
-                    alt={p.name}
-                    fill
-                    className={styles.img}
-                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
-                  />
-                </div>
-                <div className={styles.info}>
-                  <h3 className={styles.name}>{p.name}</h3>
-                  <span className={styles.role}>{p.role}</span>
-                  <p className={styles.desc}>{p.desc}</p>
+          {loopedStaff.map((p, idx) => {
+            const hasValidImg = Boolean(p.img) && !imgErrors[p.id] && !p.img.includes("invalid-image");
+
+            return (
+              <div
+                key={`${p.id}-${idx}`}
+                className={styles.cardSlide}
+                style={{
+                  width: `${cardWidth}px`,
+                  minWidth: `${cardWidth}px`,
+                  maxWidth: `${cardWidth}px`,
+                }}
+              >
+                <div className={styles.card} style={{ cursor: "default" }}>
+                  <div className={styles.imgWrap}>
+                    {hasValidImg ? (
+                      <img
+                        src={p.img}
+                        alt={p.name}
+                        className={styles.img}
+                        onError={() => handleImgError(p.id)}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={styles.avatarWrap} aria-label={p.name}>
+                        <div className={styles.avatarCircle}>
+                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.info}>
+                    <h3 className={styles.name}>{p.name}</h3>
+                    <span className={styles.role}>{p.role}</span>
+                    {p.desc && <p className={styles.desc}>{p.desc}</p>}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

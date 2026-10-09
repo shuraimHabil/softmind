@@ -1,46 +1,12 @@
 import styles from "../Practitioners/Practitioners.module.css";
 import OfficeStaffSlider from "./OfficeStaffSlider";
+import { fetchNonClinicians, StaffMember } from "@/lib/nonClinicians";
 
-export interface StaffMember {
-  id: string;
-  name: string;
-  role: string;
-  desc: string;
-  img: string;
-}
+export type { StaffMember };
 
-const mockStaff: StaffMember[] = [
-  {
-    id: "staff-1",
-    name: "John Doe",
-    role: "Clinic Manager",
-    desc: "Ensures smooth daily operations across all our centers.",
-    img: "/assets/practitioner_1.jpg",
-  },
-  {
-    id: "staff-2",
-    name: "Jane Smith",
-    role: "Patient Coordinator",
-    desc: "Assists patients with appointments and general inquiries.",
-    img: "/assets/practitioner_2.jpg",
-  },
-  {
-    id: "staff-3",
-    name: "Alice Johnson",
-    role: "Front Desk Executive",
-    desc: "Welcomes visitors and handles front desk management.",
-    img: "/assets/practitioner_1.jpg",
-  },
-  {
-    id: "staff-4",
-    name: "Robert Brown",
-    role: "Administrative Assistant",
-    desc: "Supports the team with administrative duties.",
-    img: "/assets/practitioner_2.jpg",
-  },
-];
+export default async function OfficeStaff() {
+  const staff = await fetchNonClinicians();
 
-export default function OfficeStaff() {
   return (
     <section className={styles.section} id="office-staff-section">
       <div className={styles.container}>
@@ -49,7 +15,7 @@ export default function OfficeStaff() {
             SOFTMIND
           </span>
           <h2 className={styles.title} style={{ marginTop: "10px" }}>
-            Leadership & Operations
+            Leadership &amp; Operations
           </h2>
           <p className={styles.subtitle} style={{ maxWidth: "680px", margin: "0 auto 30px" }}>
             The people supporting Softmind&apos;s leadership, organisational development, operations and client experience.
@@ -84,7 +50,7 @@ export default function OfficeStaff() {
           </div>
         </div>
 
-        <OfficeStaffSlider staff={mockStaff} />
+        <OfficeStaffSlider staff={staff} />
       </div>
     </section>
   );

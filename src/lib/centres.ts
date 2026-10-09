@@ -24,12 +24,56 @@ export interface Centre {
   clinicianIds: (number | string)[];
   clinicians?: Clinician[];
   googleMapUrl?: string;
+  googleReviewUrl?: string;
   mapQuery: string;
 }
 
 export const centres: Centre[] = [];
 
 const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
+
+function cleanPhone(raw?: string): string {
+  if (!raw) return "";
+  return String(raw).replace(/[,\s]+$/, "").trim();
+}
+
+function formatWorkingHours(raw?: string): string {
+  if (!raw) return "";
+  const trimmed = String(raw).trim();
+  const m = trimmed.match(/^(\d{1,2})\s*-\s*(\d{1,2})$/);
+  if (m) {
+    const s = parseInt(m[1], 10);
+    const e = parseInt(m[2], 10);
+    const sp = s < 8 ? "PM" : "AM";
+    const ep = e < 12 ? "PM" : "AM";
+    return `${s}:00 ${sp} – ${e}:00 ${ep}`;
+  }
+  return trimmed;
+}
+
+function parseAddressObj(addr: any, fallbackCity: string, cleanName: string): { address: string; fullAddress: string; phone?: string; email?: string } {
+  if (addr && typeof addr === "object") {
+    const parts = [
+      addr.address_line1,
+      addr.address_line2,
+      addr.city,
+      addr.state,
+      addr.country
+    ].filter(Boolean);
+    const full = parts.join(", ") || `${cleanName}, ${fallbackCity}`;
+    return {
+      address: full,
+      fullAddress: full,
+      phone: addr.phone ? cleanPhone(addr.phone) : undefined,
+      email: addr.email || undefined
+    };
+  }
+  const cleanStr = typeof addr === "string" ? stripHtml(addr) : "";
+  return {
+    address: cleanStr || `${cleanName}, ${fallbackCity}`,
+    fullAddress: cleanStr || `${cleanName}, ${fallbackCity}`
+  };
+}
 
 export async function fetchCentres(): Promise<Centre[]> {
   try {
@@ -44,60 +88,105 @@ export async function fetchCentres(): Promise<Centre[]> {
       return [];
     }
 
-    const apiCentres = data.map((item: any) => {
-      const rawName = item["Service_unit_name"] || item.Service_unit_name || item.service_unit_name || item.centre_name || item.title || item.name || "Softmind Centre";
-      const cleanName = stripHtml(rawName);
-      // erpName: Frappe internal doc name used by the enquiry API for preferred_centre lookup
-      // e.g. "Kakkanad Clinic - SW" — NOT Service_unit_name
-      const erpName = String(item.name || rawName).trim();
-      const cleanTagline = stripHtml(item.tagline || item.description || item.about || "");
-      const cleanAddress = stripHtml(item.address || "");
-      const cleanFullAddress = stripHtml(item.full_address || item.address || "");
-      
-      const rawSlug = item["id/slug"] || item.slug || item.id || cleanName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      const slug = String(rawSlug).trim();
+    const apiCentres = await Promise.all(
+      data.map(async (item: any) => {
+        const rawName = item["Service_unit_name"] || item.Service_unit_name || item.service_unit_name || item.centre_name || item.title || item.name || "Softmind Centre";
+        const cleanName = stripHtml(rawName);
+        const erpName = String(item.name || rawName).trim();
+        const rawSlug = item["id/slug"] || item["id/website_slug"] || item.slug || item.id || cleanName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const slug = String(rawSlug).trim();
 
-      const imagePath = item.image || item.thumbnail || item.main_image;
-      const encodedImg = imagePath ? encodeURI(imagePath) : "/invalid-image.jpg";
+        // Fetch detail in parallel to get full address, working hours, phone, images, maps
+        let detail: any = null;
+        try {
+          const dRes = await axios.get(
+            `${BASE_URL}/api/method/softmind_custom.api.centers_api.get_centre_detail?centre=${encodeURIComponent(slug)}`,
+            { headers: { "Cache-Control": "no-cache" }, timeout: 5000 }
+          );
+          detail = dRes.data.message?.data || dRes.data.message;
+        } catch {
+          // fallback to summary
+        }
 
-      const cityState = item.city 
-        ? `${stripHtml(item.city)}${item.state ? ", " + stripHtml(item.state) : ""}`
-        : "Kerala";
+        const cityState = (detail?.city || item.city)
+          ? `${stripHtml(detail?.city || item.city)}${(detail?.state || item.state) ? ", " + stripHtml(detail?.state || item.state) : ""}`
+          : "Kerala";
 
-      return {
-        id: slug,
-        slug: slug,
-        name: cleanName,
-        erpName, // Frappe internal doc name for enquiry API (e.g. "Kakkanad Clinic - SW")
-        shortName: stripHtml(item.short_name || item.shortName || cleanName.replace(/^Softmind\s*/i, "")),
-        city: cityState,
-        tagline: cleanTagline,
-        phone: item.phone || item.mobile || "",
-        email: item.email || "",
-        address: cleanAddress || `${cleanName}, ${cityState}`,
-        fullAddress: cleanFullAddress || cleanAddress || `${cleanName}, ${cityState}`,
-        hours: item.hours || "",
-        thumbnail: encodedImg,
-        gallery: {
-          main: item.gallery?.main ? encodeURI(item.gallery.main) : encodedImg,
-          sub1: item.gallery?.sub1 ? encodeURI(item.gallery.sub1) : encodedImg,
-          sub2: item.gallery?.sub2 ? encodeURI(item.gallery.sub2) : encodedImg,
-        },
-        facilities: Array.isArray(item.facilities)
-          ? item.facilities.map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
-          : Array.isArray(item.services)
-          ? item.services.map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
-          : typeof item.facilities === "string"
-          ? item.facilities.split(/,|\n/).map((f: string) => stripHtml(f.trim())).filter(Boolean)
-          : [],
-        clinicianIds: Array.isArray(item.clinician_ids)
-          ? item.clinician_ids
-          : Array.isArray(item.clinicians)
-          ? item.clinicians.map((c: any) => c.id || c.slug || c)
-          : [],
-        mapQuery: item.map_query || `${encodeURIComponent(cleanName)},+${encodeURIComponent(item.city || "Kerala")}`
-      } as Centre;
-    });
+        const cleanTagline = stripHtml(detail?.tagline || detail?.description || item.tagline || item.description || item.about || "");
+        
+        const parsedAddr = parseAddressObj(detail?.address || item.address, cityState, cleanName);
+
+        const phone = cleanPhone(parsedAddr.phone || detail?.phone || item.phone || item.mobile || "");
+        const email = parsedAddr.email || detail?.email || item.email || "";
+        const hours = formatWorkingHours(detail?.working_hours || detail?.hours || item.working_hours || item.hours || "");
+
+        const imagePath = detail?.images?.[0] || detail?.image || item.image || item.thumbnail || item.main_image;
+        const encodedImg = imagePath ? encodeURI(imagePath) : "/invalid-image.jpg";
+        const images = Array.isArray(detail?.images) ? detail.images.map((img: string) => encodeURI(img)) : [];
+
+        const facilities = Array.isArray(detail?.facilities && detail.facilities.length > 0 ? detail.facilities : item.facilities)
+          ? (detail?.facilities?.length ? detail.facilities : item.facilities).map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
+          : [];
+
+        const clinicians = Array.isArray(detail?.clinicians)
+          ? detail.clinicians.map((c: any) => ({
+              id: String(c.id || c.slug || c.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              slug: String(c.id || c.slug || c.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+              name: toTitleCase(stripHtml(c.name || "")),
+              role: stripHtml(c.title || c.role || "Consultant"),
+              eyebrow: stripHtml(c.title || c.role || "Consultant"),
+              tagline: "",
+              desc: "",
+              img: c.image ? encodeURI(c.image) : "/invalid-image.jpg",
+              categories: ["All"],
+              experience: "",
+              experienceSub: "",
+              sessions: "",
+              sessionsSub: "",
+              license: "",
+              licenseSub: "",
+              aboutParagraphs: [],
+              socialLinks: {},
+              languages: ["English", "Malayalam"],
+              quote: "",
+              quoteAuthor: "",
+              expertise: [],
+              articles: []
+            } as Clinician))
+          : undefined;
+
+        const googleMapUrl = detail?.google_map_url || item.google_map_url || undefined;
+        const googleReviewUrl = detail?.google_review_url || item.google_review_url || undefined;
+        const mapQuery = detail?.map_query || item.map_query || `${encodeURIComponent(cleanName)},+${encodeURIComponent(detail?.city || item.city || "Kerala")}`;
+
+        return {
+          id: slug,
+          slug,
+          name: cleanName,
+          erpName,
+          shortName: stripHtml(detail?.short_name || item.short_name || item.shortName || cleanName.replace(/^Softmind\s*/i, "")),
+          city: cityState,
+          tagline: cleanTagline,
+          phone,
+          email,
+          address: parsedAddr.address,
+          fullAddress: parsedAddr.fullAddress,
+          hours,
+          thumbnail: encodedImg,
+          gallery: {
+            main: images[0] || encodedImg,
+            sub1: images[1] || encodedImg,
+            sub2: images[2] || encodedImg,
+          },
+          facilities,
+          clinicianIds: [],
+          clinicians,
+          googleMapUrl,
+          googleReviewUrl,
+          mapQuery
+        } as Centre;
+      })
+    );
 
     return apiCentres;
   } catch (err) {
@@ -120,16 +209,20 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
     );
     const json = res.data;
     const detail = json.message?.data || json.message;
-    if (detail && (detail.id || detail.name)) {
+    if (detail && (detail.id || detail.name || detail.service_unit_name)) {
         const rawName = detail["Service_unit_name"] || detail.Service_unit_name || detail.service_unit_name || detail.centre_name || summaryItem?.name || "Softmind Centre";
         const cleanName = stripHtml(rawName);
         const cleanTagline = stripHtml(detail.tagline || detail.description || summaryItem?.tagline || "");
-        const cleanAddress = stripHtml(detail.address || summaryItem?.address || "");
-        const cleanFullAddress = stripHtml(detail.full_address || detail.address || summaryItem?.fullAddress || "");
         
         const cityState = detail.city
           ? `${stripHtml(detail.city)}${detail.state ? ", " + stripHtml(detail.state) : ""}`
           : summaryItem?.city || "Kerala";
+
+        const parsedAddr = parseAddressObj(detail.address, cityState, cleanName);
+
+        const phone = cleanPhone(parsedAddr.phone || detail.phone || summaryItem?.phone || "");
+        const email = parsedAddr.email || detail.email || summaryItem?.email || "";
+        const hours = formatWorkingHours(detail.working_hours || detail.hours || summaryItem?.hours || "");
 
         const images = Array.isArray(detail.images) ? detail.images.map((img: string) => encodeURI(img)) : [];
         const mainImg = images[0] || detail.image || summaryItem?.thumbnail || "/invalid-image.jpg";
@@ -163,20 +256,21 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
               expertise: [],
               articles: []
             } as Clinician))
-          : undefined;
+          : summaryItem?.clinicians;
 
-        return {
+        const detailCentre = {
           id: detail.id || summaryItem?.id || targetSlug,
           slug: detail.id || summaryItem?.slug || targetSlug,
           name: cleanName,
-          shortName: stripHtml(detail.short_name || cleanName.replace(/^Softmind\s*/i, "")),
+          erpName: summaryItem?.erpName || cleanName,
+          shortName: stripHtml(detail.short_name || summaryItem?.shortName || cleanName.replace(/^Softmind\s*/i, "")),
           city: cityState,
           tagline: cleanTagline,
-          phone: detail.phone || summaryItem?.phone || "",
-          email: detail.email || summaryItem?.email || "",
-          address: cleanAddress || `${cleanName}, ${cityState}`,
-          fullAddress: cleanFullAddress || cleanAddress || `${cleanName}, ${cityState}`,
-          hours: detail.hours || summaryItem?.hours || "",
+          phone,
+          email,
+          address: parsedAddr.address || summaryItem?.address || `${cleanName}, ${cityState}`,
+          fullAddress: parsedAddr.fullAddress || summaryItem?.fullAddress || `${cleanName}, ${cityState}`,
+          hours,
           thumbnail: mainImg,
           gallery: {
             main: mainImg,
@@ -186,9 +280,30 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
           facilities: mappedFacilities,
           clinicianIds: summaryItem?.clinicianIds || [],
           clinicians: mappedClinicians,
-          googleMapUrl: detail.google_map_url || undefined,
+          googleMapUrl: detail.google_map_url || summaryItem?.googleMapUrl || undefined,
+          googleReviewUrl: detail.google_review_url || summaryItem?.googleReviewUrl || undefined,
           mapQuery: detail.map_query || `${encodeURIComponent(cleanName)},+${encodeURIComponent(detail.city || "Kerala")}`
         } as Centre;
+
+        if (detailCentre.googleMapUrl && detailCentre.googleMapUrl.includes("maps.app.goo.gl")) {
+          try {
+            const redirectRes = await axios.get(detailCentre.googleMapUrl, { maxRedirects: 5, validateStatus: () => true });
+            const finalUrl = redirectRes.request?.res?.responseUrl || redirectRes.request?.res?.url || redirectRes.request?._currentUrl || detailCentre.googleMapUrl;
+            const coordsMatch = finalUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+            if (coordsMatch) {
+              detailCentre.mapQuery = `${coordsMatch[1]},${coordsMatch[2]}`;
+            } else {
+              const placeMatch = finalUrl.match(/place\/([^\/]+)\//);
+              if (placeMatch) {
+                detailCentre.mapQuery = placeMatch[1];
+              }
+            }
+          } catch (err) {
+            console.error("Failed to resolve short map URL", err);
+          }
+        }
+
+        return detailCentre;
       }
   } catch (err) {
     console.error("fetchCentreBySlug error:", err);
