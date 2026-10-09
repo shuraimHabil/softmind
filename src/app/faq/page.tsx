@@ -1,10 +1,9 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import JsonLd, {
   generateBreadcrumbsLd,
   generateFaqLd,
 } from "@/components/SEO/JsonLd";
-import { Phone, MessageCircle, ArrowRight } from "lucide-react";
+import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 import styles from "./faq.module.css";
 import axios from "axios";
 
@@ -57,7 +56,7 @@ export default async function FaqPage() {
   const faqLd = generateFaqLd(faqs);
 
   return (
-    <>
+    <main>
       <JsonLd data={breadcrumbsLd} />
       {faqLd && <JsonLd data={faqLd} />}
 
@@ -78,23 +77,9 @@ export default async function FaqPage() {
             </div>
           ))}
         </div>
-
-        <div className={styles.ctaBox}>
-          <h2 className={styles.ctaHeading}>When You're Ready We're Here.</h2>
-          <p className={styles.ctaText}>
-            We believe the first step toward healing. With compassionate care and evidence-based
-            approaches, we're here to help you move forward, one step at a time.
-          </p>
-          <div className={styles.ctaRow}>
-            <Link href="tel:+919061818732" className={styles.primaryBtn}>
-              <Phone size={18} /> Call Us <ArrowRight size={18} />
-            </Link>
-            <Link href="https://wa.me/919061818732" className={styles.secondaryBtn} target="_blank" rel="noopener noreferrer">
-              <MessageCircle size={18} /> WhatsApp <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
       </div>
-    </>
+
+      <CliniciansCTA />
+    </main>
   );
 }

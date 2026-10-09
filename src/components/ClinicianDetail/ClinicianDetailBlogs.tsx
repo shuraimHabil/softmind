@@ -31,7 +31,7 @@ export default function ClinicianDetailBlogs({
           {/* Left Column: Qualifications */}
           {hasQualifications && (
             <div className={styles.leftCol}>
-              <h2 className={styles.columnTitle}>Qualifications</h2>
+              <h2 className={styles.columnTitle}>Qualifications / Credentials</h2>
 
               {clinician.qualifications && clinician.qualifications.length > 0 && (
                 <div className={styles.qualificationsList}>

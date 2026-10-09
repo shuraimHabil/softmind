@@ -65,7 +65,7 @@ const collections = [
     title: "FAQs",
     desc: "Questions and answers about therapy and care.",
     count: "24 FAQs",
-    href: "/#faq",
+    href: "/faq",
     isVideo: false,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
