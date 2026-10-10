@@ -39,7 +39,7 @@ const collections = [
     title: "Perspectives",
     desc: "Expert reflections on psychological science and society.",
     count: "14 Perspectives",
-    href: "/articles",
+    href: "/perspectives",
     isVideo: false,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

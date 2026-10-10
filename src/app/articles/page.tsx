@@ -80,9 +80,7 @@ export default async function ArticlesPage({
         initialDoctor={initialDoctor}
         latestReport={latestReport}
       />
-      <div style={{ marginTop: "-60px" }}>
-        <CliniciansCTA />
-      </div>
+      <CliniciansCTA />
     </main>
   );
 }

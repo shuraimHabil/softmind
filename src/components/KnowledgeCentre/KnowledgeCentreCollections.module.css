@@ -29,19 +29,19 @@
   border-radius: 16px;
   padding: 24px 18px;
   border: 1px solid rgba(13, 148, 136, 0.08);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   text-align: left;
   cursor: pointer;
   font-family: inherit;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: none;
   border-color: rgba(13, 148, 136, 0.3);
 }
 

@@ -19,8 +19,15 @@
   line-height: 1.25;
 }
 
+.title span {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 .highlightText {
   color: #23a3a5;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 /* 3-Column Features Card */

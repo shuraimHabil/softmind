@@ -64,15 +64,6 @@ export default function ConditionsHubPage() {
             </section>
           ))}
         </div>
-
-        <aside className={styles.crisisCard}>
-          <h3 className={styles.crisisHeading}>In Crisis or Need Immediate Support?</h3>
-          <p className={styles.crisisBody}>
-            If you or someone you know is in severe distress or thinking of self-harm,
-            free 24/7 confidential help is available. Call the Tele-MANAS helpline
-            at <strong>14416</strong> or reach out to the nearest hospital emergency service.
-          </p>
-        </aside>
       </div>
     </>
   );

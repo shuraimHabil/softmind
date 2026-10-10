@@ -61,7 +61,7 @@
   background: #0d9488;
   color: #ffffff;
   border-color: #0d9488;
-  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+  box-shadow: none;
 }
 
 /* --- Conditions grid --- */
@@ -80,13 +80,14 @@
   border-radius: 16px;
   border: 1px solid rgba(13, 148, 136, 0.1);
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: none;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
   background: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.1);
+  box-shadow: none;
   border-color: rgba(13, 148, 136, 0.3);
 }
 

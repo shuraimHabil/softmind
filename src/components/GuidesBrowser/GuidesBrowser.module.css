@@ -32,8 +32,8 @@
 
 .pageTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.2vw, 2.7rem);
-  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
   color: #1a3330;
   margin: 0 0 10px 0;
   line-height: 1.2;

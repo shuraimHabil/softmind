@@ -122,7 +122,6 @@ export default function GuidesBrowser({ guides }: GuidesBrowserProps) {
                         <polyline points="10 9 9 9 8 9" />
                       </svg>
                     </div>
-                    <span className={styles.pdfBadge}>PDF</span>
                   </div>
 
                   <h3 className={styles.pdfTitle}>{toSentenceCase(guide.title)}</h3>

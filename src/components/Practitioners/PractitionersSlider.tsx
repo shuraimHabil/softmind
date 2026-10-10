@@ -152,34 +152,6 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
 
   return (
     <div className={styles.sliderRoot}>
-      {/* Controls row (Prev / Next Arrows) */}
-      <div className={styles.controlsRow}>
-        <div className={styles.navBtns}>
-          <button
-            type="button"
-            onClick={prev}
-            className={styles.navBtn}
-            title="Previous clinicians"
-            aria-label="Previous clinicians"
-          >
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            className={styles.navBtn}
-            title="Next clinicians"
-            aria-label="Next clinicians"
-          >
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
       {/* Carousel Viewport Container */}
       <div
         className={styles.carouselContainer}
