@@ -33,10 +33,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PerspectivesPage() {
+async function fetchPerspectives() {
+  try {
+    const envBaseUrl = (process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
+    const endpointPath = "/api/method/softmind_custom.cms_api.perspective_api.get_perspectives";
+    const targetUrl = `${envBaseUrl}${endpointPath}`;
+    
+    const response = await fetch(targetUrl, { next: { revalidate: 60 } });
+    if (!response.ok) {
+      console.error("Failed to fetch perspectives API status:", response.status);
+      return [];
+    }
+    const result = await response.json();
+    if (Array.isArray(result?.message?.data)) return result.message.data;
+    if (Array.isArray(result?.message)) return result.message;
+    if (Array.isArray(result?.data)) return result.data;
+    return [];
+  } catch (err) {
+    console.error("fetchPerspectives error:", err);
+    return [];
+  }
+}
+
+export default async function PerspectivesPage() {
+  const perspectives = await fetchPerspectives();
+
   return (
     <main>
-      <PerspectivesDetail />
+      <PerspectivesDetail perspectives={perspectives} />
       <CliniciansCTA />
     </main>
   );
