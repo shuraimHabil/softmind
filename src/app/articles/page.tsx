@@ -42,10 +42,11 @@ import { fetchClinicians } from "@/lib/clinicians";
 export default async function ArticlesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ doctor?: string }>;
+  searchParams: Promise<{ doctor?: string; category?: string }>;
 }) {
   const resolvedParams = await searchParams;
   const initialDoctor = resolvedParams?.doctor;
+  const initialCategory = resolvedParams?.category;
 
   const [articles, allClinicians] = await Promise.all([
     fetchPublishedArticles(),
@@ -78,6 +79,7 @@ export default async function ArticlesPage({
         languages={languages}
         doctors={doctors}
         initialDoctor={initialDoctor}
+        initialCategory={initialCategory}
         latestReport={latestReport}
       />
       <CliniciansCTA />

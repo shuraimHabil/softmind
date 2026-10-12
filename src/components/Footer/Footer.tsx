@@ -77,6 +77,7 @@ export default function Footer() {
             heading: "OUR CARE",
             links: [
               { label: "All Care Services", href: "/our-care" },
+              { label: "The Softmind Approach", href: "/approach" },
             ],
           },
           {
@@ -128,7 +129,8 @@ export default function Footer() {
             <p className={styles.copyright}>
               © {year} Softmind Wellness Pvt. Ltd. All rights reserved. &nbsp;|&nbsp;{" "}
               <Link href="/terms">Terms & Conditions</Link> &nbsp;|&nbsp;{" "}
-              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/privacy-policy">Privacy Policy</Link> &nbsp;|&nbsp;{" "}
+              <Link href="/disclaimer">Disclaimer</Link>
             </p>
             <p className={styles.crisis}>
               Powered by <a href="https://finlytyx.com/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>Finlytyx AI Labs</a>

@@ -1,19 +1,24 @@
 import Link from "next/link";
+import { fetchPublishedArticles, deriveFilterData } from "@/lib/articles";
 import styles from "./Topics.module.css";
 
-const col1Topics = [
-  { name: "Anxiety & Stress", count: 48, href: "#" },
-  { name: "Sleep & Rest", count: 22, href: "#" },
-  { name: "Relationships", count: 29, href: "#" },
-];
+export default async function Topics() {
+  const articles = await fetchPublishedArticles();
+  const { categories } = deriveFilterData(articles);
 
-const col2Topics = [
-  { name: "Depression", count: 35, href: "#" },
-  { name: "Mindfulness", count: 31, href: "#" },
-  { name: "Self-Growth", count: 26, href: "#" },
-];
+  const getCategoryCount = (cat: string) => {
+    const cLower = cat.toLowerCase();
+    return articles.filter(
+      (a) =>
+        a.category.toLowerCase() === cLower ||
+        a.badge.toLowerCase() === cLower
+    ).length;
+  };
 
-export default function Topics() {
+  const mid = Math.ceil(categories.length / 2);
+  const col1 = categories.slice(0, mid);
+  const col2 = categories.slice(mid);
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -29,52 +34,60 @@ export default function Topics() {
         <div className={styles.rightCols}>
           {/* Column 1 */}
           <div className={styles.topicColumn}>
-            {col1Topics.map((topic) => (
-              <Link key={topic.name} href={topic.href} className={styles.topicRow}>
-                <span className={styles.topicName}>{topic.name}</span>
-                <span className={styles.articleBadge}>
-                  {topic.count} articles
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={styles.chevron}
-                  >
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </span>
-              </Link>
-            ))}
+            {col1.map((cat) => {
+              const count = getCategoryCount(cat);
+              const href = `/articles?category=${encodeURIComponent(cat)}`;
+              return (
+                <Link key={cat} href={href} className={styles.topicRow}>
+                  <span className={styles.topicName}>{cat}</span>
+                  <span className={styles.articleBadge}>
+                    {count} {count === 1 ? "article" : "articles"}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={styles.chevron}
+                    >
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Column 2 */}
           <div className={styles.topicColumn}>
-            {col2Topics.map((topic) => (
-              <Link key={topic.name} href={topic.href} className={styles.topicRow}>
-                <span className={styles.topicName}>{topic.name}</span>
-                <span className={styles.articleBadge}>
-                  {topic.count} articles
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={styles.chevron}
-                  >
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                  </svg>
-                </span>
-              </Link>
-            ))}
+            {col2.map((cat) => {
+              const count = getCategoryCount(cat);
+              const href = `/articles?category=${encodeURIComponent(cat)}`;
+              return (
+                <Link key={cat} href={href} className={styles.topicRow}>
+                  <span className={styles.topicName}>{cat}</span>
+                  <span className={styles.articleBadge}>
+                    {count} {count === 1 ? "article" : "articles"}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={styles.chevron}
+                    >
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

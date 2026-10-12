@@ -9,13 +9,9 @@
   padding: 0 40px;
 }
 
-/* ── Top row: title + link ────────────────────── */
+/* ── Top row: title ────────────────────── */
 .topRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   margin-bottom: 48px;
-  gap: 32px;
 }
 
 .title {
@@ -25,8 +21,16 @@
   color: #1a3330;
   line-height: 1.25;
   margin: 0;
-  max-width: 560px;
+  max-width: 680px;
   letter-spacing: -0.01em;
+}
+
+/* ── Bottom row: link ────────────────────── */
+.bottomRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 36px;
 }
 
 .link {
@@ -40,8 +44,6 @@
   white-space: nowrap;
   text-decoration: none;
   transition: var(--transition);
-  padding-top: 6px;
-  flex-shrink: 0;
 }
 
 .link:hover {
@@ -67,6 +69,8 @@
   cursor: pointer;
   background-color: transparent;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
 }
 
 .pillar:hover {
@@ -224,5 +228,11 @@
   .icon {
     width: 40px;
     height: 40px;
+  }
+
+  .bottomRow {
+    padding: 0 16px;
+    margin-top: 16px;
+    justify-content: flex-end;
   }
 }

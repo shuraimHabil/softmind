@@ -115,17 +115,30 @@ export function toTitleCase(str: string): string {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+/** Helper to infer category from article title if not provided by CMS */
+function inferCategory(title: string): string {
+  if (!title) return "General";
+  const t = title.toLowerCase();
+  if (t.includes("anxiety") || t.includes("worry") || t.includes("panic")) return "Anxiety & Worry";
+  if (t.includes("depression") || t.includes("depressive") || t.includes("mood")) return "Depression";
+  if (t.includes("therapy") || t.includes("ചികിത്സ") || t.includes("counseling") || t.includes("psychotherapy")) return "Therapy";
+  if (t.includes("mind") || t.includes("mindful") || t.includes("meditation")) return "Mindfulness";
+  if (t.includes("parent") || t.includes("child") || t.includes("teen") || t.includes("adolescent")) return "Parenting";
+  return "General";
+}
+
 /** Map a raw API article to the Article interface */
 function mapArticle(raw: RawArticle): Article {
   const sections = parseSections(raw.content ?? "");
   const { processedHTML, toc } = processHTMLAndTOC(raw.content ?? "");
 
   const isMalayalam = /[\u0D00-\u0D7F]/.test(raw.title || "");
+  const category = raw.category && raw.category.trim() !== "" ? raw.category : inferCategory(raw.title);
 
   return {
     slug: sanitizeSlug(raw.slug || raw.name || raw.title || ""),
-    badge: raw.badge ?? "Article",
-    category: raw.category ?? "General",
+    badge: raw.badge || category,
+    category,
     language: (raw.language === "Malayalam" || isMalayalam ? "Malayalam" : "English") as Article["language"],
     title: raw.title,
     excerpt: raw.excerpt ?? "",
@@ -176,6 +189,7 @@ export const articleCategories = [
   "Therapy",
   "Mindfulness",
   "Parenting",
+  "General",
 ];
 
 export const articleLanguages: Article["language"][] = ["English", "Malayalam"];

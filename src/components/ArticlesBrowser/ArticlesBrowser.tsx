@@ -13,6 +13,7 @@ interface ArticlesBrowserProps {
   languages: string[];
   doctors: string[];
   initialDoctor?: string;
+  initialCategory?: string;
   latestReport?: any;
 }
 
@@ -22,9 +23,15 @@ export default function ArticlesBrowser({
   languages,
   doctors,
   initialDoctor,
+  initialCategory,
   latestReport,
 }: ArticlesBrowserProps) {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(() => {
+    if (!initialCategory) return [];
+    const decoded = decodeURIComponent(initialCategory).trim().toLowerCase();
+    const match = categories.find((c) => c.toLowerCase() === decoded);
+    return match ? [match] : [initialCategory];
+  });
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const [selectedDoctors, setSelectedDoctors] = useState<string[]>(() => {
     if (!initialDoctor) return [];
@@ -39,6 +46,39 @@ export default function ArticlesBrowser({
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    if (initialCategory) {
+      const decoded = decodeURIComponent(initialCategory).trim().toLowerCase();
+      const match = categories.find((c) => c.toLowerCase() === decoded);
+      setSelectedCategories(match ? [match] : [initialCategory]);
+    }
+  }, [initialCategory, categories]);
+
+  useEffect(() => {
+    if (initialDoctor) {
+      const decoded = decodeURIComponent(initialDoctor).trim().toLowerCase();
+      const cleanDoc = (name: string) => name.toLowerCase().replace(/^dr\.?\s*/i, "").trim();
+      const match = doctors.find((d) => {
+        const cd = cleanDoc(d);
+        const cInit = cleanDoc(decoded);
+        return cd === cInit || cd.includes(cInit) || cInit.includes(cd);
+      });
+      setSelectedDoctors(match ? [match] : [initialDoctor]);
+    }
+  }, [initialDoctor, doctors]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get("category");
+      if (catParam) {
+        const decoded = decodeURIComponent(catParam).trim().toLowerCase();
+        const match = categories.find((c) => c.toLowerCase() === decoded);
+        setSelectedCategories(match ? [match] : [catParam]);
+      }
+    }
+  }, [categories]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -98,8 +138,11 @@ export default function ArticlesBrowser({
       // Category filter
       const matchesCategory =
         selectedCategories.length === 0 ||
-        selectedCategories.includes(art.category) ||
-        selectedCategories.includes(art.badge);
+        selectedCategories.some(
+          (sc) =>
+            sc.toLowerCase() === art.category.toLowerCase() ||
+            sc.toLowerCase() === art.badge.toLowerCase()
+        );
 
       // Language filter
       const matchesLanguage =
