@@ -51,6 +51,16 @@ function formatWorkingHours(raw?: string): string {
   return trimmed;
 }
 
+function cleanFacilityText(raw: any): string {
+  if (!raw) return "";
+  const clean = typeof raw === "string" ? stripHtml(raw).trim() : stripHtml(raw.title || raw.name || "").trim();
+  const half = Math.floor(clean.length / 2);
+  if (clean.length > 10 && clean.slice(0, half) === clean.slice(half)) {
+    return clean.slice(0, half).trim();
+  }
+  return clean;
+}
+
 function parseAddressObj(addr: any, fallbackCity: string, cleanName: string): { address: string; fullAddress: string; phone?: string; email?: string } {
   if (addr && typeof addr === "object") {
     const parts = [
@@ -125,7 +135,7 @@ export async function fetchCentres(): Promise<Centre[]> {
         const images = Array.isArray(detail?.images) ? detail.images.map((img: string) => encodeURI(img)) : [];
 
         const facilities = Array.isArray(detail?.facilities && detail.facilities.length > 0 ? detail.facilities : item.facilities)
-          ? (detail?.facilities?.length ? detail.facilities : item.facilities).map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
+          ? (detail?.facilities?.length ? detail.facilities : item.facilities).map(cleanFacilityText).filter(Boolean)
           : [];
 
         const clinicians = Array.isArray(detail?.clinicians)
@@ -188,6 +198,15 @@ export async function fetchCentres(): Promise<Centre[]> {
       })
     );
 
+    // Ensure Panampilly Nagar is always primary (index 0)
+    apiCentres.sort((a, b) => {
+      const aIsPanampilly = a.slug.toLowerCase().includes("panampilly") || a.name.toLowerCase().includes("panampilly");
+      const bIsPanampilly = b.slug.toLowerCase().includes("panampilly") || b.name.toLowerCase().includes("panampilly");
+      if (aIsPanampilly && !bIsPanampilly) return -1;
+      if (!aIsPanampilly && bIsPanampilly) return 1;
+      return 0;
+    });
+
     return apiCentres;
   } catch (err) {
     console.error("fetchCentres error:", err);
@@ -228,7 +247,7 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
         const mainImg = images[0] || detail.image || summaryItem?.thumbnail || "/invalid-image.jpg";
 
         const mappedFacilities: string[] = Array.isArray(detail.facilities)
-          ? detail.facilities.map((f: any) => typeof f === "string" ? stripHtml(f) : stripHtml(f.title || f.name || "")).filter(Boolean)
+          ? detail.facilities.map(cleanFacilityText).filter(Boolean)
           : summaryItem?.facilities || [];
 
         const mappedClinicians: Clinician[] | undefined = Array.isArray(detail.clinicians)
@@ -307,6 +326,70 @@ export async function fetchCentreBySlug(slug: string): Promise<Centre | undefine
       }
   } catch (err) {
     console.error("fetchCentreBySlug error:", err);
+  }
+
+  if (normalized === "aroor") {
+    return {
+      id: "aroor",
+      slug: "aroor",
+      name: "Softmind Aroor",
+      erpName: "Aroor - SW",
+      shortName: "Aroor",
+      city: "Alappuzha, Kerala",
+      tagline:
+        "At Aroor Hospital at Alappuzha, SoftMind has 5 consultants available for you. This includes one male psychiatrist, three male psychologists, and one female psychologist. Our psychologists and psychiatrists are available from morning 10 am to evening 5 pm. Our basic approach includes non-invasive therapy and psychotherapy. For mild and medium cases, there is no need for medicines. For severe cases, we refer the client to our psychiatrist who will suggest medicines after the initial diagnosis.",
+      phone: "+91 7736 484 813",
+      email: "care@softmindindia.com",
+      address: "Lakshmi Hospital, Opp. to Malayala Manorama, Aroor",
+      fullAddress: "Lakshmi Hospital, Opp. to Malayala Manorama, Aroor, Alappuzha, Kerala",
+      hours: "9:00 AM – 5:00 PM",
+      thumbnail: "https://devsoftminderp.m.frappe.cloud/files/softmind - aroor.jpg.jpeg",
+      gallery: {
+        main: "https://devsoftminderp.m.frappe.cloud/files/softmind - aroor.jpg.jpeg",
+        sub1: "https://devsoftminderp.m.frappe.cloud/files/softmind - aroor.jpg.jpeg",
+        sub2: "https://devsoftminderp.m.frappe.cloud/files/softmind - aroor.jpg.jpeg",
+      },
+      facilities: [
+        "Psychological counselling and psychotherapy within Lakshmi Hospital",
+        "Psychiatric consultations by appointment",
+        "Individual, couples and family sessions",
+        "Child and adolescent consultations",
+        "Psychological assessment",
+        "Coordination of suitable technology-assisted assessments and sessions",
+        "Online consultations with participating clinicians",
+        "Reception assistance with appointments and follow-up",
+      ],
+      clinicianIds: [],
+      clinicians: [
+        {
+          id: "jalita-james",
+          slug: "jalita-james",
+          name: "Jalita James",
+          role: "Consultant Psychologist",
+          eyebrow: "Consultant Psychologist",
+          tagline: "",
+          desc: "",
+          img: "https://devsoftminderp.m.frappe.cloud/files/Jalita James.jpg.jpeg",
+          categories: ["All"],
+          experience: "",
+          experienceSub: "",
+          sessions: "",
+          sessionsSub: "",
+          license: "",
+          licenseSub: "",
+          aboutParagraphs: [],
+          socialLinks: {},
+          languages: ["English", "Malayalam"],
+          quote: "",
+          quoteAuthor: "",
+          expertise: [],
+          articles: [],
+        },
+      ],
+      googleMapUrl: "https://maps.app.goo.gl/tkXvdBeKa77ZetMu9",
+      googleReviewUrl: "https://tinyurl.com/4b765x4u",
+      mapQuery: "Lakshmi+Hospital,+Aroor",
+    };
   }
 
   return summaryItem;

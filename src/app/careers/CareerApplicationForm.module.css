@@ -1,0 +1,629 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   CAREER APPLICATION FORM MODULE
+   Premium, clinical-grade styling for Softmind careers portal
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+.formCard {
+  background: #ffffff;
+  border: 1px solid rgba(21, 71, 67, 0.1);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 
+    0 24px 60px -15px rgba(21, 71, 67, 0.08),
+    0 4px 16px -2px rgba(21, 71, 67, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.formCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #154743 0%, #357a70 50%, #154743 100%);
+}
+
+/* ── Header ── */
+.formHeader {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #edf4ee;
+}
+
+.headerBadgeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.applicationPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #154743;
+  background-color: #eaf4ed;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(21, 71, 67, 0.12);
+}
+
+.requiredNotice {
+  font-size: 0.8rem;
+  color: #71837f;
+  font-style: italic;
+}
+
+.formTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: #122421;
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.formSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #516661;
+  margin: 0;
+}
+
+/* ── Form Body / Sections ── */
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #154743;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #e2ede4;
+}
+
+.sectionNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #154743;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* ── Layout Rows ── */
+.row2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.row1 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Field Group & Controls ── */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+}
+
+.fieldLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1b2e2a;
+  letter-spacing: -0.01em;
+}
+
+.optionalTag {
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: #7b8e89;
+}
+
+.requiredMark {
+  color: #c23333;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.inputWrap {
+  position: relative;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6d827c;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #122421;
+  background-color: #fafcfb;
+  border: 1.5px solid #d4e2d8;
+  border-radius: 12px;
+  padding: 13px 15px;
+  transition: all 0.22s ease-in-out;
+  outline: none;
+}
+
+.inputWithIcon {
+  padding-left: 42px;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9cb0a8;
+  font-size: 0.9rem;
+}
+
+.input:hover,
+.select:hover,
+.textarea:hover {
+  border-color: #9eb8a7;
+  background-color: #ffffff;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  background-color: #ffffff;
+  border-color: #154743;
+  box-shadow: 0 0 0 3.5px rgba(21, 71, 67, 0.12);
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23154743' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.55;
+}
+
+.fieldHelper {
+  font-size: 0.77rem;
+  color: #687e79;
+  line-height: 1.45;
+  margin-top: 2px;
+}
+
+/* Clinical alert banner when clinical role is chosen */
+.clinicalNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: #f2f7f4;
+  border: 1px solid #d1e3d6;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #1f3d37;
+  line-height: 1.45;
+}
+
+.clinicalNoticeIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #154743;
+}
+
+/* ── File Upload Drop Zone ── */
+.fileDropZone {
+  border: 2px dashed #b8d4c3;
+  border-radius: 16px;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, #fbfdfc 0%, #f3f8f4 100%);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  min-height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.fileDropZone:hover {
+  border-color: #154743;
+  background: linear-gradient(180deg, #f4faf6 0%, #eaf4ed 100%);
+  transform: translateY(-1px);
+}
+
+.dropZoneActive {
+  border-color: #154743;
+  background-color: #e4f2e8 !important;
+  border-style: solid;
+  box-shadow: 0 0 0 4px rgba(21, 71, 67, 0.1);
+}
+
+.dropZoneHasFile {
+  border-color: #2b6156;
+  background: #ffffff;
+  border-style: solid;
+  padding: 16px 20px;
+}
+
+.filePlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.uploadIconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #eaf4ed;
+  color: #154743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.fileDropZone:hover .uploadIconCircle {
+  transform: scale(1.08);
+  background-color: #dbeee0;
+}
+
+.uploadTitle {
+  font-size: 0.9rem;
+  color: #1a2e2a;
+  margin: 0;
+  font-weight: 500;
+}
+
+.browseLink {
+  color: #154743;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.uploadPills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pillTag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #566f69;
+  background: rgba(21, 71, 67, 0.07);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* File Selected State */
+.fileSelectedRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 14px;
+}
+
+.fileMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.fileCheckIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #e3f2e7;
+  color: #154743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fileDetails {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.fileName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #122421;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+}
+
+.fileSize {
+  font-size: 0.76rem;
+  color: #687e79;
+}
+
+.fileRemoveBtn {
+  background: #fdf2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.fileRemoveBtn:hover {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.fileErrorMsg {
+  font-size: 0.8rem;
+  color: #b91c1c;
+  font-weight: 500;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Privacy Consent ── */
+.consentBox {
+  background-color: #fafcfb;
+  border: 1px solid #e1ebe3;
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: border-color 0.2s ease;
+}
+
+.consentBox:hover {
+  border-color: #b8d4c3;
+}
+
+.consentLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #154743;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.consentText {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #374b46;
+}
+
+.privacyLink {
+  color: #154743;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.privacyLink:hover {
+  color: #0b2e2b;
+}
+
+/* ── Submit Action ── */
+.submitActionWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.submitBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #154743 0%, #0d3632 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 28px;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(21, 71, 67, 0.22);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #123e3b 0%, #082623 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(21, 71, 67, 0.32);
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnArrow {
+  transition: transform 0.2s ease;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.submitBtn:hover:not(:disabled) .btnArrow {
+  transform: translateX(4px);
+}
+
+.formDisclaimer {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #728782;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Success Card ── */
+.successCard {
+  background: #ffffff;
+  border: 1px solid #cce3d2;
+  border-radius: 24px;
+  padding: 56px 40px;
+  text-align: center;
+  box-shadow: 0 20px 50px -10px rgba(21, 71, 67, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.successIconBadge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e4f4e8 0%, #d4eedb 100%);
+  color: #154743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 16px rgba(21, 71, 67, 0.1);
+}
+
+.successTitle {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  color: #122421;
+  margin: 0 0 12px 0;
+}
+
+.successDesc {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #435853;
+  max-width: 520px;
+  margin: 0 0 28px 0;
+}
+
+.successAnotherBtn {
+  background: #ffffff;
+  color: #154743;
+  border: 1.8px solid #154743;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.successAnotherBtn:hover {
+  background: #154743;
+  color: #ffffff;
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 768px) {
+  .formCard {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .row2 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .fileDropZone {
+    padding: 20px 14px;
+  }
+
+  .fileName {
+    max-width: 200px;
+  }
+}

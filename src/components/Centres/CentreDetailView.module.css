@@ -175,8 +175,8 @@
 
 .twoColGrid {
   display: grid;
-  grid-template-columns: 0.75fr 1.45fr;
-  gap: 60px;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
   align-items: flex-start;
 }
 
@@ -224,8 +224,8 @@
 /* Clinicians Grid */
 .cliniciansGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .clinicianCard {
@@ -238,6 +238,7 @@
   border: 1px solid #edf2f0;
   text-decoration: none;
   transition: all 0.2s ease;
+  min-width: 0;
 }
 
 .clinicianCard:hover {

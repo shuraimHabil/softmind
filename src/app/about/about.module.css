@@ -1,262 +1,213 @@
-.container {
-  max-width: 960px;
+/* ============================================================
+   Softmind About Page - Full-Bleed Alternating Backgrounds
+   Strict typography: Fraunces 400 for headings, sans 0.88rem for body
+   Color alternating: #ffffff (Hero) -> #f2f5f0 (Overview) -> ...
+   ============================================================ */
+
+.heroSection {
+  background-color: #ffffff;
+  padding: calc(56px + var(--header-height, 108px)) 0 64px;
+}
+
+.section {
+  padding: 80px 0;
+  scroll-margin-top: var(--header-height, 108px);
+}
+
+.bgSage {
+  background-color: #f2f5f0;
+}
+
+.bgWhite {
+  background-color: #ffffff;
+}
+
+.inner {
+  max-width: 860px;
   margin: 0 auto;
-  padding: calc(48px + var(--header-height, 108px)) 24px 100px;
+  padding: 0 24px;
   font-family: var(--font-sans);
-  color: var(--text-body, #334155);
-}
-
-.breadcrumbs {
-  margin-bottom: 32px;
-  font-size: 0.875rem;
-  color: #64748b;
-}
-
-.breadcrumbs ol {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 8px;
-  align-items: center;
-}
-
-.breadcrumbs a {
-  color: #0d9488;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.breadcrumbs a:hover {
-  color: #0f766e;
-  text-decoration: underline;
-}
-
-.divider {
-  color: #cbd5e1;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.8;
 }
 
 /* ============================================================
-   Hero Section
+   Typography
    ============================================================ */
-.hero {
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 40px;
-  margin-bottom: 48px;
-}
-
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #0d9488;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  background: #e6f4f1;
-  padding: 4px 12px;
-  border-radius: 9999px;
-}
-
 .h1 {
-  font-family: var(--font-serif, "Fraunces", Georgia, serif);
-  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-family: "Fraunces", var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
+  line-height: 1.25;
   color: #0f172a;
-  line-height: 1.18;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
 
 .intro {
-  font-size: 1.125rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   line-height: 1.8;
   color: #334155;
-  font-weight: 400;
-}
-
-/* ============================================================
-   Content Layout & Sections
-   ============================================================ */
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-}
-
-.section {
-  background-color: transparent;
-  padding: 0;
+  margin: 0;
 }
 
 .h2 {
-  font-family: var(--font-serif, "Fraunces", Georgia, serif);
-  font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+  font-family: "Fraunces", var(--font-serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 400;
   color: #0f172a;
-  line-height: 1.3;
+  line-height: 1.35;
   margin-bottom: 20px;
   letter-spacing: -0.01em;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #f1f5f9;
 }
 
 .paragraph {
-  font-size: 1.03rem;
-  line-height: 1.82;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.8;
   color: #334155;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
 }
 
 /* ============================================================
-   Key Principle Callout Banner
+   Key Statements & Callouts (No heavy box cards)
    ============================================================ */
 .principleCallout {
-  background: linear-gradient(135deg, #f0fdfa 0%, #e6f4f1 100%);
-  border-left: 4px solid #0d9488;
-  border-radius: 0 12px 12px 0;
-  padding: 24px 28px;
+  padding-left: 18px;
+  border-left: 3px solid #0d9488;
   margin: 28px 0;
 }
 
 .principleText {
-  font-family: var(--font-serif, "Fraunces", Georgia, serif);
-  font-size: 1.25rem;
+  font-family: "Fraunces", var(--font-serif);
+  font-size: 1.15rem;
   font-style: italic;
+  font-weight: 400;
   color: #0f172a;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
+}
+
+.keyCallout {
+  padding-left: 18px;
+  border-left: 3px solid #0d9488;
+  margin-top: 24px;
+}
+
+.keyCalloutTag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.keyCalloutText {
+  font-family: "Fraunces", var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #0f172a;
+  margin: 0;
+}
+
+.quoteCallout {
+  border-left: 3px solid #0d9488;
+  padding-left: 18px;
+  font-family: "Fraunces", var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #334155;
+  line-height: 1.7;
+  margin: 24px 0;
 }
 
 /* ============================================================
    Framework / Process Row
    ============================================================ */
-.processCard {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px 28px;
-  margin: 20px 0;
+.processFlow {
+  margin: 24px 0;
 }
 
 .processLabel {
-  font-size: 0.92rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
+  color: #0f172a;
+  margin-bottom: 12px;
 }
 
 .processSteps {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .stepBadge {
   background: #ffffff;
   border: 1px solid #cbd5e1;
   color: #0f172a;
-  font-family: var(--font-serif, "Fraunces", Georgia, serif);
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   font-weight: 500;
-  padding: 8px 18px;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 6px 16px;
+  border-radius: 9999px;
 }
 
 .stepArrow {
   color: #0d9488;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 /* ============================================================
-   Four Dimensions Grid
+   Four Dimensions Grid (Clean editorial grid without boxes)
    ============================================================ */
-.missionGrid {
+.dimensionGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 24px;
-  margin-top: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 36px;
+  margin-top: 28px;
 }
 
-@media (max-width: 640px) {
-  .missionGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.missionCard {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 28px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+.dimensionItem {
   display: flex;
   flex-direction: column;
 }
 
-.missionCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.08);
-  border-color: #99f6e4;
-}
-
-.cardHeading {
-  font-family: var(--font-serif, "Fraunces", Georgia, serif);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #0f172a;
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-
-.cardText {
-  font-size: 0.98rem;
-  line-height: 1.75;
-  color: #475569;
-}
-
-.cardFooterText {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px dashed #e2e8f0;
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: #0d9488;
-}
-
-/* ============================================================
-   Highlight Callout Card
-   ============================================================ */
-.calloutCard {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px 28px;
-  margin-top: 20px;
-}
-
-.calloutTag {
-  display: inline-block;
-  font-size: 0.85rem;
+.dimensionHeading {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #64748b;
-  margin-bottom: 6px;
+  color: #0f172a;
+  margin-bottom: 8px;
 }
 
-.calloutHighlight {
-  font-family: var(--font-serif, "Fraunces", Georgia, serif);
-  font-size: 1.35rem;
-  color: #0f172a;
-  font-weight: 500;
+.dimensionText {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #334155;
   margin: 0;
+}
+
+.dimensionFooter {
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-style: italic;
+  color: #0d9488;
+  line-height: 1.6;
 }
 
 /* ============================================================
@@ -270,12 +221,13 @@
 }
 
 .pillItem {
-  background: #e6f4f1;
+  background: #f2f5f0;
   color: #0f766e;
-  border: 1px solid #ccfbf1;
-  padding: 8px 18px;
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  padding: 6px 16px;
   border-radius: 9999px;
-  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   font-weight: 500;
   transition: all 0.2s ease;
 }
@@ -283,13 +235,14 @@
 .pillItem:hover {
   background: #0d9488;
   color: #ffffff;
+  border-color: #0d9488;
 }
 
 /* ============================================================
-   Collaboration Feature List
+   Bullet List (Research, Training & Collaboration)
    ============================================================ */
 .bulletList {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -299,30 +252,20 @@
 
 .bulletItem {
   position: relative;
-  padding-left: 28px;
-  font-size: 1.02rem;
-  line-height: 1.75;
+  padding-left: 24px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.8;
   color: #334155;
 }
 
 .bulletItem::before {
   content: "•";
   position: absolute;
-  left: 8px;
-  top: 0;
+  left: 6px;
+  top: -2px;
   color: #0d9488;
-  font-size: 1.5rem;
-  line-height: 1.6;
-}
-
-.quoteCard {
-  background: #fafaf9;
-  border-left: 3px solid #0d9488;
-  padding: 16px 20px;
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-  color: #475569;
-  margin: 20px 0;
+  font-size: 1.3rem;
 }
 
 /* ============================================================
@@ -330,25 +273,25 @@
    ============================================================ */
 .ctaRow {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .primaryBtn {
   background-color: #0d9488;
   color: #ffffff;
-  padding: 13px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.98rem;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.88rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: background-color 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
 }
 
 .primaryBtn:hover {
@@ -357,13 +300,14 @@
 }
 
 .secondaryBtn {
-  background-color: #ffffff;
+  background-color: transparent;
   color: #0f172a;
   border: 1px solid #cbd5e1;
-  padding: 13px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.98rem;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.88rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -371,6 +315,83 @@
 }
 
 .secondaryBtn:hover {
-  background-color: #f8fafc;
+  background-color: #ffffff;
   border-color: #94a3b8;
+}
+
+/* ============================================================
+   Responsive Styles
+   ============================================================ */
+@media (max-width: 640px) {
+  .heroSection {
+    padding: calc(36px + var(--header-height, 108px)) 0 44px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .dimensionGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ============================================================
+   Informational Pages Compatibility (Terms, Privacy, Learning)
+   ============================================================ */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: calc(40px + var(--header-height, 108px)) 24px 64px;
+  font-family: var(--font-sans);
+  color: #1e293b;
+}
+
+.hero {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 32px;
+  margin-bottom: 36px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.missionCard {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.missionCard:hover {
+  border-color: #0d9488;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.08);
+}
+
+.cardHeading {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
 }

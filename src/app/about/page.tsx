@@ -36,21 +36,23 @@ export default function AboutPage() {
       <JsonLd data={generateBreadcrumbsLd(breadcrumbs)} />
       <JsonLd data={generateOrganizationLd()} />
 
-      <div className={styles.container}>
-        {/* Hero */}
-        <header className={styles.hero}>
-          <h1 className={styles.h1}>Psychological science. Human understanding.</h1>
-          <p className={styles.intro}>
-            Softmind began in 2011 with a simple idea: psychological care should begin with
-            understanding the person, not simply naming the problem. People are shaped by many
-            things — biology and development, learning and memory, relationships, environment,
-            culture and the experiences accumulated across life.
-          </p>
+      <main>
+        {/* Hero Section - White */}
+        <header className={styles.heroSection}>
+          <div className={styles.inner}>
+            <h1 className={styles.h1}>Psychological science. Human understanding.</h1>
+            <p className={styles.intro}>
+              Softmind began in 2011 with a simple idea: psychological care should begin with
+              understanding the person, not simply naming the problem. People are shaped by many
+              things — biology and development, learning and memory, relationships, environment,
+              culture and the experiences accumulated across life.
+            </p>
+          </div>
         </header>
 
-        <div className={styles.content}>
-          {/* Overview */}
-          <section className={styles.section}>
+        {/* Overview - Sage */}
+        <section className={`${styles.section} ${styles.bgSage}`}>
+          <div className={styles.inner}>
             <p className={styles.paragraph}>
               Our work therefore draws from contemporary understanding in applied psychology,
               affective and evolutionary neuroscience, developmental science and biology, cognitive
@@ -88,10 +90,12 @@ export default function AboutPage() {
                 Explore Softmind →
               </Link>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Understanding the person comes first */}
-          <section className={styles.section}>
+        {/* Understanding the person comes first - White */}
+        <section className={`${styles.section} ${styles.bgWhite}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>Understanding the person comes first</h2>
             <p className={styles.paragraph}>
               Softmind began with a question that still matters to us: how do we understand a person
@@ -111,10 +115,12 @@ export default function AboutPage() {
               From our centres in Kerala, including Kochi, Softmind brings this way of thinking into
               psychological care for individuals, couples and families, children and adolescents.
             </p>
-          </section>
+          </div>
+        </section>
 
-          {/* From understanding to intervention */}
-          <section className={styles.section}>
+        {/* From understanding to intervention - Sage */}
+        <section className={`${styles.section} ${styles.bgSage}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>From understanding to intervention</h2>
             <p className={styles.paragraph}>
               We prefer to understand what is happening before deciding what should be done. That means
@@ -128,7 +134,7 @@ export default function AboutPage() {
               relation to the individual rather than applied simply because a particular label has been given.
             </p>
 
-            <div className={styles.processCard}>
+            <div className={styles.processFlow}>
               <div className={styles.processLabel}>Our way of working can be expressed simply:</div>
               <div className={styles.processSteps}>
                 {["Understand", "Personalise", "Intervene", "Measure", "Adapt"].map((step, i, arr) => (
@@ -143,20 +149,22 @@ export default function AboutPage() {
             <p className={styles.paragraph}>
               If something is helping, we want to know. If it is not helping, that matters too.
             </p>
-          </section>
+          </div>
+        </section>
 
-          {/* Four dimensions of our care */}
-          <section className={styles.section}>
+        {/* Four dimensions of our care - White */}
+        <section className={`${styles.section} ${styles.bgWhite}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>Four dimensions of our care</h2>
             <p className={styles.paragraph}>
               These are not four separate services. They are different ways of informing the same process
               of understanding and care.
             </p>
 
-            <div className={styles.missionGrid}>
-              <div className={styles.missionCard}>
-                <h3 className={styles.cardHeading}>Evidence-Based Therapies</h3>
-                <p className={styles.cardText}>
+            <div className={styles.dimensionGrid}>
+              <div className={styles.dimensionItem}>
+                <h3 className={styles.dimensionHeading}>Evidence-Based Therapies</h3>
+                <p className={styles.dimensionText}>
                   Evidence matters. Our psychological interventions draw from established research and
                   clinical practice. But evidence still has to meet the individual in front of us —
                   their history, circumstances, preferences, strengths and difficulties. For us,
@@ -166,9 +174,9 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className={styles.missionCard}>
-                <h3 className={styles.cardHeading}>Neuroscience-Informed Care</h3>
-                <p className={styles.cardText}>
+              <div className={styles.dimensionItem}>
+                <h3 className={styles.dimensionHeading}>Neuroscience-Informed Care</h3>
+                <p className={styles.dimensionText}>
                   Our understanding of human behaviour continues to change as neuroscience develops.
                   Research into emotion, memory, learning, attention, prediction, bodily regulation,
                   development and social experience gives us additional ways of thinking about
@@ -179,9 +187,9 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className={styles.missionCard}>
-                <h3 className={styles.cardHeading}>Technology-Assisted Interventions</h3>
-                <p className={styles.cardText}>
+              <div className={styles.dimensionItem}>
+                <h3 className={styles.dimensionHeading}>Technology-Assisted Interventions</h3>
+                <p className={styles.dimensionText}>
                   We are interested in technology when it has a useful role — not simply because it is new.
                   Depending on the person, the purpose and the clinical context, selected technologies such as
                   neurofeedback, biofeedback and other neurotechnology or neuromodulation approaches may be used
@@ -192,9 +200,9 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className={styles.missionCard}>
-                <h3 className={styles.cardHeading}>Measurement-Informed Care</h3>
-                <p className={styles.cardText}>
+              <div className={styles.dimensionItem}>
+                <h3 className={styles.dimensionHeading}>Measurement-Informed Care</h3>
+                <p className={styles.dimensionText}>
                   Clinical observation matters, but we also want to know what is actually changing. Where appropriate,
                   we follow psychological, behavioural, functional and physiological measures over time. In selected
                   situations, qEEG/EEG-based assessment and brain mapping may provide additional information about
@@ -203,15 +211,17 @@ export default function AboutPage() {
                   explanation of the whole person. It is another piece of information. We consider it alongside the
                   person&apos;s experience, clinical assessment, history, behaviour and other relevant findings.
                 </p>
-                <div className={styles.cardFooterText}>
+                <div className={styles.dimensionFooter}>
                   The purpose of measurement is practical: What is changing? What are we learning? Do we need to change what we are doing?
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Beyond labels */}
-          <section className={styles.section}>
+        {/* Beyond labels - Sage */}
+        <section className={`${styles.section} ${styles.bgSage}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>Beyond labels</h2>
             <p className={styles.paragraph}>
               A diagnosis can describe something. It cannot describe everything.
@@ -228,14 +238,16 @@ export default function AboutPage() {
               in this particular person&apos;s life.
             </p>
 
-            <div className={styles.calloutCard}>
-              <span className={styles.calloutTag}>That distinction matters to us.</span>
-              <p className={styles.calloutHighlight}>Beyond labels. Towards understanding.</p>
+            <div className={styles.keyCallout}>
+              <span className={styles.keyCalloutTag}>That distinction matters to us.</span>
+              <p className={styles.keyCalloutText}>Beyond labels. Towards understanding.</p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Human Experience */}
-          <section className={styles.section}>
+        {/* Human Experience - White */}
+        <section className={`${styles.section} ${styles.bgWhite}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>Human Experience</h2>
             <p className={styles.paragraph}>
               Psychology is also about ordinary life. Not every important human experience is a disorder.
@@ -272,10 +284,12 @@ export default function AboutPage() {
               Our intention is to bring psychological science closer to the questions people actually
               encounter in everyday life.
             </p>
-          </section>
+          </div>
+        </section>
 
-          {/* Knowledge Centre */}
-          <section className={styles.section}>
+        {/* Knowledge Centre - Sage */}
+        <section className={`${styles.section} ${styles.bgSage}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>Knowledge Centre</h2>
             <p className={styles.paragraph}>
               Science should be understandable without being oversimplified.
@@ -296,10 +310,12 @@ export default function AboutPage() {
                 Knowledge Centre →
               </Link>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Research, Learning & Collaboration */}
-          <section className={styles.section}>
+        {/* Research, Learning & Collaboration - White */}
+        <section className={`${styles.section} ${styles.bgWhite}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>Research, Learning &amp; Collaboration</h2>
             <p className={styles.paragraph}>
               Our understanding should continue to change.
@@ -326,7 +342,7 @@ export default function AboutPage() {
               </li>
             </ul>
 
-            <div className={styles.quoteCard}>
+            <div className={styles.quoteCallout}>
               For us, innovation does not mean accepting every new idea. It means remaining curious enough to explore it and critical enough to question it.
             </div>
 
@@ -338,10 +354,12 @@ export default function AboutPage() {
                 Professional Learning
               </Link>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* An evolving practice */}
-          <section className={styles.section}>
+        {/* An evolving practice - Sage */}
+        <section className={`${styles.section} ${styles.bgSage}`}>
+          <div className={styles.inner}>
             <h2 className={styles.h2}>An evolving practice</h2>
             <p className={styles.paragraph}>
               There are things about human behaviour that psychological science understands reasonably well.
@@ -359,9 +377,11 @@ export default function AboutPage() {
               care, technology, curiosity and human understanding can meet without any one of them
               becoming more important than the person.
             </p>
-          </section>
-        </div>
-      </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Leadership & Support Staff - White */}
       <OfficeStaff />
     </>
   );

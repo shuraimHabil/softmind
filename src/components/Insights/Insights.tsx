@@ -6,21 +6,8 @@ import styles from "./Insights.module.css";
 export default async function Insights() {
   const allArticles = await fetchPublishedArticles();
 
-  // Show up to 6 articles; apply mobile visibility logic (max 2 English + 1 Malayalam on mobile)
-  let englishCount = 0;
-  let malayalamCount = 0;
-
-  const displayArticles = allArticles.slice(0, 6).map((a) => {
-    let showOnMobile = false;
-    if (a.language === "English" && englishCount < 2) {
-      showOnMobile = true;
-      englishCount++;
-    } else if (a.language === "Malayalam" && malayalamCount < 1) {
-      showOnMobile = true;
-      malayalamCount++;
-    }
-    return { ...a, showOnMobile };
-  });
+  // Show only latest 3 articles
+  const displayArticles = allArticles.slice(0, 3);
 
   return (
     <section className={styles.section}>
@@ -31,7 +18,7 @@ export default async function Insights() {
         </div>
         <div className={styles.grid}>
           {displayArticles.map((a) => (
-            <article key={a.slug} className={`${styles.card} ${!a.showOnMobile ? styles.hideOnMobile : ""}`}>
+            <article key={a.slug} className={styles.card}>
               <div className={styles.imgWrap}>
                 <Image src={a.img} alt={a.title} fill className={styles.img} sizes="33vw" />
               </div>

@@ -34,7 +34,7 @@ export default function Footer() {
 
           <div className={styles.socials}>
             <a
-              href="https://facebook.com/softmindindia"
+              href="https://www.facebook.com/softmindkerala"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -45,7 +45,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://instagram.com/softmindindia"
+              href="https://www.instagram.com/softmindindia"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -58,7 +58,19 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/company/softmindkerala"
+              href="https://www.youtube.com/@softmind6128"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className={styles.social}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/softmindkerala"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -94,7 +106,7 @@ export default function Footer() {
           {
             heading: "CENTRES",
             links: [
-              { label: "Find a Centre", href: "/centres" },
+              { label: "Find a Centre", href: "/centres/softmind-panampilly-nagar-kochi" },
             ],
           },
           {

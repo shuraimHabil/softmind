@@ -1,0 +1,604 @@
+/* ============================================================
+   Softmind Careers Page Styles (Redesign matching reference)
+   Palette: Warm cream (#fbfaf6), Pale sage (#edf3ed), Deep spruce (#154743)
+   ============================================================ */
+
+.pageWrapper {
+  width: 100%;
+  background-color: #fbfaf6;
+  color: #2e3e3b;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── 1. Hero Section ── */
+.heroSection {
+  background-color: #fbfaf6;
+  padding: calc(44px + var(--header-height, 108px)) 0 72px;
+  border-bottom: 1px solid #e7efe8;
+}
+
+.breadcrumbs {
+  font-size: 0.85rem;
+  color: #71837f;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumbs a {
+  color: #3b655f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #154743;
+  text-decoration: underline;
+}
+
+.breadcrumbDivider {
+  color: #a8b8b4;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: #122421;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: #274b45;
+  margin-bottom: 20px;
+  line-height: 1.35;
+}
+
+.heroDescGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.heroParagraph {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #42524f;
+  margin: 0;
+}
+
+.heroCtaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.heroApplyBtn {
+  background-color: #154743;
+  color: #ffffff;
+  padding: 13px 30px;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(21, 71, 67, 0.2);
+}
+
+.heroApplyBtn:hover {
+  background-color: #0f3835;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(21, 71, 67, 0.25);
+  color: #ffffff;
+}
+
+/* Hero Right Editorial Badge */
+.heroBadgeCol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heroEditorialCard {
+  background: #ffffff;
+  border: 1px solid #e3ede5;
+  border-radius: 20px;
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(18, 36, 33, 0.04);
+  min-width: 280px;
+}
+
+.editorialTag {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #274b45;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.editorialLine {
+  width: 40px;
+  height: 2px;
+  background-color: #154743;
+}
+
+.editorialSub {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #657774;
+}
+
+/* ── Common Section Typography ── */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #3b655f;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: #122421;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+}
+
+.sectionSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #556662;
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+/* ── 2. Why Join Softmind Section ── */
+.whySection {
+  background-color: #ffffff;
+  padding: 80px 0;
+  border-bottom: 1px solid #edf2ed;
+}
+
+.whyHeader {
+  margin-bottom: 40px;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.whyCard {
+  background: #ffffff;
+  border: 1px solid #e7efe9;
+  border-radius: 16px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.whyCard:hover {
+  border-color: #154743;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(21, 71, 67, 0.08);
+}
+
+.whyIconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #eaf3ec;
+  color: #154743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.whyCard:hover .whyIconWrap {
+  background-color: #154743;
+  color: #ffffff;
+}
+
+.whyCardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #122421;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.whyCardTagline {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #274b45;
+  margin-bottom: 10px;
+}
+
+.whyCardDesc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #556662;
+  margin: 0;
+}
+
+/* ── 3. Career Opportunities Section ── */
+.opportunitiesSection {
+  background-color: #edf3ed;
+  padding: 80px 0;
+}
+
+.opportunitiesHeader {
+  margin-bottom: 36px;
+}
+
+.opportunitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.opportunityCard {
+  background: #ffffff;
+  border: 1px solid #d9e6db;
+  border-radius: 16px;
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(18, 36, 33, 0.03);
+  transition: all 0.25s ease;
+}
+
+.opportunityCard:hover {
+  transform: translateY(-3px);
+  border-color: #154743;
+  box-shadow: 0 8px 20px rgba(21, 71, 67, 0.09);
+}
+
+.oppIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #f0f6f1;
+  color: #154743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.oppTitle {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #122421;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.oppDesc {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #556662;
+  margin: 0;
+}
+
+.opportunitiesNotice {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #4f6360;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── 4. Values Section ── */
+.valuesSection {
+  background-color: #ffffff;
+  padding: 60px 0;
+  border-bottom: 1px solid #e8efe9;
+}
+
+.valuesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.valuesHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.valuesBadgesRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.valueBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f7faf7;
+  border: 1px solid #e1ece3;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.valueBadge:hover {
+  background: #ffffff;
+  border-color: #154743;
+  box-shadow: 0 4px 12px rgba(21, 71, 67, 0.08);
+}
+
+.valueIcon {
+  color: #154743;
+  display: flex;
+  align-items: center;
+}
+
+.valueText {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #122421;
+  white-space: nowrap;
+}
+
+/* ── 5. Join Our Team & Application Form Section ── */
+.applySection {
+  background-color: #fbfaf6;
+  padding: 80px 0 100px;
+  scroll-margin-top: calc(var(--header-height, 108px) + 20px);
+}
+
+.applyLayoutGrid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.35fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* Left Context Column */
+.applyContextCol {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: calc(var(--header-height, 108px) + 30px);
+}
+
+.applyLeadTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: #122421;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: -0.015em;
+}
+
+.applyLeadDesc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #42524f;
+  margin-bottom: 28px;
+}
+
+.locationsCard {
+  background: #ffffff;
+  border: 1px solid #e3eee5;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 14px rgba(18, 36, 33, 0.03);
+}
+
+.locationsCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #122421;
+  margin-bottom: 8px;
+}
+
+.locationPinIcon {
+  color: #154743;
+}
+
+.locationsPills {
+  font-size: 0.92rem;
+  color: #3b655f;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.applySideNote {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #6a7d79;
+  border-left: 3px solid #154743;
+  padding-left: 14px;
+  margin-top: 10px;
+}
+
+.perksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.perkItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.89rem;
+  color: #273e39;
+  font-weight: 500;
+}
+
+.perkIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e8f4ec;
+  color: #154743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.directEmailCard {
+  background: #ffffff;
+  border: 1px dashed #bdd8c6;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #3b5751;
+  line-height: 1.5;
+}
+
+.directEmailLink {
+  color: #154743;
+  font-weight: 600;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.applyFormCol {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Bottom Disclaimer */
+.bottomDisclaimer {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: #71837f;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 780px;
+  margin: 36px auto 0;
+}
+
+/* ── Responsive Queries ── */
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .heroBadgeCol {
+    justify-content: flex-start;
+  }
+
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .opportunitiesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .applyLayoutGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .applyContextCol {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: calc(32px + var(--header-height, 108px)) 0 54px;
+  }
+
+  .opportunitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .valuesBadgesRow {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .h1 {
+    font-size: 2.2rem;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .opportunitiesGrid {
+    grid-template-columns: 1fr;
+  }
+}

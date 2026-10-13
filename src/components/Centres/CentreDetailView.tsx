@@ -6,6 +6,7 @@ import styles from "./CentreDetailView.module.css";
 import { Centre } from "@/lib/centres";
 import { Clinician } from "@/lib/clinicians";
 import { useBookingModal } from "@/components/BookingModal/BookingModalContext";
+import CentreStaticCareServices from "./CentreStaticCareServices";
 
 interface CentreDetailViewProps {
   centre: Centre;
@@ -107,6 +108,9 @@ export default function CentreDetailView({ centre, allCentres = [], clinicians =
           </div>
         </div>
       </section>
+ 
+      {/* ── Static 'Our Care' Section (Above Facilities for all centres) ── */}
+      <CentreStaticCareServices />
 
       {/* ── 2. Facilities & Clinicians at this Centre ── */}
       {((centre.facilities && centre.facilities.length > 0) || centreClinicians.length > 0) && (
