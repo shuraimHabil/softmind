@@ -8,13 +8,14 @@ const stats = [
     id: "years",
     primary: "15+",
     label: "Years",
-    sublabel: "ESTABLISHED 2011",
+    sublabel: "Established 2011",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="16" y1="2" x2="16" y2="6" />
+        <line x1="8" y1="2" x2="8" y2="6" />
+        <line x1="3" y1="10" x2="21" y2="10" />
+        <path d="m9 16 2 2 4-4" />
       </svg>
     ),
   },
@@ -22,7 +23,7 @@ const stats = [
     id: "clinicians",
     primary: "35+",
     label: "Clinicians",
-    sublabel: "PROFESSIONAL TEAM",
+    sublabel: "Multidisciplinary Expertise",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3" />
@@ -32,30 +33,29 @@ const stats = [
     ),
   },
   {
-    id: "rci",
-    primary: "RCI",
-    label: "Registered",
-    sublabel: "STATE-OF-THE-ART FACILITIES",
+    id: "person-led",
+    primary: "Person-Led Care",
+    label: "",
+    sublabel: "Beyond Labels · Individual Understanding",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="m9 12 2 2 4-4" />
+        <path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+        <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
+        <path d="m2 15 6 6" />
+        <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" />
       </svg>
     ),
   },
   {
-    id: "research",
-    primary: "Research &",
-    label: "Innovation Centered",
-    sublabel: "SCIENCE IN PRACTICE",
+    id: "integrated-care",
+    primary: "Integrated Care Model",
+    label: "",
+    sublabel: "Psychotherapy · Measurement · Technology",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 18h8" />
-        <path d="M3 22h18" />
-        <path d="M14 22a7 7 0 1 0-14 0" />
-        <path d="M9 14h2" />
-        <path d="M9 12a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v2" />
-        <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
       </svg>
     ),
   },
@@ -110,11 +110,14 @@ export default function Hero() {
             The Person Remains at<br />
             the Centre.
           </h1>
-          <p className={styles.subtitle}>
-            Expert articles, guided videos, and self-assessment tools — all in one place.<br />
-            Explore evidence based psychological and psychiatric resources curated by our<br />
-            licensed experts.
-          </p>
+          <div className={styles.subtitle}>
+            <p>
+              Explore evidence-informed psychotherapy, psychological counselling, assessments and neuroscience-informed care.
+            </p>
+            <p>
+              Discover research insights, expert perspectives, articles, videos and practical resources on mental health and human behaviour.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -127,7 +130,7 @@ export default function Hero() {
             </div>
             <div className={styles.statTextWrap}>
               <span className={styles.statPrimary}>{item.primary}</span>
-              <span className={styles.statLabel}>{item.label}</span>
+              {item.label ? <span className={styles.statLabel}>{item.label}</span> : null}
               <span className={styles.statSublabel}>{item.sublabel}</span>
             </div>
           </div>
@@ -143,7 +146,7 @@ export default function Hero() {
                 {item.icon}
               </div>
               <span className={styles.marqueeText}>
-                {item.primary} {item.label}
+                {[item.primary, item.label].filter(Boolean).join(" ")}
               </span>
               <span className={styles.marqueeDivider} aria-hidden="true">•</span>
             </div>

@@ -1,8 +1,19 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./CareerApplicationForm.module.css";
 import Link from "next/link";
+
+export interface CentreLocationOption {
+  name: string;
+  shortName?: string;
+  city?: string;
+  slug?: string;
+}
+
+interface CareerApplicationFormProps {
+  centres?: CentreLocationOption[];
+}
 
 interface FormData {
   fullName: string;
@@ -17,7 +28,24 @@ interface FormData {
   consent: boolean;
 }
 
-export default function CareerApplicationForm() {
+export default function CareerApplicationForm({ centres: initialCentres = [] }: CareerApplicationFormProps) {
+  const [centreList, setCentreList] = useState<CentreLocationOption[]>(initialCentres);
+
+  useEffect(() => {
+    if (initialCentres && initialCentres.length > 0) {
+      setCentreList(initialCentres);
+      return;
+    }
+    fetch("/api/centres")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setCentreList(data);
+        }
+      })
+      .catch((err) => console.error("Could not fetch centres:", err));
+  }, [initialCentres]);
+
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
@@ -326,10 +354,25 @@ export default function CareerApplicationForm() {
                 className={styles.select}
               >
                 <option value="" disabled>Select a centre or location</option>
-                <option value="Panampilly Nagar, Kochi">Panampilly Nagar, Kochi</option>
-                <option value="Kakkanad, Kochi">Kakkanad, Kochi</option>
-                <option value="Aroor, Alappuzha">Aroor, Alappuzha</option>
-                <option value="Thrissur">Thrissur</option>
+                {centreList && centreList.length > 0 ? (
+                  centreList.map((c) => {
+                    const displayName = c.shortName || c.name;
+                    const cleanCity = c.city ? c.city.split(",")[0].trim() : "";
+                    const label = cleanCity && !displayName.toLowerCase().includes(cleanCity.toLowerCase())
+                      ? `${displayName}, ${cleanCity}`
+                      : displayName;
+                    return (
+                      <option key={c.slug || c.name} value={label}>
+                        {label}
+                      </option>
+                    );
+                  })
+                ) : (
+                  <>
+                    <option value="Panampilly Nagar, Kochi">Panampilly Nagar, Kochi</option>
+                    <option value="Kakkanad Clinic, Ernakulam">Kakkanad Clinic, Ernakulam</option>
+                  </>
+                )}
                 <option value="Any Location / Flexible">Any Location / Flexible</option>
               </select>
             </div>

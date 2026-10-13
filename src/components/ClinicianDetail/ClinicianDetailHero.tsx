@@ -57,11 +57,37 @@ export default function ClinicianDetailHero({ clinician }: ClinicianDetailHeroPr
           <div className={styles.content}>
             <span className={styles.eyebrow}>{clinician.eyebrow || clinician.role}</span>
             <h1 className={styles.name}>{clinician.name}</h1>
-            {clinician.keywords && clinician.keywords.length > 0 && (
+            {((clinician.keywords && clinician.keywords.length > 0) || clinician.experience) && (
               <div className={styles.keywordsRow}>
-                {clinician.keywords.map((kw, i) => (
-                  <span key={i} className={styles.keywordChip}>{kw}</span>
-                ))}
+                {clinician.keywords && clinician.keywords.length > 0 && (
+                  <div className={styles.keywordChipsList}>
+                    {clinician.keywords.map((kw, i) => (
+                      <span key={i} className={styles.keywordChip}>{kw}</span>
+                    ))}
+                  </div>
+                )}
+                {clinician.experience && (
+                  <div className={styles.experienceBadgeWrap}>
+                    <span className={styles.experienceBadge}>
+                      <svg
+                        className={styles.experienceIcon}
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                      <span>{clinician.experience}</span>
+                    </span>
+                  </div>
+                )}
               </div>
             )}
             {clinician.isRciLicensed && (

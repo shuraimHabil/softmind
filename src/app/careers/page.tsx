@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import JsonLd, { generateBreadcrumbsLd } from "@/components/SEO/JsonLd";
+import { fetchCentres } from "@/lib/centres";
 import CareerApplicationForm from "./CareerApplicationForm";
 import styles from "./careers.module.css";
 
@@ -178,7 +179,8 @@ const valuesList = [
   },
 ];
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  const centres = await fetchCentres();
   const breadcrumbs = [
     { name: "Home", url: "https://www.softmindindia.com" },
     { name: "Careers", url: "https://www.softmindindia.com/careers" },
@@ -352,7 +354,9 @@ export default function CareersPage() {
                   <span>Centres Across Kerala</span>
                 </div>
                 <p className={styles.locationsPills}>
-                  Panampilly Nagar &middot; Kakkanad &middot; Aroor &middot; Thrissur
+                  {centres && centres.length > 0
+                    ? centres.map((c) => c.shortName || c.name).join(" · ")
+                    : "Panampilly Nagar · Kakkanad"}
                 </p>
               </div>
 
@@ -368,7 +372,7 @@ export default function CareersPage() {
 
             {/* Right Application Form Column */}
             <div className={styles.applyFormCol}>
-              <CareerApplicationForm />
+              <CareerApplicationForm centres={centres} />
             </div>
           </div>
 

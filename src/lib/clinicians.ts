@@ -111,6 +111,24 @@ export function isOnlineAvailableClinician(clinician: Clinician): boolean {
   return Boolean(clinician.isOnlineAvailable ?? clinician.online_available);
 }
 
+export function formatExperience(exp: any): string {
+  if (exp === undefined || exp === null) return "";
+  const str = String(exp).trim();
+  if (!str) return "";
+  const num = Number(str);
+  if (!isNaN(num) && num > 0) {
+    return num === 1 ? "1 Year Experience" : `${num}+ Years Experience`;
+  }
+  const match = str.match(/^(\d+)/);
+  if (match) {
+    const parsed = Number(match[1]);
+    if (parsed > 0) {
+      return parsed === 1 ? "1 Year Experience" : `${parsed}+ Years Experience`;
+    }
+  }
+  return str;
+}
+
 const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
 
 export async function fetchClinicians(): Promise<Clinician[]> {
@@ -157,6 +175,9 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          ? rawKeywords.split(",").map((k: string) => k.trim()).filter(Boolean)
          : Array.isArray(rawKeywords) ? rawKeywords.map((k: any) => String(k).trim()).filter(Boolean) : [];
 
+       const rawItemExp = item.experience ?? item.years_of_experience;
+       const formattedItemExp = formatExperience(rawItemExp);
+
        return {
          id: item.id,
          slug: item.website_slug || item.id,
@@ -172,7 +193,7 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          rci_licensed: isRci,
          online_available: isOnline,
          isOnlineAvailable: isOnline,
-         experience: "Experienced",
+         experience: formattedItemExp,
          experienceSub: "CLINICAL PRACTICE",
          sessions: "1000+",
          sessionsSub: "SESSIONS CONDUCTED",
@@ -270,6 +291,11 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
         ? rawDetailKeywords.split(",").map((k: string) => k.trim()).filter(Boolean)
         : Array.isArray(rawDetailKeywords) ? rawDetailKeywords.map((k: any) => String(k).trim()).filter(Boolean) : [];
 
+      const rawDetailExp = detail.experience !== undefined && detail.experience !== null && detail.experience !== ""
+        ? detail.experience
+        : (detail.years_of_experience ?? summaryItem?.experience ?? "");
+      const formattedDetailExp = formatExperience(rawDetailExp);
+
       return {
         id: detail.id || summaryItem?.id || targetSlug,
         slug: detail.id || summaryItem?.slug || targetSlug,
@@ -285,7 +311,7 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
         keywords: detailKeywords.length > 0 ? detailKeywords : (summaryItem?.keywords || []),
         isRciLicensed: isRci,
         rci_licensed: isRci,
-        experience: summaryItem?.experience || "Experienced",
+        experience: formattedDetailExp,
         experienceSub: summaryItem?.experienceSub || "CLINICAL PRACTICE",
         sessions: summaryItem?.sessions || "1000+",
         sessionsSub: summaryItem?.sessionsSub || "SESSIONS CONDUCTED",

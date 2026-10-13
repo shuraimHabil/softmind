@@ -242,7 +242,7 @@ export default function CentreDetailView({ centre, allCentres = [], clinicians =
             <div className={styles.otherCentresHeader}>
               <h3 className={styles.sectionHeading}>Explore Other Locations</h3>
               <p className={styles.otherCentresSub}>
-                Discover our other wellness centres across Kerala.
+                Discover our other Mental health care centres across Kerala.
               </p>
             </div>
 
