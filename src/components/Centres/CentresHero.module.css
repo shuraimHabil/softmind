@@ -54,12 +54,12 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #1a3330;
-  line-height: 1.15;
+  line-height: 1.25;
   margin-bottom: 20px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
@@ -72,6 +72,12 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 960px) {
+  .title {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: 480px;
@@ -104,11 +110,6 @@
 
   .container {
     padding: 0 20px;
-  }
-
-  .title {
-    font-size: clamp(1.8rem, 6.5vw, 2.2rem);
-    margin-bottom: 14px;
   }
 
   .subtitle {

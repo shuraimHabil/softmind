@@ -36,12 +36,12 @@
    Typography
    ============================================================ */
 .h1 {
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   line-height: 1.25;
-  color: #0f172a;
-  letter-spacing: -0.02em;
+  color: #1a3330;
+  letter-spacing: -0.01em;
   margin-bottom: 24px;
 }
 
@@ -394,4 +394,10 @@
   line-height: 1.7;
   color: #475569;
   margin: 0;
+}
+
+@media (max-width: 960px) {
+  .h1 {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
 }

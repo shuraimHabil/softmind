@@ -43,12 +43,12 @@
 
 .mainTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 2.8vw, 2.35rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
-  color: #122421;
-  line-height: 1.15;
+  color: #1a3330;
+  line-height: 1.25;
   margin: 0;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 /* ── Segmented Tab Switcher ── */
@@ -304,6 +304,12 @@
 @media (max-width: 1080px) {
   .therapiesGrid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .mainTitle {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
   }
 }
 

@@ -21,9 +21,10 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #1a3330;
+  line-height: 1.25;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
 }
@@ -193,6 +194,12 @@
   }
 }
 
+@media (max-width: 960px) {
+  .title {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+}
+
 @media (max-width: 580px) {
   .section {
     padding: 28px 0 20px;
@@ -205,10 +212,6 @@
   .header {
     padding: 0 16px;
     margin-bottom: 20px;
-  }
-
-  .title {
-    font-size: 1.3rem;
   }
 
   .subtitle {

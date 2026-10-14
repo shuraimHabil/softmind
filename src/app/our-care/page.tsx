@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import OurApproachHero from "@/components/OurApproach/OurApproachHero";
 import OurApproachSpecialties from "@/components/OurApproach/OurApproachSpecialties";
-import OurApproachPhilosophy from "@/components/OurApproach/OurApproachPhilosophy";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
 export const metadata: Metadata = {
@@ -40,7 +39,6 @@ export default function OurCarePage() {
     <>
       <OurApproachHero />
       <OurApproachSpecialties />
-      <OurApproachPhilosophy />
       <CliniciansCTA />
     </>
   );

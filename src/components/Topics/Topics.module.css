@@ -22,7 +22,7 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #1a3330;
   margin-bottom: 12px;
@@ -104,6 +104,10 @@
 
 /* ── Responsive ────────────────── */
 @media (max-width: 960px) {
+  .title {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+
   .container {
     grid-template-columns: 1fr;
     gap: 40px;

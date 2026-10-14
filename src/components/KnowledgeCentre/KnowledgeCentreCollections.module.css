@@ -11,9 +11,10 @@
 
 .sectionTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #1a3330;
+  line-height: 1.25;
   margin-bottom: 32px;
   letter-spacing: -0.01em;
   text-align: center;
@@ -91,6 +92,12 @@
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .sectionTitle {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
   }
 }
 

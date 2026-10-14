@@ -12,9 +12,10 @@
 /* ── Headings ── */
 .sectionHeading {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #1a3330;
+  line-height: 1.25;
   margin: 0 0 20px 0;
   letter-spacing: -0.01em;
 }
@@ -39,11 +40,12 @@
 
 .centreTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #1a3330;
+  line-height: 1.25;
   margin: 0 0 6px 0;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
 }
 
 .centreCity {
@@ -537,6 +539,13 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 960px) {
+  .centreTitle,
+  .sectionHeading {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+}
+
 @media (max-width: 1024px) {
   .overviewGrid {
     grid-template-columns: 1fr;
