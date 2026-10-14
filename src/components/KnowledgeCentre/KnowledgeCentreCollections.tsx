@@ -9,7 +9,6 @@ const collections = [
   {
     title: "Articles",
     desc: "In-depth reads on mental health and human behavior.",
-    count: "32 Articles",
     href: "/articles",
     isVideo: false,
     icon: (
@@ -25,7 +24,6 @@ const collections = [
   {
     title: "Guides",
     desc: "Practical, evidence-informed guides for everyday life.",
-    count: "18 Guides",
     href: "/guides",
     isVideo: false,
     icon: (
@@ -38,7 +36,6 @@ const collections = [
   {
     title: "Perspectives",
     desc: "Expert reflections on psychological science and society.",
-    count: "14 Perspectives",
     href: "/perspectives",
     isVideo: false,
     icon: (
@@ -51,7 +48,6 @@ const collections = [
   {
     title: "Videos",
     desc: "Short videos on key concepts and therapeutic insights.",
-    count: "46 Videos",
     href: "#",
     isVideo: true,
     icon: (
@@ -64,7 +60,6 @@ const collections = [
   {
     title: "FAQs",
     desc: "Questions and answers about therapy and care.",
-    count: "24 FAQs",
     href: "/faq",
     isVideo: false,
     icon: (
@@ -99,18 +94,12 @@ export default function KnowledgeCentreCollections() {
                   <div className={styles.iconWrap}>{item.icon}</div>
                   <h3 className={styles.title}>{item.title}</h3>
                   <p className={styles.desc}>{item.desc}</p>
-                  <span className={styles.countLink}>
-                    {item.count} &rarr;
-                  </span>
                 </button>
               ) : (
                 <Link key={idx} href={item.href} className={styles.card}>
                   <div className={styles.iconWrap}>{item.icon}</div>
                   <h3 className={styles.title}>{item.title}</h3>
                   <p className={styles.desc}>{item.desc}</p>
-                  <span className={styles.countLink}>
-                    {item.count} &rarr;
-                  </span>
                 </Link>
               )
             )}
