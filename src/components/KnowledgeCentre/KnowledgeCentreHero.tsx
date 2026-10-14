@@ -56,13 +56,23 @@ export default function KnowledgeCentreHero() {
       <div className={styles.bgWrap}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/Frame 288.webp"
+          src="/assets/softmind-knowledge-centre-landscape.webp"
           alt="Knowledge Centre"
-          className={styles.bgImg}
+          className={`${styles.bgImg} ${styles.bgDesktop}`}
           onError={(e) => {
-            (e.target as HTMLImageElement).src = "/assets/knowledge_hero.webp";
+            (e.target as HTMLImageElement).src = "/assets/Frame 288.webp";
           }}
         />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/softmind-knowledge-centre-portrait (1).webp"
+          alt="Knowledge Centre"
+          className={`${styles.bgImg} ${styles.bgMobile}`}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "/assets/knowledge_centre_mobile.webp";
+          }}
+        />
+        <div className={styles.bgOverlay} aria-hidden="true" />
       </div>
 
       <div className={styles.container}>

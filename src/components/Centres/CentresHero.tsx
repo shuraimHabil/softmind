@@ -11,11 +11,21 @@ export default function CentresHero() {
         <img
           src="/assets/centres_hero_clean.webp"
           alt="Softmind Centres"
-          className={styles.bgImg}
+          className={`${styles.bgImg} ${styles.bgDesktop}`}
           onError={(e) => {
             (e.target as HTMLImageElement).src = "/assets/centres_hero_bg.jpg";
           }}
         />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/softmind-centres (1).webp"
+          alt="Softmind Centres"
+          className={`${styles.bgImg} ${styles.bgMobile}`}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "/assets/centres_hero_mobile.webp";
+          }}
+        />
+        <div className={styles.bgOverlay} aria-hidden="true" />
       </div>
 
       <div className={styles.container}>

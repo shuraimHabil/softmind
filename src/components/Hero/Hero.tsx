@@ -145,7 +145,6 @@ export default function Hero() {
               <span className={styles.marqueeText}>
                 {[item.primary, item.label].filter(Boolean).join(" ")}
               </span>
-              <span className={styles.marqueeDivider} aria-hidden="true">•</span>
             </div>
           ))}
         </div>

@@ -90,7 +90,7 @@ export default function OnlineConsultationHero() {
           <div className={styles.visualContent}>
             <div className={styles.imageFrame}>
               <img
-                src="/assets/online_consultation_hero.jpg"
+                src="/assets/online-consultation-landscape.webp"
                 alt="Confidential online consultation with Softmind professional"
                 className={styles.heroImage}
               />

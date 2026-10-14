@@ -40,17 +40,23 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
       {/* 1. HERO SECTION */}
       <section className={styles.heroSection}>
         <div className={styles.bgWrap}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/therapy_session.jpg"
-            alt="Therapy session consultation"
-            className={styles.bgImg}
+            src="/assets/online-consultation-landscape.webp"
+            alt="Online Psychological Consultation"
+            className={`${styles.bgImg} ${styles.bgDesktop}`}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/online-consultation-portrait.webp"
+            alt="Online Psychological Consultation"
+            className={`${styles.bgImg} ${styles.bgMobile}`}
           />
           <div className={styles.bgOverlay} />
         </div>
 
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>SOFTMIND ONLINE</span>
             <h1 className={styles.heroTitle}>
               Online Psychological<br />
               Consultation
