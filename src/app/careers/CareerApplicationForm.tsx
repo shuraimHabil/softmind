@@ -144,23 +144,38 @@ export default function CareerApplicationForm({ centres: initialCentres = [] }: 
     setIsSubmitting(true);
 
     try {
-      /*
-       * FRONTEND ONLY:
-       * Backend developer can plug their API endpoint here.
-       * Example:
-       *   const payload = new FormData();
-       *   Object.entries(formData).forEach(([k, v]) => payload.append(k, String(v)));
-       *   if (selectedFile) payload.append('resume', selectedFile);
-       *   const res = await fetch('/api/careers/apply', { method: 'POST', body: payload });
-       *   if (!res.ok) throw new Error('Submission failed');
-       */
+      // Build multipart payload — includes text fields + CV file
+      const payload = new FormData();
+      payload.append("full_name", formData.fullName);
+      payload.append("email", formData.email);
+      payload.append("phone", formData.phone);
+      payload.append("position", formData.position);
+      payload.append("preferred_location", formData.location);
+      payload.append("highest_qualification", formData.highestQualification);
+      payload.append("years_of_experience", formData.experience);
+      payload.append("registration_number", formData.registrationNumber);
+      payload.append("brief_intro", formData.briefIntro);
+      payload.append("consent", formData.consent ? "1" : "0");
+      payload.append("resume", selectedFile, selectedFile.name);
 
-      // Simulated network latency for frontend demonstration & UX validation
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const res = await fetch("/api/careers", {
+        method: "POST",
+        body: payload,
+        // Do NOT set Content-Type — the browser sets the correct
+        // multipart/form-data boundary automatically
+      });
+
+      const result = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(result?.error ?? `Submission failed (${res.status})`);
+      }
+
       setIsSubmitted(true);
     } catch (err) {
       console.error(err);
-      alert("Something went wrong while submitting. Please try again or email careers@softmindindia.com");
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
+      alert(`${msg}\n\nPlease try again or email careers@softmindindia.com`);
     } finally {
       setIsSubmitting(false);
     }

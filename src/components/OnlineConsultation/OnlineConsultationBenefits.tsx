@@ -7,7 +7,7 @@ const benefits = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
       </svg>
     ),
-    title: "100% Confidential & Secure",
+    title: "Confidential & Secure",
     description:
       "All video consultations take place in encrypted telehealth rooms. Your personal data and clinical discussions are completely protected."
   },

@@ -38,7 +38,9 @@
 }
 
 .triggerImg {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  padding: 3px;
 }
 
 /* ── Chat Window ── */
@@ -78,20 +80,22 @@
 }
 
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.15);
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
 }
 
 .headerImg {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  padding: 2px;
 }
 
 .headerText {

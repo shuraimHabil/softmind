@@ -163,8 +163,8 @@ const assessmentAndTech: TechCare[] = [
     ),
   },
   {
-    title: "tDCS Neuromodulation",
-    desc: "Non-invasive stimulation option considered only following clinical screening and informed discussion.",
+    title: "Transcranial Direct Current Stimulation (tDCS)",
+    desc: "A non-invasive neuromodulation technique that uses low-intensity electrical currents to influence brain activity. Offered under professional supervision following individual assessment, with attention to safety, suitability and current scientific evidence.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -172,8 +172,8 @@ const assessmentAndTech: TechCare[] = [
     ),
   },
   {
-    title: "Audio-Visual Entrainment",
-    desc: "Patterned light and sound sessions under clinical guidance, selected based on individual suitability.",
+    title: "Audio-Visual Entrainment (AVE)",
+    desc: "A technology-assisted approach using rhythmic light and sound stimulation to support guided relaxation and sensory experiences. Sessions are individually planned, with appropriate screening and professional supervision.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3" />

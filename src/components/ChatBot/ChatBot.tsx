@@ -24,7 +24,7 @@ export default function ChatBot() {
     {
       id: "welcome",
       sender: "bot",
-      text: "Hello! I am Softmind's AI care assistant. I'm here to help guide you to the right resources, therapists, or information about our care model. How are you feeling today?",
+      text: "Hello! I am So Mi, your care companion. I'm here to help guide you to the right resources, therapists, or information about our care model. How are you feeling today?",
       timestamp: new Date(),
     },
   ]);
@@ -39,48 +39,102 @@ export default function ChatBot() {
     }
   }, [messages, isTyping]);
 
-  const handleSendMessage = (text: string) => {
-    if (!text.trim()) return;
+  const handleSendMessage = async (text: string) => {
+    if (!text.trim() || isTyping) return;
 
     // Add user message
     const userMsg: Message = {
       id: Math.random().toString(),
       sender: "user",
-      text: text,
+      text: text.trim(),
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate AI response after a delay
-    setTimeout(() => {
-      let botResponseText = "";
-      const lowerText = text.toLowerCase();
+    const botMsgId = Math.random().toString();
+    const botMsg: Message = {
+      id: botMsgId,
+      sender: "bot",
+      text: "",
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, botMsg]);
 
-      if (lowerText.includes("book") || lowerText.includes("session") || lowerText.includes("appointment")) {
-        botResponseText = "To book a session, simply click the 'Book a Session' button at the top right of the screen. You can select your concerns, choose a slot, and confirm in under a minute.";
-      } else if (lowerText.includes("clinician") || lowerText.includes("therapist") || lowerText.includes("practitioner")) {
-        botResponseText = "We have over 35+ expert clinicians specializing in emotional well-being, relationship counseling, child psychology, and life challenges. You can view them on our 'Clinicians' page.";
-      } else if (lowerText.includes("rci") || lowerText.includes("register")) {
-        botResponseText = "Softmind centers and practices are Rehabilitation Council of India (RCI) registered, ensuring the highest standards of safety, quality, and clinical ethics in psychological care.";
-      } else if (lowerText.includes("anxious") || lowerText.includes("anxiety") || lowerText.includes("stress")) {
-        botResponseText = "I'm sorry to hear that you are feeling anxious. Deep breathing can help anchor you. Try inhaling slowly for 4 seconds, holding for 4, and exhaling for 4. Our therapists specialize in evidence-based care for anxiety, and we'd be glad to support you in a structured session.";
-      } else {
-        botResponseText = "Thank you for sharing that. As an AI assistant, I can help you locate information or guide you to our clinical team. For personalized therapy, I highly recommend scheduling a consultation with one of our licensed experts.";
+    try {
+      const payloadMessages = newMessages.map((m) => ({
+        role: m.sender === "user" ? "user" : "assistant",
+        content: m.text,
+      }));
+
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: payloadMessages }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Chat API error: ${res.status}`);
       }
 
-      const botMsg: Message = {
-        id: Math.random().toString(),
-        sender: "bot",
-        text: botResponseText,
-        timestamp: new Date(),
-      };
+      if (!res.body) {
+        throw new Error("No response body");
+      }
 
-      setMessages((prev) => [...prev, botMsg]);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          const trimmedLine = line.trim();
+          if (!trimmedLine || trimmedLine === "data: [DONE]") continue;
+
+          if (trimmedLine.startsWith("data: ")) {
+            try {
+              const data = JSON.parse(trimmedLine.slice(6));
+              if (data.text) {
+                setMessages((prev) =>
+                  prev.map((msg) =>
+                    msg.id === botMsgId
+                      ? { ...msg, text: msg.text + data.text }
+                      : msg
+                  )
+                );
+              }
+            } catch {
+              // Ignore partial chunk parse errors
+            }
+          }
+        }
+      }
+    } catch (err) {
+      console.error("Chat error:", err);
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === botMsgId
+            ? {
+                ...msg,
+                text:
+                  msg.text ||
+                  "I am having a moment connecting. Please feel free to retry or reach our care coordinator at +91 7736 484 813.",
+              }
+            : msg
+        )
+      );
+    } finally {
       setIsTyping(false);
-    }, 1200);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -95,11 +149,11 @@ export default function ChatBot() {
       <button 
         className={`${styles.triggerBtn} ${isOpen ? styles.active : ""}`}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Softmind AI Assistant"
+        aria-label="Toggle So Mi Assistant"
       >
         <Image 
-          src="/assets/softmind_ai_logo.png"
-          alt="Softmind AI Bot logo"
+          src="/assets/minda.png"
+          alt="So Mi"
           fill
           className={styles.triggerImg}
           sizes="60px"
@@ -114,15 +168,15 @@ export default function ChatBot() {
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>
                 <Image 
-                  src="/assets/softmind_ai_logo.png"
-                  alt="Softmind AI"
+                  src="/assets/minda.png"
+                  alt="So Mi"
                   width={34}
                   height={34}
                   className={styles.headerImg}
                 />
               </div>
               <div className={styles.headerText}>
-                <h4 className={styles.botName}>Softmind AI</h4>
+                <h4 className={styles.botName}>So Mi</h4>
                 <div className={styles.statusWrap}>
                   <span className={styles.statusDot} />
                   <span className={styles.statusText}>Active Assistant</span>
@@ -143,19 +197,21 @@ export default function ChatBot() {
 
           {/* Messages Area */}
           <div className={styles.messagesArea}>
-            {messages.map((msg) => (
-              <div 
-                key={msg.id} 
-                className={`${styles.msgRow} ${msg.sender === "user" ? styles.msgUser : styles.msgBot}`}
-              >
-                <div className={styles.bubble}>
-                  <p className={styles.bubbleText}>{msg.text}</p>
+            {messages
+              .filter((msg) => msg.text.length > 0)
+              .map((msg) => (
+                <div 
+                  key={msg.id} 
+                  className={`${styles.msgRow} ${msg.sender === "user" ? styles.msgUser : styles.msgBot}`}
+                >
+                  <div className={styles.bubble}>
+                    <p className={styles.bubbleText}>{msg.text}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
 
             {/* Typing Indicator */}
-            {isTyping && (
+            {isTyping && messages[messages.length - 1]?.text === "" && (
               <div className={`${styles.msgRow} ${styles.msgBot}`}>
                 <div className={`${styles.bubble} ${styles.typingBubble}`}>
                   <span className={styles.typingDot} />

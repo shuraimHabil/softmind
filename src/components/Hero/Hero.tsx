@@ -112,10 +112,7 @@ export default function Hero() {
           </h1>
           <div className={styles.subtitle}>
             <p>
-              Explore evidence-informed psychotherapy, psychological counselling, assessments and neuroscience-informed care.
-            </p>
-            <p>
-              Discover research insights, expert perspectives, articles, videos and practical resources on mental health and human behaviour.
+              Explore psychotherapy, counselling, assessments and neuroscience-informed care, with research, expert insights, articles, videos and mental health resources.
             </p>
           </div>
         </div>
