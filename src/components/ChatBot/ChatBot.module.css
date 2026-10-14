@@ -9,44 +9,62 @@
 /* ── Trigger Button ── */
 .triggerBtn {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 66px;
+  height: 66px;
   border-radius: 50%;
   border: none;
-  background: #ffffff;
+  background: transparent;
   cursor: pointer;
-  box-shadow: 
-    0 10px 30px rgba(13, 148, 136, 0.25),
-    0 0 0 4px rgba(13, 148, 136, 0.1);
-  overflow: hidden;
+  box-shadow: none;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: pulse 3s infinite;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Realistic soft ground shadow directly underneath the mascot */
+.triggerBtn::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 10px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.35) 0%, rgba(13, 148, 136, 0.2) 40%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: shadowScale 3.5s ease-in-out infinite;
+  z-index: 0;
 }
 
 .triggerBtn:hover {
-  transform: scale(1.08) rotate(5deg);
-  box-shadow: 
-    0 12px 36px rgba(13, 148, 136, 0.35),
-    0 0 0 6px rgba(13, 148, 136, 0.15);
+  transform: scale(1.08) rotate(3deg);
 }
 
 .triggerBtn.active {
-  transform: scale(0.9) rotate(-10deg);
+  transform: scale(0.92) rotate(-6deg);
 }
 
 .triggerImg {
   object-fit: contain;
   object-position: center;
-  padding: 3px;
+  padding: 0;
+  z-index: 1;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.22));
+  animation: floatMascot 3.5s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+
+.triggerBtn:hover .triggerImg {
+  filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.28)) drop-shadow(0 4px 12px rgba(13, 148, 136, 0.3));
 }
 
 /* ── Chat Window ── */
 .chatWindow {
   position: absolute;
-  bottom: 78px;
+  bottom: 84px;
   right: 0;
   width: 360px;
   height: 520px;
@@ -80,55 +98,58 @@
 }
 
 .avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #ffffff;
+  width: 48px;
+  height: 48px;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border: none;
+  overflow: visible;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+  flex-shrink: 0;
 }
 
 .headerImg {
   object-fit: contain;
   object-position: center;
-  padding: 2px;
+  padding: 0;
+}
+
+.statusDot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  border: 2px solid #0d9488;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.75);
+  z-index: 2;
 }
 
 .headerText {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .botName {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.statusWrap {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 1px;
-}
-
-.statusDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #4ade80;
-  box-shadow: 0 0 6px #4ade80;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .statusText {
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .closeBtn {
@@ -195,6 +216,68 @@
 .bubbleText {
   margin: 0;
   white-space: pre-wrap;
+}
+
+.markdownBody {
+  font-family: inherit;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #1e293b;
+  word-break: break-word;
+}
+
+.markdownBody p {
+  margin: 0 0 8px 0;
+}
+
+.markdownBody p:last-child {
+  margin-bottom: 0;
+}
+
+.markdownBody strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.markdownBody ul,
+.markdownBody ol {
+  margin: 6px 0 8px 0;
+  padding-left: 18px;
+}
+
+.markdownBody li {
+  margin-bottom: 4px;
+}
+
+.markdownBody li:last-child {
+  margin-bottom: 0;
+}
+
+.markdownBody table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 0.82rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdownBody th,
+.markdownBody td {
+  border: 1px solid rgba(13, 148, 136, 0.18);
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.markdownBody th {
+  background: rgba(13, 148, 136, 0.08);
+  font-weight: 600;
+  color: #0d9488;
+}
+
+.markdownBody a {
+  color: #0d9488;
+  text-decoration: underline;
 }
 
 /* Typing Indicator */
@@ -293,16 +376,35 @@
   transform: scale(1.05);
 }
 
+.disclaimer {
+  padding: 0 16px 8px;
+  background: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.69rem;
+  color: #94a3b8;
+  text-align: center;
+  letter-spacing: -0.01em;
+  user-select: none;
+}
+
 /* ── Keyframes & Animations ── */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4), 0 10px 30px rgba(13, 148, 136, 0.25);
+@keyframes floatMascot {
+  0%, 100% {
+    transform: translateY(0);
   }
-  70% {
-    box-shadow: 0 0 0 10px rgba(13, 148, 136, 0), 0 10px 30px rgba(13, 148, 136, 0.25);
+  50% {
+    transform: translateY(-5px);
   }
-  100% {
-    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0), 0 10px 30px rgba(13, 148, 136, 0.25);
+}
+
+@keyframes shadowScale {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.72);
+    opacity: 0.45;
   }
 }
 

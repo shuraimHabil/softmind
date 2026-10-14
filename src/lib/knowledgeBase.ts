@@ -1,4 +1,4 @@
-﻿export interface CenterInfo {
+export interface CenterInfo {
   name: string;
   slug: string;
   city: string;
@@ -31,7 +31,7 @@ export const SOFTMIND_KNOWLEDGE = {
   },
 
   assistantProfile: {
-    name: "So Mi",
+    name: "Minda",
     role: "Softmind AI Care Companion",
     personality: "Warm, empathetic, calm, clinically respectful, and reassuring.",
     mascotDescription: "A friendly character with blue and green antennae, representing holistic mind-body wellness and compassionate guidance."

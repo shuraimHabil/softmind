@@ -2,7 +2,14 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import styles from "./ChatBot.module.css";
+
+function formatMessageContent(content: string): string {
+  if (!content) return "";
+  return content.replace(/<br\s*\/?>/gi, "\n\n");
+}
 
 interface Message {
   id: string;
@@ -24,7 +31,7 @@ export default function ChatBot() {
     {
       id: "welcome",
       sender: "bot",
-      text: "Hello! I am So Mi, your care companion. I'm here to help guide you to the right resources, therapists, or information about our care model. How are you feeling today?",
+      text: "Hello! I am Minda, your care companion. I'm here to help guide you to the right resources, therapists, or information about our care model. How are you feeling today?",
       timestamp: new Date(),
     },
   ]);
@@ -149,14 +156,14 @@ export default function ChatBot() {
       <button 
         className={`${styles.triggerBtn} ${isOpen ? styles.active : ""}`}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle So Mi Assistant"
+        aria-label="Toggle Minda Assistant"
       >
         <Image 
           src="/assets/minda.png"
-          alt="So Mi"
+          alt="Minda"
           fill
           className={styles.triggerImg}
-          sizes="60px"
+          sizes="70px"
         />
       </button>
 
@@ -169,18 +176,16 @@ export default function ChatBot() {
               <div className={styles.avatar}>
                 <Image 
                   src="/assets/minda.png"
-                  alt="So Mi"
-                  width={34}
-                  height={34}
+                  alt="Minda"
+                  width={48}
+                  height={48}
                   className={styles.headerImg}
                 />
+                <span className={styles.statusDot} aria-hidden="true" />
               </div>
               <div className={styles.headerText}>
-                <h4 className={styles.botName}>So Mi</h4>
-                <div className={styles.statusWrap}>
-                  <span className={styles.statusDot} />
-                  <span className={styles.statusText}>Active Assistant</span>
-                </div>
+                <h4 className={styles.botName}>Minda</h4>
+                <span className={styles.statusText}>Softmind&apos;s Care Companion</span>
               </div>
             </div>
             <button 
@@ -205,7 +210,15 @@ export default function ChatBot() {
                   className={`${styles.msgRow} ${msg.sender === "user" ? styles.msgUser : styles.msgBot}`}
                 >
                   <div className={styles.bubble}>
-                    <p className={styles.bubbleText}>{msg.text}</p>
+                    {msg.sender === "user" ? (
+                      <p className={styles.bubbleText}>{msg.text}</p>
+                    ) : (
+                      <div className={styles.markdownBody}>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {formatMessageContent(msg.text)}
+                        </ReactMarkdown>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -258,6 +271,11 @@ export default function ChatBot() {
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
             </button>
+          </div>
+
+          {/* Bottom Disclaimer */}
+          <div className={styles.disclaimer}>
+            Minda can make mistakes. Check important info
           </div>
         </div>
       )}

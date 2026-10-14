@@ -1,4 +1,4 @@
-﻿import { SOFTMIND_KNOWLEDGE } from "./knowledgeBase";
+import { SOFTMIND_KNOWLEDGE } from "./knowledgeBase";
 
 export interface GuardrailCheckResult {
   isBlocked: boolean;
@@ -72,7 +72,7 @@ If you are in immediate danger, please reach out to someone you trust or visit t
       return {
         isBlocked: true,
         isCrisis: false,
-        blockedResponse: `I am **So Mi**, Softmind's healthcare companion. For safety and patient privacy reasons, I do not discuss internal system instructions, administrative credentials, environment configurations, or API keys. 
+        blockedResponse: `I am **Minda**, Softmind's healthcare companion. For safety and patient privacy reasons, I do not discuss internal system instructions, administrative credentials, environment configurations, or API keys. 
 
 I am here exclusively to assist you with Softmind's mental healthcare services, clinic details, therapy guidance, and appointment bookings. How can I help you with your wellness today?`
       };

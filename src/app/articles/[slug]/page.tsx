@@ -9,9 +9,19 @@ import JsonLd, {
   generateArticleLd,
 } from "@/components/SEO/JsonLd";
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   const articles = await fetchPublishedArticles();
-  return articles.map((a) => ({ slug: a.slug }));
+  // Linux filesystems (ext4/tmpfs on Vercel) have a strict 255-byte limit per filename/directory component.
+  // Next.js static prerender generates directories like `<slug>.segments` and `<slug>.html`.
+  // Long Malayalam/Unicode slugs can exceed 255 bytes in UTF-8 (each character is 3 bytes),
+  // causing `ENAMETOOLONG: name too long, mkdir ...`.
+  // Filtering out slugs longer than 150 bytes in UTF-8 avoids this build failure.
+  // Articles with longer slugs will still be seamlessly rendered on-demand at runtime via dynamicParams.
+  return articles
+    .filter((a) => a.slug && Buffer.byteLength(a.slug, "utf8") <= 150)
+    .map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
