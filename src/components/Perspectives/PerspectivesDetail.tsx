@@ -37,7 +37,6 @@ export default function PerspectivesDetail({ perspectives = [], isSinglePage = f
         <section className={styles.heroSection}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <span className={styles.categoryTag}>PERSPECTIVES</span>
               {isSinglePage && perspectives.length === 1 ? (
                 <>
                   <h1 className={styles.heroTitle}>{perspectives[0].title}</h1>
