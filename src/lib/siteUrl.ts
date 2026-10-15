@@ -24,7 +24,7 @@ export function getSiteUrl(): string {
 
 export function getFullImageUrl(imagePath?: string | null): string {
   if (!imagePath || !imagePath.trim()) {
-    return `${getSiteUrl()}/og/default.jpg`;
+    return `${getSiteUrl()}/assets/softmind_india.jpg`;
   }
 
   const clean = imagePath.trim();

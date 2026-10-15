@@ -27,32 +27,40 @@ const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Softmind Wellness | Psychologists in Kochi, Thrissur & Across Kerala",
+  title: "Softmind - Evidence-Based & Personalized Psychological Care",
   description:
-    "Softmind Wellness provides evidence-based psychological therapy, counselling, and psychiatric consultations across our centres in Panampilly Nagar, Kakkanad, Thrissur, Aroor, and online in Malayalam and English.",
+    "Softmind is a pioneer in evidence based and personalized mental healthcare, offering psychiatric services, psychological therapy and wellness programs in Kochi and online.",
   openGraph: {
     siteName: "Softmind Wellness",
     locale: "en_IN",
     type: "website",
-    title: "Softmind Wellness | Psychological Care Across Kerala",
+    title: "Softmind - Evidence-Based & Personalized Psychological Care",
     description:
-      "Evidence-based psychological therapy and psychiatric care across centres in Kochi, Thrissur, Aroor, and online.",
+      "Softmind is a pioneer in evidence based and personalized mental healthcare, offering psychiatric services, psychological therapy and wellness programs in Kochi and online.",
     url: siteUrl,
     images: [
+      {
+        url: `${siteUrl}/assets/softmind_india.jpg`,
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Softmind - Evidence-Based & Personalized Psychological Care",
+      },
       {
         url: `${siteUrl}/og/default.jpg`,
         width: 1200,
         height: 630,
-        alt: "Softmind Wellness",
+        type: "image/jpeg",
+        alt: "Softmind - Evidence-Based & Personalized Psychological Care",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Softmind Wellness | Psychological Care Across Kerala",
+    title: "Softmind - Evidence-Based & Personalized Psychological Care",
     description:
-      "Evidence-based psychological therapy and psychiatric care across centres in Kochi, Thrissur, Aroor, and online.",
-    images: [`${siteUrl}/og/default.jpg`],
+      "Softmind is a pioneer in evidence based and personalized mental healthcare, offering psychiatric services, psychological therapy and wellness programs in Kochi and online.",
+    images: [`${siteUrl}/assets/softmind_india.jpg`],
   },
   robots: {
     index: true,
@@ -77,6 +85,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${anekLatin.variable}`}
     >
       <head>
+        <link rel="image_src" href={`${siteUrl}/assets/softmind_india.jpg`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
