@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 import { useBookingModal } from "@/components/BookingModal/BookingModalContext";
 
@@ -44,14 +45,61 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTopBarClosed, setIsTopBarClosed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { openModal } = useBookingModal();
+
+  const closeMenu = () => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
+  };
+
+  // Automatically close mobile menu when navigating to a new page
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
+
+  // Close mobile menu when clicking outside or pressing Escape
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (
+        navRef.current &&
+        !navRef.current.contains(target) &&
+        mobileToggleRef.current &&
+        !mobileToggleRef.current.contains(target)
+      ) {
+        closeMenu();
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileOpen]);
 
   useEffect(() => {
     const updateHeaderHeight = () => {
@@ -177,7 +225,7 @@ export default function Header() {
       </div>
       <div className={styles.container}>
         {/* Logo */}
-        <Link href="/" className={styles.logo} id="siteLogo">
+        <Link href="/" className={styles.logo} id="siteLogo" onClick={closeMenu}>
           {!logoError ? (
             <Image
               src="/assets/logo.png"
@@ -202,7 +250,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className={`${styles.nav} ${mobileOpen ? styles.navOpen : ""}`} id="navMenu">
+        <nav ref={navRef} className={`${styles.nav} ${mobileOpen ? styles.navOpen : ""}`} id="navMenu">
           {navLinks.map((link) => (
             <div
               key={link.label}
@@ -214,6 +262,7 @@ export default function Header() {
                 href={link.href}
                 className={`${styles.navLink} ${openDropdown === link.label ? styles.navLinkActive : ""}`}
                 id={`nav-${link.label.replace(/\s+/g, "-").toLowerCase()}`}
+                onClick={closeMenu}
               >
                 {link.label}
                 {link.dropdown && (
@@ -240,6 +289,7 @@ export default function Header() {
                       href={item.href}
                       className={styles.dropdownItem}
                       id={`dd-${item.label.replace(/\s+/g, "-").toLowerCase()}`}
+                      onClick={closeMenu}
                     >
                       {item.label}
                     </Link>
@@ -254,7 +304,10 @@ export default function Header() {
         <div className={styles.actions}>
 
           <button
-            onClick={openModal}
+            onClick={() => {
+              closeMenu();
+              openModal();
+            }}
             className={styles.btnAppointment}
             id="btn-book-session"
           >
@@ -266,6 +319,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className={styles.headerWhatsAppBtn}
             aria-label="Chat on WhatsApp"
+            onClick={closeMenu}
           >
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.763.459 3.483 1.332 5.001l-1.417 5.176 5.297-1.389c1.463.798 3.111 1.218 4.774 1.218h.004c5.506 0 9.989-4.478 9.99-9.984 0-2.669-1.038-5.176-2.925-7.062a9.925 9.925 0 0 0-7.065-2.944zm5.71 14.162c-.237.667-1.383 1.272-1.905 1.342-.486.065-1.121.093-1.802-.125-.415-.133-.948-.308-1.636-.606-2.883-1.248-4.757-4.177-4.901-4.37-.142-.193-1.168-1.558-1.168-2.97 0-1.412.735-2.107 1.002-2.392.237-.253.52-.317.694-.317.174 0 .348.002.497.009.157.007.368-.06.577.441.213.511.724 1.77.787 1.899.063.129.105.28.021.448-.084.168-.126.272-.252.42-.126.148-.266.33-.38.442-.126.126-.258.263-.111.515.147.253.652 1.077 1.401 1.745.962.859 1.775 1.126 2.028 1.252.253.126.401.105.548-.063.147-.168.631-.737.8-.99.168-.253.337-.21.569-.126.232.084 1.474.695 1.727.821.253.126.421.189.484.295.063.105.063.61-.174 1.277z"/>
@@ -274,6 +328,7 @@ export default function Header() {
 
           {/* Mobile toggle */}
           <button
+            ref={mobileToggleRef}
             className={styles.mobileToggle}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Menu"
@@ -292,6 +347,13 @@ export default function Header() {
           </button>
         </div>
       </div>
+      {mobileOpen && (
+        <div
+          className={styles.navBackdrop}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
     </header>
   );
 }

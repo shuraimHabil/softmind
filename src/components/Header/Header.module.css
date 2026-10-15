@@ -360,6 +360,10 @@
   padding: 4px;
 }
 
+.navBackdrop {
+  display: none;
+}
+
 /* ── Mobile ─────────────────── */
 @media (max-width: 1024px) {
   .header {
@@ -370,6 +374,9 @@
     padding: 0 16px;
     height: 60px;
     gap: 10px;
+    position: relative;
+    z-index: 1003;
+    background: #ffffff;
   }
 
   .header.sticky .container {
@@ -424,6 +431,22 @@
     gap: 8px;
     border-bottom: 1px solid rgba(13, 148, 136, 0.1);
     box-shadow: var(--shadow-lg);
+    z-index: 1002;
+  }
+
+  .navBackdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: 1001;
+    cursor: pointer;
   }
 }
 
@@ -469,11 +492,17 @@
   }
 
   .logoImg {
-    height: 34px;
+    height: 30px;
+    max-width: 100px;
+  }
+
+  .actions {
+    gap: 6px;
   }
 
   .btnAppointment {
-    padding: 5px 10px;
-    font-size: 0.7rem;
+    padding: 5px 8px;
+    font-size: 0.68rem;
+    white-space: nowrap;
   }
 }
