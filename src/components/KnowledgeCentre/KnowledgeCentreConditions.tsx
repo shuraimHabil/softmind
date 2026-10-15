@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { conditions } from "@/lib/conditions";
 import styles from "./KnowledgeCentreConditions.module.css";
@@ -34,6 +34,34 @@ const CATEGORY_MAP: Record<string, string[]> = {
 
 export default function KnowledgeCentreConditions() {
   const [activeCategory, setActiveCategory] = useState("Anxiety and stress");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get("category");
+      if (catParam) {
+        const decoded = decodeURIComponent(catParam).trim().toLowerCase();
+        const found = CATEGORIES.find(
+          (c) =>
+            c.toLowerCase() === decoded ||
+            c.toLowerCase().includes(decoded) ||
+            decoded.includes(c.toLowerCase())
+        );
+        if (found) {
+          setActiveCategory(found);
+        }
+      }
+
+      if (window.location.hash === "#conditions") {
+        setTimeout(() => {
+          const el = document.getElementById("conditions");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
+    }
+  }, []);
 
   const filtered = conditions.filter((c) => {
     const mapped = CATEGORY_MAP[activeCategory] ?? [];

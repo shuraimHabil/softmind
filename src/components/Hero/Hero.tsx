@@ -6,8 +6,8 @@ import styles from "./Hero.module.css";
 const stats = [
   {
     id: "years",
-    primary: "15+",
-    label: "Years",
+    primary: "15+ Years",
+    label: "",
     sublabel: "Established 2011",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,8 +21,8 @@ const stats = [
   },
   {
     id: "clinicians",
-    primary: "35+",
-    label: "Clinicians",
+    primary: "35+ Clinicians",
+    label: "",
     sublabel: "Multidisciplinary Expertise",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

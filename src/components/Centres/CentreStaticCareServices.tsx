@@ -212,7 +212,6 @@ export default function CentreStaticCareServices() {
         {/* Top Header Row with Title + Segmented Switcher */}
         <div className={styles.headerRow}>
           <div className={styles.titleCol}>
-            <span className={styles.eyebrow}>SERVICES &amp; CLINICAL APPROACH</span>
             <h2 className={styles.mainTitle}>Our Care</h2>
           </div>
 

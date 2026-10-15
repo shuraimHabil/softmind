@@ -7,6 +7,21 @@ import type { Article } from "@/lib/articles";
 import SearchBar from "../ui/SearchBar";
 import styles from "./ArticlesBrowser.module.css";
 
+const ARTICLES_PER_PAGE = 12;
+
+function getPageNumbers(current: number, total: number): (number | string)[] {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+  if (current <= 3) {
+    return [1, 2, 3, 4, "...", total];
+  }
+  if (current >= total - 2) {
+    return [1, "...", total - 3, total - 2, total - 1, total];
+  }
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
 interface ArticlesBrowserProps {
   articles: Article[];
   categories: string[];
@@ -165,6 +180,27 @@ export default function ArticlesBrowser({
       return matchesCategory && matchesLanguage && matchesDoctor && matchesSearch;
     });
   }, [articles, selectedCategories, selectedLanguages, selectedDoctors, searchQuery]);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategories, selectedLanguages, selectedDoctors, searchQuery]);
+
+  const totalPages = Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE);
+  const validCurrentPage = Math.max(1, Math.min(currentPage, totalPages || 1));
+  const startIndex = (validCurrentPage - 1) * ARTICLES_PER_PAGE;
+  const paginatedArticles = filteredArticles.slice(startIndex, startIndex + ARTICLES_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages || page === validCurrentPage) return;
+    setCurrentPage(page);
+    const element = document.getElementById("articles-results-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   // Counts for each category
   const getCategoryCount = (cat: string) => {
@@ -428,7 +464,7 @@ export default function ArticlesBrowser({
             )}
 
             {/* Status Bar */}
-            <div className={styles.statusBar}>
+            <div className={styles.statusBar} id="articles-results-section">
               <div className={styles.statusBarMain}>
                 <div className={styles.statusBarLeft}>
                   <button
@@ -510,62 +546,120 @@ export default function ArticlesBrowser({
 
             {/* Articles Grid */}
             {filteredArticles.length > 0 ? (
-              <div className={styles.grid}>
-                {filteredArticles.map((art) => (
-                  <Link
-                    key={art.slug}
-                    href={`/articles/${art.slug}`}
-                    className={styles.card}
-                    id={`article-card-${art.slug}`}
-                    lang={art.language === "Malayalam" ? "ml" : "en"}
-                    data-language={art.language}
-                  >
-                    <div className={styles.cardImgWrap}>
-                      <Image
-                        src={art.img}
-                        alt={art.title}
-                        fill
-                        className={styles.cardImg}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                    <div className={styles.cardBody}>
-                      <h3
-                        className={`${styles.cardTitle} ${
-                          art.language === "Malayalam" ? styles.malayalamTitle : ""
-                        }`}
-                      >
-                        {art.title}
-                      </h3>
-                      <p
-                        className={`${styles.cardExcerpt} ${
-                          art.language === "Malayalam" ? styles.malayalamExcerpt : ""
-                        }`}
-                      >
-                        {art.excerpt}
-                      </p>
-                      <div className={styles.cardMeta}>
-                        <span>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle", marginRight: "5px", color: "var(--primary)" }}>
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                          </svg>
-                          {art.author}
-                        </span>
-                        <span>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle", marginRight: "5px", color: "var(--primary)" }}>
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                          </svg>
-                          {art.reviewedDate}
-                        </span>
+              <>
+                <div className={styles.grid}>
+                  {paginatedArticles.map((art) => (
+                    <Link
+                      key={art.slug}
+                      href={`/articles/${art.slug}`}
+                      className={styles.card}
+                      id={`article-card-${art.slug}`}
+                      lang={art.language === "Malayalam" ? "ml" : "en"}
+                      data-language={art.language}
+                    >
+                      <div className={styles.cardImgWrap}>
+                        <Image
+                          src={art.img}
+                          alt={art.title}
+                          fill
+                          className={styles.cardImg}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
                       </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                      <div className={styles.cardBody}>
+                        <h3
+                          className={`${styles.cardTitle} ${
+                            art.language === "Malayalam" ? styles.malayalamTitle : ""
+                          }`}
+                        >
+                          {art.title}
+                        </h3>
+                        <p
+                          className={`${styles.cardExcerpt} ${
+                            art.language === "Malayalam" ? styles.malayalamExcerpt : ""
+                          }`}
+                        >
+                          {art.excerpt}
+                        </p>
+                        <div className={styles.cardMeta}>
+                          <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle", marginRight: "5px", color: "var(--primary)" }}>
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            {art.author}
+                          </span>
+                          <span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle", marginRight: "5px", color: "var(--primary)" }}>
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            {art.reviewedDate}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {totalPages > 1 && (
+                  <div className={styles.paginationWrap}>
+                    <p className={styles.paginationInfo}>
+                      Showing {startIndex + 1}–{Math.min(startIndex + ARTICLES_PER_PAGE, filteredArticles.length)} of {filteredArticles.length} articles
+                    </p>
+                    <nav className={styles.pagination} aria-label="Articles pagination">
+                      <button
+                        type="button"
+                        className={styles.pageBtn}
+                        onClick={() => handlePageChange(validCurrentPage - 1)}
+                        disabled={validCurrentPage === 1}
+                        aria-label="Previous page"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                        <span>Previous</span>
+                      </button>
+
+                      <div className={styles.pageNumbers}>
+                        {getPageNumbers(validCurrentPage, totalPages).map((p, idx) =>
+                          p === "..." ? (
+                            <span key={`ellipsis-${idx}`} className={styles.ellipsis} aria-hidden="true">
+                              &hellip;
+                            </span>
+                          ) : (
+                            <button
+                              key={`page-${p}`}
+                              type="button"
+                              className={`${styles.pageNumberBtn} ${p === validCurrentPage ? styles.activePage : ""}`}
+                              onClick={() => handlePageChange(Number(p))}
+                              aria-current={p === validCurrentPage ? "page" : undefined}
+                              aria-label={`Page ${p}`}
+                            >
+                              {p}
+                            </button>
+                          )
+                        )}
+                      </div>
+
+                      <button
+                        type="button"
+                        className={styles.pageBtn}
+                        onClick={() => handlePageChange(validCurrentPage + 1)}
+                        disabled={validCurrentPage === totalPages}
+                        aria-label="Next page"
+                      >
+                        <span>Next</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </button>
+                    </nav>
+                  </div>
+                )}
+              </>
             ) : (
               <div className={styles.emptyState}>
                 <h3 className={styles.emptyTitle}>No matching articles found</h3>

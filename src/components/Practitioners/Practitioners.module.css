@@ -193,37 +193,14 @@
   overflow: hidden;
 }
 
-/* ── Bottom Row (Dots & View All) ── */
+/* ── Bottom Row (View All) ── */
 .bottomRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 24px;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-.dots {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background: #cbd5e1;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.dotActive {
-  width: 24px;
-  background: var(--primary);
-  border-radius: 4px;
 }
 
 .viewAllBtn {

@@ -43,7 +43,11 @@ interface RawArticle {
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://devsoftminderp.m.frappe.cloud";
-const ARTICLES_ENDPOINT = `${BASE_URL}/api/method/softmind_custom.cms_api.get_cms_api.get_published_articles`;
+const ARTICLES_ENDPOINT = `${BASE_URL}/api/method/softmind_custom.cms_api.get_cms_api.get_published_articles?limit=0`;
+
+const KNOWN_ARTICLE_AUTHORS: Record<string, string> = {
+  "autism-spectrum-disorder---early-identification-and-behavioural-support": "Hamna K S",
+};
 
 /** Format a raw published_on timestamp to a readable date e.g. "Sep 25, 2026" */
 function formatDate(raw: string): string {
@@ -135,6 +139,9 @@ function mapArticle(raw: RawArticle): Article {
   const isMalayalam = /[\u0D00-\u0D7F]/.test(raw.title || "");
   const category = raw.category && raw.category.trim() !== "" ? raw.category : inferCategory(raw.title);
 
+  const rawAuthor = raw.author && raw.author.trim() !== "" ? raw.author : undefined;
+  const matchedAuthor = rawAuthor || KNOWN_ARTICLE_AUTHORS[raw.slug] || KNOWN_ARTICLE_AUTHORS[raw.name] || "Prasad Amore";
+
   return {
     slug: sanitizeSlug(raw.slug || raw.name || raw.title || ""),
     badge: raw.badge || category,
@@ -142,7 +149,7 @@ function mapArticle(raw: RawArticle): Article {
     language: (raw.language === "Malayalam" || isMalayalam ? "Malayalam" : "English") as Article["language"],
     title: raw.title,
     excerpt: raw.excerpt ?? "",
-    author: toTitleCase(raw.author ?? "Prasad Amore"),
+    author: toTitleCase(matchedAuthor),
     authorRole: raw.author_role ?? "Clinical Specialist",
     readTime: raw.read_time ?? estimateReadTime(raw.content ?? ""),
     reviewedDate: formatDate(raw.published_on),

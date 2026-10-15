@@ -148,7 +148,6 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
   }
 
   const translateX = -(currentIndex * (cardWidth + GAP));
-  const activeDotIndex = ((currentIndex % items.length) + items.length) % items.length;
 
   return (
     <div className={styles.sliderRoot}>
@@ -202,23 +201,8 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
         </div>
       </div>
 
-      {/* Bottom Row: Position Dots + View All Button */}
+      {/* Bottom Row: View All Button */}
       <div className={styles.bottomRow}>
-        <div className={styles.dots} aria-hidden="true">
-          {items.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              className={`${styles.dot} ${i === activeDotIndex ? styles.dotActive : ""}`}
-              onClick={() => {
-                setEnableTransition(true);
-                setCurrentIndex(items.length + i);
-              }}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-
         <Link href="/clinicians" className={styles.viewAllBtn}>
           View All Clinicians &rarr;
         </Link>

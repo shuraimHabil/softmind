@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "./online-consultation.module.css";
 import { useBookingModal } from "@/components/BookingModal/BookingModalContext";
@@ -12,18 +13,19 @@ interface OnlineConsultationViewProps {
 }
 
 const column1Items = [
-  { label: "Anxiety & Stress", href: "/conditions/anxiety" },
-  { label: "Fear & Panic", href: "/conditions/panic-attacks" },
-  { label: "Low Mood & Emotional Difficulties", href: "/conditions/depression" },
+  { label: "Anxiety & Stress", href: "/knowledge-centre?category=Anxiety and stress#conditions" },
+  { label: "Fear & Panic", href: "/knowledge-centre?category=Anxiety and stress#conditions" },
+  { label: "Low Mood & Emotional Difficulties", href: "/knowledge-centre?category=Mood#conditions" },
 ];
 
 const column2Items = [
-  { label: "Recurring Thoughts & Behaviours", href: "/conditions/ocd" },
-  { label: "Relationship Difficulties", href: "/conditions/relationship-issues" },
-  { label: "Life Changes & Personal Challenges", href: "/conditions/stress-management" },
+  { label: "Recurring Thoughts & Behaviours", href: "/knowledge-centre?category=Obsessions and compulsions#conditions" },
+  { label: "Relationship Difficulties", href: "/knowledge-centre#conditions" },
+  { label: "Life Changes & Personal Challenges", href: "/knowledge-centre#conditions" },
 ];
 
 export default function OnlineConsultationView({ clinicians }: OnlineConsultationViewProps) {
+  const router = useRouter();
   const { openModal } = useBookingModal();
   const [imgErrors, setImgErrors] = useState<Record<string | number, boolean>>({});
 
@@ -72,16 +74,27 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
       </section>
 
       {/* 2. WHAT BRINGS YOU HERE SECTION */}
-      <section className={styles.bringsSection}>
+      <section
+        className={styles.bringsSection}
+        onClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (!target.closest("a")) {
+            router.push("/knowledge-centre#conditions");
+          }
+        }}
+      >
         <div className={styles.container}>
-          <h2 className={styles.bringsTitle}>What brings you here?</h2>
+          <h2 className={styles.bringsTitle}>
+            <Link href="/knowledge-centre#conditions" className={styles.titleLink}>
+              What brings you here?
+            </Link>
+          </h2>
           <div className={styles.concernsGrid}>
             <div className={styles.concernCol}>
               {column1Items.map((item) => (
-                <button
+                <Link
                   key={item.label}
-                  type="button"
-                  onClick={() => openModal("online")}
+                  href={item.href}
                   className={styles.concernItem}
                 >
                   <span>{item.label}</span>
@@ -89,16 +102,15 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </button>
+                </Link>
               ))}
             </div>
 
             <div className={styles.concernCol}>
               {column2Items.map((item) => (
-                <button
+                <Link
                   key={item.label}
-                  type="button"
-                  onClick={() => openModal("online")}
+                  href={item.href}
                   className={styles.concernItem}
                 >
                   <span>{item.label}</span>
@@ -106,7 +118,7 @@ export default function OnlineConsultationView({ clinicians }: OnlineConsultatio
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </button>
+                </Link>
               ))}
             </div>
           </div>

@@ -183,6 +183,109 @@
   overflow: hidden;
 }
 
+/* ── Pagination ── */
+.paginationWrap {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.paginationInfo {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pageBtn {
+  height: 40px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #1a3330;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #f0fdfa;
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+  color: #94a3b8;
+}
+
+.pageNumbers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pageNumberBtn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #1a3330;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageNumberBtn:hover:not(.activePage) {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #f0fdfa;
+}
+
+.activePage {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: default;
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 40px;
+  color: #94a3b8;
+  font-weight: 600;
+  user-select: none;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1100px) {
   .grid {
@@ -195,6 +298,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+}
+
 @media (max-width: 960px) {
   .heading {
     font-size: clamp(1.5rem, 7vw, 1.9rem);
@@ -262,5 +367,32 @@
     font-size: 0.76rem;
     margin-bottom: 8px;
     -webkit-line-clamp: 2;
+  }
+
+  .paginationWrap {
+    margin-top: 32px;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .paginationInfo {
+    font-size: 0.8rem;
+  }
+
+  .pageBtn {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+
+  .pageNumberBtn {
+    width: 34px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .ellipsis {
+    width: 20px;
+    height: 36px;
   }
 }
