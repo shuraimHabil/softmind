@@ -7,6 +7,8 @@ import { BookingModalProvider } from "@/components/BookingModal/BookingModalCont
 import BookingModal from "@/components/BookingModal/BookingModal";
 import ChatBot from "@/components/ChatBot/ChatBot";
 
+import { getSiteUrl } from "@/lib/siteUrl";
+
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
@@ -21,8 +23,10 @@ const anekLatin = Anek_Latin({
   display: "swap",
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.softmindindia.com"),
+  metadataBase: new URL(siteUrl),
   title: "Softmind Wellness | Psychologists in Kochi, Thrissur & Across Kerala",
   description:
     "Softmind Wellness provides evidence-based psychological therapy, counselling, and psychiatric consultations across our centres in Panampilly Nagar, Kakkanad, Thrissur, Aroor, and online in Malayalam and English.",
@@ -33,10 +37,10 @@ export const metadata: Metadata = {
     title: "Softmind Wellness | Psychological Care Across Kerala",
     description:
       "Evidence-based psychological therapy and psychiatric care across centres in Kochi, Thrissur, Aroor, and online.",
-    url: "https://www.softmindindia.com",
+    url: siteUrl,
     images: [
       {
-        url: "https://www.softmindindia.com/og/default.jpg",
+        url: `${siteUrl}/og/default.jpg`,
         width: 1200,
         height: 630,
         alt: "Softmind Wellness",
@@ -48,7 +52,7 @@ export const metadata: Metadata = {
     title: "Softmind Wellness | Psychological Care Across Kerala",
     description:
       "Evidence-based psychological therapy and psychiatric care across centres in Kochi, Thrissur, Aroor, and online.",
-    images: ["https://www.softmindindia.com/og/default.jpg"],
+    images: [`${siteUrl}/og/default.jpg`],
   },
   robots: {
     index: true,
@@ -56,7 +60,7 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
   },
   alternates: {
-    canonical: "https://www.softmindindia.com",
+    canonical: siteUrl,
   },
 };
 

@@ -8,6 +8,7 @@ import JsonLd, {
 } from "@/components/SEO/JsonLd";
 import styles from "./conditionDetail.module.css";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 export async function generateStaticParams() {
   return conditions.map((c) => ({ slug: c.slug }));
@@ -22,9 +23,10 @@ export async function generateMetadata({
   const condition = getConditionBySlug(slug);
   if (!condition) return {};
 
+  const siteUrl = getSiteUrl();
   const title = `${condition.name} – Symptoms, Assessment & Treatment | Softmind Wellness`;
   const description = condition.metaDescription;
-  const canonicalUrl = `https://www.softmindindia.com/conditions/${condition.slug}`;
+  const canonicalUrl = `${siteUrl}/conditions/${condition.slug}`;
 
   return {
     title,
@@ -39,7 +41,7 @@ export async function generateMetadata({
       type: "article",
       images: [
         {
-          url: "https://www.softmindindia.com/og/default.jpg",
+          url: `${siteUrl}/og/default.jpg`,
           width: 1200,
           height: 630,
           alt: `${condition.name} Clinical Guide`,
@@ -50,7 +52,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["https://www.softmindindia.com/og/default.jpg"],
+      images: [`${siteUrl}/og/default.jpg`],
     },
   };
 }
@@ -64,19 +66,20 @@ export default async function ConditionDetailPage({
   const condition = getConditionBySlug(slug);
   if (!condition) notFound();
 
+  const siteUrl = getSiteUrl();
   const breadcrumbs = [
-    { name: "Home", url: "https://www.softmindindia.com" },
-    { name: "Conditions", url: "https://www.softmindindia.com/conditions" },
+    { name: "Home", url: siteUrl },
+    { name: "Conditions", url: `${siteUrl}/conditions` },
     {
       name: condition.name,
-      url: `https://www.softmindindia.com/conditions/${condition.slug}`,
+      url: `${siteUrl}/conditions/${condition.slug}`,
     },
   ];
 
   const breadcrumbsLd = generateBreadcrumbsLd(breadcrumbs);
   const conditionLd = generateConditionLd({
     name: condition.name,
-    url: `https://www.softmindindia.com/conditions/${condition.slug}`,
+    url: `${siteUrl}/conditions/${condition.slug}`,
     description: condition.whatItIs,
     commonSigns: condition.commonSigns,
   });

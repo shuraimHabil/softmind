@@ -9,6 +9,7 @@ import JsonLd, {
   generateBreadcrumbsLd,
   generateCentreLd,
 } from "@/components/SEO/JsonLd";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 interface CentrePageProps {
   params: Promise<{ id: string }>;
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: CentrePageProps): Promise<Met
     };
   }
 
-  const canonicalUrl = `https://www.softmindindia.com/centres/${centre.slug}`;
+  const siteUrl = getSiteUrl();
+  const canonicalUrl = `${siteUrl}/centres/${centre.slug}`;
   const title = `Softmind ${centre.shortName} – Mental Health Centre in ${centre.city}`;
   const description = centre.tagline;
 
@@ -51,7 +53,7 @@ export async function generateMetadata({ params }: CentrePageProps): Promise<Met
       type: "website",
       images: [
         {
-          url: "https://www.softmindindia.com/og/default.jpg",
+          url: `${siteUrl}/og/default.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -62,7 +64,7 @@ export async function generateMetadata({ params }: CentrePageProps): Promise<Met
       card: "summary_large_image",
       title,
       description,
-      images: ["https://www.softmindindia.com/og/default.jpg"],
+      images: [`${siteUrl}/og/default.jpg`],
     },
     alternates: {
       canonical: canonicalUrl,
@@ -81,19 +83,20 @@ export default async function CentreDetailPage({ params }: CentrePageProps) {
   const allCentres = await fetchCentres();
   const clinicians = await fetchClinicians();
 
+  const siteUrl = getSiteUrl();
   const breadcrumbs = [
-    { name: "Home", url: "https://www.softmindindia.com" },
-    { name: "Centres", url: "https://www.softmindindia.com/centres" },
+    { name: "Home", url: siteUrl },
+    { name: "Centres", url: `${siteUrl}/centres` },
     {
       name: centre.shortName,
-      url: `https://www.softmindindia.com/centres/${centre.slug}`,
+      url: `${siteUrl}/centres/${centre.slug}`,
     },
   ];
 
   const breadcrumbsLd = generateBreadcrumbsLd(breadcrumbs);
   const centreLd = generateCentreLd({
     name: centre.name,
-    url: `https://www.softmindindia.com/centres/${centre.slug}`,
+    url: `${siteUrl}/centres/${centre.slug}`,
     phone: centre.phone,
     fullAddress: centre.fullAddress,
     city: centre.city,

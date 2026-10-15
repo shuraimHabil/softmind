@@ -12,6 +12,7 @@ import JsonLd, {
   generateBreadcrumbsLd,
   generateClinicianLd,
 } from "@/components/SEO/JsonLd";
+import { getSiteUrl, getFullImageUrl } from "@/lib/siteUrl";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
@@ -30,14 +31,16 @@ export async function generateMetadata({
   const clinician = await fetchClinicianBySlug(id);
   if (!clinician) return {};
 
+  const siteUrl = getSiteUrl();
   const nameParts = clinician.name.replace(/^Dr\.\s*/, "").split(" ");
   const firstName = nameParts[0] ?? clinician.name;
   const lastName = nameParts.slice(1).join(" ") || "";
-  const canonicalUrl = `https://www.softmindindia.com/clinicians/${clinician.slug}`;
+  const canonicalUrl = `${siteUrl}/clinicians/${clinician.slug}`;
   const title = `${clinician.name} – ${clinician.role} | Softmind Wellness`;
   const description =
     clinician.tagline ||
     `${clinician.name} is a ${clinician.role} at Softmind Wellness, providing evidence-based psychological care.`;
+  const imageUrl = getFullImageUrl(clinician.img);
 
   return {
     title,
@@ -49,7 +52,7 @@ export async function generateMetadata({
       type: "profile",
       images: [
         {
-          url: "https://www.softmindindia.com/og/default.jpg",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -60,7 +63,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["https://www.softmindindia.com/og/default.jpg"],
+      images: [imageUrl],
     },
     alternates: {
       canonical: canonicalUrl,
@@ -102,12 +105,13 @@ export default async function ClinicianDetailPage({
     );
   });
 
+  const siteUrl = getSiteUrl();
   const breadcrumbs = [
-    { name: "Home", url: "https://www.softmindindia.com" },
-    { name: "Clinicians", url: "https://www.softmindindia.com/clinicians" },
+    { name: "Home", url: siteUrl },
+    { name: "Clinicians", url: `${siteUrl}/clinicians` },
     {
       name: clinician.name,
-      url: `https://www.softmindindia.com/clinicians/${clinician.slug}`,
+      url: `${siteUrl}/clinicians/${clinician.slug}`,
     },
   ];
 

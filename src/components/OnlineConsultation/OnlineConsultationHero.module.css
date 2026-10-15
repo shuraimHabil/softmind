@@ -1,5 +1,5 @@
 .hero {
-  padding: 130px 0 60px;
+  padding: calc(var(--header-height, 108px) + 60px) 0 60px;
   background-color: #fafbf9;
   position: relative;
 }
@@ -185,7 +185,7 @@
   }
 
   .hero {
-    padding: 110px 0 50px;
+    padding: calc(var(--header-height, 108px) + 40px) 0 50px;
   }
 }
 

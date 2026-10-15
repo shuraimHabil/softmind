@@ -8,6 +8,7 @@ import JsonLd, {
   generateBreadcrumbsLd,
   generateArticleLd,
 } from "@/components/SEO/JsonLd";
+import { getSiteUrl, getFullImageUrl } from "@/lib/siteUrl";
 
 export const dynamicParams = true;
 
@@ -29,9 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const article = await fetchArticleBySlug(slug);
   if (!article) return {};
 
-  const canonicalUrl = `https://www.softmindindia.com/articles/${slug}`;
+  const siteUrl = getSiteUrl();
+  const canonicalUrl = `${siteUrl}/articles/${slug}`;
   const title = `${article.title} | Softmind Wellness`;
-  const description = article.excerpt;
+  const description = article.excerpt || article.title;
+  const imageUrl = getFullImageUrl(article.img);
 
   const publishedDate = article.reviewedDate
     ? new Date(article.reviewedDate).toISOString()
@@ -47,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
       images: [
         {
-          url: "https://www.softmindindia.com/og/default.jpg",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -60,7 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title,
       description,
-      images: ["https://www.softmindindia.com/og/default.jpg"],
+      images: [imageUrl],
     },
     alternates: {
       canonical: canonicalUrl,
@@ -78,14 +81,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   if (!article) notFound();
 
+  const siteUrl = getSiteUrl();
+  const imageUrl = getFullImageUrl(article.img);
   const related = allArticles.filter((a) => a.slug !== slug).slice(0, 5);
 
   const breadcrumbs = [
-    { name: "Home", url: "https://www.softmindindia.com" },
-    { name: "Articles", url: "https://www.softmindindia.com/articles" },
+    { name: "Home", url: siteUrl },
+    { name: "Articles", url: `${siteUrl}/articles` },
     {
       name: article.title,
-      url: `https://www.softmindindia.com/articles/${article.slug}`,
+      url: `${siteUrl}/articles/${article.slug}`,
     },
   ];
 
@@ -97,8 +102,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       ? new Date(article.reviewedDate).toISOString()
       : "2026-07-21T00:00:00.000Z",
     author: article.author || "Softmind Wellness Team",
-    url: `https://www.softmindindia.com/articles/${article.slug}`,
-    image: "https://www.softmindindia.com/og/default.jpg",
+    url: `${siteUrl}/articles/${article.slug}`,
+    image: imageUrl,
   });
 
   return (

@@ -6,6 +6,7 @@ import JsonLd, {
   generateFaqLd,
 } from "@/components/SEO/JsonLd";
 import styles from "./careService.module.css";
+import { getSiteUrl } from "@/lib/siteUrl";
 
 export async function generateStaticParams() {
   return careServices.map((s) => ({ slug: s.slug }));
@@ -20,11 +21,12 @@ export async function generateMetadata({
   const service = getCareServiceBySlug(slug);
   if (!service) return {};
 
+  const siteUrl = getSiteUrl();
   const title = `${service.title} | Softmind Wellness`;
   const description =
     service.intro ||
     `Evidence-based ${service.title.toLowerCase()} provided by qualified psychologists and psychiatrists at Softmind Wellness in Kerala and online.`;
-  const canonicalUrl = `https://www.softmindindia.com/our-care/${service.slug}`;
+  const canonicalUrl = `${siteUrl}/our-care/${service.slug}`;
 
   return {
     title,
@@ -39,7 +41,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "https://www.softmindindia.com/og/default.jpg",
+          url: `${siteUrl}/og/default.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -50,7 +52,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["https://www.softmindindia.com/og/default.jpg"],
+      images: [`${siteUrl}/og/default.jpg`],
     },
   };
 }
@@ -64,12 +66,13 @@ export default async function CareServicePage({
   const service = getCareServiceBySlug(slug);
   if (!service) notFound();
 
+  const siteUrl = getSiteUrl();
   const breadcrumbs = [
-    { name: "Home", url: "https://www.softmindindia.com" },
-    { name: "Our Care", url: "https://www.softmindindia.com/our-care" },
+    { name: "Home", url: siteUrl },
+    { name: "Our Care", url: `${siteUrl}/our-care` },
     {
       name: service.title,
-      url: `https://www.softmindindia.com/our-care/${service.slug}`,
+      url: `${siteUrl}/our-care/${service.slug}`,
     },
   ];
 

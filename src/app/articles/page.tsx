@@ -6,6 +6,10 @@ import {
 import ArticlesBrowser from "@/components/ArticlesBrowser/ArticlesBrowser";
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
+import { getSiteUrl } from "@/lib/siteUrl";
+
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
   title: "Browse Clinical Articles | Softmind Healthcare",
   description:
@@ -14,11 +18,11 @@ export const metadata: Metadata = {
     title: "Browse Clinical Articles | Softmind Healthcare",
     description:
       "Explore evidence-based mental health articles, psychology research, and clinical insights curated by Softmind's licensed specialists in Kerala.",
-    url: "https://www.softmindindia.com/articles",
+    url: `${siteUrl}/articles`,
     type: "website",
     images: [
       {
-        url: "https://www.softmindindia.com/og/default.jpg",
+        url: `${siteUrl}/og/default.jpg`,
         width: 1200,
         height: 630,
         alt: "Browse Clinical Articles | Softmind Healthcare",
@@ -30,10 +34,10 @@ export const metadata: Metadata = {
     title: "Browse Clinical Articles | Softmind Healthcare",
     description:
       "Explore evidence-based mental health articles, psychology research, and clinical insights curated by Softmind's licensed specialists in Kerala.",
-    images: ["https://www.softmindindia.com/og/default.jpg"],
+    images: [`${siteUrl}/og/default.jpg`],
   },
   alternates: {
-    canonical: "https://www.softmindindia.com/articles",
+    canonical: `${siteUrl}/articles`,
   },
 };
 
