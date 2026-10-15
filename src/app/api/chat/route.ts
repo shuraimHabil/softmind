@@ -1,6 +1,9 @@
-﻿import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { checkInputGuardrails } from "@/lib/guardrails";
 import { streamGrokChat, ChatMessage } from "@/lib/grok";
+
+export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export async function POST(req: NextRequest) {
   try {
