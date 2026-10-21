@@ -64,6 +64,23 @@ function formatDate(raw: string): string {
   }
 }
 
+/** Clean HTML tags, inline styles, and entities from excerpt */
+export function cleanExcerpt(raw: string): string {
+  if (!raw) return "";
+  return raw
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 /** Estimate read time from plain-text content */
 function estimateReadTime(html: string): string {
   const text = html.replace(/<[^>]+>/g, " ");
@@ -151,6 +168,9 @@ function mapArticle(raw: RawArticle): Article {
     ? sanitizeSlug(rawCustomSlug)
     : sanitizeSlug(raw.slug || raw.name || raw.title || "");
 
+  const cleanedExcerpt = cleanExcerpt(raw.excerpt ?? "");
+  const effectiveExcerpt = cleanedExcerpt || cleanExcerpt(sections[0]?.body ?? "");
+
   return {
     slug: effectiveSlug,
     websiteSlug: rawCustomSlug || undefined,
@@ -160,13 +180,13 @@ function mapArticle(raw: RawArticle): Article {
     category,
     language: (raw.language === "Malayalam" || isMalayalam ? "Malayalam" : "English") as Article["language"],
     title: raw.title,
-    excerpt: raw.excerpt ?? "",
+    excerpt: effectiveExcerpt,
     author: toTitleCase(matchedAuthor),
     authorRole: raw.author_role ?? "Clinical Specialist",
     readTime: raw.read_time ?? estimateReadTime(raw.content ?? ""),
     reviewedDate: formatDate(raw.published_on),
     img: raw.feature_image || "/assets/anxiety_hero.jpg",
-    widerView: raw.excerpt ?? "",
+    widerView: effectiveExcerpt,
     toc,
     sections,
     content: processedHTML,
