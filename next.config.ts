@@ -10,11 +10,23 @@ const nextConfig: NextConfig = {
     "localhost:3000",
   ],
   async redirects() {
-    return redirectsData.map((r) => ({
-      source: r.source,
-      destination: r.destination,
-      permanent: r.permanent,
-    }));
+    return [
+      ...redirectsData.map((r) => ({
+        source: r.source,
+        destination: r.destination,
+        permanent: r.permanent,
+      })),
+      {
+        source: "/Blog/:slug*",
+        destination: "/articles/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug*",
+        destination: "/articles/:slug*",
+        permanent: true,
+      },
+    ];
   },
   images: {
     dangerouslyAllowSVG: true,

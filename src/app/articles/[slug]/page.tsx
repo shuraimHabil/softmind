@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { fetchPublishedArticles, fetchArticleBySlug } from "@/lib/articles";
 import ArticleHero from "@/components/Article/ArticleHero";
 import ArticleBody from "@/components/Article/ArticleBody";
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) return {};
 
   const siteUrl = getSiteUrl();
-  const canonicalUrl = `${siteUrl}/articles/${slug}`;
+  const canonicalUrl = `${siteUrl}/articles/${article.slug}`;
   const title = `${article.title} | Softmind Wellness`;
   const description = article.excerpt || article.title;
   const imageUrl = getFullImageUrl(article.img);
@@ -81,9 +81,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   if (!article) notFound();
 
+  // If accessed by an older alias/raw slug or name, redirect to canonical custom slug
+  const decodedSlug = decodeURIComponent(slug).trim().toLowerCase();
+  if (article.slug && decodedSlug !== article.slug.toLowerCase()) {
+    redirect(`/articles/${article.slug}`);
+  }
+
   const siteUrl = getSiteUrl();
   const imageUrl = getFullImageUrl(article.img);
-  const related = allArticles.filter((a) => a.slug !== slug).slice(0, 5);
+  const related = allArticles.filter((a) => a.slug !== article.slug).slice(0, 5);
 
   const breadcrumbs = [
     { name: "Home", url: siteUrl },

@@ -6,6 +6,9 @@ export interface ArticleSection {
 
 export interface Article {
   slug: string;
+  websiteSlug?: string;
+  rawSlug?: string;
+  rawName?: string;
   badge: string;
   category: string;
   language: "English" | "Malayalam";
@@ -28,6 +31,7 @@ interface RawArticle {
   name: string;
   title: string;
   slug: string;
+  website_slug?: string | null;
   excerpt: string;
   content: string;          // HTML string
   feature_image: string;
@@ -142,8 +146,16 @@ function mapArticle(raw: RawArticle): Article {
   const rawAuthor = raw.author && raw.author.trim() !== "" ? raw.author : undefined;
   const matchedAuthor = rawAuthor || KNOWN_ARTICLE_AUTHORS[raw.slug] || KNOWN_ARTICLE_AUTHORS[raw.name] || "Prasad Amore";
 
+  const rawCustomSlug = raw.website_slug?.trim();
+  const effectiveSlug = rawCustomSlug
+    ? sanitizeSlug(rawCustomSlug)
+    : sanitizeSlug(raw.slug || raw.name || raw.title || "");
+
   return {
-    slug: sanitizeSlug(raw.slug || raw.name || raw.title || ""),
+    slug: effectiveSlug,
+    websiteSlug: rawCustomSlug || undefined,
+    rawSlug: raw.slug || undefined,
+    rawName: raw.name || undefined,
     badge: raw.badge || category,
     category,
     language: (raw.language === "Malayalam" || isMalayalam ? "Malayalam" : "English") as Article["language"],
@@ -182,8 +194,20 @@ export async function fetchPublishedArticles(): Promise<Article[]> {
 /** Fetch a single article by slug from the CMS API */
 export async function fetchArticleBySlug(slug: string): Promise<Article | undefined> {
   const articles = await fetchPublishedArticles();
-  const normalizedInput = sanitizeSlug(decodeURIComponent(slug));
-  return articles.find((a) => sanitizeSlug(a.slug) === normalizedInput);
+  const decoded = decodeURIComponent(slug).trim();
+  const normalizedInput = sanitizeSlug(decoded);
+
+  return articles.find((a) => {
+    if (sanitizeSlug(a.slug) === normalizedInput) return true;
+    if (a.websiteSlug && sanitizeSlug(a.websiteSlug) === normalizedInput) return true;
+    if (a.rawSlug && sanitizeSlug(a.rawSlug) === normalizedInput) return true;
+    if (a.rawName && sanitizeSlug(a.rawName) === normalizedInput) return true;
+    if (a.slug.toLowerCase() === decoded.toLowerCase()) return true;
+    if (a.websiteSlug && a.websiteSlug.toLowerCase() === decoded.toLowerCase()) return true;
+    if (a.rawSlug && a.rawSlug.toLowerCase() === decoded.toLowerCase()) return true;
+    if (a.rawName && a.rawName.toLowerCase() === decoded.toLowerCase()) return true;
+    return false;
+  });
 }
 
 // ── Static filter options (shown in the sidebar) ─────────────────────────────
