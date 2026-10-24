@@ -4,13 +4,13 @@ import OurApproachSpecialties from "@/components/OurApproach/OurApproachSpecialt
 import CliniciansCTA from "@/components/Clinicians/CliniciansCTA";
 
 export const metadata: Metadata = {
-  title: "Our Care | Softmind – You Don't Need A Diagnosis To Begin",
+  title: "Our Care | Softmind – Understanding Your Concerns Is Where Care Begins",
   description:
-    "Softmind's primary care model starts with understanding your most pressing concerns. We make it simple to find the pathway that's right for you.",
+    "Explore psychological counselling, psychotherapy and assessments tailored to your experiences, needs and everyday life.",
   openGraph: {
-    title: "Our Care | Softmind – You Don't Need A Diagnosis To Begin",
+    title: "Our Care | Softmind – Understanding Your Concerns Is Where Care Begins",
     description:
-      "Softmind's primary care model starts with understanding your most pressing concerns. We make it simple to find the pathway that's right for you.",
+      "Explore psychological counselling, psychotherapy and assessments tailored to your experiences, needs and everyday life.",
     url: "https://www.softmindindia.com/our-care",
     type: "website",
     images: [
@@ -18,15 +18,15 @@ export const metadata: Metadata = {
         url: "https://www.softmindindia.com/og/default.jpg",
         width: 1200,
         height: 630,
-        alt: "Our Care | Softmind – You Don't Need A Diagnosis To Begin",
+        alt: "Our Care | Softmind – Understanding Your Concerns Is Where Care Begins",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Care | Softmind – You Don't Need A Diagnosis To Begin",
+    title: "Our Care | Softmind – Understanding Your Concerns Is Where Care Begins",
     description:
-      "Softmind's primary care model starts with understanding your most pressing concerns. We make it simple to find the pathway that's right for you.",
+      "Explore psychological counselling, psychotherapy and assessments tailored to your experiences, needs and everyday life.",
     images: ["https://www.softmindindia.com/og/default.jpg"],
   },
   alternates: {

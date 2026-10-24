@@ -6,11 +6,10 @@ export default function OurApproachHero() {
       <div className={styles.container}>
         {/* Heading */}
         <h1 className={styles.heading}>
-          You Don&apos;t Need A Diagnosis To Begin.
+          Understanding Your Concerns Is Where Care Begins.
         </h1>
         <p className={styles.subtext}>
-          Softmind&apos;s primary care model starts with understanding your most pressing concerns.
-          We make it simple to find the pathway that&apos;s right for you—a clinician who helps you find the right starting point.
+          Explore psychological counselling, psychotherapy and assessments tailored to your experiences, needs and everyday life.
         </p>
       </div>
     </section>
