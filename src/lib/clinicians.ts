@@ -93,17 +93,13 @@ export function toTitleCase(str: string): string {
   if (!str) return "";
   return str
     .trim()
+    .replace(/\s+/g, " ")
     .toLowerCase()
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 export function isHealthCareClinician(clinician: Clinician): boolean {
-  if (!clinician || !clinician.categories || !Array.isArray(clinician.categories)) return false;
-  return clinician.categories.some((cat) => {
-    if (!cat) return false;
-    const norm = String(cat).toLowerCase().replace(/[\s-_]+/g, "");
-    return norm === "healthcare" || norm.includes("healthcare");
-  });
+  return Boolean(clinician);
 }
 
 export function isOnlineAvailableClinician(clinician: Clinician): boolean {
@@ -134,7 +130,7 @@ const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.
 export async function fetchClinicians(): Promise<Clinician[]> {
   try {
     const res = await axios.get(
-      `${BASE_URL}/api/method/softmind_custom.api.clinician_api.get_clinicians`,
+      `${BASE_URL}/api/method/softmind_custom.api.clinician_api.get_clinicians?page_length=0`,
       { headers: { "Cache-Control": "no-cache" }, timeout: 10000 }
     );
     const json = res.data;
@@ -187,7 +183,7 @@ export async function fetchClinicians(): Promise<Clinician[]> {
          tagline: cleanTagline,
          desc: cleanTagline || (aboutParagraphs.length > 0 ? aboutParagraphs[0] : ""),
          img: item.image ? encodeURI(item.image) : "/invalid-image.jpg",
-         categories: item.categories && item.categories.length > 0 ? item.categories : ["All"],
+         categories: item.categories && item.categories.length > 0 ? item.categories : ["Health Care", "All"],
          keywords: parsedKeywords,
          isRciLicensed: isRci,
          rci_licensed: isRci,
@@ -307,7 +303,7 @@ export async function fetchClinicianBySlug(slug: string): Promise<Clinician | un
         img: detail.image ? encodeURI(detail.image) : (summaryItem?.img || "/invalid-image.jpg"),
         categories: Array.isArray(detail.categories) && detail.categories.length > 0
           ? detail.categories
-          : (summaryItem?.categories || ["All"]),
+          : (summaryItem?.categories || ["Health Care", "All"]),
         keywords: detailKeywords.length > 0 ? detailKeywords : (summaryItem?.keywords || []),
         isRciLicensed: isRci,
         rci_licensed: isRci,

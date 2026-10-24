@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef } from "react";
 import Link from "next/link";
 import styles from "./CliniciansGrid.module.css";
-import { Clinician, isHealthCareClinician } from "@/lib/clinicians";
+import { Clinician } from "@/lib/clinicians";
 
 const ITEMS_PER_PAGE = 8;
 
@@ -33,10 +33,7 @@ export default function CliniciansGrid({ clinicians }: CliniciansGridProps) {
     setImgErrors((prev) => ({ ...prev, [id]: true }));
   };
 
-  const filtered = useMemo(() => {
-    // Only show clinicians with category "Health Care"
-    return clinicians.filter(isHealthCareClinician);
-  }, [clinicians]);
+  const filtered = clinicians;
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const validCurrentPage = Math.max(1, Math.min(currentPage, totalPages || 1));
