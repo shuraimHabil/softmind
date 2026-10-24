@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./Practitioners.module.css";
 import { Clinician, toTitleCase } from "@/lib/clinicians";
@@ -27,6 +26,11 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
   const [currentIndex, setCurrentIndex] = useState(clinicians.length);
   const [cardWidth, setCardWidth] = useState(280);
   const [enableTransition, setEnableTransition] = useState(true);
+  const [imgErrors, setImgErrors] = useState<Record<string | number, boolean>>({});
+
+  const handleImgError = (id: string | number) => {
+    setImgErrors((prev) => ({ ...prev, [id]: true }));
+  };
 
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
@@ -170,34 +174,63 @@ export default function PractitionersSlider({ clinicians }: PractitionersSliderP
             gap: `${GAP}px`,
           }}
         >
-          {loopedClinicians.map((p, idx) => (
-            <div
-              key={`${p.id || p.slug || idx}-${idx}`}
-              className={styles.cardSlide}
-              style={{
-                width: `${cardWidth}px`,
-                minWidth: `${cardWidth}px`,
-                maxWidth: `${cardWidth}px`,
-              }}
-            >
-              <Link href={`/clinicians/${p.slug}`} className={styles.card}>
-                <div className={styles.imgWrap}>
-                  <Image
-                    src={p.img || "/assets/practitioner_1.jpg"}
-                    alt={toTitleCase(p.name)}
-                    fill
-                    className={styles.img}
-                    sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
-                  />
-                </div>
-                <div className={styles.info}>
-                  <h3 className={styles.name}>{toTitleCase(p.name)}</h3>
-                  <span className={styles.role}>{p.role}</span>
-                  <p className={styles.desc}>{p.desc}</p>
-                </div>
-              </Link>
-            </div>
-          ))}
+          {loopedClinicians.map((p, idx) => {
+            const cardId = p.id || p.slug || idx;
+            const hasValidImg =
+              Boolean(p.img) &&
+              !imgErrors[cardId] &&
+              !p.img.includes("invalid-image") &&
+              !p.img.includes("broken-image");
+
+            return (
+              <div
+                key={`${cardId}-${idx}`}
+                className={styles.cardSlide}
+                style={{
+                  width: `${cardWidth}px`,
+                  minWidth: `${cardWidth}px`,
+                  maxWidth: `${cardWidth}px`,
+                }}
+              >
+                <Link href={`/clinicians/${p.slug}`} className={styles.card}>
+                  <div className={styles.imgWrap}>
+                    {hasValidImg ? (
+                      <img
+                        src={p.img}
+                        alt={toTitleCase(p.name)}
+                        className={styles.img}
+                        onError={() => handleImgError(cardId)}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={styles.avatarWrap} aria-label={toTitleCase(p.name)}>
+                        <div className={styles.avatarCircle}>
+                          <svg
+                            width="48"
+                            height="48"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.info}>
+                    <h3 className={styles.name}>{toTitleCase(p.name)}</h3>
+                    <span className={styles.role}>{p.role}</span>
+                    <p className={styles.desc}>{p.desc}</p>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
 
