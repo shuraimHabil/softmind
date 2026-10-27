@@ -45,7 +45,7 @@
 }
 
 .h1 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif);
   font-size: 2.5rem;
   font-weight: 600;
   color: #0f172a;

@@ -54,7 +54,7 @@
 }
 
 .h2 {
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 400;
   color: #0f172a;
@@ -85,7 +85,7 @@
 }
 
 .principleText {
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: 1.15rem;
   font-style: italic;
   font-weight: 400;
@@ -112,7 +112,7 @@
 }
 
 .keyCalloutText {
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: 1.15rem;
   font-style: italic;
   font-weight: 400;
@@ -123,7 +123,7 @@
 .quoteCallout {
   border-left: 3px solid #0d9488;
   padding-left: 18px;
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: 1.05rem;
   font-style: italic;
   color: #334155;

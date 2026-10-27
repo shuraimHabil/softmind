@@ -51,7 +51,7 @@
 }
 
 .h1 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif);
   font-size: 2.75rem;
   line-height: 1.2;
   font-weight: 600;
@@ -115,7 +115,7 @@
 }
 
 .h2 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif);
   font-size: 1.75rem;
   font-weight: 600;
   color: #0f172a;

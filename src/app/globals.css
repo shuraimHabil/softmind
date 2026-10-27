@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Noto+Sans+Malayalam:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Noto+Sans+Malayalam:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 /* ============================================================
@@ -18,8 +18,10 @@
   --bg-dark: #0f172a;
   --bg-navy-light: #1e293b;
 
-  /* Titles: Fraunces (Google Fonts) with Anek fallback for Malayalam */
-  --font-serif: "Fraunces", var(--font-fraunces), "Noto Sans Malayalam", Georgia, serif;
+  /* Titles: Bricolage Grotesque (Google Fonts) */
+  --font-serif: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-fraunces: var(--font-serif);
+  --font-heading: var(--font-serif);
   --font-playfair: var(--font-serif);
 
   /* Body: Noto Sans Malayalam & Anek Latin across the entire website */
@@ -61,15 +63,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Headings: Fraunces ExtraLight 200 (Google Fonts)
-   Variation settings mirror the official snippet exactly.
-   !important ensures CSS Module hashed selectors cannot override.
-   ─────────────────────────────────────────────────── */
+/* ── Headings: Bricolage Grotesque 400 (Google Fonts) ─────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 200;
+  font-weight: 400;
   font-style: normal;
   line-height: 1.25;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
 }
 
 /* All Body Elements: Anek Regular 400 */
@@ -175,4 +176,11 @@ section { padding: 90px 0; }
 .section-title {
   font-family: var(--font-serif);
   margin-bottom: 16px;
+}
+
+.bricolage-grotesque {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }

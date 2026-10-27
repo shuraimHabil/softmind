@@ -35,7 +35,7 @@
 }
 
 .h1 {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif);
   font-size: 2.5rem;
   font-weight: 400;
   color: #0f172a;
@@ -194,7 +194,7 @@
 }
 
 .bottomCtaTitle {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-serif);
   font-size: 2rem;
   margin-bottom: 12px;
 }

@@ -54,7 +54,7 @@
 }
 
 .title {
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400;
   color: #0f172a;
@@ -458,7 +458,7 @@
 }
 
 .cardTitle {
-  font-family: "Fraunces", var(--font-serif);
+  font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 600;
   color: #0f172a;
