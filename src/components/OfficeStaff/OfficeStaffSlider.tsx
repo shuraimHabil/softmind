@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "../Practitioners/Practitioners.module.css";
 import { StaffMember } from "./OfficeStaff";
 
-const GAP = 24;
+const GAP = 18;
 
 interface OfficeStaffSliderProps {
   staff: StaffMember[];
@@ -16,7 +16,7 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
   const [items, setItems] = useState<StaffMember[]>(staff);
   const [isHovered, setIsHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(staff.length);
-  const [cardWidth, setCardWidth] = useState(280);
+  const [cardWidth, setCardWidth] = useState(225);
   const [enableTransition, setEnableTransition] = useState(true);
 
   useEffect(() => {
@@ -42,18 +42,18 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
     if (!containerRef.current) return;
     const containerWidth = containerRef.current.offsetWidth;
     let count = 4;
-    if (containerWidth < 540) {
+    if (containerWidth < 480) {
       count = 1;
-    } else if (containerWidth < 780) {
+    } else if (containerWidth < 700) {
       count = 2;
-    } else if (containerWidth < 1100) {
+    } else if (containerWidth < 920) {
       count = 3;
     } else {
       count = 4;
     }
 
     if (count === 1) {
-      setCardWidth(Math.round(containerWidth * 0.82));
+      setCardWidth(Math.round(containerWidth * 0.78));
     } else {
       setCardWidth(Math.round((containerWidth - (count - 1) * GAP) / count));
     }
@@ -140,8 +140,8 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
     return null;
   }
 
-  // When staff count is small (e.g. 1 to 3 items), center them cleanly rather than looping duplicates
-  if (items.length <= 3) {
+  // When staff count is small (e.g. 1 to 4 items), center them cleanly rather than looping duplicates
+  if (items.length <= 4) {
     return (
       <div className={styles.sliderRoot}>
         <div
@@ -151,7 +151,7 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
             alignItems: "stretch",
             gap: `${GAP}px`,
             flexWrap: "wrap",
-            margin: "20px auto 40px",
+            margin: "0 auto",
           }}
         >
           {items.map((p) => {
@@ -161,12 +161,12 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
               <div
                 key={p.id}
                 style={{
-                  width: `${cardWidth}px`,
-                  minWidth: "260px",
-                  maxWidth: "320px",
+                  width: "220px",
+                  maxWidth: "100%",
+                  flex: "0 1 220px",
                 }}
               >
-                <div className={styles.card} style={{ cursor: "default", height: "100%" }}>
+                <div className={styles.staffCard}>
                   <div className={styles.imgWrap}>
                     {hasValidImg ? (
                       <img
@@ -187,9 +187,9 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
                       </div>
                     )}
                   </div>
-                  <div className={styles.info}>
-                    <h3 className={styles.name}>{p.name}</h3>
-                    <span className={styles.role}>{p.role}</span>
+                  <div className={styles.staffInfo}>
+                    <h3 className={styles.staffName}>{p.name}</h3>
+                    <span className={styles.staffRole}>{p.role}</span>
                     {p.desc && <p className={styles.desc}>{p.desc}</p>}
                   </div>
                 </div>
@@ -205,13 +205,36 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
   const activeDotIndex = ((currentIndex % items.length) + items.length) % items.length;
 
   return (
-    <div className={styles.sliderRoot}>
+    <div
+      className={styles.sliderRoot}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Previous Arrow at Left End */}
+      <button
+        type="button"
+        className={`${styles.plainArrowBtn} ${styles.plainArrowLeft}`}
+        onClick={prev}
+        aria-label="Previous staff member"
+      >
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+
       {/* Carousel Viewport Container */}
       <div
-        className={styles.carouselContainer}
+        className={styles.carouselContainerWithSideArrows}
         ref={containerRef}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -238,7 +261,7 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
                   maxWidth: `${cardWidth}px`,
                 }}
               >
-                <div className={styles.card} style={{ cursor: "default" }}>
+                <div className={styles.staffCard}>
                   <div className={styles.imgWrap}>
                     {hasValidImg ? (
                       <img
@@ -259,9 +282,9 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
                       </div>
                     )}
                   </div>
-                  <div className={styles.info}>
-                    <h3 className={styles.name}>{p.name}</h3>
-                    <span className={styles.role}>{p.role}</span>
+                  <div className={styles.staffInfo}>
+                    <h3 className={styles.staffName}>{p.name}</h3>
+                    <span className={styles.staffRole}>{p.role}</span>
                     {p.desc && <p className={styles.desc}>{p.desc}</p>}
                   </div>
                 </div>
@@ -270,6 +293,27 @@ export default function OfficeStaffSlider({ staff }: OfficeStaffSliderProps) {
           })}
         </div>
       </div>
+
+      {/* Next Arrow at Right End */}
+      <button
+        type="button"
+        className={`${styles.plainArrowBtn} ${styles.plainArrowRight}`}
+        onClick={next}
+        aria-label="Next staff member"
+      >
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
 
       {/* Bottom Row: Position Dots */}
       <div className={styles.bottomRow}>

@@ -7,6 +7,7 @@ export interface StaffMember {
   role: string;
   desc: string;
   img: string;
+  category: string;
 }
 
 const BASE_URL = (process.env.NEXT_PUBLIC_BASE_URL || "https://devsoftminderp.m.frappe.cloud").replace(/\/+$/, "");
@@ -25,8 +26,21 @@ export async function fetchNonClinicians(): Promise<StaffMember[]> {
     }
 
     return data.map((item: any, idx: number) => {
-      const name = stripHtml(item.employee_name || item.name || item.full_name || item.title || "Team Member").trim();
-      const role = stripHtml(item.designation || item.role || item.title || item.department || "Support Team").trim();
+      const name = stripHtml(item.employee_name || item.name || item.full_name || item.title || "Team Member")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      const category = stripHtml(item.category || "Operations")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      let role = stripHtml(item.designation || item.role || item.title || item.department || "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      if (!role) {
+        role = category || "Team Member";
+      }
       
       let desc = stripHtml(item.bio || item.description || item.about || item.tagline || item.desc || "").trim();
       if (!desc) {
@@ -45,6 +59,7 @@ export async function fetchNonClinicians(): Promise<StaffMember[]> {
         } else {
           img = `${BASE_URL}${rawImg.startsWith("/") ? "" : "/"}${rawImg}`;
         }
+        img = encodeURI(img);
       }
 
       return {
@@ -53,6 +68,7 @@ export async function fetchNonClinicians(): Promise<StaffMember[]> {
         role,
         desc,
         img,
+        category,
       };
     });
   } catch (err) {

@@ -296,3 +296,117 @@
   box-shadow: 0 6px 20px rgba(13, 148, 136, 0.18);
 }
 
+/* ── Side Arrow Navigation (Plain Arrow, Both Ends, No Overlap) ── */
+.plainArrowBtn {
+  position: absolute;
+  top: calc(50% - 20px);
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.plainArrowBtn:hover {
+  color: var(--primary, #0d9488);
+  transform: translateY(-50%) scale(1.22);
+}
+
+.plainArrowBtn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.plainArrowLeft {
+  left: -20px;
+}
+
+.plainArrowRight {
+  right: -20px;
+}
+
+.carouselContainerWithSideArrows {
+  position: relative;
+  width: auto;
+  margin: 0 28px;
+  overflow: hidden;
+  padding: 4px 2px 14px;
+  cursor: grab;
+  user-select: none;
+}
+
+.carouselContainerWithSideArrows:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+  .plainArrowLeft {
+    left: -8px;
+  }
+
+  .plainArrowRight {
+    right: -8px;
+  }
+
+  .carouselContainerWithSideArrows {
+    margin: 0 20px;
+  }
+}
+
+/* ── Compact Staff Card Styles ── */
+.staffCard {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  cursor: default;
+}
+
+.staffCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  border-color: rgba(13, 148, 136, 0.25);
+}
+
+.staffInfo {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.staffName {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: #1a3330;
+  letter-spacing: -0.01em;
+}
+
+.staffRole {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary, #0d9488);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0;
+}
+
